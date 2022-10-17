@@ -29,7 +29,7 @@ h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-
 .etpc-serif{font-family:serif}.etpc-sans-serif{font-family:sans-serif}.etpc-cursive{font-family:cursive}.etpc-monospace{font-family:monospace}
 h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}.etpc-wide{letter-spacing:4px}
 hr{border:0;border-top:1px solid #eee;margin:20px 0}
-.etpc-image{max-width:100%;height:auto}img{vertical-align:middle}a{color:inherit}
+.etpc-image{max-width:100%;height:auto; background-image: linear-gradient(to bottom, transparent, black)}img{vertical-align:middle;}a{color:inherit}
 .etpc-table,.etpc-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table}.etpc-table-all{border:1px solid #ccc}
 .etpc-bordered tr,.etpc-table-all tr{border-bottom:1px solid #ddd}.etpc-striped tbody tr:nth-child(even){background-color:#f1f1f1}
 .etpc-table-all tr:nth-child(odd){background-color:#fff}.etpc-table-all tr:nth-child(even){background-color:#f1f1f1}
@@ -38,7 +38,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .etpc-table th:first-child,.etpc-table td:first-child,.etpc-table-all th:first-child,.etpc-table-all td:first-child{padding-left:16px}
 .etpc-btn,.etpc-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
 .etpc-btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
-.etpc-btn,.etpc-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+.etpc-btn,.etpc-button{-webkit-touch-callout:none;-webkit-user-select:none;transition-duration: .35s;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
 .etpc-disabled,.etpc-btn:disabled,.etpc-button:disabled{cursor:not-allowed;opacity:0.3}.etpc-disabled *,:disabled *{pointer-events:none}
 .etpc-btn.etpc-disabled:hover,.etpc-btn:disabled:hover{box-shadow:none}
 .etpc-badge,.etpc-tag{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center}.etpc-badge{border-radius:50%}
@@ -92,7 +92,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 -modal-content{margin:0 10px;width:auto!important}.etpc-modal{padding-top:30px}
 .etpc-dropdown-hover.etpc-mobile .etpc-dropdown-content,.etpc-dropdown-click.etpc-mobile .etpc-dropdown-content{position:relative}	
 .etpc-hide-small{display:none!important}.etpc-mobile{display:block;width:100%!important}.etpc-bar-item.etpc-mobile,.etpc-dropdown-hover.etpc-mobile,.etpc-dropdown-click.etpc-mobile{text-align:center}
-.etpc-dropdown-hover.etpc-mobile,.etpc-dropdown-hover.etpc-mobile .etpc-btn,.etpc-dropdown-hover.etpc-mobile .etpc-button,.etpc-dropdown-click.etpc-mobile,.etpc-dropdown-click.etpc-mobile .etpc-btn,.etpc-dropdown-click.etpc-mobile .etpc-button{width:100%}}
+.etpc-dropdown-hover.etpc-mobile,.etpc-dropdown-hover.etpc-mobile .etpc-btn,.etpc-dropdown-hover.etpc-mobile .etpc-button,.etpc-dropdown-click.etpc-mobile,.etpc-dropdown-click.etpc-mobile .etpc-btn,.etpc-dropdown-click.etpc-mobile .etpc-button{width:100%;}}
 @media (max-width:768px){.etpc
 -modal-content{width:500px}.etpc-modal{padding-top:50px}}
 @media (min-width:993px){.etpc
@@ -247,4 +247,47 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .etpc-border-dark-grey,.etpc-hover-border-dark-grey:hover,.etpc-border-dark-gray,.etpc-hover-border-dark-gray:hover{border-color:#616161!important}
 .etpc-border-pale-red,.etpc-hover-border-pale-red:hover{border-color:#ffe7e7!important}.etpc-border-pale-green,.etpc-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .etpc-border-pale-yellow,.etpc-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.etpc-border-pale-blue,.etpc-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+
+.botaoIniciarPesquisa{
+    padding: 2% 8%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;    
+    border-radius: 12px;
+    font-size: 3vh;
+    color: rgb(0, 83, 0);
+    background-color: greenyellow;
+    margin-left: 35%;
+    font-family: raleway;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 6vh;
+}
+
+.botaoIniciarPesquisa:hover{
+    color: greenyellow;
+    background-color: rgb(0, 83, 0);
+}
+             
+.enviarPesquisa {
+    background-image: linear-gradient(to right, #0d3114 0%, #00cf3e  51%, #8fffbd  76%, rgb(202, 255, 204) 100%);
+    margin-left: .1%;
+    padding: 2% 8%;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    cursor: pointer;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 12px;
+    display: block;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    }
+
+.enviarPesquisa:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
 
