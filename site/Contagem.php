@@ -112,7 +112,7 @@ for ($i = 1; $i < 15; $i++)
 
 if ($total >= 50)
 {
-    $tituloResposta = "Pegada Excelente";
+    $tituloResposta = "Excelente";
     $textoResposta = "
     Se você fez de 50 a 70 pontos, Parabéns!! Você está antenado com as questões ambientais e 
     busca ter qualidade de vida sem agredir o meio ambiente.
@@ -121,7 +121,7 @@ if ($total >= 50)
 }
 elseif ($total >= 35 and $total <= 49)
 {
-    $tituloResposta = "Pegada Moderada";
+    $tituloResposta = "Moderada";
     $textoResposta = "
     Se você fez de 35 a 49 pontos, sua pegada é moderada. Seu estilo de vida
     está um pouco acima da capacidade natural de regeneração de recursos pelo
@@ -133,7 +133,7 @@ elseif ($total >= 35 and $total <= 49)
 }
 else
 {
-    $tituloResposta = "Pegada ruim";    
+    $tituloResposta = "Péssimo";    
     $textoResposta = "
     Se você fez menos de 35 pontos, precisa rever seus hábitos de consumo
 e seu estilo de vida! Você vive de forma insustentável, pois demanda muito
