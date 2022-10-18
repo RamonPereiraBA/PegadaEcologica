@@ -3,7 +3,7 @@
 <meta charset="UTF-8"/>
 <title>Pegada Ecológica CSN</title>
 <link rel="icon" href="Imagens/Logosite.png">
-<link rel="stylesheet" href="resultado.css">
+<link rel="stylesheet" href="resultado.css" >
 
 <!-- importando fontes -->
 <!-- roboto -->
@@ -41,12 +41,11 @@
 </head>
     <body>
 
-    
+
             <div class="comentario p">
-                <?php
-                echo $comentario;
-            ?>
+                <?php echo $comentario;?>
             </div>
+
             <div class="boxResultado">
                 <h1 class="pegadaResultado"><?php echo $tituloResposta;?></h1>
             </div>
@@ -56,9 +55,14 @@
                 <h1 class="pontuacao"><?php echo $total;?></h1>
             </div>
 
+            <div class="textoResposta p">
+                <?php echo $textoResposta;?>
+            </div>
+
+            <div class="alinhar">
                 <a href="index.html" class="bot p">Início</a>
                 <a href="pesquisa.html" class="refazerPesquisa p">Refazer Pesquisa</a>
-            <br>
+            </div>
 
     </body>
 
