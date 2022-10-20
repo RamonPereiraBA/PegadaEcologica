@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>Pegada Ecológica CSN</title>
+
+    <style>
+      body{
+        font-family: Super Renewables;
+        font-size: 20px;
+
+        background-color: #EEE8AA
+      }
+
+      
+    </style>
+    
+    <link rel="icon" href="Imagens/Logosite.png">
+    
+</head>
+<body>
+
+  <div class="rioGIF">
+  </div>
+
+<div class="etpc-forms" style="padding: 40px 16px">
+      <!--1° questao-->
+      <label>Com que frequência você come carne vermelha?</label>
+      <div>
+      <form action="resultado.php" method="POST">
+        <select name="questao1" id="1543" style="width: 300px">
+          <option value="op1-a">Nunca</option>
+          <option value="op1-b">Com pouca frequência (três porções por semana)</option>
+          <option value="op1-c">Ocasionalmente (uma porção por dia)</option>
+          <option value="op1-d">Frequentemente (uma porção por dia no almoço e outra no
+            lanche da tarde ou jantar)</option>
+          <option value="op1-e">Sempre (duas ou mais porções por dia no almoço, no lanche
+            da tarde e no jantar)</option>
+        </select>
+      </div>
+      <!--2° questao-->
+      <label>Com que frequência você come peixe ou frutos do mar?</label>
+      <div>
+        <select name="questao2" id="1421" style="width: 300px">
+          <option value="op2-a">Nunca</option>
+          <option value="op2-b">Raramente (uma vez por semana ou menos)</option>
+          <option value="op2-c">Ocasionalmente (duas vezes por semana)</option>
+          <option value="op2-d">Frequentemente (uma vez por dia)</option>
+          <option value="op2-e">Sempre (em todas as refeições)</option>
+        </select>
+      </div>
+
+      <!--3° questao-->
+      <label>Você usa ar condicionado ou aquecedor em sua casa?</label>
+        <div>
+          <select name="questao3" id="5111" style="width: 300px">
+            <option value="op3-a">Não</option>
+            <option value="op3-b">Sim</option>
+          </select>
+        </div>
+
+        <!--4° questao-->
+        <label>Qual a procedência dos alimentos que você consome? </label>
+        <div>
+          <select name="questao4" id="5432" style="width: 300px">
+            <option value="op4-a">De minha própria horta e pomar ou de lojas de produtos
+              orgânicos ou feiras e quitandas</option>
+            <option value="op4-b">A maior parte de feiras, quitandas. Poucas vezes compro em
+              supermercados ou hipermercados</option>
+            <option value="op4-c">Normalmente em supermercados e poucas vezes
+              em feiras e quitandas</option>
+            <option value="op4-d">Sempre de supermercados e hipermercados</option>
+          </select>
+        </div>
+
+        <!--5° questao-->
+        <label>Quantas vezes por ano você compra sapatos e roupas novas?</label>
+        <div>
+          <select name="questao5" id="431" style="width: 300px">
+            <option value="op5-a">Uma vez por ano</option>
+            <option value="op5-b">Duas vezes por ano</option>
+            <option value="op5-c">Três vezes por ano</option>
+            <option value="op5-d">Uma vez por mês</option>
+            <option value="op5-e">Mais de uma vez por mês</option>
+          </select>
+        </div>
+
+        <!--6° questao-->
+        <label>Com que frequência você compra eletrodomésticos
+          e equipamentos eletrônicos?</label>
+        <div>
+          <select name="questao6" id="5111" style="width: 300px">
+            <option value="op6-a">somente quando quebram e precisam ser substituídos</option>
+            <option value="op6-b">ocasionalmente troco por versões mais modernas</option>
+            <option value="op6-c">troco sempre por aparelhos mais modernos</option>
+          </select>
+        </div>
+
+        <!--7° questao-->
+        <label>Com que frequência você compra jornais, revistas e livros?</label>
+        <div>
+          <select name="questao7" id="5111" style="width: 300px">
+            <option value="op7-a">Normalmente leio noticiários pela internet ou compro livros e
+              revistas impressos em papel reciclado</option>
+            <option value="op7-b">Tenho assinatura mensal de uma revista ou jornal e
+              ocasionalmente compro algum livro</option>
+            <option value="op7-c">Tenho assinatura semanal de uma revista e
+              compro livros ocasionalmente</option>
+            <option value="op7-d">Recebo diariamente jornal e compro
+              livros e revistas com frequência</option>
+          </select>
+        </div>
+        
+        <!--8° questao-->
+        <label>Como você descarta o lixo produzido em sua casa?</label>
+        <div>
+          <select name="questao8" id="5111" style="width: 300px">
+            <option value="op8-a">Não me preocupo em separar o lixo</option>
+            <option value="op8-b">Em duas lixeiras, uma para recicláveis e outra para
+              não recicláveis. Não me preocupo com a separação
+              de pilhas e baterias</option>
+            <option value="op8-c">Em duas lixeiras, uma para recicláveis e outra para não
+              recicláveis. Pilhas, baterias, materiais eletrônicos e lâmpadas
+              são encaminhadas a postos de recolhimento (em bancos,
+              farmácias, empresas de telefonia e outros postos de coleta)</option>
+            <option value="op8-d">Em uma única lixeira, pois não existe coleta seletiva no meu
+              bairro/cidade</option>
+          </select>
+        </div>
+
+        <!--9° questao-->
+        <label>Usa lâmpadas econômicas? <b>(fluorescentes e LED)</b></label>
+        <div>
+          <select name="questao9" id="5111" style="width: 300px">
+            <option value="op9-a">Não uso</option>
+            <option value="op9-b">1/4 das lâmpadas são econômicas</option>
+            <option value="op9-c">Metade das lâmpadas que uso são econômicas</option>
+            <option value="op9-d">Todas as lâmpadas que uso são econômicas</option>
+          </select>
+        </div>
+
+        <!--10° questao-->
+        <label>Que meio de transporte você usa com mais frequência?</label>
+        <div>
+          <select name="questao10" id="5111" style="width: 300px">
+            <option value="op10-a">Carro</option>
+            <option value="op10-b">Bicicleta ou normalmente me locomovo a pé</option>
+            <option value="op10-c">Transporte público (ônibus, trem, metrô)</option>
+            <option value="op10-d">Carro, mas procuro fazer os percursos curtos a pé ou de bicicleta</option>
+          </select>
+        </div>
+
+        <!--11° questao-->
+        <label>Com que frequência você consome refrigerantes?</label>
+        <div>
+          <select name="questao11" id="5111" style="width: 300px">
+            <option value="op11-a">Nunca</option>
+            <option value="op11-b">Raramente (uma vez por semana ou menos)</option>
+            <option value="op11-c">Ocasionalmente (três vezes por semana)</option>
+            <option value="op11-d">Frequentemente (uma vez por dia ou mais)</option>
+          </select>
+        </div>
+
+        <!--12° questao-->
+        <label>Quanto tempo você gasta no banho diário?</label>
+        <div>
+          <select name="questao12" id="5111" style="width: 300px">
+            <option value="op12-a">acima de 26min</option>
+            <option value="op12-b">de 16 a 25min</option>
+            <option value="op12-c">de 5 a 15min</option>
+          </select>
+        </div>
+
+        <!--13° questao-->
+        <label>Quantas horas aproximadamente você gasta viajando de avião por ano?</label>
+        <div>
+          <select name="questao13" id="5111" style="width: 300px">
+            <option value="op13-a">Nunca viajo</option>
+            <option value="op13-b">0 a 4 horas</option>
+            <option value="op13-c">4 a 10 horas</option>
+            <option value="op13-d">10 a 25 horas</option>
+            <option value="op13-e">Mais de 25 horas</option>
+          </select>
+        </div>
+
+        <!--14° questao-->
+        <label>Qual a quantidade de alimentos que você consome que contém açúcar refinado? <b>Doces e Chocolate</b></label>
+        <div>
+          <select name="questao14" id="5111" style="width: 300px">
+            <option value="op14-a">Menos de 100 g por semana </option>
+            <option value="op14-b">Mais de 100g por semana</option>
+            <option value="op14-c">Nunca consumo produtos açucarados</option>
+          </select>
+        </div>
+        <br>
+        <input type="submit" class= "enviarPesquisa" value="Enviar">
+        
+      </form>
+
+        <br>
+
+  </div>     
+
+</body>
+</html>
