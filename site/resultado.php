@@ -54,9 +54,10 @@
 
             <div class="boxPontuacao">
                 <h1 class="pontuacao"><?php echo $total;?></h1>
+                <p class="suapontuacaofoi">Sua pontuação foi...</p>
             </div>
             
-            <div class="textoResposta p">
+            <div id="textoResposta" class="p">
                 <?php echo $textoResposta;?>
             </div>
 
@@ -65,6 +66,50 @@
                 <a href="pesquisa.html" class="refazerPesquisa p">Refazer Pesquisa</a>
             </div>
 
-    </body>
+            <?php
+                if ($tituloResposta == "Moderada" or $tituloResposta == "Péssimo")
+                {
+                    echo "<span id='dica'>Quer uma dica?</span>";
+                }
+            ?>
+            <script>
+                // o elemento "dica" é o botão
+                const button = document.getElementById('dica');
 
+                // o elemento comentario é a label
+                const comentario = document.getElementById('textoResposta');
+                const dica = `<?php echo $dica; ?>`;
+                
+
+                var clicado = 0;
+
+                button.onmouseout = function() {
+                    button.style.color = "#0CF25D";
+                }
+
+                button.onmouseover = function() {
+                    button.style.color = "white";
+                }
+                
+
+                // se o botão for clicado, altere a label do comentario
+                
+
+                button.addEventListener('click', function handleClick() {
+                    if (clicado == 0){
+                    comentario.innerHTML = dica;
+                    button.innerHTML = "Retornar";
+                    clicado = 1;
+                    }                else{
+                    comentario.innerHTML = `<?php echo $textoResposta; ?>`;
+                    console.log(`<?php echo $textoResposta; ?>`);
+                    button.innerHTML = "Quer uma dica?";
+                    clicado = 0;
+
+                }
+                });
+                
+
+            </script>
+    </body>
 </html>

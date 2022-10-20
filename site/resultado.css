@@ -10,7 +10,7 @@
     margin-top: 19%;
 }
 
-.textoResposta{
+#textoResposta{
     position: fixed;
     left: 95vh;
     top: 24vh;
@@ -18,6 +18,16 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
+}
+
+.suapontuacaofoi{
+    position: fixed;
+    color: #0CF25D;
+    font-size: 4vh;
+    left: 19vh;
+    top: 39vh;
+    animation: fadeinout 1s;
+    font-family: 'Cabin', sans-serif;
 }
 
 .boxResultado{
@@ -29,13 +39,25 @@
     z-index: 1;
 }
 
+@keyframes fadeinout{
+    0% 
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
 .pontuacao{
     color: white;
     position: relative;
     font-size: 24vh;
-    margin-top: 4%;
+    margin-top: 10%;
     margin-left: 70%;
     color: #0CF25D;
+    animation: fadeinout 1s;
 }
 
 .comentario{
@@ -67,17 +89,51 @@ body{
     color: white;
 }
 
+#dica{
+    color: #0CF25D;
+    top: 88vh;
+    font-family: 'Cabin', sans-serif;
+    left: 95vh;
+    font-size: 3vh;
+    position: fixed;
+    cursor: pointer;
+    animation: fadeinout .5s;
+}
+
+.dica:hover ~ p{
+    color: #fff !important;
+    transition-duration: .2s;
+    
+}
+
 .p{
     font-family: 'Cabin', sans-serif;
     font-size: 3vh;
 }
-.emohi{
-    margin: auto;
-    text-align: center;
-}
 
 .res-name{
     text-align: center;
+}
+
+@keyframes click {
+    0% {
+        outline-offset: 2px;
+    }
+    50% {
+        outline-offset: 4px;
+    }
+    75% {
+        outline-offset: 8px;
+    }
+    90% {
+        outline-offset: 10px;
+    }
+    100% {
+        outline-offset: 12px;
+        outline-color: transparent;
+        background-color: transparent;
+        color: transparent;
+    }
 }
 
 .bot {
@@ -103,6 +159,7 @@ body{
     outline-width: 6px;
     outline-style: solid;
     outline-color: #0CF25D;
+    animation-fill-mode: forwards;
 }
 
 .refazerPesquisa {
@@ -123,6 +180,7 @@ body{
     outline-width: 0px;
     outline-style: dashed;
     width:  20vh;
+    animation-fill-mode: forwards;
 }
 
 .refazerPesquisa:hover{
@@ -133,3 +191,6 @@ body{
     outline-color: rgb(136, 255, 255);
 }
 
+.bot:active, .refazerPesquisa:active{
+    animation: click .2s ease-out;
+}
