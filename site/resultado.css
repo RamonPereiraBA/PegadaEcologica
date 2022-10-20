@@ -1,6 +1,5 @@
-
-.pegadaResultado{
-    font-family: 'Roboto', sans-serif;
+.pegadaResultado {
+    font-family: Super Renewables;
     font-size: 10vh;
     color: #034159;
     margin-left: 51%;
@@ -10,7 +9,7 @@
     margin-top: 19%;
 }
 
-#textoResposta{
+#textoResposta {
     position: fixed;
     left: 95vh;
     top: 24vh;
@@ -20,17 +19,17 @@
     word-break: break-word;
 }
 
-.suapontuacaofoi{
+.suapontuacaofoi {
     position: fixed;
     color: #0CF25D;
     font-size: 4vh;
     left: 19vh;
     top: 39vh;
     animation: fadeinout 1s;
-    font-family: 'Cabin', sans-serif;
+    font-family: Super Renewables;
 }
 
-.boxResultado{
+.boxResultado {
     background-color: #0CF25D;
     margin-left: -45%;
     margin-top: -2%;
@@ -39,18 +38,16 @@
     z-index: 1;
 }
 
-@keyframes fadeinout{
-    0% 
-    {
+@keyframes fadeinout {
+    0% {
         opacity: 0;
     }
-    100%
-    {
+    100% {
         opacity: 1;
     }
 }
 
-.pontuacao{
+.pontuacao {
     color: white;
     position: relative;
     font-size: 24vh;
@@ -58,18 +55,19 @@
     margin-left: 70%;
     color: #0CF25D;
     animation: fadeinout 1s;
+    font-family: Super Renewables;
 }
 
-.comentario{
+.comentario {
     left: 95vh;
     position: fixed;
     display: inline-block;
     top: 10vh;
 }
 
-.boxPontuacao{
+.boxPontuacao {
     background-color: #025951;
-    border-radius: 10px;    
+    border-radius: 10px;
     margin-left: -45%;
     margin-top: 19%;
     margin-bottom: 12%;
@@ -78,18 +76,18 @@
     height: 90%;
 }
 
-body{
+body {
     width: 95%;
     max-width: 800px;
     margin: auto;
-    background-color: #034159; 
-    background-size: 1900px;    
+    background-color: #034159;
+    background-size: 1900px;
     font-family: sans-serif;
     line-height: 1.5;
     color: white;
 }
 
-#dica{
+#dica {
     color: #0CF25D;
     top: 88vh;
     font-family: 'Cabin', sans-serif;
@@ -100,18 +98,17 @@ body{
     animation: fadeinout .5s;
 }
 
-.dica:hover ~ p{
+.dica:hover~p {
     color: #fff !important;
     transition-duration: .2s;
-    
 }
 
-.p{
-    font-family: 'Cabin', sans-serif;
+.p {
+    font-family: Super Renewables;
     font-size: 3vh;
 }
 
-.res-name{
+.res-name {
     text-align: center;
 }
 
@@ -153,7 +150,7 @@ body{
     outline-width: 0px;
 }
 
-.bot:hover{
+.bot:hover {
     background-color: #025951;
     color: white;
     outline-width: 6px;
@@ -179,11 +176,11 @@ body{
     outline-style: none;
     outline-width: 0px;
     outline-style: dashed;
-    width:  20vh;
+    width: 20vh;
     animation-fill-mode: forwards;
 }
 
-.refazerPesquisa:hover{
+.refazerPesquisa:hover {
     background-color: #025951;
     color: white;
     outline-style: solid;
@@ -191,6 +188,7 @@ body{
     outline-color: rgb(136, 255, 255);
 }
 
-.bot:active, .refazerPesquisa:active{
+.bot:active,
+.refazerPesquisa:active {
     animation: click .2s ease-out;
 }
