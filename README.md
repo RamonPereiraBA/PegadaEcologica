@@ -6,4 +6,4 @@ Esse é um projeto desenviolcido pelos alunos da escola ETPC, onde o objetivo é
 -> Retirar as comboboxes da pesquisa.php e transformar num quiz tradicional  
 -> Cadastro básico após conclusão do quiz  
 -> Usar Mailgun para enviar o resultado para o email  
--> a descrição de cada integrante da equipe deve estar dentro de um botão
+-> a descrição de cada integrante da equipe deve estar dentro do botão respectivo da logo de cada integrante
