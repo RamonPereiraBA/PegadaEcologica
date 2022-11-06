@@ -46,7 +46,7 @@ const Questions = [{
 
 },
 {
-    q: "Quantas vezes por ano você roupas novas?",
+    q: "Quantas vezes por ano você compra roupas novas?",
     a: [{ text: "Nunca", ponto: 6, estado: "visible"  },
         { text: "Uma vez por ano", ponto: 5, estado: "visible"  },
         { text: "Duas vezes por ano", ponto: 4, estado: "visible" },
@@ -133,5 +133,6 @@ function finalizar(){
     for (let i = 0; i < Questions.length; i++){
     somatorioLista += lista_respostas[i]
     }
-    console.log(somatorioLista)
+    // Redirecionando a página
+    location.href="resultado.php?total="+somatorioLista;
 }
