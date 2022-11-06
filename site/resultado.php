@@ -21,8 +21,40 @@
 
 <!-- Incluindo o calculo e escolhendo o fundo -->
 <?php 
-    include_once("Contagem.php");
-
+    $total = $_GET["total"];
+    if ($total >= 50)
+    {
+        $tituloResposta = "Excelente";
+        $comentario="Parabéns, você é uma pessoa que se <b>importa</b> com o <b>meio ambiente</b>";
+        $textoResposta = "
+        Se você fez de 50 a 70 pontos, Parabéns!! Você está antenado com as questões ambientais e 
+        busca ter qualidade de vida sem agredir o meio ambiente.
+        ";
+    }
+    elseif ($total >= 35 and $total <= 49)
+    {
+        $tituloResposta = "Moderada";
+        $comentario="Você <b>pode</b> melhorar";
+        $textoResposta = "
+        Se você fez de 35 a 49 pontos, sua pegada é moderada. Seu estilo de vida
+        está um pouco acima da capacidade natural de regeneração de recursos pelo
+        planeta, de modo que seu padrão de consumo demanda moderadamente mais
+        do que a Terra pode repor.
+        ";
+        $dica = "Dica: Procure fazer a pé ou de bicicleta os percursos curtos do dia a dia,
+        como: ir à padaria, academia ou farmácia no seu bairro. Utilize o carro somente para percursos longos.";
+    }
+    else
+    {
+        $tituloResposta = "Péssimo";   
+        $comentario="Você <b>precisa</b> melhorar";
+        $textoResposta = "
+        Se você fez menos de 35 pontos, precisa rever seus hábitos de consumo! Você vive de forma insustentável, pois demanda demais do que a capacidade natural de regeneração do planeta.";
+        $dica = "Dica: Verifique se o produto antigo não atende às suas necessidades e, 
+        se estiver quebrado ou com problemas. Separe o lixo para reciclagem - não custa nada!
+        Confira como funciona a coleta seletiva na sua cidade, fique atento às datas. Transportes alternativos, 
+        como bicicletas e até uma boa caminhada reduzem a emissão de gases.";
+    }
 
     if ($tituloResposta == "Excelente")
     {
@@ -63,7 +95,7 @@
 
             <div class="alinhar">
                 <a href="index.html" class="bot p">Início</a>
-                <a href="pesquisa.html" class="refazerPesquisa p">Refazer Pesquisa</a>
+                <a href="quiz.html" class="refazerPesquisa p">Refazer Pesquisa</a>
             </div>
 
             <?php
