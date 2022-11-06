@@ -26,12 +26,32 @@ const Questions = [{
 
 },
 {
-    q: "Você usa ar condicionado ou aquecedor em sua casa?",
+    q: "Você usa ar condicionado ou aquecedor na sua casa?",
     a: [{ text: "Sim", ponto: 1, estado: "visible"},
         { text: "Não", ponto: 5, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" }
+    ]
+
+},
+{
+    q: "Qual a procedência dos alimentos que você consome?",
+    a: [{ text: "De minha própria horta", ponto: 5, estado: "visible"  },
+        { text: "A maior parte de feiras", ponto: 4, estado: "visible" },
+        { text: "Normalmente em supermercados", ponto: 3, estado: "visible" },
+        { text: "Sempre de supermercados", ponto: 1, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" }
+    ]
+
+},
+{
+    q: "Quantas vezes por ano você roupas novas?",
+    a: [{ text: "Nunca", ponto: 6, estado: "visible"  },
+        { text: "Uma vez por ano", ponto: 5, estado: "visible"  },
+        { text: "Duas vezes por ano", ponto: 4, estado: "visible" },
+        { text: "Três vezes por ano", ponto: 2, estado: "visible" },
+        { text: "Uma vez por mês ou mais", ponto: 1, estado: "visible" },
     ]
 
 }

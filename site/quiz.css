@@ -1,0 +1,46 @@
+
+#question{
+    position: relative;
+    font-size: 5vh;
+    font-family: 'Montserrat', sans-serif;
+    left: 5%;
+    top: 5%;
+}
+
+.painel{
+    position: fixed;
+    background-color: red;
+    top: 45%;
+    left: 50%;
+    word-break: break-word;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 66%;
+    justify-content: center;
+    height: 78%;
+}
+
+.opcoes{
+    font-family: 'Cabin', sans-serif;
+    background-color: white;
+    margin-top: 10%;
+    width: 25%;
+    margin-left: 30%;
+    display: flex;              /* establish flex container */
+    flex-direction: column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: left;
+}
+
+.option{
+    margin-bottom: 5px;
+    width: fit-content;
+    top: 50%;
+    margin: 5px;
+}
+
+.navegacao{
+    position: fixed;
+    top: 80%;
+    left: 30%;
+}
