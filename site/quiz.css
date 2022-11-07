@@ -1,46 +1,117 @@
 
 #question{
     position: relative;
+	color: #EBEBEB;
     font-size: 5vh;
+    margin-left: 4%;
     font-family: 'Montserrat', sans-serif;
-    left: 5%;
     top: 5%;
 }
 
+
 .painel{
     position: fixed;
-    background-color: red;
     top: 45%;
     left: 50%;
     word-break: break-word;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    width: 66%;
+    width: 68%;
     justify-content: center;
     height: 78%;
+    border-radius: 36px;
+    background-image: linear-gradient(61.37deg, #025951 26.38%, #058B55 75.91%, #0CF25D 123.41%);
 }
 
 .opcoes{
+    position: fixed;
     font-family: 'Cabin', sans-serif;
-    background-color: white;
-    margin-top: 10%;
-    width: 25%;
-    margin-left: 30%;
-    display: flex;              /* establish flex container */
-    flex-direction: column;     /* stack flex items vertically */
-    justify-content: center;    /* center items vertically, in this case */
-    align-items: left;
+    background-color: transparent;
+    top: 30%;
+    width: 64%;
+    height: 33%;
+    margin-left: 8%;
+    justify-content: left; 
 }
 
 .option{
-    margin-bottom: 5px;
+    margin: 0px 12px;
+    justify-content: space-between;
+    margin-left: 15vh;
     width: fit-content;
+    max-width: 130%;
+    font-size: 125%;
     top: 50%;
-    margin: 5px;
+    background-color: #DAFDBA;
+    padding: 1% 4%;
+    border-radius: 7px;
 }
 
-.navegacao{
-    position: fixed;
-    top: 80%;
-    left: 30%;
+@keyframes clicado{
+    0%   {box-shadow: 0px 0px 8px 8px aqua;}
+    50%   {box-shadow: 0px 0px 4px 4px aqua;}
+    75%   {box-shadow: 0px 0px 2px 2px aqua;}
+    100% {box-shadow: 0px 0px 0px 0px aqua;}
 }
+
+.option:hover{
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+.option:active{
+    background-color: aqua;
+    animation: clicado .2s;
+}
+
+
+#next{
+    position: fixed;
+    border-radius: 15px;
+    padding: 2.5% 10%;
+    left: 64%;
+    cursor: pointer;
+    top: 82%;
+}
+
+#prev{
+    position: fixed;
+    padding: 2.5% 10%;
+    border-radius: 15px;
+    cursor: pointer;
+    left: 28%;
+    top: 82%;
+}
+
+#finalizar{
+    position: fixed;
+    left: 62%;
+    padding: 2.5% 10%;
+    cursor: pointer;
+    border-radius: 15px;
+    top: 82%;
+}
+
+
+#next:active{
+    background-color: aqua;
+    animation: clicado .2s;
+}
+
+#next:hover{
+    background-color: aqua;
+}
+
+#prev:hover{
+    background-color: aqua;
+}
+
+#finalizar:hover{
+    background-color: aqua;
+}
+
+#prev:active{
+    background-color: aqua;
+    animation: clicado .2s;
+}
+

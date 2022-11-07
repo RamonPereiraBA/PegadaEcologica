@@ -104,23 +104,128 @@
                     echo "<span id='dica'>Quer uma dica?</span>";
                 }
             ?>
+
             <script>
                 // o elemento "dica" é o botão
                 const button = document.getElementById('dica');
-
+                const tituloResposta = `<?php echo $tituloResposta;?>`;
                 // o elemento comentario é a label
                 const comentario = document.getElementById('textoResposta');
                 const dica = `<?php echo $dica; ?>`;
+                
+                // componentes da tela
+                const Boxresultado = document.getElementsByClassName('boxresultado');
+                const Boxpontuacao = document.getElementsByClassName('boxPontuacao');
+                const pegadaResultado = document.getElementsByClassName('pegadaResultado')
+                const pontuacao = document.getElementsByClassName('pontuacao')
+                const suapontuacaofoi = document.getElementsByClassName('suapontuacaofoi')
+                const comento = document.getElementsByClassName('comentario')
+                
+                
+                
+                if (tituloResposta == "Moderada"){
+
+                    for(var i = 0; i < Boxresultado.length; i++)
+                    {
+		                Boxresultado[i].style.backgroundColor = "#FFAE00";
+	                }
+
+                    for(var i = 0; i < pegadaResultado.length; i++)
+                    {
+		                pegadaResultado[i].style.color = "#010221";
+	                }
+
+                    for(var i = 0; i < Boxpontuacao.length; i++)
+                    {
+		                Boxpontuacao[i].style.backgroundColor = "#C43302";
+                    }
+
+                    for(var i = 0; i < pontuacao.length; i++)
+                    {
+		                pontuacao[i].style.color = "#010221";
+	                }
+
+                    for(var i = 0; i < suapontuacaofoi.length; i++)
+                    {
+		                suapontuacaofoi[i].style.color = "#010221";
+	                }
+
+                    for(var i = 0; i < comento.length; i++)
+                    {
+		                comento[i].style.color = "#010221";
+	                }
+
+                    comentario.style.color = "#010221";
+                    document.body.style.backgroundColor = "#B7BF99";
+                    button.style.color = "#010221";
+
+
+
+                }
+                else if (tituloResposta == "Péssimo")
+                    {
+                        for(var i = 0; i < Boxresultado.length; i++)
+                    {
+		                Boxresultado[i].style.backgroundColor = "#D92929";
+	                }
+
+                    for(var i = 0; i < pegadaResultado.length; i++)
+                    {
+		                pegadaResultado[i].style.color = "#010221";
+	                }
+
+                    for(var i = 0; i < Boxpontuacao.length; i++)
+                    {
+		                Boxpontuacao[i].style.backgroundColor = "#260101";
+                    }
+
+                    for(var i = 0; i < pontuacao.length; i++)
+                    {
+		                pontuacao[i].style.color = "#D92929";
+	                }
+
+                    for(var i = 0; i < suapontuacaofoi.length; i++)
+                    {
+		                suapontuacaofoi[i].style.color = "#D92929";
+	                }
+
+                    for(var i = 0; i < comento.length; i++)
+                    {
+		                comento[i].style.color = "#260101";
+	                }
+
+                    comentario.style.color = "#260101";
+                    document.body.style.backgroundColor = "#B0BFBE";
+                    button.style.color = "#260101";
+                }
                 
 
                 var clicado = 0;
 
                 button.onmouseout = function() {
-                    button.style.color = "#0CF25D";
+                    if (tituloResposta == "Excelente")
+                    {
+                        button.style.color = "#0CF25D";
+                    }
+                    else if (tituloResposta == "Moderada")
+                    {
+                        button.style.color = "#010221"
+                    }
                 }
 
                 button.onmouseover = function() {
-                    button.style.color = "white";
+                    if (tituloResposta == "Excelente")
+                    {
+                        button.style.color = "#0CF25D";
+
+                    }
+                    else if (tituloResposta == "Moderada")
+                    {
+                        button.style.color = "#010221"
+                    }
+                    else{
+                        button.style.color = "#260101"
+                    }
                 }
                 
 
@@ -141,6 +246,7 @@
                 }
                 });
                 
+
 
             </script>
     </body>
