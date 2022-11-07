@@ -20,7 +20,12 @@
 
 <!-- Incluindo o calculo e escolhendo o fundo -->
 <?php 
-    $total = $_GET["total"];
+    try{
+        $total = $_GET["total"];
+    }
+    catch(Exception $e){
+        $total = 0;
+    }
     if ($total >= 50)
     {
         $tituloResposta = "Excelente";
