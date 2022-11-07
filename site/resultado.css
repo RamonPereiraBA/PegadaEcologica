@@ -1,16 +1,19 @@
 .pegadaResultado {
-    font-family: Super Renewables;
+    font-family: 'Montserrat', sans-serif;
     font-size: 10vh;
     color: #034159;
-    margin-left: 51%;
+    margin-left: 46.6%;
     letter-spacing: 2px;
     position: relative;
     margin-bottom: 1%;
     margin-top: 19%;
 }
 
+
+
 #textoResposta {
     position: fixed;
+    font-family: 'Cabin', sans-serif;
     left: 95vh;
     top: 24vh;
     width: 84vh;
@@ -20,13 +23,13 @@
 }
 
 .suapontuacaofoi {
+    font-family: 'Cabin', sans-serif;
     position: fixed;
     color: #0CF25D;
     font-size: 4vh;
     left: 19vh;
     top: 39vh;
     animation: fadeinout 1s;
-    font-family: Super Renewables;
 }
 
 .boxResultado {
@@ -55,12 +58,13 @@
     margin-left: 70%;
     color: #0CF25D;
     animation: fadeinout 1s;
-    font-family: Super Renewables;
+    font-family: 'Cabin', sans-serif;
 }
 
 .comentario {
     left: 95vh;
     position: fixed;
+    font-family: 'Cabin', sans-serif;
     display: inline-block;
     top: 10vh;
 }
@@ -98,13 +102,8 @@ body {
     animation: fadeinout .5s;
 }
 
-.dica:hover~p {
-    color: #fff !important;
-    transition-duration: .2s;
-}
-
 .p {
-    font-family: Super Renewables;
+    font-family: 'Cabin', sans-serif;
     font-size: 3vh;
 }
 
@@ -140,8 +139,9 @@ body {
     color: black;
     position: fixed;
     top: 62vh;
+    font-family: 'Cabin', sans-serif;
     padding: 2% 8%;
-    left: 147vh;
+    left: 140vh;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -164,10 +164,11 @@ body {
     border-radius: 15px;
     background-color: #0CF25D;
     color: black;
-    left: 134vh;
+    left: 127vh;
     text-align: center;
     top: 79vh;
     position: fixed;
+    font-family: 'Cabin', sans-serif;
     padding: 2% 8%;
     text-decoration: none;
     white-space: nowrap;
@@ -181,11 +182,9 @@ body {
 }
 
 .refazerPesquisa:hover {
-    background-color: #025951;
-    color: white;
     outline-style: solid;
     outline-width: 6px;
-    outline-color: rgb(136, 255, 255);
+    outline-color: rgb(209, 209, 209);
 }
 
 .bot:active,

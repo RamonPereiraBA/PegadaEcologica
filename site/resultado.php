@@ -7,11 +7,10 @@
 <link rel="stylesheet" href="resultado.css" >
 
 <!-- importando fontes -->
-<!-- roboto -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<!-- montserrat -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@500&display=swap" rel="stylesheet">
 
 <!-- cabin -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,8 +93,8 @@
             </div>
 
             <div class="alinhar">
-                <a href="index.html" class="bot p">Início</a>
-                <a href="quiz.html" class="refazerPesquisa p">Refazer Pesquisa</a>
+                <a href="index.html" class="bot p" id="btInicio">Início</a>
+                <a href="quiz.html" class="refazerPesquisa p" id="btRefazer">Refazer Pesquisa</a>
             </div>
 
             <?php
@@ -120,8 +119,7 @@
                 const pontuacao = document.getElementsByClassName('pontuacao')
                 const suapontuacaofoi = document.getElementsByClassName('suapontuacaofoi')
                 const comento = document.getElementsByClassName('comentario')
-                
-                
+                const btrefazer = document.getElementById('btRefazer')
                 
                 if (tituloResposta == "Moderada"){
 
@@ -158,8 +156,7 @@
                     comentario.style.color = "#010221";
                     document.body.style.backgroundColor = "#B7BF99";
                     button.style.color = "#010221";
-
-
+                    btrefazer.style.backgroundColor = "#FFAE00";
 
                 }
                 else if (tituloResposta == "Péssimo")
@@ -197,6 +194,7 @@
                     comentario.style.color = "#260101";
                     document.body.style.backgroundColor = "#B0BFBE";
                     button.style.color = "#260101";
+                    btrefazer.style.backgroundColor = "#D92929";
                 }
                 
 
@@ -237,7 +235,7 @@
                     comentario.innerHTML = dica;
                     button.innerHTML = "Retornar";
                     clicado = 1;
-                    }                else{
+                    }else{
                     comentario.innerHTML = `<?php echo $textoResposta; ?>`;
                     console.log(`<?php echo $textoResposta; ?>`);
                     button.innerHTML = "Quer uma dica?";
