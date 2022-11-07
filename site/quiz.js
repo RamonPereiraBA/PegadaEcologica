@@ -1,7 +1,9 @@
 const next = document.getElementById('next')
 const prev = document.getElementById('prev')
 const fim = document.getElementById('finalizar')
+const color_background =  document.getElementById('op1').style.backgroundColor;
 var id = 0
+var questoes_selecionadas = []
 var lista_respostas = []
 
 // questõs que vão ser perguntadas
@@ -151,24 +153,23 @@ const Questions = [{
 A lista tem que ter a quantidade de elementos igual à de perguntas */
 for (let i = 0; i < Questions.length; i++)
 {
+    questoes_selecionadas.push(0)   
     lista_respostas.push(0)   
 }
 
-// função de iterar as questões
-function iterate(){
+function pagina_questao(){
     const question = document.getElementById("question");
     const opcoes = document.getElementById("opcoesid");
     question.innerText = Questions[id].q;
 
-
     // nivelando abaixo a margem a partir do num de caracteres
-      if (question.innerText.length > 76){
+    if (question.innerText.length > 76){
         opcoes.style.top = "50%";        
-      }
-      else{
+    }
+    else{
         opcoes.style.top = "38%";        
-      }
-
+    }
+    
     // criando e configurando as alternativas
     for (let i = 1; i < 6; i++)
     {
@@ -177,13 +178,11 @@ function iterate(){
         op.style.visibility = Questions[id].a[i - 1].estado;
         op.addEventListener("click", () => {   
             lista_respostas[id] = Questions[id].a[i - 1].ponto;
+            questoes_selecionadas[id] = op.id
+            botao_esta_selecionado()
         })
     }
-
-
-
 }
-
 
 function checagem_botoes(){
     // habilitar/desabilitar next
@@ -218,9 +217,7 @@ function checagem_botoes(){
         fim.style.display = "none";
     }
 }
-iterate()
-checagem_botoes()
-
+troca_pergunta()
 
 next.addEventListener("click", passar)
 
@@ -230,21 +227,48 @@ fim.addEventListener("click", finalizar)
 
 function passar(){
     id++;
-    iterate();
-    checagem_botoes();
+    troca_pergunta()
 }
 
 function voltar(){
     id--;
-    iterate();
-    checagem_botoes();
+    troca_pergunta()
 }
 
 function finalizar(){
-    var somatorioLista = 0;
-    for (let i = 0; i < Questions.length; i++){
-    somatorioLista += lista_respostas[i]
+    if (verficar_respostas()){
+        var somatorioLista = 0;
+        for (let i = 0; i < Questions.length; i++){
+        somatorioLista += lista_respostas[i]
+        }
+        // Redirecionando a página
+        location.href="resultado.php?total="+somatorioLista;
     }
-    // Redirecionando a página
-    location.href="resultado.php?total="+somatorioLista;
+}
+
+function verficar_respostas(){
+    // Se na lista inclui 0, significa que nem todas as perguntas foram respondidas
+    if (questoes_selecionadas.includes(0)){
+        alert("responda todas as perguntas")
+        return false
+    }
+    else{
+        return true
+    }
+}
+function botao_esta_selecionado(){
+    opcao = "op"
+    for (let i = 1; i < 6; i++){
+        if (opcao+i == questoes_selecionadas[id]){
+            document.getElementById('op'+i).style.backgroundColor = "#EBEBEB"
+        }
+        else{
+            document.getElementById('op'+i).style.backgroundColor = color_background
+        }}
+}
+
+function troca_pergunta(){
+    pagina_questao();
+    checagem_botoes();
+    botao_esta_selecionado()
 }
