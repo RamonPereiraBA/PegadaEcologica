@@ -160,7 +160,7 @@ for (let i = 0; i < Questions.length; i++)
 function pagina_questao(){
     const question = document.getElementById("question");
     const opcoes = document.getElementById("opcoesid");
-    question.innerText = Questions[id].q;
+    question.innerText = (id+1)+"-"+Questions[id].q;
 
     // nivelando abaixo a margem a partir do num de caracteres
     if (question.innerText.length > 76){
