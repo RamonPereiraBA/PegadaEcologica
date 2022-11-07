@@ -1,4 +1,3 @@
-
 #question{
     position: relative;
 	color: #EBEBEB;
@@ -8,7 +7,7 @@
     top: 5%;
 }
 
-
+.navegacao{}
 .painel{
     position: fixed;
     top: 45%;
@@ -25,19 +24,22 @@
 
 .opcoes{
     position: fixed;
-    font-family: 'Cabin', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     background-color: transparent;
-    top: 30%;
-    width: 64%;
-    height: 33%;
-    margin-left: 8%;
+    top: 38%;
+    width: 70%;
+    height: 38%;
+    margin-left: 2%;
     justify-content: left; 
 }
 
 .option{
     margin: 0px 12px;
-    justify-content: space-between;
-    margin-left: 15vh;
+    margin-left: 4vh;
+    font-family: 'Cabin', sans-serif;
+
     width: fit-content;
     max-width: 130%;
     font-size: 125%;
@@ -54,6 +56,16 @@
     100% {box-shadow: 0px 0px 0px 0px aqua;}
 }
 
+@keyframes aparecer{
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes desvanecer{
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 .option:hover{
     background-color: aquamarine;
     cursor: pointer;
@@ -67,25 +79,38 @@
 
 #next{
     position: fixed;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2vh;
     border-radius: 15px;
     padding: 2.5% 10%;
-    left: 64%;
+    background-color: #9AEBA3;
+    color: #172026;
+    left: 34%;
     cursor: pointer;
     top: 82%;
 }
 
 #prev{
+    background-color: #9AEBA3;
+    color: #172026;
     position: fixed;
+    font-size: 2vh;
+    font-family: 'Cabin', sans-serif;
     padding: 2.5% 10%;
     border-radius: 15px;
     cursor: pointer;
-    left: 28%;
+    left: 5%;
     top: 82%;
 }
 
 #finalizar{
+    background-color: #9AEBA3;
+    color: #172026;
+    animation: aparecer .8s;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2vh;
     position: fixed;
-    left: 62%;
+    left: 70%;
     padding: 2.5% 10%;
     cursor: pointer;
     border-radius: 15px;
@@ -94,20 +119,23 @@
 
 
 #next:active{
-    background-color: aqua;
+    background-color: #DAFDBA;
     animation: clicado .2s;
 }
 
 #next:hover{
-    background-color: aqua;
+    background-color: #DAFDBA;
+    transition-duration: .2s;
 }
 
 #prev:hover{
-    background-color: aqua;
+    transition-duration: .2s;
+    background-color: #DAFDBA;
 }
 
 #finalizar:hover{
-    background-color: aqua;
+    transition-duration: .2s;
+    background-color: #DAFDBA;
 }
 
 #prev:active{

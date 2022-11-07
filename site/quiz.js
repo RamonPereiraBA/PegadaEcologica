@@ -157,8 +157,17 @@ for (let i = 0; i < Questions.length; i++)
 // função de iterar as questões
 function iterate(){
     const question = document.getElementById("question");
-
+    const opcoes = document.getElementById("opcoesid");
     question.innerText = Questions[id].q;
+
+
+    // nivelando abaixo a margem a partir do num de caracteres
+      if (question.innerText.length > 76){
+        opcoes.style.top = "50%";        
+      }
+      else{
+        opcoes.style.top = "38%";        
+      }
 
     // criando e configurando as alternativas
     for (let i = 1; i < 6; i++)
@@ -174,6 +183,8 @@ function iterate(){
 
 
 }
+
+
 function checagem_botoes(){
     // habilitar/desabilitar next
     if (id + 1 < Questions.length){
