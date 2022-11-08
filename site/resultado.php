@@ -21,7 +21,11 @@
 <!-- Incluindo o calculo e escolhendo o fundo -->
 <?php 
     try{
-        $total = $_GET["total"];
+        if (!isset($_GET["total"])){
+            throw new Exception('');
+        }else{
+            $total = $_GET['total'];
+        }
     }
     catch(Exception $e){
         $total = 0;
