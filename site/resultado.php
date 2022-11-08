@@ -20,6 +20,7 @@
 
 <!-- Incluindo o calculo e escolhendo o fundo -->
 <?php 
+    // Verificando se o valor foi passado pela url	
     try{
         if (!isset($_GET["total"])){
             throw new Exception('');
@@ -27,9 +28,11 @@
             $total = $_GET['total'];
         }
     }
+    // Se não foi, então total será 0
     catch(Exception $e){
         $total = 0;
     }
+
     if ($total >= 50)
     {
         $tituloResposta = "Excelente";
