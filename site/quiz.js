@@ -249,7 +249,7 @@ function finalizar(){
 function verficar_respostas(){
     // Se na lista inclui 0, significa que nem todas as perguntas foram respondidas
     if (questoes_selecionadas.includes(0)){
-        alert("responda todas as perguntas")
+        alert("Responda todas as perguntas!")
         return false
     }
     else{
