@@ -212,24 +212,19 @@
 
                 var clicado = 0;
 
-                button.onmouseout = function() {
-                    if (tituloResposta == "Excelente")
+                button.onmouseover = function() {
+                    if (tituloResposta == "Moderada")
                     {
-                        button.style.color = "#0CF25D";
+                        button.style.color = "#D09004"
                     }
-                    else if (tituloResposta == "Moderada")
-                    {
-                        button.style.color = "#010221"
+                    else{
+                        button.style.color = "#D92929"
                     }
                 }
 
-                button.onmouseover = function() {
-                    if (tituloResposta == "Excelente")
-                    {
-                        button.style.color = "#0CF25D";
-
-                    }
-                    else if (tituloResposta == "Moderada")
+                button.onmouseout = function() {
+                        
+                    if (tituloResposta == "Moderada")
                     {
                         button.style.color = "#010221"
                     }
