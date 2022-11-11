@@ -82,22 +82,23 @@
 ?>
 
 
+
 </head>
     <body>
 
 
-            <div class="comentario p">
+            <div class="comentario p" id="comentario">
                 <?php echo $comentario;?>
             </div>
 
-            <div class="boxResultado">
-                <h1 class="pegadaResultado"><?php echo $tituloResposta;?></h1>
+            <div class="boxResultado" id="boxResultado">
+                <h1 class="pegadaResultado" id="pegadaResultado"><?php echo $tituloResposta;?></h1>
             </div>
 
 
-            <div class="boxPontuacao">
-                <h1 class="pontuacao"><?php echo $total;?></h1>
-                <p class="suapontuacaofoi">Sua pontuação foi...</p>
+            <div class="boxPontuacao" id="boxPontuacao">
+                <h1 class="pontuacao" id="pontuacao"><?php echo $total;?></h1>
+                <p class="suapontuacaofoi" id="suapontuacaofoi">Sua pontuação foi...</p>
             </div>
             
             <div id="textoResposta" class="p">
@@ -116,143 +117,109 @@
                 }
             ?>
 
-            <script>
-                // o elemento "dica" é o botão
+<!--- cores e definições -->
+<script>
+                // componentes da tela
+                const Boxresultado = document.getElementById('boxresultado');
+                const Boxpontuacao = document.getElementById('boxPontuacao');
+                const pegadaResultado = document.getElementById('pegadaResultado')
+                const pontuacao = document.getElementById('pontuacao')
+                const suapontuacaofoi = document.getElementById('suapontuacaofoi')
+                const comento = document.getElementById('comentario')
+                const btrefazer = document.getElementById('btRefazer')
+                const comentario = document.getElementById('textoResposta');
                 const button = document.getElementById('dica');
                 const tituloResposta = `<?php echo $tituloResposta;?>`;
-                // o elemento comentario é a label
-                const comentario = document.getElementById('textoResposta');
                 const dica = `<?php echo $dica; ?>`;
-                
-                // componentes da tela
-                const Boxresultado = document.getElementsByClassName('boxresultado');
-                const Boxpontuacao = document.getElementsByClassName('boxPontuacao');
-                const pegadaResultado = document.getElementsByClassName('pegadaResultado')
-                const pontuacao = document.getElementsByClassName('pontuacao')
-                const suapontuacaofoi = document.getElementsByClassName('suapontuacaofoi')
-                const comento = document.getElementsByClassName('comentario')
-                const btrefazer = document.getElementById('btRefazer')
-                
+
+                // declarando as cores de cada componente
+                var boxResultadoCor
+                var pegadaResultadoCor
+                var boxPontuacaoCor
+                var pontuacaoCor
+                var suapontuacaofoiCor
+                var comentoCor
+                var comentarioCor
+                var dicaCor
+                var btrefazerCor
+                var fundoCor
+
+                // definindo a paleta de cor pra cada resultado
                 if (tituloResposta == "Moderada"){
-
-                    for(var i = 0; i < Boxresultado.length; i++)
-                    {
-		                Boxresultado[i].style.backgroundColor = "#FFAE00";
-	                }
-
-                    for(var i = 0; i < pegadaResultado.length; i++)
-                    {
-		                pegadaResultado[i].style.color = "#010221";
-	                }
-
-                    for(var i = 0; i < Boxpontuacao.length; i++)
-                    {
-		                Boxpontuacao[i].style.backgroundColor = "#C43302";
-                    }
-
-                    for(var i = 0; i < pontuacao.length; i++)
-                    {
-		                pontuacao[i].style.color = "#010221";
-	                }
-
-                    for(var i = 0; i < suapontuacaofoi.length; i++)
-                    {
-		                suapontuacaofoi[i].style.color = "#010221";
-	                }
-
-                    for(var i = 0; i < comento.length; i++)
-                    {
-		                comento[i].style.color = "#010221";
-	                }
-
-                    comentario.style.color = "#010221";
-                    document.body.style.backgroundColor = "#B7BF99";
-                    button.style.color = "#010221";
-                    btrefazer.style.backgroundColor = "#FFAE00";
-
+                    boxResultadoCor = "#FFAE00"
+                    pegadaResultadoCor = "#010221"
+                    boxPontuacaoCor = "#C43302"
+                    pontuacaoCor = "#010221"
+                    suapontuacaofoiCor = "#010221"
+                    comentoCor = "#010221"
+                    comentarioCor = "#010221"
+                    dicaCor = "#010221"
+                    btrefazerCor = "#FFAE00"
+                    fundoCor = "#B7BF99"
                 }
                 else if (tituloResposta == "Péssimo")
                     {
-                        for(var i = 0; i < Boxresultado.length; i++)
-                    {
-		                Boxresultado[i].style.backgroundColor = "#D92929";
-	                }
-
-                    for(var i = 0; i < pegadaResultado.length; i++)
-                    {
-		                pegadaResultado[i].style.color = "#010221";
-	                }
-
-                    for(var i = 0; i < Boxpontuacao.length; i++)
-                    {
-		                Boxpontuacao[i].style.backgroundColor = "#260101";
-                    }
-
-                    for(var i = 0; i < pontuacao.length; i++)
-                    {
-		                pontuacao[i].style.color = "#D92929";
-	                }
-
-                    for(var i = 0; i < suapontuacaofoi.length; i++)
-                    {
-		                suapontuacaofoi[i].style.color = "#D92929";
-	                }
-
-                    for(var i = 0; i < comento.length; i++)
-                    {
-		                comento[i].style.color = "#260101";
-	                }
-
-                    comentario.style.color = "#260101";
-                    document.body.style.backgroundColor = "#B0BFBE";
-                    button.style.color = "#260101";
-                    btrefazer.style.backgroundColor = "#D92929";
+                    boxResultadoCor ="#D92929"
+                    pegadaResultadoCor = "#010221"
+                    boxPontuacaoCor = "#260101"
+                    pontuacaoCor = "#D92929"
+                    suapontuacaofoiCor = "#D92929"
+                    comentoCor = "#260101"
+                    comentarioCor = "#260101"
+                    dicaCor = "#260101"
+                    btrefazerCor = "#D92929"
+                    fundoCor = "#B0BFBE"
                 }
+
+                // setando as cores
+                comentario.style.color = comentarioCor;
+                document.body.style.backgroundColor = fundoCor;
+                button.style.color = dicaCor;
+                btrefazer.style.backgroundColor = btrefazerCor;
+                boxResultado.style.backgroundColor = boxResultadoCor;
+                Boxpontuacao.style.backgroundColor = boxPontuacaoCor;
+                comento.style.color = comentoCor;
+                suapontuacaofoi.style.color = suapontuacaofoiCor;
+                pontuacao.style.color = pontuacaoCor;
+                pegadaResultado.style.color = pegadaResultadoCor;
                 
 
-                var clicado = 0;
 
+                // quando o mouse ficar em cima do botão
                 button.onmouseover = function() {
-                    if (tituloResposta == "Moderada")
-                    {
-                        button.style.color = "#D09004"
-                    }
-                    else{
-                        button.style.color = "#D92929"
+                    if (tituloResposta == "Moderada"){
+                        button.style.color = "#C43302"
+                    }else{
+                        button.style.color = boxResultadoCor;
                     }
                 }
 
+                // quando o mouse sair do botão
                 button.onmouseout = function() {
-                        
-                    if (tituloResposta == "Moderada")
-                    {
-                        button.style.color = "#010221"
-                    }
-                    else{
-                        button.style.color = "#260101"
-                    }
+                    button.style.color = dicaCor
                 }
                 
 
-                // se o botão for clicado, altere a label do comentario
+                // se o botão for clicado, altere o conteúdo do comentario
                 
+                var primeiroClick = true;
 
                 button.addEventListener('click', function handleClick() {
-                    if (clicado == 0){
+                    if (primeiroClick == true){
                     comentario.innerHTML = dica;
                     button.innerHTML = "Retornar";
-                    clicado = 1;
-                    }else{
+                    primeiroClick = false;
+                    }
+                    else{
                     comentario.innerHTML = `<?php echo $textoResposta; ?>`;
-                    console.log(`<?php echo $textoResposta; ?>`);
                     button.innerHTML = "Quer uma dica?";
-                    clicado = 0;
-
+                    primeiroClick = true;
                 }
                 });
                 
 
 
-            </script>
+</script>
+
     </body>
 </html>
