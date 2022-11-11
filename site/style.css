@@ -1984,7 +1984,10 @@ a {
 }
 
 .imagens{
-    
     height: 20%;
     width: 40%;
+}
+
+.etpc-card{
+    max-height: 25%;
 }
