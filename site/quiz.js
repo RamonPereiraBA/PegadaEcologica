@@ -180,6 +180,7 @@ function pagina_questao(){
             lista_respostas[id] = Questions[id].a[i - 1].ponto;
             questoes_selecionadas[id] = op.id
             botao_esta_selecionado()
+            verficar_respostas()
         })
     }
 }
@@ -205,18 +206,8 @@ function checagem_botoes(){
         prev.style.display = "block";
         prev.style.cursor = "pointer";
     }
-
-    // habilitar/desabilitar finalizar
-    if (id ==  Questions.length - 1){
-        fim.disabled = false
-        fim.style.display = "block";
-        fim.style.cursor = "pointer";
-    }
-    else{
-        fim.disabled = true
-        fim.style.display = "none";
-    }
 }
+verficar_respostas();
 troca_pergunta()
 
 next.addEventListener("click", passar)
@@ -236,24 +227,24 @@ function voltar(){
 }
 
 function finalizar(){
-    if (verficar_respostas()){
-        var somatorioLista = 0;
-        for (let i = 0; i < Questions.length; i++){
-        somatorioLista += lista_respostas[i]
-        }
-        // Redirecionando a página
-        location.href="resultado.php?total="+somatorioLista;
+    var somatorioLista = 0;
+    for (let i = 0; i < Questions.length; i++){
+    somatorioLista += lista_respostas[i]
     }
+    // Redirecionando a página
+    location.href="resultado.php?total="+somatorioLista;
 }
 
 function verficar_respostas(){
     // Se na lista inclui 0, significa que nem todas as perguntas foram respondidas
     if (questoes_selecionadas.includes(0)){
-        alert("Responda todas as perguntas!")
-        return false
+        fim.disabled = true
+        fim.style.display = "none";
     }
     else{
-        return true
+        fim.disabled = false
+        fim.style.display = "block";
+        fim.style.cursor = "pointer";
     }
 }
 function botao_esta_selecionado(){
@@ -270,5 +261,5 @@ function botao_esta_selecionado(){
 function troca_pergunta(){
     pagina_questao();
     checagem_botoes();
-    botao_esta_selecionado()
+    botao_esta_selecionado();
 }
