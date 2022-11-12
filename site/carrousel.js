@@ -31,7 +31,7 @@ function passar_pagina(){
 
   // componentes do card
   var imagem = document.getElementById("imagem");
-  var nome_organizacao = document.getElementById('nome_organizacao');
+  var nome_organizacao = document.getElementById('nome_organização');
   var funcionalidade = document.getElementById('funcionalidade');
   var texto_equipe =  document.getElementById('texto_equipe');
 
