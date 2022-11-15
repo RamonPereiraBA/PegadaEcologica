@@ -52,8 +52,6 @@ function setar_pagina(){
   var funcionalidade = document.getElementById('funcionalidade');
   var texto_equipe =  document.getElementById('texto_equipe');
 
-  // Passando a página
-
   // fazendo com que o texto encaixe no card
   texto_equipe.wordBreak = "break-all"
   //Colando os textos
