@@ -921,7 +921,7 @@ a {
 
 .etpc-top,
 .etpc-bottom {
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 1
 }
@@ -1957,23 +1957,25 @@ a {
     border-color: #e7ffff!important
 }
 
-.botaoIniciarPesquisa {
+#botaoIniciarPesquisa {
+    position: relative;
     padding: 2% 8%;
+    left: 37%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family: 'Montserrat', sans-serif;
     border-radius: 12px;
     font-size: 3vh;
     color: rgb(0, 83, 0);
     background-color: greenyellow;
-    margin-left: 35%;
-    font-family: raleway;
     transition-duration: .2s;
     cursor: pointer;
     margin-top: 6vh;
+    margin-bottom: 15vh;
 }
 
-.botaoIniciarPesquisa:hover {
+#botaoIniciarPesquisa:hover {
     color: greenyellow;
     background-color: rgb(0, 83, 0);
 }
@@ -1982,6 +1984,7 @@ a {
     height: 40%;
     width: 40%;
 }
+
 
 .imagens{
     height: 20%;
