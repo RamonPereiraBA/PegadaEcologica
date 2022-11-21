@@ -167,8 +167,10 @@ function pagina_questao(){
         opcoes.style.top = "50%";        
     }
     else{
-        opcoes.style.top = "38%";        
+        opcoes.style.top = "29%";            
     }
+
+
     
     // criando e configurando as alternativas
     for (let i = 1; i < 6; i++)
@@ -176,6 +178,14 @@ function pagina_questao(){
         const op = document.getElementById('op'+i);
         op.innerText = Questions[id].a[i - 1].text;
         op.style.visibility = Questions[id].a[i - 1].estado;
+
+        // encaixando as opções grandes no quiz (evitar erros de proporção)
+        if (op.innerText.length <= 20){
+            opcoes.style.height = "42%";        
+        }else{
+            opcoes.style.height = "38%";     
+        }
+
         op.addEventListener("click", () => {   
             lista_respostas[id] = Questions[id].a[i - 1].ponto;
             questoes_selecionadas[id] = op.id
