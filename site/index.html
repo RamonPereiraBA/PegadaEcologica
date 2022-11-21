@@ -57,7 +57,6 @@
     <link rel="icon" href="Imagens/Logosite.png">
   </head>
 <body>
-<script src="carrousel.js"></script>
 <!-- Navbar (sit on top) -->
 <div class="etpc-top">
   <div class="etpc-bar etpc-white etpc-card" id="myNavbar">
@@ -116,7 +115,7 @@
     </div>
   </div>
 </div>
-<!--Equipe-->
+<!--Equipe carrossel-->
 <div class="etpc-container" style="padding: 20px 16px" id="team">
   <h3 class="etpc-center">Nossa Equipe</h3>
   <div class="etpc-row-padding " style="margin-top:64px">
@@ -132,15 +131,19 @@
     </div>
   </div>
 </div>
-<button type="button" onclick="passar_pagina()">passar</button>
-<!-- Equipe 
-<div class="etpc-container" style="padding: 20px 16px" id="team">
+<div class="botoes">
+  <button id="prevbt" type="button" onclick="passar_pagina('-')" ><<</button>
+  <button id="nextbt" type="button" onclick="passar_pagina('+')" >>></button>
+</div>
+
+<!-- Equipe  -->
+<!-- <div class="etpc-container" style="padding: 20px 16px" id="team">
   <h3 class="etpc-center">NOSSA EQUIPE</h3>
   <p class="etpc-center etpc-large">Todos que participaram deste projeto</p>
-  <div class="etpc-row-padding " style="margin-top:64px">
+  <div class="etpc-row-padding" style="margin-top:64px;">
     <div class="mySlides">
       <div class="etpc-card">
-        <img src="Imagens/PEA.jpg" class="imagens">
+        <img src="Imagens/logos/PEA.jpg" class="imagens">
         <div class="etpc-container etpc-margin-bottom" style="height: 410px;">
           <h4>Programa Educação Ambiental</h4>
           <p class="etpc-opacity">Colaboradores</p>
@@ -150,7 +153,7 @@
     </div>
     <div class="mySlides">
       <div class="etpc-card">
-        <img src="imagens/Logo fundacao.png" alt="Fun" class="imagens">
+        <img src="imagens/logos/Logo fundacao.png" alt="Fun" class="imagens">
         <div class="etpc-container etpc-margin-bottom" style="height: 410px;">
           <h4>Fundação CSN</h4>
           <p class="etpc-opacity">Cordenadores</p>
@@ -160,7 +163,7 @@
     </div>
     <div class="mySlides">
       <div class="etpc-card" >
-        <img src="Imagens/images.png" alt="INPE" class="imagens">
+        <img src="Imagens/logos/inpe-logo.png" alt="INPE" class="imagens">
         <div class="etpc-container etpc-margin-bottom" style="height: 410px;">
           <h4>INPE</h4>
           <p class="etpc-opacity">Créditos</p>
@@ -172,7 +175,7 @@
     </div>
     <div class="mySlides">
       <div class="etpc-card">
-        <img src="imagens/etpc.png" alt="Etpc" class="imagens">
+        <img src="imagens/logos/etpc.png" alt="Etpc" class="imagens">
         <div class="etpc-container etpc-margin-bottom" style="height: 410px;">
             <h4>Escola Técnica Pandiá Calógeras</h4>
             <p class="etpc-opacity">Desenvolvedores</p>
@@ -181,8 +184,7 @@
       </div>
     </div>
   </div>
-</div>
--->
+</div> -->
 <!-- Work Section -->
 
 <div class="etpc-container" style="padding:128px 16px" id="work">
@@ -216,6 +218,7 @@
     <a href="https://www.instagram.com/fundacaocsn/" class="fa fa-instagram etpc-hover-opacity"></a>
   </div>
 </footer>
+<script src="carrousel.js"></script>
 
 </body>
 </html>
