@@ -2,25 +2,25 @@ var pagina_atual = -1;
 
 // variavel lista com os membros da equipe
 const cards = [{
-  imagem_card: ["Imagens/logos/PEA.jpg", (45, 30)],
+  imagem_card: ["Imagens/logos/PEA.jpg", "133vh", "110vh"],
   nome_organizacao_card: "Programa Educação Ambiental",
   funcionalidade_card: "Colaboradores",
   texto_equipe_card: "Temos o objetivo de promover a educação ambiental junto à população. Visando o conhecimento ecológico necessário para a proteção e preservação ambiental.",  
 },
   {
-  imagem_card: ["Imagens/logos/Logo fundacao.png", (45, 30)],
+  imagem_card: ["Imagens/logos/Logo fundacao.png", "175vh", "110vh"],
   nome_organizacao_card: "Fundação CSN",
   funcionalidade_card: "Cordenadores",
   texto_equipe_card: "Somos responsáveis pelas ações sociais do Grupo CSN e estamos presentes nas principais cidades em que a empresa atua. Os pilares que sustentam a nossa atuação são educação, cultura, articulação e curadoria.",
   },
   {
-  imagem_card: ["Imagens/logos/inpe-logo.png", (45, 30)],
+  imagem_card: ["Imagens/logos/inpe-logo.png", "129vh", "110vh"],
   nome_organizacao_card: "INPE",
   funcionalidade_card: "Créditos",
   texto_equipe_card: "Criada em 1961 com o objetivo de impulsionar o país nas pesquisas cientificas e nas tecnologias espaciais. Suas atividades se ampliaram e a importância dos estudos vão desde assuntos complexos sobre a origem do Universo até as questões de desflorestamento das nossas matas.",
   },
   {
-  imagem_card: ["Imagens/logos/etpc.png", (45, 30)],
+  imagem_card: ["Imagens/logos/etpc.png", "159vh", "80vh"],
   nome_organizacao_card: "Escola Técnica Pandiá Calógeras",
   funcionalidade_card: "Desenvolvedores",
   texto_equipe_card: "Fundada em 1944 visando oferecer ensino técnico aos primeiros empregados da Companhia Siderúrgica Nacional e aos seus filhos, é referência nacional em educação para o trabalho, pela excelência de seu processo ensino-aprendizagem, atualização tecnológica e investimento social.",
@@ -61,6 +61,10 @@ function setar_pagina(){
   
   //setando as imagens
   imagem.setAttribute('src', cards[pagina_atual].imagem_card[0]);
-  imagem.setAttribute('width', cards[pagina_atual].imagem_card[1][1]);
-  imagem.setAttribute('height', cards[pagina_atual].imagem_card[1][1]);
+  imagem.setAttribute('width', cards[pagina_atual].imagem_card[1]);
+  imagem.setAttribute('height', cards[pagina_atual].imagem_card[2]);
+  imagem.style.marginLeft = "1vh";
+
+
+
 }
