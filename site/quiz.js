@@ -160,16 +160,23 @@ for (let i = 0; i < Questions.length; i++)
 function pagina_questao(){
     const question = document.getElementById("question");
     const opcoes = document.getElementById("opcoesid");
+    const painel = document.getElementsByClassName("painel");
     question.innerText = (id+1)+"-"+Questions[id].q;
 
     // nivelando abaixo a margem a partir do num de caracteres
-    if (question.innerText.length > 76){
-        opcoes.style.top = "50%";        
+    if (Questions[id].q.length > 76){
+        opcoes.style.top = "50%";    
     }
     else{
         opcoes.style.top = "29%";            
     }
-
+    
+    //¨#*&¨@!*#*(@!&(#&!(@))) encaixando as opções grandes no quiz (evitar erros de proporção)
+    if (Questions[id].q.length > 39){
+        opcoes.style.height = "98%";   
+    }else{
+        opcoes.style.height = "38%";  
+    }
 
     
     // criando e configurando as alternativas
@@ -179,11 +186,14 @@ function pagina_questao(){
         op.innerText = Questions[id].a[i - 1].text;
         op.style.visibility = Questions[id].a[i - 1].estado;
 
-        // encaixando as opções grandes no quiz (evitar erros de proporção)
-        if (op.innerText.length <= 20){
-            opcoes.style.height = "42%";        
-        }else{
-            opcoes.style.height = "38%";     
+        // &#!(&@#&@!(*#!)) diminuindo a fonte de opções grandes
+        if (op.innerText.length > 60)
+        {
+            op.style.fontSize = "2.5vh";
+        }
+        else{
+            op.style.fontSize = "3vh";
+
         }
 
         op.addEventListener("click", () => {   
