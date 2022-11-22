@@ -113,7 +113,7 @@
             <?php
                 if ($tituloResposta == "Moderada" or $tituloResposta == "Péssimo")
                 {
-                    echo "<span id='dica'>Quer uma dica?</span>";
+                    echo "<span id='dica'></span>";
                 }
             ?>
 
