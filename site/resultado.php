@@ -88,7 +88,7 @@
 
 
             <div class="comentario p" id="comentario">
-                <?php echo $comentario;?>
+                
             </div>
 
             <div class="boxResultado" id="boxResultado">
@@ -102,7 +102,7 @@
             </div>
             
             <div id="textoResposta" class="p">
-                <?php echo $textoResposta;?>
+                
             </div>
 
             <div class="alinhar">
