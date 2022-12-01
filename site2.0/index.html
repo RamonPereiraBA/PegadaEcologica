@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pegada Ecológica CSN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="icon" href="Imagens/Logosite.png">
+</head>
+<body>
+  <!--Nav bar-->
+  <ul id="barra" class="nav justify-content-end">
+    <li class="nav-item">
+      <i class="bi bi-brightness-high-fill" id="simbolo_tema"></i>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.facebook.com/fundacaocsn">facebook</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://www.instagram.com/fundacaocsn/">instagram</a>
+    </li>
+  </ul>
+  <!-- Tela inicial -->
+  <div id="inicio">
+    <h1 class="display-4" style="color: #000000;">Faça sua pegada ecológica</h1>
+    <button class="btn btn-success" id="btn_começar">Comece agora</button>
+    <img id="imagem_globo" src="Imagens/globo.png">
+  </div>
+  <!-- tela do objetivo -->
+  <div id="objetivo">
+    <h2 class="display-4" style="color: #ebebeb;">O que fazemos?</h2>
+    <p id="texto_objetivo">Nosso projeto consiste em um quiz que calcula o seu impacto no meio ambiente, baseado em seu estilo de vida.</p>
+  </div>
+  <!-- tela dos pilares -->
+  <div id="pilares">
+    <h2 class="display-4" style="color: #012030;">Nossos Pilares</h2>
+    <!-- caixas pilares -->
+    <div class="caixa_pilar" id="caixa1">
+      <p class="titulo_caixa">Conscientização</p>
+      <img id="imagem_caixa" src="Imagens/icons/Maozinha.png">
+      <p id="texto_caixa">Com o objetivo de conscientizar, fazemos com que as pessoas repensem seus hábitos.</p>
+    </div>
+    <div class="caixa_pilar" id="caixa2">
+      <p class="titulo_caixa">Importância</p>
+      <img id="imagem_caixa" src="Imagens/icons/Antivirus.png">
+      <p id="texto_caixa">Reforçamos as pautas ambientais através do nosso projeto. Realizando um levantamento geral que pode ser usado futuramente em políticas públicas.</p>
+    </div>
+    <div class="caixa_pilar" id="caixa3">
+      <p class="titulo_caixa">Energias Limpas</p>
+      <img id="imagem_caixa" src="Imagens/icons/Energia.png">
+      <p id="texto_caixa">Somos defensores do uso da energia limpa devido à crise energética atual. A energia limpa é diferente da renovável. Pois tem a capacidade de realizar sua função com impacto reduzido.</p>
+    </div>
+    <div class="caixa_pilar" id="caixa4">
+      <p class="titulo_caixa">Reciclagem</p>
+      <img id="imagem_caixa" src="Imagens/icons/Reciclagem.png">
+      <p id="texto_caixa">Para reduzir o impacto ambiental, é muito importante entender os 3Rs da sustentabilidade: reciclar , reduzir e reutilizar. Diminuindo a extração de matéria prima da natureza, evitamos o desperdício de recursos naturais.</p>
+    </div>
+  </div>
+  <!-- Nossa equipe -->
+  <div id="equipe">
+    <h2 class="display-4" style="color: #012030;">Nossa equipe</h2>
+    <div id="card">
+      <img id="imagem_card" class="border border-primary">
+      <div id="fundo_funcionalidade" class="border border-dark"><p id="funcionalidade"></p></div>
+      <p id="texto_equipe"></p>
+    </div>
+    <button class="btn btn-outline-secondary" id="voltar" type="button" onclick="passar_pagina('-')" ><<</button>
+    <button class="btn btn-outline-secondary" id="passar" type="button" onclick="passar_pagina('+')" >>></button>
+  </div>
+  <!-- Pagina quiz -->
+  <div id="pagina_quiz">
+    <h2 class="display-4" style="color: #EBEBEB;">Faça a diferença</h2>
+    <button class="btn btn-success" id="inicializador">Iniciar quiz</button>
+    <img src="Imagens/pegadaFin.jpg" id="imagem_final" class="border border-success">>
+  </div>
+  <script src="pagina.js"></script>
+  <script src="carrousel.js"></script>
+  <script>criar_caixa_pilar()</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+/* css geral*/
+h1{
+    position: absolute;
+    top: 40px;
+    left: 3%;
+} 
+h2{
+    position: absolute;
+    top: 4px;
+    left: 3%;
+}
+
+/* css da nav bar*/
+#barra{
+    position: fixed;
+    top: 0;
+    background-color: #EBEBEB;
+    width: 100%;
+    height: 40px;
+    z-index: 2;
+}
+
+#simbolo_tema{
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+/* css da parte inicial*/
+#inicio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 400px;
+    width: 100%;
+    background-color: #a1c331;
+}
+
+#btn_começar{
+    position: absolute;
+    top: 200px;
+    left: 3%;
+}
+
+#imagem_globo{
+    position: absolute;
+    right: 20%;
+    top:30%
+}
+/* css da tela dos nossos objetivos*/
+#objetivo{
+    position: absolute;
+    top:400px;
+    left: 0;
+    background-color: #042940;
+    height: 200px;
+    width: 100%;
+}
+
+#texto_objetivo{
+    position: absolute;
+    top: 100px;
+    color: #EBEBEB;
+    left:3%;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-size: 20px;
+}
+/* css da tela dos pilares*/
+#pilares{
+    position: absolute;
+    top:600px;
+    left: 0;
+    background-color: #13678A;
+    height: 1140px;
+    width: 100%;
+}
+
+.caixa_pilar{
+    position: absolute;
+    width: 70%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.titulo_caixa{
+    position: absolute;
+    color: #012030;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 28px;
+    left: 2%;
+    top: 4%;
+}
+
+#imagem_caixa{
+    position: absolute;
+    height: 100px;
+    top: 30%;
+    left: 2%;
+}
+
+#texto_caixa{
+    position: absolute;
+    top: 30%;
+    left: 130px;
+    color: #000000;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 20px;
+}
+/* css da tela da nossa equipe*/
+#equipe{
+    position: absolute;
+    left: 0;
+    top: 1740px;
+    background-color: #9AEBA3;
+    height: 650px;
+    width: 100%;
+}
+
+#card{
+    position: absolute;
+    left: 12%;
+    top: 18%;
+    width: 70%;
+    height: 390px;
+    background-color: #EBEBEB;
+}
+
+#imagem_card{
+    position: absolute;
+    height: 200px;
+    width: 50%;
+}
+
+#fundo_funcionalidade{
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 200px;
+    background-color: #012030;
+}
+
+#funcionalidade{
+    position: absolute;
+    top: 80px;
+    color: #EBEBEB;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 20px;
+}
+
+#texto_equipe{
+    position: absolute;
+    top: 230px;
+    left: 1%;
+    color: #012030;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-size: 20px;
+}
+
+#voltar{
+    position: absolute;
+    top: 85%;
+    left: 12%;
+}
+
+#passar{
+    position: absolute;
+    top: 85%;
+    right: 18%;
+}
+/*css da parte final*/
+#pagina_quiz{
+    position: absolute;
+    left: 0;
+    top: 2390px;
+    width: 100%;
+    height: 490px;
+    background-color: #042940;
+}
+
+#inicializador{
+    position: absolute;
+    left: 3%;
+    top: 160px;
+    border-radius: 88px;
+}
+
+#imagem_final{
+    position: absolute;
+    top: 73px;
+    left: 35%;
+    height: 410px;
+}
