@@ -6,7 +6,7 @@ const cards = [{
   nome_organizacao_card: "Programa Educação Ambiental",
   funcionalidade_card: "Colaboradores",
   texto_equipe_card: "Temos o objetivo de promover a educação ambiental junto à população. Visando o conhecimento ecológico necessário para a proteção e preservação ambiental.",  
-},
+  },
   {
   imagem_card: "Imagens/logos/Logo fundacao.png",
   nome_organizacao_card: "Fundação CSN",
@@ -55,4 +55,29 @@ function setar_pagina(){
   funcionalidade.innerText = cards[pagina_atual].funcionalidade_card;
   texto_equipe.innerText = cards[pagina_atual].texto_equipe_card;
   imagem.setAttribute('src', cards[pagina_atual].imagem_card);
+
+  // configurando os circulos
+  var lista_circulos = [document.getElementById('c1'), document.getElementById('c2'), document.getElementById('c3'),
+  document.getElementById('c4')]
+  var posicao_left = 35;
+
+  for (let x = 0; x < cards.length; x++){
+    // configurando a posição dos circulos
+    posicao_left += 5;
+    lista_circulos[x].style.left = posicao_left + "%";
+    // mudando a cor dos circulos
+    if (x===pagina_atual){
+      lista_circulos[x].style.backgroundColor = "#ebebeb"
+    }
+    else{
+      lista_circulos[x].style.backgroundColor = "#000000"
+    }
+    lista_circulos[x].addEventListener('click', () => click_circulo(x))
+  }
+}
+
+// função de quando for clicado em um dos círculos
+function click_circulo(lugar){
+  pagina_atual = lugar
+  setar_pagina()
 }
