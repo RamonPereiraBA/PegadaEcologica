@@ -6,34 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pegada Ecológica CSN</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <link rel="icon" href="Imagens/Logosite.png">
 </head>
 <body>
-  <!--Nav bar-->
+  <!--Nav bar -->
   <ul id="barra" class="nav justify-content-end">
+    <!-- dropdown -->
+    <li class="nav-item">
+      <div class="dropdown" id="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="bi bi-justify"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" id="ir_objetivo">Objetivo</button>
+          <button class="dropdown-item" type="button" id="ir_pilares">Pilares</button>
+          <button class="dropdown-item" type="button" id="ir_equipe">Equipe</button>
+        </div>
+      </div>
+    </li>
+    <!-- resto da nav bar -->
     <li class="nav-item">
       <i class="bi bi-brightness-high-fill" id="simbolo_tema"></i>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="https://www.facebook.com/fundacaocsn">facebook</a>
+      <a class="nav-link" href="https://www.facebook.com/fundacaocsn">facebook</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="https://www.instagram.com/fundacaocsn/">instagram</a>
     </li>
   </ul>
+
   <!-- Tela inicial -->
   <div id="inicio">
     <h1 class="display-4" style="color: #000000;">Faça sua pegada ecológica</h1>
-    <button class="btn btn-success" id="btn_começar">Comece agora</button>
+    <button class="btn btn-success" id="btn_começar" >Comece agora</button>
     <img id="imagem_globo" src="Imagens/globo.png">
   </div>
+  
   <!-- tela do objetivo -->
   <div id="objetivo">
     <h2 class="display-4" style="color: #ebebeb;">O que fazemos?</h2>
     <p id="texto_objetivo">Nosso projeto consiste em um quiz que calcula o seu impacto no meio ambiente, baseado em seu estilo de vida.</p>
   </div>
+  
   <!-- tela dos pilares -->
   <div id="pilares">
     <h2 class="display-4" style="color: #012030;">Nossos Pilares</h2>
@@ -59,6 +75,7 @@
       <p id="texto_caixa">Para reduzir o impacto ambiental, é muito importante entender os 3Rs da sustentabilidade: reciclar , reduzir e reutilizar. Diminuindo a extração de matéria prima da natureza, evitamos o desperdício de recursos naturais.</p>
     </div>
   </div>
+  
   <!-- Nossa equipe -->
   <div id="equipe">
     <h2 class="display-4" style="color: #012030;">Nossa equipe</h2>
@@ -69,15 +86,29 @@
     </div>
     <button class="btn btn-outline-secondary" id="voltar" type="button" onclick="passar_pagina('-')" ><<</button>
     <button class="btn btn-outline-secondary" id="passar" type="button" onclick="passar_pagina('+')" >>></button>
+    <div id="circulos">
+      <div class="circulo_carrousel" id="c1"></div>
+      <div class="circulo_carrousel" id="c2"></div>
+      <div class="circulo_carrousel" id="c3"></div>
+      <div class="circulo_carrousel" id="c4"></div>
+    </div>
   </div>
+  
   <!-- Pagina quiz -->
   <div id="pagina_quiz">
+    <img id="seta_cima" src="Imagens/icons/seta_cima.png">
     <h2 class="display-4" style="color: #EBEBEB;">Faça a diferença</h2>
-    <button class="btn btn-success" id="inicializador">Iniciar quiz</button>
+    <button class="btn btn-success" id="inicializador">Iniciar quiz  <i class="bi bi-tree"></i></button>
     <img src="Imagens/pegadaFin.jpg" id="imagem_final" class="border border-success">>
   </div>
+
+  <!-- scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="pagina.js"></script>
   <script src="carrousel.js"></script>
   <script>criar_caixa_pilar()</script>
+
 </body>
 </html>
