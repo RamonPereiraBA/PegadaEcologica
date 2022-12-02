@@ -20,6 +20,12 @@ h2{
     z-index: 2;
 }
 
+#dropdown{
+    position: absolute;
+    top: 1px;
+    left: 0;
+}
+
 #simbolo_tema{
     position: absolute;
     top: 50%;
@@ -27,7 +33,7 @@ h2{
     transform: translate(-50%, -50%);
 }
 
-/* css da parte inicial*/
+/* css da tela inicial*/
 #inicio{
     position: absolute;
     top: 0;
@@ -46,8 +52,14 @@ h2{
 #imagem_globo{
     position: absolute;
     right: 20%;
-    top:30%
+    top:30%;
+    transition: opacity 1s;
 }
+
+#imagem_globo:hover{
+    opacity: 0.8;
+}
+
 /* css da tela dos nossos objetivos*/
 #objetivo{
     position: absolute;
@@ -99,6 +111,11 @@ h2{
     height: 100px;
     top: 30%;
     left: 2%;
+    transition: transform 1s;
+}
+
+#imagem_caixa:hover{
+    transform: scale(1.2);
 }
 
 #texto_caixa{
@@ -173,6 +190,16 @@ h2{
     top: 85%;
     right: 18%;
 }
+
+.circulo_carrousel{
+    position: absolute;
+    top: 88%;
+    border-radius: 50%; 
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
 /*css da parte final*/
 #pagina_quiz{
     position: absolute;
@@ -195,4 +222,21 @@ h2{
     top: 73px;
     left: 35%;
     height: 410px;
+}
+
+#seta_cima{
+    position: absolute;
+    left: 7%;
+    width: 50px;
+    height: 50px;
+    top: 70%;
+    z-index: 3;
+    cursor: pointer;
+    animation: jumping 1s linear infinite;
+}
+
+@keyframes jumping {
+    from {transform: translateY(-15px);}
+    50% {transform: translateY(0);}
+    to {transform: translateY(-15px);}
 }
