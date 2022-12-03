@@ -8,8 +8,10 @@ function mudar_tema(){
     this.classList.toggle('bi-moon');
     if(this.classList.toggle('bi-brightness-high-fill')){
         barra.style.backgroundColor = '#ebebeb'
+        barra.style.transition = '1s';
     }else{
         barra.style.backgroundColor = '#000000'
+        barra.style.transition = '1s';
     }
 }
 
