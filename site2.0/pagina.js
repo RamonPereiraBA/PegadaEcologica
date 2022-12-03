@@ -13,7 +13,15 @@ function mudar_tema(){
     }
 }
 
-// configurando a função de rolar a tela, é preciso diminuir em 30 para ajustar a posição
+// configurando a função de rolar a tela
+const lista_lugares = [
+    document.getElementById("inicio"),
+    document.getElementById("objetivo"),
+    document.getElementById("pilares"),
+    document.getElementById("equipe"),
+    document.getElementById("pagina_quiz"),
+];
+// é preciso diminuir em 30 para ajustar a posição
 const lista_posicoes = [
     parseInt(window.getComputedStyle(document.getElementById("inicio")).top) - 30,
     parseInt(window.getComputedStyle(document.getElementById("objetivo")).top) - 30,
@@ -24,6 +32,8 @@ const lista_posicoes = [
 
 function rolar_pagina(lugar){
     window.scroll({top: lista_posicoes[lugar], behavior: "smooth"})
+    lista_lugares[lugar].style.animation = "";
+    setTimeout(() => lista_lugares[lugar].style.animation = "destaque_pagina 0.5s linear", 500);
 }
 
 // configurando o dropdown
