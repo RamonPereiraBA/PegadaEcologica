@@ -1,3 +1,32 @@
+/* declaração de variaveis */
+:root{
+    --tamanho_imagem_globo : 240px;
+    --tamanho_imagem_pilar : 100px;
+    --posicao_texto_pilar : 130px;
+    --tamanho_texto_pilar : 20px;
+    --tamanho_texto_equipe : 20px;
+    --top_texto_equipe : 230px;
+    --tamanho_circulo_equipe : 20px;
+    --largura_imagem_final : 438px;
+    --altura_imagem_final : 410px;
+    --top_imagem_final : 73px;
+}
+
+@media screen and (max-width : 700px){
+    :root{
+        --tamanho_imagem_globo : 120px;
+        --tamanho_imagem_pilar : 75px;
+        --posicao_texto_pilar : 100px;
+        --tamanho_texto_pilar : 14px;
+        --tamanho_texto_equipe : 15px;
+        --top_texto_equipe : 200px;
+        --tamanho_circulo_equipe : 15px;
+        --largura_imagem_final : 216px;
+        --altura_imagem_final : 205px;
+        --top_imagem_final : 250px;
+    }
+}
+
 /* css geral*/
 h1{
     position: absolute;
@@ -66,6 +95,8 @@ h2{
     position: absolute;
     right: 20%;
     top:30%;
+    width: var(--tamanho_imagem_globo);
+    height: var(--tamanho_imagem_globo);
     transition: transform 1s;
 }
 
@@ -104,7 +135,7 @@ h2{
 
 .caixa_pilar{
     position: absolute;
-    width: 70%;
+    width: 85%;
     height: 200px;
     border-radius: 20px;
 }
@@ -121,7 +152,8 @@ h2{
 
 #imagem_caixa{
     position: absolute;
-    height: 100px;
+    height: var(--tamanho_imagem_pilar);
+    width: var(--tamanho_imagem_pilar);
     top: 30%;
     left: 2%;
     transition: transform 1s;
@@ -134,11 +166,11 @@ h2{
 #texto_caixa{
     position: absolute;
     top: 30%;
-    left: 130px;
+    left: var(--posicao_texto_pilar);
     color: #000000;
     font-family: 'Montserrat';
     font-style: normal;
-    font-size: 20px;
+    font-size: var(--tamanho_texto_pilar);
 }
 /* css da tela da nossa equipe*/
 #equipe{
@@ -184,12 +216,12 @@ h2{
 
 #texto_equipe{
     position: absolute;
-    top: 230px;
+    top: var(--top_texto_equipe);
     left: 1%;
     color: #012030;
     font-family: 'Cabin';
     font-style: normal;
-    font-size: 20px;
+    font-size: var(--tamanho_texto_equipe);
 }
 
 #voltar{
@@ -208,8 +240,8 @@ h2{
     position: absolute;
     top: 88%;
     border-radius: 50%; 
-    height: 20px;
-    width: 20px;
+    height: var(--tamanho_circulo_equipe);
+    width: var(--tamanho_circulo_equipe);
     cursor: pointer;
 }
 
@@ -232,9 +264,10 @@ h2{
 
 #imagem_final{
     position: absolute;
-    top: 73px;
+    top: var(--top_imagem_final);
     left: 35%;
-    height: 410px;
+    height: var(--altura_imagem_final);
+    width: var(--largura_imagem_final);
 }
 
 #seta_cima{
