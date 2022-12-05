@@ -1,10 +1,33 @@
+/* declaração de variaveis */
+:root{
+    --tamanho_questao : 4vh;
+    --tamanho_texto_opcao_grande : 2vh;
+    --tamanho_texto_opcao_pequeno : 2.5vh;
+}
+@media screen and (min-width : 780px){
+    :root{
+        --tamanho_questao : 5vh;
+        --tamanho_texto_opcao_grande : 2.5vh;
+        --tamanho_texto_opcao_pequeno : 3vh;
+    }
+}
+
+@media screen and (max-width : 500px){
+    :root{
+        --tamanho_questao : 3vh;
+        --tamanho_texto_opcao_grande : 1.5vh;
+        --tamanho_texto_opcao_pequeno : 2vh;
+    }
+}
+
+/* resto do código */
 #question{
-    position: relative;
+    position: fixed;
 	color: #EBEBEB;
-    font-size: 5vh;
+    font-size: var(--tamanho_questao);
     margin-left: 4%;
     font-family: 'Montserrat', sans-serif;
-    top: 5%;
+    top: 2%;
 }
 
 .painel{
@@ -27,7 +50,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     background-color: transparent;
-    top: 38%;
     width: 70%;
     height: 38%;
     margin-left: 2%;
@@ -38,10 +60,8 @@
     margin: 0px 12px;
     margin-left: 4vh;
     font-family: 'Cabin', sans-serif;
-
     width: fit-content;
     max-width: 130%;
-    font-size: 125%;
     top: 50%;
     background-color: #DAFDBA;
     padding: 1% 4%;
