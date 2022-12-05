@@ -189,10 +189,10 @@ function pagina_questao(){
         // &#!(&@#&@!(*#!)) diminuindo a fonte de opções grandes
         if (op.innerText.length > 60)
         {
-            op.style.fontSize = "2.5vh";
+            op.style.fontSize = getComputedStyle(document.documentElement).getPropertyValue('--tamanho_texto_opcao_grande');
         }
         else{
-            op.style.fontSize = "3vh";
+            op.style.fontSize = getComputedStyle(document.documentElement).getPropertyValue('--tamanho_texto_opcao_pequeno');
 
         }
 
