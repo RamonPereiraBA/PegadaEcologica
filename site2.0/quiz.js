@@ -252,7 +252,7 @@ function finalizar(){
     somatorioLista += lista_respostas[i]
     }
     // Redirecionando a página
-    location.href="resultado.php?total="+somatorioLista;
+    location.href="resultado.html?total="+somatorioLista;
 }
 
 function verficar_respostas(){
