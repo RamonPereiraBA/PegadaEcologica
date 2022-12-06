@@ -1,193 +1,141 @@
-.pegadaResultado {
+/* declaração de variaveis */
+:root{
+    --cor_caixa_titulo : #0CF25D;
+    --cor_caixa_resultado : #025951;
+    --tamanho_titulo_resultado : 7vh;
+    --tamanho_texto_resultado : 4vh;
+    --tamanho_resultado : 15vh;
+    --tamanho_texto_geral : 3vh;
+    --altura_botoes : 90px;
+    --largura_botao_inicio : 150px;
+    --largura_botao_quiz : 200px;
+    --top_botao_inicio : 60%;
+    --top_botao_quiz : 80%;
+}
+
+@media screen and (min-width : 700px){
+    :root{
+        --tamanho_titulo_resultado : 10vh;
+        --tamanho_texto_resultado : 5vh;
+        --tamanho_resultado : 20vh;
+        --tamanho_texto_geral : 5vh;
+        --largura_botao_inicio : 190px;
+        --largura_botao_quiz : 250px;
+    }
+}
+
+@media screen and (max-width : 500px){
+    :root{
+        --tamanho_titulo_resultado : 3vh;
+        --tamanho_texto_resultado : 3vh;
+        --tamanho_resultado : 10vh;
+        --tamanho_texto_geral : 2vh;
+        --largura_botao_inicio : 90px;
+        --largura_botao_quiz : 150px;
+        --top_botao_inicio : 45%;
+        --top_botao_quiz : 60%;
+    }
+}
+
+@media screen and (max-height : 600px){
+    :root{
+        --altura_botoes : 60px;
+    }
+}
+
+/* resto do código */
+#caixa_titulo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 30%;
+    background-color: var(--cor_caixa_titulo);
+}
+
+#titulo_resultado {
+    position: absolute;
     font-family: 'Montserrat', sans-serif;
-    font-size: 10vh;
-    color: #034159;
-    margin-left: 46.6%;
-    letter-spacing: 2px;
-    position: relative;
-    margin-bottom: 1%;
-    margin-top: 19%;
+    font-size: var(--tamanho_titulo_resultado);
+    color: #000000;
+    top: 20%;
+    left: 20%;
 }
 
-
-
-#textoResposta {
+#caixa_resultado{
     position: fixed;
-    font-family: 'Cabin', sans-serif;
-    left: 95vh;
-    top: 24vh;
-    width: 84vh;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
+    top: 30%;
+    left: 0;
+    width: 40%;
+    height: 70%;
+    background-color: var(--cor_caixa_resultado);
 }
 
-.suapontuacaofoi {
-    font-family: 'Cabin', sans-serif;
+#texto_resultado{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--tamanho_texto_resultado);
+    color: var(--cor_caixa_titulo);
+    top: 5%;
+    left: 20%;
+}
+
+#resultado{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--tamanho_resultado);
+    color: var(--cor_caixa_titulo);
+    top: 15%;
+    left: 35%;
+}
+
+#caixa_geral{
     position: fixed;
-    color: #0CF25D;
-    font-size: 4vh;
-    left: 19vh;
-    top: 39vh;
-    animation: fadeinout 1s;
-}
-
-.boxResultado {
-    background-color: #0CF25D;
-    margin-left: -45%;
-    margin-top: -2%;
-    position: fixed;
-    width: 70%;
-    z-index: 1;
-}
-
-@keyframes fadeinout {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.pontuacao {
-    color: white;
-    position: relative;
-    font-size: 24vh;
-    margin-top: 10%;
-    margin-left: 70%;
-    color: #0CF25D;
-    animation: fadeinout 1s;
-    font-family: 'Cabin', sans-serif;
-}
-
-.comentario {
-    left: 95vh;
-    position: fixed;
-    font-family: 'Cabin', sans-serif;
-    display: inline-block;
-    top: 10vh;
-}
-
-.boxPontuacao {
-    background-color: #025951;
-    border-radius: 10px;
-    margin-left: -45%;
-    margin-top: 19%;
-    margin-bottom: 12%;
-    position: fixed;
-    width: 70%;
-    height: 90%;
-}
-
-body {
-    width: 95%;
-    max-width: 800px;
-    margin: auto;
+    top: 0;
+    left: 40%;
+    width: 60%;
+    height: 100%;
     background-color: #034159;
-    background-size: 1900px;
-    font-family: sans-serif;
-    line-height: 1.5;
-    color: white;
 }
 
-#dica {
-    color: #0CF25D;
-    top: 88vh;
-    font-family: 'Cabin', sans-serif;
-    left: 95vh;
+#texto_geral{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--tamanho_texto_geral);
+    color: aliceblue;
+    top: 0;
+    left: 10%;
+}
+
+#dica{
+    position: absolute;
+    top: 80%;
+    font-family: 'Montserrat', sans-serif;
     font-size: 3vh;
-    position: fixed;
+    color: var(--cor_caixa_titulo);
+    left: 4%;
     cursor: pointer;
-    animation: fadeinout .5s;
 }
 
-.p {
-    font-family: 'Cabin', sans-serif;
-    font-size: 3vh;
-}
-
-.res-name {
-    text-align: center;
-}
-
-@keyframes click {
-    0% {
-        outline-offset: 2px;
-    }
-    50% {
-        outline-offset: 4px;
-    }
-    75% {
-        outline-offset: 8px;
-    }
-    90% {
-        outline-offset: 10px;
-    }
-    100% {
-        outline-offset: 12px;
-        outline-color: transparent;
-        background-color: transparent;
-        color: transparent;
-    }
-}
-
-.bot {
-    border: 6px;
+#ir_inicio{
+    position: absolute;
+    top: var(--top_botao_inicio);
+    right: 10%;
+    height: var(--altura_botoes);
+    width: var(--largura_botao_inicio);
+    border: 0;
     border-radius: 15px;
-    background-color: rgb(209, 209, 209);
-    color: black;
-    position: fixed;
-    top: 62vh;
-    font-family: 'Cabin', sans-serif;
-    padding: 2% 8%;
-    left: 140vh;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition-duration: .3s;
-    outline-style: dashed;
-    outline-width: 0px;
+    cursor: pointer;
 }
 
-.bot:hover {
-    background-color: #025951;
-    color: white;
-    outline-width: 6px;
-    outline-style: solid;
-    outline-color: #0CF25D;
-    animation-fill-mode: forwards;
-}
-
-.refazerPesquisa {
-    border: 6px;
+#ir_quiz{
+    position: absolute;
+    top: var(--top_botao_quiz);
+    right: 10%;
+    height: var(--altura_botoes);
+    width: var(--largura_botao_quiz);
+    border: 0;
     border-radius: 15px;
-    background-color: #0CF25D;
-    color: black;
-    left: 127vh;
-    text-align: center;
-    top: 79vh;
-    position: fixed;
-    font-family: 'Cabin', sans-serif;
-    padding: 2% 8%;
-    text-decoration: none;
-    white-space: nowrap;
-    display: inline-block;
-    transition-duration: .35s;
-    outline-style: none;
-    outline-width: 0px;
-    outline-style: dashed;
-    width: 20vh;
-    animation-fill-mode: forwards;
-}
-
-.refazerPesquisa:hover {
-    outline-style: solid;
-    outline-width: 6px;
-    outline-color: rgb(209, 209, 209);
-}
-
-.bot:active,
-.refazerPesquisa:active {
-    animation: click .2s ease-out;
+    background-color: var(--cor_caixa_titulo);
+    cursor: pointer;
 }
