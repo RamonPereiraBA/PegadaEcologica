@@ -18,7 +18,7 @@ function ir_quiz(){
 const urlParams = new URLSearchParams(window.location.search);
 var resultado = urlParams.get('total');
 
-if (resultado === null){
+if (resultado === null || resultado===""){
     resultado = 0;
 }
 
@@ -26,6 +26,7 @@ const titulo = document.getElementById("titulo_resultado");
 const texto_resultado = document.getElementById("resultado");
 const texto_geral = document.getElementById("texto_geral");
 const dica = document.getElementById('dica');
+const barra_resultado = document.getElementById("barra_resultado");
 
 texto_resultado.innerText = resultado;
 
@@ -38,6 +39,7 @@ if (resultado >= 50){
     titulo.innerText = "Excelente";
     texto = "Se você fez de 50 a 70 pontos, Parabéns!! Você está antenado com as questões ambientais e busca ter qualidade de vida sem agredir o meio ambiente.";
     dica.style.visibility = 'hidden'
+    barra_resultado.classList.add("bg-success");
 }else if (resultado >= 35 && resultado <= 49){
     titulo.innerText = "Moderada";
     texto = "Se você fez de 35 a 49 pontos, sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração de recursos pelo planeta, de modo que seu padrão de consumo demanda moderadamente mais do que a Terra pode repor.";
@@ -45,6 +47,7 @@ if (resultado >= 50){
     dica.addEventListener('click', setar_dica);
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
     document.documentElement.style.setProperty('--cor_caixa_resultado', '#C43302');
+    barra_resultado.classList.add("bg-warning");
 }else
 {
     titulo.innerText = "Péssimo";   
@@ -53,8 +56,11 @@ if (resultado >= 50){
     dica.addEventListener('click', setar_dica)
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
     document.documentElement.style.setProperty('--cor_caixa_resultado', '#260101');
+    barra_resultado.classList.add("bg-danger");    
 }
 texto_geral.innerText = texto;
+// a formula a baixo ajusta a porcentagem, pois o maior resultado possível é 70
+barra_resultado.style.width = parseInt((parseInt(resultado)*100)/70)+"%";
 
 // configurando a dica
 function setar_dica(){
