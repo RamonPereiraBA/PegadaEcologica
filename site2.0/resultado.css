@@ -85,7 +85,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: var(--tamanho_resultado);
     color: var(--cor_caixa_titulo);
-    top: 15%;
+    top: 20%;
     left: 35%;
 }
 
@@ -138,4 +138,11 @@
     border-radius: 15px;
     background-color: var(--cor_caixa_titulo);
     cursor: pointer;
+}
+
+.progress{
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    z-index: 2;
 }
