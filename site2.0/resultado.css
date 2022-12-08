@@ -1,7 +1,9 @@
 /* declaração de variaveis */
 :root{
     --cor_caixa_titulo : #0CF25D;
+    --cor_titulo_resultado: #034159;
     --cor_caixa_resultado : #025951;
+    --cor_caixa_geral : #034159;
     --tamanho_titulo_resultado : 7vh;
     --tamanho_texto_resultado : 4vh;
     --tamanho_resultado : 15vh;
@@ -18,7 +20,7 @@
         --tamanho_titulo_resultado : 10vh;
         --tamanho_texto_resultado : 5vh;
         --tamanho_resultado : 20vh;
-        --tamanho_texto_geral : 5vh;
+        --tamanho_texto_geral : 3.2vh;
         --largura_botao_inicio : 190px;
         --largura_botao_quiz : 250px;
     }
@@ -54,11 +56,11 @@
 }
 
 #titulo_resultado {
+    color: var(--cor_titulo_resultado);
     position: absolute;
     font-family: 'Montserrat', sans-serif;
     font-size: var(--tamanho_titulo_resultado);
-    color: #000000;
-    top: 20%;
+    top: 40%;
     left: 20%;
 }
 
@@ -73,7 +75,7 @@
 
 #texto_resultado{
     position: absolute;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cabin', sans-serif;
     font-size: var(--tamanho_texto_resultado);
     color: var(--cor_caixa_titulo);
     top: 5%;
@@ -86,7 +88,7 @@
     font-size: var(--tamanho_resultado);
     color: var(--cor_caixa_titulo);
     top: 20%;
-    left: 35%;
+    left: 39%;
 }
 
 #caixa_geral{
@@ -95,49 +97,60 @@
     left: 40%;
     width: 60%;
     height: 100%;
-    background-color: #034159;
+    background-color: var(--cor_caixa_geral);
 }
 
 #texto_geral{
     position: absolute;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cabin', sans-serif;
     font-size: var(--tamanho_texto_geral);
     color: aliceblue;
-    top: 0;
+    top: 20%;
     left: 10%;
 }
 
 #dica{
     position: absolute;
     top: 80%;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cabin', sans-serif;
     font-size: 3vh;
-    color: var(--cor_caixa_titulo);
+    color: var(--cor_caixa_resultado);
     left: 4%;
     cursor: pointer;
 }
 
 #ir_inicio{
     position: absolute;
+    font-family: 'Cabin', sans-serif;
     top: var(--top_botao_inicio);
     right: 10%;
     height: var(--altura_botoes);
     width: var(--largura_botao_inicio);
     border: 0;
     border-radius: 15px;
+    transition-duration: .2s;
     cursor: pointer;
 }
 
 #ir_quiz{
     position: absolute;
+    font-family: 'Cabin', sans-serif;
     top: var(--top_botao_quiz);
     right: 10%;
     height: var(--altura_botoes);
     width: var(--largura_botao_quiz);
     border: 0;
+    transition-duration: .2s;
     border-radius: 15px;
     background-color: var(--cor_caixa_titulo);
     cursor: pointer;
+}
+
+#ir_quiz:hover{
+    filter: brightness(50%);
+}
+#ir_inicio:hover{
+    filter: brightness(50%);
 }
 
 .progress{
