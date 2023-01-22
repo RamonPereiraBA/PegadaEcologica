@@ -1,4 +1,4 @@
-# O que é GreenLight?
+# O que é o GreenLight?
 O nosso projeto tem o objetivo de conscientizar as pessoas sobre o gasto excessivo de recursos naturais no cotidiano. 
 
 # Como?
