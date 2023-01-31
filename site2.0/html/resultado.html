@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="icon" href="Imagens/Logosite.png">
+    <link rel="stylesheet" href="resultado.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- importando fontes -->
+<!-- montserrat -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+<!-- cabin -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="caixa_titulo">
+        <p id="titulo_resultado"></p>
+    </div>
+    <div id="caixa_resultado">
+        <p id="texto_resultado">Sua pontuação foi...</p>
+        <p id="resultado"></p>
+        <div class="progress" style="height: 15px; width: 60%; left: 17%;">
+            <div class="progress-bar" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+    <div id="caixa_geral">
+        <p id="texto_geral"></p>
+        <p id="dica">Quer uma dica?</p>
+        <button id="ir_inicio">Início</button>
+        <button id="ir_quiz">Refazer Quiz</button>
+    </div>
+    <script src="resultado.js"></script>
+</body>
+</html>
