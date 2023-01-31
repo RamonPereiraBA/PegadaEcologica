@@ -6,11 +6,11 @@ bt_inicio.addEventListener('click', ir_inicio)
 bt_quiz.addEventListener('click', ir_quiz)
 
 function ir_inicio(){
-    location.href = "index.html"
+    location.href = "html/index.html"
 }
 
 function ir_quiz(){
-    location.href = "quiz.html"
+    location.href = "css/quiz.html"
 }
 
 // configurando a tela do resultado
@@ -36,12 +36,16 @@ let texto_dica;
 let dica_esta_ativa = false;
 
 // chegando o resultado
-if (resultado >= 50){
+if (resultado >= 50)
+{
     titulo.innerText = "Excelente";
     texto = "Parabéns!! Você está antenado com as questões ambientais e busca ter qualidade de vida sem agredir o meio ambiente.";
     dica.style.visibility = 'hidden'
     barra_resultado.classList.add("bg-success");
-}else if (resultado >= 35 && resultado <= 49){
+}
+
+else if (resultado >= 35 && resultado <= 49)
+{
     titulo.innerText = "Moderada";
     texto = "Sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração do planeta, de modo que seu consumo demanda mais do que a Terra pode repor.";
     texto_dica = "Dica: Procure fazer a pé ou de bicicleta os percursos curtos do dia a dia, como: ir à padaria, academia ou farmácia no seu bairro. Utilize o carro somente para percursos longos.";
@@ -51,7 +55,9 @@ if (resultado >= 50){
     document.documentElement.style.setProperty('--cor_titulo_resultado', '#010221');
     document.documentElement.style.setProperty('--cor_caixa_geral', '#B7BF99');
     barra_resultado.classList.add("bg-warning");
-}else
+}
+
+else
 {
     titulo.innerText = "Péssimo";   
     texto = "Você vive de forma insustentável, pois demanda demais do que a capacidade natural de regeneração do planeta.";
@@ -63,6 +69,7 @@ if (resultado >= 50){
     document.documentElement.style.setProperty('--cor_caixa_geral', '#B0BFBE');
     barra_resultado.classList.add("bg-danger");    
 }
+
 texto_geral.innerText = texto;
 // a formula a baixo ajusta a porcentagem, pois o maior resultado possível é 70
 barra_resultado.style.width = parseInt((parseInt(resultado)*100)/70)+"%";
