@@ -35,7 +35,7 @@ h1{
 } 
 h2{
     position: absolute;
-    top: 4px;
+    top: 14px;
     left: 3%;
 }
 
@@ -249,6 +249,8 @@ h2{
 #pagina_quiz{
     position: absolute;
     left: 0;
+    display: flex;
+    justify-content: center;
     top: 2390px;
     width: 100%;
     height: 490px;
@@ -257,18 +259,12 @@ h2{
 
 #inicializador{
     position: absolute;
-    left: 3%;
+    width: 25%;
+    height: 13%;
     top: 160px;
     border-radius: 88px;
 }
 
-#imagem_final{
-    position: absolute;
-    top: var(--top_imagem_final);
-    left: 35%;
-    height: var(--altura_imagem_final);
-    width: var(--largura_imagem_final);
-}
 
 #seta_cima{
     position: absolute;

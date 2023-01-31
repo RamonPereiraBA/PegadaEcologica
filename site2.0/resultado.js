@@ -6,17 +6,18 @@ bt_inicio.addEventListener('click', ir_inicio)
 bt_quiz.addEventListener('click', ir_quiz)
 
 function ir_inicio(){
-    location.href = "html/index.html"
+    location.href = "./index.html"
 }
 
 function ir_quiz(){
-    location.href = "css/quiz.html"
+    location.href = "./quiz.html"
 }
 
 // configurando a tela do resultado
 // declarando as variaveis
 const urlParams = new URLSearchParams(window.location.search);
 var resultado = urlParams.get('total');
+
 
 if (resultado === null || resultado===""){
     resultado = 0;

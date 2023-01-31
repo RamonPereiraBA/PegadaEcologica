@@ -2,7 +2,7 @@
 const toggle = document.getElementById("simbolo_tema");
 const barra = document.getElementById('barra')
 
-toggle.addEventListener('click', mudar_tema)
+// toggle.addEventListener('click', mudar_tema)
 
 function mudar_tema(){
     this.classList.toggle('bi-moon');

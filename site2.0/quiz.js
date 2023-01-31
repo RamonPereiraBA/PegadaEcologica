@@ -5,6 +5,7 @@ const color_background =  document.getElementById('op1').style.backgroundColor;
 var id = 0
 var questoes_selecionadas = []
 var lista_respostas = []
+var opcaoSelecionada = false;
 
 // questõs que vão ser perguntadas
 const Questions = [{
@@ -227,6 +228,7 @@ function checagem_botoes(){
         prev.style.cursor = "pointer";
     }
 }
+
 verficar_respostas();
 troca_pergunta()
 
