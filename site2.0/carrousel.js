@@ -2,25 +2,25 @@ var pagina_atual = -1;
 
 // variavel lista com os membros da equipe
 const cards = [{
-  imagem_card: "Imagens/logos/PEA.jpg",
+  imagem_card: "../Imagens/logos/PEA.jpg",
   nome_organizacao_card: "Programa Educação Ambiental",
   funcionalidade_card: "Colaboradores",
   texto_equipe_card: "Temos o objetivo de promover a educação ambiental junto à população. Visando o conhecimento ecológico necessário para a proteção e preservação ambiental.",  
   },
   {
-  imagem_card: "Imagens/logos/Logo fundacao.png",
+  imagem_card: "../Imagens/logos/Logo fundacao.png",
   nome_organizacao_card: "Fundação CSN",
   funcionalidade_card: "Cordenadores",
   texto_equipe_card: "Somos responsáveis pelas ações sociais do Grupo CSN e estamos presentes nas principais cidades em que a empresa atua. Os pilares que sustentam a nossa atuação são educação, cultura, articulação e curadoria.",
   },
   {
-  imagem_card: "Imagens/logos/inpe-logo.png",
+  imagem_card: "../Imagens/logos/inpe-logo.png",
   nome_organizacao_card: "INPE",
   funcionalidade_card: "Créditos",
   texto_equipe_card: "Criada em 1961 com o objetivo de impulsionar o país nas pesquisas cientificas e nas tecnologias espaciais. Suas atividades se ampliaram e a importância dos estudos vão desde assuntos complexos sobre a origem do Universo até as questões de desflorestamento das nossas matas.",
   },
   {
-  imagem_card: "Imagens/logos/etpc.png",
+  imagem_card: "../Imagens/logos/etpc.png",
   nome_organizacao_card: "Escola Técnica Pandiá Calógeras",
   funcionalidade_card: "Desenvolvedores",
   texto_equipe_card: "Fundada em 1944 visando oferecer ensino técnico aos primeiros empregados da Companhia Siderúrgica Nacional e aos seus filhos, é referência nacional em educação para o trabalho, pela excelência de seu processo ensino-aprendizagem, atualização tecnológica e investimento social.",
