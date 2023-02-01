@@ -66,6 +66,11 @@ function criar_caixa_pilar(){
         caixa.style.top = posicoes_caixa[x-1]
         if (x===2 ||x===4){
             caixa.style.right = 0;
+            caixa.style.borderTopLeftRadius = "20px";
+            caixa.style.borderBottomLeftRadius = "20px";
+        }else{
+            caixa.style.borderTopRightRadius = "20px";
+            caixa.style.borderBottomRightRadius = "20px";
         }
     }
 }

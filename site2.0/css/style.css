@@ -1,41 +1,20 @@
-/* declaração de variaveis */
-:root{
-    --tamanho_imagem_globo : 240px;
-    --tamanho_imagem_pilar : 100px;
-    --posicao_texto_pilar : 130px;
-    --tamanho_texto_pilar : 20px;
-    --tamanho_texto_equipe : 20px;
-    --top_texto_equipe : 230px;
-    --tamanho_circulo_equipe : 20px;
-    --largura_imagem_final : 438px;
-    --altura_imagem_final : 410px;
-    --top_imagem_final : 73px;
-}
-
-@media screen and (max-width : 700px){
-    :root{
-        --tamanho_imagem_globo : 120px;
-        --tamanho_imagem_pilar : 75px;
-        --posicao_texto_pilar : 100px;
-        --tamanho_texto_pilar : 14px;
-        --tamanho_texto_equipe : 15px;
-        --top_texto_equipe : 200px;
-        --tamanho_circulo_equipe : 15px;
-        --largura_imagem_final : 216px;
-        --altura_imagem_final : 205px;
-        --top_imagem_final : 250px;
-    }
-}
 
 /* css geral*/
+
+html, body{
+    overflow-x: hidden;
+}
+
 h1{
     position: absolute;
     top: 40px;
+    font-family: 'Montserrat', sans-serif;
     left: 3%;
 } 
 h2{
     position: absolute;
     top: 14px;
+    font-family: 'Montserrat', sans-serif;
     left: 3%;
 }
 
@@ -60,6 +39,7 @@ h2{
     width: 100%;
     height: 40px;
     z-index: 2;
+    display: none;
 }
 
 #dropdown{
@@ -119,7 +99,7 @@ h2{
     top: 100px;
     color: #EBEBEB;
     left:3%;
-    font-family: 'Cabin';
+    font-family: 'Cabin', sans-serif;
     font-style: normal;
     font-size: 20px;
 }
@@ -135,16 +115,15 @@ h2{
 
 .caixa_pilar{
     position: absolute;
-    width: 85%;
+    width: 87%;
     height: 200px;
-    border-radius: 20px;
 }
 
 .titulo_caixa{
     position: absolute;
     color: #012030;
-    font-family: 'Montserrat';
-    font-style: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     font-size: 28px;
     left: 2%;
     top: 4%;
@@ -168,7 +147,7 @@ h2{
     top: 30%;
     left: var(--posicao_texto_pilar);
     color: #000000;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-size: var(--tamanho_texto_pilar);
 }
@@ -208,9 +187,10 @@ h2{
 #funcionalidade{
     position: absolute;
     top: 80px;
+    left: 6%;
     color: #EBEBEB;
-    font-family: 'Montserrat';
-    font-style: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     font-size: 20px;
 }
 
@@ -219,8 +199,7 @@ h2{
     top: var(--top_texto_equipe);
     left: 1%;
     color: #012030;
-    font-family: 'Cabin';
-    font-style: normal;
+    font-family: 'Cabin', sans-serif;
     font-size: var(--tamanho_texto_equipe);
 }
 
@@ -261,10 +240,17 @@ h2{
     position: absolute;
     width: 25%;
     height: 13%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #EBEBEB;
+    color: #042940;
+    font-weight: 600;
     top: 160px;
     border-radius: 88px;
 }
 
+#inicializador:hover{
+    background-color: darkgrey;
+}
 
 #seta_cima{
     position: absolute;
@@ -275,4 +261,38 @@ h2{
     z-index: 3;
     cursor: pointer;
     animation: jumping 1s linear infinite;
+}
+
+
+/* declaração de variaveis */
+:root{
+    --tamanho_imagem_globo : 240px;
+    --tamanho_imagem_pilar : 100px;
+    --posicao_texto_pilar : 130px;
+    --tamanho_texto_pilar : 20px;
+    --tamanho_texto_equipe : 20px;
+    --top_texto_equipe : 230px;
+    --tamanho_circulo_equipe : 20px;
+    --largura_imagem_final : 438px;
+    --altura_imagem_final : 410px;
+    --top_imagem_final : 73px;
+}
+
+@media screen and (max-width : 700px){
+    :root{
+        --tamanho_imagem_globo : 120px;
+        --tamanho_imagem_pilar : 75px;
+        --posicao_texto_pilar : 100px;
+        --tamanho_texto_pilar : 14px;
+        --tamanho_texto_equipe : 15px;
+        --top_texto_equipe : 200px;
+        --tamanho_circulo_equipe : 15px;
+        --largura_imagem_final : 216px;
+        --altura_imagem_final : 205px;
+        --top_imagem_final : 250px;
+    }
+    
+    #barra{
+        display: block;
+    }
 }
