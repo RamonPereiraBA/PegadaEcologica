@@ -1,8 +1,8 @@
 <h1> GreenLight </h1>
 <img src= "http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
-# O que é o GreenLight? :four_leaf_clover:
-O nosso projeto tem o objetivo de informar as pessoas o gasto excessivo de recursos naturais no cotidiano. 
+# Descrição do Projeto
+O nosso trabalho tem o objetivo de informar as pessoas o gasto excessivo de recursos naturais no cotidiano. 
 Fazemos isso através da Pegada Ecológica. 
 
 ## O que é uma Pegada Ecológica?
