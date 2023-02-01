@@ -1,8 +1,6 @@
 # O que é o GreenLight? :four_leaf_clover:
-O nosso projeto tem o objetivo de conscientizar as pessoas sobre o gasto excessivo de recursos naturais no cotidiano. 
-
-## Como? :eyes:
-Simples, nosso site fornece um quiz interativo onde você calcula a sua Pegada Ecológica.
+O nosso projeto tem o objetivo de informar as pessoas o gasto excessivo de recursos naturais no cotidiano. 
+Fazemos isso através da Pegada Ecológica. 
 
 ## O que é uma Pegada Ecológica?
 É uma pesquisa onde você pode verificar o quanto você gasta do planeta.
