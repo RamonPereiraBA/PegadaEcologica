@@ -9,3 +9,5 @@ Simples, nosso site fornece um quiz interativo onde você calcula a sua Pegada E
 
 ## Como saber se eu tenho gastos excessivos?
 Simples, quanto maior for a sua pontuação, menos você gasta dos recursos naturais e melhor é a sua consciência ambiental.
+
+:construction: Projeto em construção :construction:
