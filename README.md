@@ -1,4 +1,4 @@
-<img style="height: 50px; width: 50px;" src="https://user-images.githubusercontent.com/82301731/216135751-11173142-9a00-49a2-bac9-455e4873c885.png" />
+<img src="https://user-images.githubusercontent.com/82301731/216135751-11173142-9a00-49a2-bac9-455e4873c885.png" />
 <br>
 <img src= "http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
