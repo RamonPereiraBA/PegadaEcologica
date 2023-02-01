@@ -6,19 +6,19 @@
 O nosso trabalho tem o objetivo de informar as pessoas o gasto excessivo de recursos naturais no cotidiano. 
 Fazemos isso através da `Pegada Ecológica`. 
 
-
+<br>
 
 
 ## O que é uma Pegada Ecológica?
 É uma pesquisa onde você pode verificar o quanto você gasta do planeta.
 
-
+<br>
 
 
 ## Como saber se eu tenho gastos excessivos?
 Simples, quanto maior for a sua pontuação, menos você gasta dos recursos naturais e melhor é a sua consciência ambiental.
 
-
+<br>
 
 
 ## Acesso ao Projeto :file_folder:
