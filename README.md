@@ -1,5 +1,5 @@
 <h1> GreenLight </h1>
-https://img.shields.io/static/v1?label=<LABEL>&message=<Em desenvolvimento>&color=<green>
+https://img.shields.io/static/v1?label=<badge>&message=<Em desenvolvimento>&color=<green>
 
 # O que é o GreenLight? :four_leaf_clover:
 O nosso projeto tem o objetivo de informar as pessoas o gasto excessivo de recursos naturais no cotidiano. 
