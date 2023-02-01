@@ -1,4 +1,4 @@
-<h1 text-align="center"> GreenLight </h1> ** logo com nome do projeto vem aqui
+<h1 style="color: light green;"> GreenLight </h1> 
 <img src= "http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
 
