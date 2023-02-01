@@ -9,13 +9,13 @@ Fazemos isso através da `Pegada Ecológica`.
 <br>
 
 
-## :four_leaf_clover: O que é uma Pegada Ecológica?
+## O que é uma Pegada Ecológica?
 É uma pesquisa onde você pode verificar o quanto você gasta do planeta.
 
 <br>
 
 
-## :eyes: Como saber se eu tenho gastos excessivos?
+## Como saber se eu tenho gastos excessivos? :eyes:
 Simples, quanto maior for a sua pontuação, menos você gasta dos recursos naturais e melhor é a sua consciência ambiental.
 
 <br>
