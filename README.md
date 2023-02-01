@@ -3,7 +3,7 @@
 
 
 # Introdução
-O nosso trabalho tem o objetivo de informar as pessoas o gasto excessivo de recursos naturais que fazemos no cotidiano. 
+O nosso trabalho tem o objetivo de informar as pessoas o gasto excessivo de recursos naturais que fazemos no cotidiano.<br>
 Fazemos isso através da `Pegada Ecológica`. 
 
 <br>
@@ -28,5 +28,5 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 
 ## Organização do Projeto
-Acesse o `Figma` do projeto por <a href="https://www.figma.com/file/ij0NqivDM9UKtiuFoNpIYC/pegadaecologicadesign?t=e08EUk75eapSWAQ3-6">aqui</a>
+Acesse o `Figma` do projeto por <a href="https://www.figma.com/file/ij0NqivDM9UKtiuFoNpIYC/pegadaecologicadesign?t=e08EUk75eapSWAQ3-6">aqui</a> <br>
 E o `Trello` por <a href="https://trello.com/b/rZaTN4So/todo-greenlight-2023">aqui</a>
