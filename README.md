@@ -1,7 +1,7 @@
-# :four_leaf_clover: O que é o GreenLight?:four_leaf_clover:
+# O que é o GreenLight? :four_leaf_clover:
 O nosso projeto tem o objetivo de conscientizar as pessoas sobre o gasto excessivo de recursos naturais no cotidiano. 
 
-## Como :question:
+## Como:question:
 Simples, nosso site fornece um quiz interativo onde você calcula a sua Pegada Ecológica.
 
 ## O que é uma Pegada Ecológica?
