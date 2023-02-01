@@ -10,16 +10,23 @@ Fazemos isso através da `Pegada Ecológica`.
 
 
 ## 🍀 O que é uma Pegada Ecológica?
- É uma pesquisa onde você pode verificar o quanto você gasta do planeta.
+É uma pesquisa onde você pode verificar o quanto você gasta do planeta.
 
 <br>
 
 
 ## :eyes: Como saber se eu tenho gastos excessivos?
- Simples, quanto maior for a sua pontuação, menos você gasta dos recursos naturais e melhor é a sua consciência ambiental.
+Simples, quanto maior for a sua pontuação, menos você gasta dos recursos naturais e melhor é a sua consciência ambiental.
 
 <br>
 
 
 ## :file_folder: Acesso ao Projeto
- Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqui</a> 
+Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqui</a> 
+
+<br>
+<br>
+
+## Organização do Projeto
+Acesse o `Figma` do projeto por <a href="https://www.figma.com/file/ij0NqivDM9UKtiuFoNpIYC/pegadaecologicadesign?t=e08EUk75eapSWAQ3-6">aqui</a>
+E o `Trello` por <a href="https://trello.com/b/rZaTN4So/todo-greenlight-2023">aqui</a>
