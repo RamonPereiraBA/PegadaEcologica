@@ -1,4 +1,6 @@
 var pagina_atual = -1;
+var lista_circulos = [document.getElementById('c1'), document.getElementById('c2'), document.getElementById('c3'),
+document.getElementById('c4')]
 
 // variavel lista com os membros da equipe
 const cards = [{
@@ -26,6 +28,15 @@ const cards = [{
   texto_equipe_card: "Fundada em 1944 visando oferecer ensino técnico aos primeiros empregados da Companhia Siderúrgica Nacional e aos seus filhos, é referência nacional em educação para o trabalho, pela excelência de seu processo ensino-aprendizagem, atualização tecnológica e investimento social.",
   }
 ]
+
+var posicao_left = 35;
+// ajeitando a posição dos circulos
+for (let x = 0; x < cards.length; x++){
+  // configurando a posição dos circulos
+  posicao_left += 5;
+  lista_circulos[x].style.left = posicao_left + "%";
+  lista_circulos[x].addEventListener('click', () => click_circulo(x))
+}
 
 passar_pagina("+")
 
@@ -57,14 +68,7 @@ function setar_pagina(){
   imagem.setAttribute('src', cards[pagina_atual].imagem_card);
 
   // configurando os circulos
-  var lista_circulos = [document.getElementById('c1'), document.getElementById('c2'), document.getElementById('c3'),
-  document.getElementById('c4')]
-  var posicao_left = 35;
-
   for (let x = 0; x < cards.length; x++){
-    // configurando a posição dos circulos
-    posicao_left += 5;
-    lista_circulos[x].style.left = posicao_left + "%";
     // mudando a cor dos circulos
     if (x===pagina_atual){
       lista_circulos[x].style.backgroundColor = "#ebebeb"
@@ -72,7 +76,6 @@ function setar_pagina(){
     else{
       lista_circulos[x].style.backgroundColor = "#000000"
     }
-    lista_circulos[x].addEventListener('click', () => click_circulo(x))
   }
 }
 
