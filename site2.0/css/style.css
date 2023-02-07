@@ -247,10 +247,11 @@ h2{
     font-weight: 600;
     top: 160px;
     border-radius: 88px;
+    transition-duration: .4s;
 }
 
 #inicializador:hover{
-    background-color: darkgrey;
+    background-color: #9AEBA3;
 }
 
 #seta_cima{
