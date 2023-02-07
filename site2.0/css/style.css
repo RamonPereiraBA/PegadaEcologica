@@ -273,9 +273,6 @@ h2{
     --tamanho_texto_equipe : 20px;
     --top_texto_equipe : 230px;
     --tamanho_circulo_equipe : 20px;
-    --largura_imagem_final : 438px;
-    --altura_imagem_final : 410px;
-    --top_imagem_final : 73px;
 }
 
 @media screen and (max-width : 700px){
@@ -287,9 +284,6 @@ h2{
         --tamanho_texto_equipe : 15px;
         --top_texto_equipe : 200px;
         --tamanho_circulo_equipe : 15px;
-        --largura_imagem_final : 216px;
-        --altura_imagem_final : 205px;
-        --top_imagem_final : 250px;
     }
     
     #barra{
