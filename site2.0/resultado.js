@@ -28,6 +28,7 @@ const texto_resultado = document.getElementById("resultado");
 const texto_geral = document.getElementById("texto_geral");
 const dica = document.getElementById('dica');
 const barra_resultado = document.getElementById("barra_resultado");
+const imagem_fundo = document.getElementById("imagem_fundo");
 var dicaCor;
 
 texto_resultado.innerText = resultado;
@@ -41,6 +42,7 @@ if (resultado >= 50)
 {
     titulo.innerText = "Excelente";
     texto = "Parabéns!! Você está antenado com as questões ambientais e busca ter qualidade de vida sem agredir o meio ambiente.";
+    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoEx.png");
     dica.style.visibility = 'hidden'
     barra_resultado.classList.add("bg-success");
 }
@@ -50,6 +52,7 @@ else if (resultado >= 35 && resultado <= 49)
     titulo.innerText = "Moderada";
     texto = "Sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração do planeta, de modo que seu consumo demanda mais do que a Terra pode repor.";
     texto_dica = "Dica: Procure fazer a pé ou de bicicleta os percursos curtos do dia a dia, como: ir à padaria, academia ou farmácia no seu bairro. Utilize o carro somente para percursos longos.";
+    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
     dica.addEventListener('click', setar_dica);
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
     document.documentElement.style.setProperty('--cor_caixa_resultado', '#C43302');
@@ -63,6 +66,7 @@ else
     titulo.innerText = "Péssimo";   
     texto = "Você vive de forma insustentável, pois demanda demais do que a capacidade natural de regeneração do planeta.";
     texto_dica = "Dica: Verifique se o produto antigo não atende às suas necessidades e, se estiver quebrado ou com problemas. Separe o lixo para reciclagem e confira como funciona a coleta seletiva na sua cidade. Transportes alternativos, como bicicletas e caminhada reduzem a emissão de gases.";
+    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
     dica.addEventListener('click', setar_dica)
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
     document.documentElement.style.setProperty('--cor_caixa_resultado', '#260101');
