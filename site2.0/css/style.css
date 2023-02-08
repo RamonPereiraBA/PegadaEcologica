@@ -87,7 +87,7 @@ h2{
 /* css da tela dos nossos objetivos*/
 #objetivo{
     position: absolute;
-    top:400px;
+    top: 400px;
     left: 0;
     background-color: #042940;
     height: 200px;
@@ -107,7 +107,7 @@ h2{
 /* css da tela dos pilares*/
 #pilares{
     position: absolute;
-    top:600px;
+    top: 600px;
     left: 0;
     background-color: #13678A;
     height: 1140px;
@@ -239,7 +239,7 @@ h2{
 
 #inicializador{
     position: absolute;
-    width: 25%;
+    width: var(--largura_bt_inicializador);
     height: 13%;
     font-family: 'Montserrat', sans-serif;
     background-color: #EBEBEB;
@@ -276,6 +276,7 @@ h2{
     --top_texto_equipe : 230px;
     --tamanho_circulo_equipe : 20px;
     --tamanho_texto_funcionalidade : 20px;
+    --largura_bt_inicializador : 250px;
 }
 
 @media screen and (max-width : 700px){
@@ -288,6 +289,7 @@ h2{
         --top_texto_equipe : 200px;
         --tamanho_circulo_equipe : 15px;
         --tamanho_texto_funcionalidade : 14px;
+        --largura_bt_inicializador : 150px;
     }
     
     #barra{
