@@ -73,6 +73,15 @@
     background-color: var(--cor_caixa_resultado);
 }
 
+#imagem_fundo{
+    position: fixed;
+    top: 30%;
+    left: 0;
+    width: 40%;
+    height: 70%;
+    opacity: 12%;
+}
+
 #texto_resultado{
     position: absolute;
     font-family: 'Cabin', sans-serif;
