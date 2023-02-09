@@ -1,9 +1,29 @@
 
+
 /* css geral*/
 
 html, body{
     overflow-x: hidden;
 }
+
+#tInicio{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+#tOqFazemos{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+#tNossosPilares{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+}
+
 
 h1{
     position: absolute;
@@ -62,13 +82,27 @@ h2{
     left: 0;
     height: 400px;
     width: 100%;
-    background-color: #a1c331;
+    z-index: 10;
+    background: linear-gradient(153.11deg, rgba(219, 242, 39, 0.95) -10.18%, #9FC131 26.3%);
 }
 
 #btn_começar{
     position: absolute;
-    top: 200px;
+    cursor: pointer;
+    top: 240px;
     left: 3%;
+    border-radius: 88px;
+    background-color: #DBF227;
+    width: 180px;
+    height: 50px;
+    border-style: none;
+    box-shadow: #00000034 0px 12px 10px;
+    font-family: 'Cabin', sans-serif;
+    transition-duration: .2s;
+}
+
+#btn_começar:hover{
+    background-color: #83911a;
 }
 
 #imagem_globo{
@@ -87,7 +121,8 @@ h2{
 /* css da tela dos nossos objetivos*/
 #objetivo{
     position: absolute;
-    top: 400px;
+    z-index: 9;
+    top: 585px;
     left: 0;
     background-color: #042940;
     height: 200px;
@@ -104,10 +139,11 @@ h2{
     font-size: 20px;
 }
 
+
 /* css da tela dos pilares*/
 #pilares{
     position: absolute;
-    top: 600px;
+    top: 970px;
     left: 0;
     background-color: #13678A;
     height: 1140px;
@@ -152,11 +188,12 @@ h2{
     font-style: normal;
     font-size: var(--tamanho_texto_pilar);
 }
+
 /* css da tela da nossa equipe*/
 #equipe{
     position: absolute;
     left: 0;
-    top: 1740px;
+    top: 2850px;
     background-color: #9AEBA3;
     height: 650px;
     width: 100%;
@@ -225,13 +262,14 @@ h2{
     cursor: pointer;
 }
 
+
 /*css da parte final*/
 #pagina_quiz{
     position: absolute;
     left: 0;
     display: flex;
     justify-content: center;
-    top: 2390px;
+    top: 3870px;
     width: 100%;
     height: 490px;
     background-color: #042940;
@@ -296,3 +334,4 @@ h2{
         display: block;
     }
 }
+
