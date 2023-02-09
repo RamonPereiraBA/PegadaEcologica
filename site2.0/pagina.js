@@ -57,7 +57,7 @@ botao_inicial.addEventListener('click', () => rolar_pagina(4))
 
 // Criando as caixas dos pilares
 const cores_caixa = ["#45C4B0ed", "#DAFDBA", "#45C4B0", "#DAFDBA"]
-const posicoes_caixa = ["140px", "380px", "620px", "860px"]
+const posicoes_caixa = ["140px", "440px", "740px", "1040px"]
 
 function criar_caixa_pilar(){
     for (let x = 1; x < 5; x++){
