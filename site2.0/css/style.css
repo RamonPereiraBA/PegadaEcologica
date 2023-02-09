@@ -1,5 +1,4 @@
 
-
 /* css geral*/
 
 html, body{
@@ -80,7 +79,7 @@ h2{
     position: absolute;
     top: 0;
     left: 0;
-    height: 400px;
+    height: 570px;
     width: 100%;
     z-index: 10;
     background: linear-gradient(153.11deg, rgba(219, 242, 39, 0.95) -10.18%, #9FC131 26.3%);
@@ -146,7 +145,7 @@ h2{
     top: 970px;
     left: 0;
     background-color: #13678A;
-    height: 1140px;
+    height: 1400px;
     width: 100%;
 }
 
@@ -334,4 +333,3 @@ h2{
         display: block;
     }
 }
-
