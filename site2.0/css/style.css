@@ -117,6 +117,10 @@ h2{
     transform: scale(1.05);
 }
 
+#divisa1{
+
+}
+
 /* css da tela dos nossos objetivos*/
 #objetivo{
     position: absolute;
@@ -289,7 +293,9 @@ h2{
 
 #inicializador:hover{
     background-color: #9AEBA3;
+    box-shadow: 0 0 5px #9AEBA3, 0 0 25px #9AEBA3, 0 0 50px #9AEBA3, 0 0 200px #9AEBA3;
 }
+
 
 #seta_cima{
     position: absolute;
