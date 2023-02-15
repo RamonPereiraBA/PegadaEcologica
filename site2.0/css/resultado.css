@@ -168,3 +168,8 @@
     left: 0;
     z-index: 2;
 }
+
+.progress:hover{
+    box-shadow: 0 0 5px var(--cor_caixa_titulo), 0 0 25px var(--cor_caixa_titulo), 0 0 50px var(--cor_caixa_titulo),
+     0 0 200px var(--cor_caixa_titulo);
+}
