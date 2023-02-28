@@ -3,12 +3,26 @@
     --tamanho_questao : 4vh;
     --tamanho_texto_opcao_grande : 2vh;
     --tamanho_texto_opcao_pequeno : 2.5vh;
+    --posicao_botao_direita: 34%;
+    --posicao_botao_finalizar_top: 82%;
+    --posicao_botao_finalizar_left: 70%;
+    --tamanho_bola: 70px;
+    --posicao_bola_top: 4%;
+    --fonte_numero_bola: 33px;
+    --posicao_questao_left: 8%;
 }
 @media screen and (min-width : 780px){
     :root{
         --tamanho_questao : 5vh;
         --tamanho_texto_opcao_grande : 2.5vh;
         --tamanho_texto_opcao_pequeno : 3vh;
+        --posicao_botao_direita: 34%;
+        --posicao_botao_finalizar_top: 82%;
+        --posicao_botao_finalizar_left: 70%;
+        --tamanho_bola: 70px;
+        --fonte_numero_bola: 33px;
+        --posicao_bola_top: 4%;
+        --posicao_questao_left: 8%;
     }
 }
 
@@ -17,6 +31,13 @@
         --tamanho_questao : 3vh;
         --tamanho_texto_opcao_grande : 1.5vh;
         --tamanho_texto_opcao_pequeno : 2vh;
+        --posicao_botao_direita: 54%;
+        --posicao_botao_finalizar_top: 72%;
+        --posicao_botao_finalizar_left: 30%;
+        --posicao_bola_top: 6%;
+        --tamanho_bola: 30px;
+        --fonte_numero_bola: 15px;
+        --posicao_questao_left: 11%;
     }
 }
 
@@ -30,12 +51,32 @@
     background: #012030;
 }
 
+#bola_numero{
+    position: fixed;
+    border-radius: 50%;
+    background-color: #45C4B0;
+    top: var(--posicao_bola_top);
+    left: 2%;
+    height: var(--tamanho_bola);
+    width: var(--tamanho_bola);
+}
+
+#numero_bola{
+    position: absolute;
+    color: #012030;
+    font-weight: 700;
+    font-size: var(--fonte_numero_bola);
+    top: 23%;
+    font-family: 'Montserrat', sans-serif;
+}
+
 #question{
     position: fixed;
 	color: #EBEBEB;
     font-size: var(--tamanho_questao);
     font-family: 'Montserrat', sans-serif;
-    left: 8%;
+    font-weight: 700;
+    left: var(--posicao_questao_left);
     top: 5%;
 }
 
@@ -46,6 +87,7 @@
     flex-wrap: wrap;
     background-color: transparent;
     width: 70%;
+    margin-bottom: .7%;
     height: 38%;
     top: 29%;
     justify-content: left; 
@@ -53,9 +95,11 @@
 
 .option{
     margin: 0px 12px;
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
     width: 100%;
     top: 50%;
+    margin-bottom: 1%;
     background: #45C4B0;
     padding: 1% 4%;
     border-radius: 0px 0px 54px 0px;
@@ -96,83 +140,48 @@
 #next{
     position: fixed;
     font-family: 'Cabin', sans-serif;
-    font-size: 2vh;
+    font-size: 2.7vh;
     box-shadow: #172026 0px 5px;
-    border-radius: 15px;
+    border-radius: 58px;
     border: none;
     padding: 2.5% 10%;
-    background-color: #9AEBA3;
+    background-color: #DAFDBA;
     color: #172026;
-    left: 34%;
+    left: var(--posicao_botao_direita);
     cursor: pointer;
     top: 82%;
 }
 
 #prev{
-    background-color: #9AEBA3;
+    background-color: #DAFDBA;
     color: #172026;
     position: fixed;
     box-shadow: #172026 0px 5px;
-    border-radius: 15px;
     border: none;
-    font-size: 2vh;
+    font-size: 2.7vh;
     font-family: 'Cabin', sans-serif;
     padding: 2.5% 10%;
-    border-radius: 15px;
+    border-radius: 58px;
     cursor: pointer;
     left: 5%;
     top: 82%;
 }
 
 #finalizar{
-    background-color: #9AEBA3;
+    background: linear-gradient(112.97deg, #B0EAB7 2.17%, #45C4B0 91.84%);
     color: #172026;
     box-shadow: #172026 0px 5px;
     border-radius: 15px;
     border: none;
     animation: aparecer .8s;
+    width: var(--tamanho_botao_finalizar);
     font-family: 'Cabin', sans-serif;
-    font-size: 2vh;
+    font-size: 2.9vh;
     position: fixed;
-    left: 70%;
+    left: var(--posicao_botao_finalizar_left);
     padding: 2.5% 10%;
     cursor: pointer;
-    border-radius: 15px;
-    top: 82%;
+    border-radius: 58px;
+    top: var(--posicao_botao_finalizar_top);
 }
 
-
-#next:active{
-    animation: clicadonav .2s;
-    box-shadow: 0 5px #172026;
-    transform: translateY(8px);
-}
-
-#next:hover{
-    background-color: #DAFDBA;
-    transition-duration: .2s;
-}
-
-#prev:hover{
-    transition-duration: .2s;
-    background-color: #DAFDBA;
-}
-
-#finalizar:hover{
-    transition-duration: .2s;
-    background-color: #DAFDBA;
-}
-
-#prev:active{
-    background-color: #DAFDBA;
-    animation: clicadonav .2s;
-    box-shadow: 0 5px #172026;
-    transform: translateY(8px);
-}
-
-#finalizar:active{
-    background-color: #DAFDBA;
-    animation: clicadonav .2s;
-    box-shadow: 0 5px #172026;
-    transform: translateY(8px);
-}
