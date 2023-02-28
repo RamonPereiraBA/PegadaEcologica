@@ -161,8 +161,16 @@ for (let i = 0; i < Questions.length; i++)
 function pagina_questao(){
     const question = document.getElementById("question");
     const opcoes = document.getElementById("opcoesid");
-    question.innerText = (id+1)+"-"+Questions[id].q;
-   
+    const numero_bola = document.getElementById("numero_bola");
+    numero_bola.innerText = (id+1);
+    question.innerText = Questions[id].q;
+    
+    if ((id+1) >= 10){
+        numero_bola.style.left = "27%";
+    }else{
+        numero_bola.style.left = "39%";
+    }
+
     // encaixando as opções grandes no quiz (evitar erros de proporção)
     if (Questions[id].q.length > 39){
         opcoes.style.height = "98%";   
@@ -265,3 +273,4 @@ function troca_pergunta(){
     checagem_botoes();
     botao_esta_selecionado();
 }
+
