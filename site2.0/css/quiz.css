@@ -21,27 +21,22 @@
 }
 
 /* resto do código */
+.painel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #012030;
+}
+
 #question{
     position: fixed;
 	color: #EBEBEB;
     font-size: var(--tamanho_questao);
-    margin-left: 4%;
     font-family: 'Montserrat', sans-serif;
-    top: 2%;
-}
-
-.painel{
-    position: fixed;
-    top: 45%;
-    left: 50%;
-    word-break: break-word;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    width: 68%;
-    justify-content: center;
-    height: 78%;
-    border-radius: 36px;
-    background-image: linear-gradient(61.37deg, #025951 26.38%, #058B55 75.91%, #0CF25D 123.41%);
+    left: 8%;
+    top: 5%;
 }
 
 .opcoes{
@@ -52,20 +47,21 @@
     background-color: transparent;
     width: 70%;
     height: 38%;
-    margin-left: 2%;
+    top: 29%;
     justify-content: left; 
 }
 
 .option{
     margin: 0px 12px;
-    margin-left: 4vh;
     font-family: 'Cabin', sans-serif;
-    width: fit-content;
-    max-width: 130%;
+    width: 100%;
     top: 50%;
-    background-color: #DAFDBA;
+    background: #45C4B0;
     padding: 1% 4%;
-    border-radius: 7px;
+    border-radius: 0px 0px 54px 0px;
+    margin-left: 0%;
+    text-align: left; 
+    font-size: var(--tamanho_texto_opcao_pequeno);
 }
 
 @keyframes clicado{
