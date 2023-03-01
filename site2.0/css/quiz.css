@@ -1,15 +1,17 @@
 /* declaração de variaveis */
 :root{
-    --tamanho_questao : 4vh;
+    --tamanho_questao : 3vh;
     --tamanho_texto_opcao_grande : 2vh;
     --tamanho_texto_opcao_pequeno : 2.5vh;
     --posicao_botao_direita: 34%;
-    --posicao_botao_finalizar_top: 82%;
-    --posicao_botao_finalizar_left: 70%;
-    --tamanho_bola: 70px;
-    --posicao_bola_top: 4%;
-    --fonte_numero_bola: 33px;
-    --posicao_questao_left: 8%;
+    --posicao_botao_finalizar_top: 72%;
+    --posicao_botao_finalizar_left: 30%;
+    --posicao_bola_top: 6%;
+    --tamanho_bola: 30px;
+    --fonte_numero_bola: 15px;
+    --posicao_numero_bola_top: 23%;
+    --posicao_questao_left: 11%;
+    --altura_opcoes: 81%;
 }
 @media screen and (min-width : 780px){
     :root{
@@ -22,7 +24,19 @@
         --tamanho_bola: 70px;
         --fonte_numero_bola: 33px;
         --posicao_bola_top: 4%;
+        --posicao_numero_bola_top: 19%;
         --posicao_questao_left: 8%;
+        --altura_opcoes: 60%;
+    }
+}
+
+@media screen and (min-width : 1000px) 
+{
+    :root
+    {
+        --posicao_questao_left: 10%;
+        --posicao_bola_top: 4%;
+        --posicao_numero_bola_top: 19%;
     }
 }
 
@@ -37,11 +51,23 @@
         --posicao_bola_top: 6%;
         --tamanho_bola: 30px;
         --fonte_numero_bola: 15px;
+        --posicao_numero_bola_top: 19%;
         --posicao_questao_left: 11%;
+        --altura_opcoes: 70%;
+        --tamanho_botoes_navegacao: 
     }
+}
+@media screen and (max-width : 300px) 
+{
+    :root
+    {
+        --tamanho_bola: 19px;
+        --fonte_numero_bola: 8px;
+    }    
 }
 
 /* resto do código */
+/*Pergunta inicial*/
 .painel{
     position: fixed;
     top: 0;
@@ -55,12 +81,10 @@
     position: fixed;
     top: 0%;
     left: 0;
-    box-shadow: 0 0 5px var(--cor_caixa_titulo), 0 0 25px var(--cor_caixa_titulo), 0 0 50px var(--cor_caixa_titulo),
-    0 0 200px var(--cor_caixa_titulo);
 }
 
 #bola_numero{
-    position: fixed;
+    position: absolute;
     border-radius: 50%;
     background-color: #45C4B0;
     top: var(--posicao_bola_top);
@@ -74,7 +98,7 @@
     color: #012030;
     font-weight: 700;
     font-size: var(--fonte_numero_bola);
-    top: 23%;
+    top: var(--posicao_numero_bola_top);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -88,13 +112,15 @@
     top: 5%;
 }
 
+/*Opções*/
+
 .opcoes{
     position: fixed;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     background-color: transparent;
-    width: 70%;
+    width: var(--altura_opcoes);
     margin-bottom: .7%;
     height: 38%;
     top: 29%;
@@ -144,6 +170,7 @@
     animation: clicado .2s;
 }
 
+/*navegação*/
 
 #next{
     position: fixed;
@@ -152,7 +179,7 @@
     box-shadow: #172026 0px 5px;
     border-radius: 58px;
     border: none;
-    padding: 2.5% 10%;
+    padding: 2% 7%;
     background-color: #DAFDBA;
     color: #172026;
     left: var(--posicao_botao_direita);
@@ -168,7 +195,7 @@
     border: none;
     font-size: 2.7vh;
     font-family: 'Cabin', sans-serif;
-    padding: 2.5% 10%;
+    padding: 2% 7%;
     border-radius: 58px;
     cursor: pointer;
     left: 5%;
