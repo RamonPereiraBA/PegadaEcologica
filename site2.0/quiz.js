@@ -269,8 +269,9 @@ function botao_esta_selecionado(){
 }
 
 function troca_pergunta(){
+    const barra_resultado = document.getElementById("barra_resultado");
+    barra_resultado.style.width = (((id+1)/14)*100)+"%";
     pagina_questao();
     checagem_botoes();
     botao_esta_selecionado();
 }
-
