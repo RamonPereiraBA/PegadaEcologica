@@ -1,6 +1,7 @@
 const next = document.getElementById('next')
 const prev = document.getElementById('prev')
 const fim = document.getElementById('finalizar')
+const barra_resultado = document.getElementById("barra_resultado");
 const color_background =  document.getElementById('op1').style.backgroundColor;
 var id = 0
 var questoes_selecionadas = []
@@ -80,10 +81,10 @@ const Questions = [{
 },
 {
     q: "Como você descarta o lixo da sua casa?",
-    a: [{ text: "Não me preocupo em separar o lixo", ponto: 1, estado: "visible"  },
-        { text: "Em duas lixeiras, uma para recicláveis e outra para não recicláveis", ponto: 4, estado: "visible"  },
-        { text: "materiais eletrônicos são encaminhados a postos de recolhimento", ponto: 5, estado: "visible" },
-        { text: "Em uma única lixeira, pois não existe coleta seletiva no meu bairro/cidade", ponto: 5, estado: "visible" },
+    a: [{ text: "Não me preocupo em separar", ponto: 1, estado: "visible"  },
+        { text: "Em duas lixeiras", ponto: 4, estado: "visible"  },
+        { text: "Materiais eletrônicos encaminhados a postos de recolhimento", ponto: 5, estado: "visible" },
+        { text: "Em uma única lixeira", ponto: 1, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
@@ -139,7 +140,7 @@ const Questions = [{
 
 },
 {
-    q: "Qual a quantidade de alimentos que você consome que contém açúcar refinado? sabendo que uma barra de chocolate equivale a 100g",
+    q: "Qual a quantidade de alimentos que você consome que contém açúcar refinado?",
     a: [{ text: "Menos de 100g por semana", ponto: 4, estado: "visible"  },
         { text: "Mais de 100g por semana", ponto: 0, estado: "visible"  },
         { text: "Nenhum alimento", ponto: 5, estado: "visible" },
@@ -269,7 +270,6 @@ function botao_esta_selecionado(){
 }
 
 function troca_pergunta(){
-    const barra_resultado = document.getElementById("barra_resultado");
     barra_resultado.style.width = (((id+1)/14)*100)+"%";
     pagina_questao();
     checagem_botoes();
