@@ -14,7 +14,7 @@
     --top_botao_inicio : 60%;
     --top_botao_quiz : 80%;
 }
-
+/*
 @media screen and (min-width : 700px){
     :root{
         --tamanho_titulo_resultado : 10vh;
@@ -24,9 +24,9 @@
         --largura_botao_inicio : 190px;
         --largura_botao_quiz : 250px;
     }
-}
+}*/
 
-@media screen and (max-width : 500px){
+@media screen and (max-width : 1000px){
     :root{
         --tamanho_titulo_resultado : 3vh;
         --tamanho_texto_resultado : 3vh;
@@ -36,12 +36,6 @@
         --largura_botao_quiz : 150px;
         --top_botao_inicio : 45%;
         --top_botao_quiz : 60%;
-    }
-}
-
-@media screen and (max-height : 600px){
-    :root{
-        --altura_botoes : 60px;
     }
 }
 
@@ -125,6 +119,7 @@
     font-size: 3vh;
     color: var(--cor_caixa_resultado);
     left: 4%;
+    text-decoration: underline;
     cursor: pointer;
 }
 
