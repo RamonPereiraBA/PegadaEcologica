@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado</title>
     <link rel="icon" href="../Imagens/Logosite.png">
-    <link rel="stylesheet" href="../css/resultado.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -31,16 +30,17 @@
         <img id="imagem_fundo">
         <p id="texto_resultado">Sua pontuação foi...</p>
         <p id="resultado"></p>
-        <div class="progress" style="height: 15px; width: 60%; left: 17%;">
+        <div class="progress" style="height: 15px; width: 60%; left: 10%; border-radius: 0;">
             <div class="progress-bar" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
     </div>
     <div id="caixa_geral">
         <p id="texto_geral"></p>
         <p id="dica">Quer uma dica?</p>
-        <button id="ir_inicio">Início</button>
+        <button id="ir_inicio">Voltar ao Início</button>
         <button id="ir_quiz">Refazer Quiz</button>
     </div>
+    <script src="../seletor_tela_resultado.js"></script>
     <script src="../resultado.js"></script>
 </body>
 </html>
