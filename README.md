@@ -28,7 +28,7 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 
 ## ✔️ Design e Organização
-Acesse o `Figma` da Landing Page por <a href="https://www.figma.com/file/ij0NqivDM9UKtiuFoNpIYC/pegadaecologicadesign?t=e08EUk75eapSWAQ3-6">aqui</a>
+Acesse o `Figma` da Landing Page por <a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1">aqui</a>
 Da tela do quiz por <a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6"> aqui </a><br>
 E o `Trello` <a href="https://trello.com/b/rZaTN4So/todo-greenlight-2023">aqui</a> <br>
 
