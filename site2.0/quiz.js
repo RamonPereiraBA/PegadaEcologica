@@ -15,7 +15,7 @@ const Questions = [{
         { text: "três porções por semana", ponto: 5, estado: "visible" },
         { text: "uma porção por dia", ponto: 4, estado: "visible" },
         { text: "Frequentemente", ponto: 1, estado: "visible" },
-        { text: "Sempre", ponto: 0, estado: "visible" }
+        { text: "Sempre", ponto: 1, estado: "visible" }
     ]
 
 },
@@ -63,7 +63,7 @@ const Questions = [{
     q: "Com que frequência você compra equipamentos eletrônicos?",
     a: [{ text: "somente quando quebram e precisam ser substituídos", ponto: 5, estado: "visible"  },
         { text: "ocasionalmente troco por versões mais modernas", ponto: 2, estado: "visible"  },
-        { text: "troco sempre por aparelhos mais modernos", ponto: 0, estado: "visible" },
+        { text: "troco sempre por aparelhos mais modernos", ponto: 1, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
@@ -134,15 +134,15 @@ const Questions = [{
     a: [{ text: "Nunca viajo", ponto: 5, estado: "visible"  },
         { text: "0 a 4 horas", ponto: 4, estado: "visible"  },
         { text: "4 a 10 horas", ponto: 3, estado: "visible" },
-        { text: "10 a 25 horas", ponto: 1, estado: "visible" },
-        { text: "Mais de 25 horas", ponto: 0, estado: "visible" },
+        { text: "10 a 25 horas", ponto: 2, estado: "visible" },
+        { text: "Mais de 25 horas", ponto: 1, estado: "visible" },
     ]
 
 },
 {
     q: "Qual a quantidade de alimentos que você consome que contém açúcar refinado?",
     a: [{ text: "Menos de 100g por semana", ponto: 4, estado: "visible"  },
-        { text: "Mais de 100g por semana", ponto: 0, estado: "visible"  },
+        { text: "Mais de 100g por semana", ponto: 1, estado: "visible"  },
         { text: "Nenhum alimento", ponto: 5, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
@@ -190,7 +190,8 @@ function pagina_questao(){
             lista_respostas[id] = Questions[id].a[i - 1].ponto;
             questoes_selecionadas[id] = op.id
             botao_esta_selecionado()
-            verficar_respostas()
+            verificar_respostas()
+            checagem_botoes()
         })
     }
 }
@@ -198,8 +199,14 @@ function pagina_questao(){
 function checagem_botoes(){
     // habilitar/desabilitar next
     if (id + 1 < Questions.length){
+        if (lista_respostas[id] == 0){
+            next.disabled = true;
+            next.style.display = "none";
+        }
+        else{
         next.disabled = false;
         next.style.display = "block";
+        }
     }
     else{
         next.disabled = true;
@@ -216,9 +223,10 @@ function checagem_botoes(){
         prev.style.display = "block";
         prev.style.cursor = "pointer";
     }
+    
 }
 
-verficar_respostas();
+verificar_respostas();
 troca_pergunta()
 
 next.addEventListener("click", passar)
@@ -246,7 +254,7 @@ function finalizar(){
     location.href="resultado.html?total="+somatorioLista;
 }
 
-function verficar_respostas(){
+function verificar_respostas(){
     // Se na lista inclui 0, significa que nem todas as perguntas foram respondidas
     if (questoes_selecionadas.includes(0)){
         fim.disabled = true
@@ -258,6 +266,7 @@ function verficar_respostas(){
         fim.style.cursor = "pointer";
     }
 }
+
 function botao_esta_selecionado(){
     opcao = "op"
     for (let i = 1; i < 6; i++){
