@@ -1,20 +1,3 @@
-// configurando o botão do tema
-const toggle = document.getElementById("simbolo_tema");
-const barra = document.getElementById('barra')
-
-// toggle.addEventListener('click', mudar_tema)
-
-function mudar_tema(){
-    this.classList.toggle('bi-moon');
-    if(this.classList.toggle('bi-brightness-high-fill')){
-        barra.style.backgroundColor = '#ebebeb'
-        barra.style.transition = '1s';
-    }else{
-        barra.style.backgroundColor = '#000000'
-        barra.style.transition = '1s';
-    }
-}
-
 // configurando a função de rolar a tela
 const lista_lugares = [
     document.getElementById("inicio"),
@@ -37,15 +20,6 @@ function rolar_pagina(lugar){
     lista_lugares[lugar].style.animation = "";
     setTimeout(() => lista_lugares[lugar].style.animation = "destaque_pagina 0.5s linear", 500);
 }
-
-// configurando o dropdown
-const botao_ir_objetivo = document.getElementById("ir_objetivo")
-const botao_ir_pilar = document.getElementById("ir_pilares")
-const botao_ir_equipe = document.getElementById("ir_equipe")
-
-botao_ir_objetivo.addEventListener('click', ()=> rolar_pagina(1))
-botao_ir_pilar.addEventListener('click', ()=> rolar_pagina(2))
-botao_ir_equipe.addEventListener('click', ()=> rolar_pagina(3))
 
 // configurando a seta final
 const seta_cima = document.getElementById("seta_cima")
