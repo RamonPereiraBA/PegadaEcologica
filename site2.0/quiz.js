@@ -4,9 +4,10 @@ const fim = document.getElementById('finalizar')
 const barra_resultado = document.getElementById("barra_resultado");
 const color_background =  document.getElementById('op1').style.backgroundColor;
 var id = 0
+//Questão selecionada pega o do do html
 var questoes_selecionadas = []
+//Lista resopostas pega a quantidade de ponto de cada pergunta
 var lista_respostas = []
-var lista_questoes_respondidas = [];
 var opcaoSelecionada = false;
 
 // questõs que vão ser perguntadas
@@ -158,16 +159,17 @@ for (let i = 0; i < Questions.length; i++)
 {
     questoes_selecionadas.push(0);   
     lista_respostas.push(0);   
-    lista_questoes_respondidas.push(false);
 }
 
 function pagina_questao(){
     const question = document.getElementById("question");
     const opcoes = document.getElementById("opcoesid");
     const numero_bola = document.getElementById("numero_bola");
+    //Modificando os textos
     numero_bola.innerText = (id+1);
     question.innerText = Questions[id].q;
     
+    // Concertando a posição do numero bola
     if ((id+1) >= 10){
         numero_bola.style.left = "27%";
     }else{
@@ -189,9 +191,10 @@ function pagina_questao(){
         op.style.visibility = Questions[id].a[i - 1].estado;
 
         op.addEventListener("click", () => {   
+            //Modificando a lista com valores
             lista_respostas[id] = Questions[id].a[i - 1].ponto;
             questoes_selecionadas[id] = op.id;
-            lista_questoes_respondidas[id] = true;
+            //Chamando as funções ajustadoras
             botao_esta_selecionado()
             verificar_respostas()
             checagem_botoes()
@@ -202,7 +205,7 @@ function pagina_questao(){
 function checagem_botoes(){
     // habilitar/desabilitar next
     if (id + 1 < Questions.length){
-        if (!lista_questoes_respondidas[id]){
+        if (questoes_selecionadas[id] == 0){
             next.disabled = true;
             next.style.display = "none";
         }
