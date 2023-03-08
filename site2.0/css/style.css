@@ -5,10 +5,20 @@ html, body{
     overflow-x: hidden;
 }
 
-#tInicio{
+#tituloInicio{
+    position: absolute;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 50px;
+    left: 6%;
+    font-size: var(--tamanho_fonte_titulo);
+}
+
+
+#tInicio{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    left: 7%;
+    top: var(--top_texto_iniciar);
 }
 
 #tOqFazemos{
@@ -64,7 +74,7 @@ h2{
     position: absolute;
     cursor: pointer;
     top: var(--top_botao_comecar);
-    left: 3%;
+    left: 7%;
     border-radius: 88px;
     background-color: #DBF227;
     width: 180px;
@@ -83,8 +93,7 @@ h2{
     position: absolute;
     right: var(--right_imagem_globo);
     top: var(--top_imagem_globo);
-    width: var(--tamanho_imagem_globo);
-    height: var(--tamanho_imagem_globo);
+    font-size: var(--tamanho_imagem_globo);
     transition: transform 1s;
 }
 
@@ -283,19 +292,21 @@ h2{
 
 /* declaração de variaveis */
 :root{
-    --tamanho_imagem_globo : 240px;
+    --tamanho_imagem_globo : 190px;
     --tamanho_imagem_pilar : 100px;
     --posicao_texto_pilar : 130px;
     --tamanho_texto_pilar : 20px;
     --tamanho_texto_equipe : 20px;
     --top_texto_equipe : 230px;
+    --top_imagem_globo : 30%;
+    --top_botao_comecar : 350px;
     --tamanho_circulo_equipe : 20px;
     --tamanho_texto_funcionalidade : 20px;
     --largura_bt_inicializador : 250px;
-    --top_imagem_globo : 30%;
     --right_imagem_globo : 20%;
-    --top_botao_comecar : 240px;
     --altura_caixa_carrossel: 200px;
+    --tamanho_fonte_titulo: 100px;
+    --top_texto_iniciar: 39%;
 }
 
 @media screen and (max-width : 700px){
@@ -311,8 +322,10 @@ h2{
         --largura_bt_inicializador : 150px;
         --top_imagem_globo : 45%;
         --right_imagem_globo : 10%;
-        --top_botao_comecar : 290px;
+        --top_botao_comecar : 370px;
         --altura_caixa_carrossel: 140px;
+        --tamanho_fonte_titulo: 40px;
+        --top_texto_iniciar: 30%;
     }
     
     #barra{
