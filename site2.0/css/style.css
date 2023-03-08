@@ -184,7 +184,7 @@ h2{
 
 #imagem_card{
     position: absolute;
-    height: 200px;
+    height: var(--altura_caixa_carrossel);
     width: 50%;
 }
 
@@ -192,7 +192,7 @@ h2{
     position: absolute;
     right: 0;
     width: 50%;
-    height: 200px;
+    height: var(--altura_caixa_carrossel);
     background-color: #012030;
 }
 
@@ -208,8 +208,9 @@ h2{
 
 #texto_equipe{
     position: absolute;
+    margin-left: 20px;
+    margin-right: 20px;
     top: var(--top_texto_equipe);
-    left: 1%;
     color: #012030;
     font-family: 'Cabin', sans-serif;
     font-size: var(--tamanho_texto_equipe);
@@ -294,6 +295,7 @@ h2{
     --top_imagem_globo : 30%;
     --right_imagem_globo : 20%;
     --top_botao_comecar : 240px;
+    --altura_caixa_carrossel: 200px;
 }
 
 @media screen and (max-width : 700px){
@@ -303,13 +305,14 @@ h2{
         --posicao_texto_pilar : 100px;
         --tamanho_texto_pilar : 14px;
         --tamanho_texto_equipe : 15px;
-        --top_texto_equipe : 200px;
+        --top_texto_equipe : 150px;
         --tamanho_circulo_equipe : 15px;
         --tamanho_texto_funcionalidade : 14px;
         --largura_bt_inicializador : 150px;
         --top_imagem_globo : 45%;
         --right_imagem_globo : 10%;
         --top_botao_comecar : 290px;
+        --altura_caixa_carrossel: 140px;
     }
     
     #barra{
