@@ -21,6 +21,7 @@ body{
 }
 
 #titulo_resultado {
+    margin: auto;
     position: absolute;
     color: var(--cor_titulo_resultado);
     font-family: 'Montserrat', sans-serif;
@@ -92,8 +93,9 @@ body{
     position: absolute;
     font-family: 'Cabin', sans-serif;
     top: 27%;
-    left: 20%;
-    padding: 2% 15%;
+    width: 200px;
+    height: 50px;
+    left: 25%;
     border: 0;
     border-radius: 15px;
     transition-duration: .2s;
@@ -102,10 +104,11 @@ body{
 
 #ir_quiz{
     position: absolute;
+    width: 200px;
+    height: 50px;
     font-family: 'Cabin', sans-serif;
     top: 38%;
-    left: 20%;
-    padding: 2% 15%;
+    left: 25%;
     border: 0;
     transition-duration: .2s;
     border-radius: 15px;
@@ -119,7 +122,7 @@ body{
     font-family: 'Cabin', sans-serif;
     font-size: 2.4vh;
     text-decoration: underline;
-    color: var(--cor_caixa_resultado);
+    color: var(--cor_caixa_titulo);
     left: 70%;
     cursor: pointer;
 }
