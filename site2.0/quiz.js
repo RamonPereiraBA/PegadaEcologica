@@ -6,6 +6,7 @@ const color_background =  document.getElementById('op1').style.backgroundColor;
 var id = 0
 var questoes_selecionadas = []
 var lista_respostas = []
+var lista_questoes_respondidas = [];
 var opcaoSelecionada = false;
 
 // questõs que vão ser perguntadas
@@ -15,7 +16,7 @@ const Questions = [{
         { text: "três porções por semana", ponto: 5, estado: "visible" },
         { text: "uma porção por dia", ponto: 4, estado: "visible" },
         { text: "Frequentemente", ponto: 1, estado: "visible" },
-        { text: "Sempre", ponto: 1, estado: "visible" }
+        { text: "Sempre", ponto: 0, estado: "visible" }
     ]
 
 },
@@ -63,7 +64,7 @@ const Questions = [{
     q: "Com que frequência você compra equipamentos eletrônicos?",
     a: [{ text: "somente quando quebram e precisam ser substituídos", ponto: 5, estado: "visible"  },
         { text: "ocasionalmente troco por versões mais modernas", ponto: 2, estado: "visible"  },
-        { text: "troco sempre por aparelhos mais modernos", ponto: 1, estado: "visible" },
+        { text: "troco sempre por aparelhos mais modernos", ponto: 0, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
@@ -135,14 +136,14 @@ const Questions = [{
         { text: "0 a 4 horas", ponto: 4, estado: "visible"  },
         { text: "4 a 10 horas", ponto: 3, estado: "visible" },
         { text: "10 a 25 horas", ponto: 2, estado: "visible" },
-        { text: "Mais de 25 horas", ponto: 1, estado: "visible" },
+        { text: "Mais de 25 horas", ponto: 0, estado: "visible" },
     ]
 
 },
 {
     q: "Qual a quantidade de alimentos que você consome que contém açúcar refinado?",
     a: [{ text: "Menos de 100g por semana", ponto: 4, estado: "visible"  },
-        { text: "Mais de 100g por semana", ponto: 1, estado: "visible"  },
+        { text: "Mais de 100g por semana", ponto: 0, estado: "visible"  },
         { text: "Nenhum alimento", ponto: 5, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
@@ -155,8 +156,9 @@ const Questions = [{
 A lista tem que ter a quantidade de elementos igual à de perguntas */
 for (let i = 0; i < Questions.length; i++)
 {
-    questoes_selecionadas.push(0)   
-    lista_respostas.push(0)   
+    questoes_selecionadas.push(0);   
+    lista_respostas.push(0);   
+    lista_questoes_respondidas.push(false);
 }
 
 function pagina_questao(){
@@ -188,7 +190,8 @@ function pagina_questao(){
 
         op.addEventListener("click", () => {   
             lista_respostas[id] = Questions[id].a[i - 1].ponto;
-            questoes_selecionadas[id] = op.id
+            questoes_selecionadas[id] = op.id;
+            lista_questoes_respondidas[id] = true;
             botao_esta_selecionado()
             verificar_respostas()
             checagem_botoes()
@@ -199,7 +202,7 @@ function pagina_questao(){
 function checagem_botoes(){
     // habilitar/desabilitar next
     if (id + 1 < Questions.length){
-        if (lista_respostas[id] == 0){
+        if (!lista_questoes_respondidas[id]){
             next.disabled = true;
             next.style.display = "none";
         }
