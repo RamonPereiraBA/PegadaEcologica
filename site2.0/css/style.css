@@ -25,6 +25,14 @@ html, body{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 35px;
+    top: 14px;
+}
+
+#tComo_func{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+    top: 200px;
 }
 
 #tNossosPilares{
@@ -42,7 +50,6 @@ h1{
 } 
 h2{
     position: absolute;
-    top: 14px;
     font-family: 'Montserrat', sans-serif;
     left: 3%;
 }
@@ -74,7 +81,7 @@ h2{
     position: absolute;
     cursor: pointer;
     top: var(--top_botao_comecar);
-    left: 7%;
+    left: var(--left_botao_comecar);
     border-radius: 88px;
     background-color: #DBF227;
     width: 180px;
@@ -91,9 +98,9 @@ h2{
 
 #imagem_globo{
     position: absolute;
-    right: var(--right_imagem_globo);
-    top: var(--top_imagem_globo);
-    font-size: var(--tamanho_imagem_globo);
+    right: 10%;
+    top: 30%;
+    font-size: 250px;
     transition: transform 1s;
 }
 
@@ -122,11 +129,29 @@ h2{
     font-size: 20px;
 }
 
+#texto_pontuacao{
+    position: absolute;
+    top: 286px;
+    color: #EBEBEB;
+    left:3%;
+    font-family: 'Cabin', sans-serif;
+    font-style: normal;
+    font-size: 20px;
+}
+
+#Lista_pontuacao{
+    position: absolute;
+    top: 350px;
+    left: 3%;
+    font-family: 'Cabin', sans-serif;
+    font-style: normal;
+    font-size: var(--tamanho_lista_pontuacao);
+}
 
 /* css da tela dos pilares*/
 #pilares{
     position: absolute;
-    top: 970px;
+    top: 1170px;
     left: 0;
     background-color: #13678A;
     height: 1400px;
@@ -176,7 +201,7 @@ h2{
 #equipe{
     position: absolute;
     left: 0;
-    top: 2300px;
+    top: 2570px;
     background-color: #9AEBA3;
     height: 650px;
     width: 100%;
@@ -253,7 +278,7 @@ h2{
     left: 0;
     display: flex;
     justify-content: center;
-    top: 2950px;
+    top: 3220px;
     width: 100%;
     height: 490px;
     background-color: #042940;
@@ -292,26 +317,24 @@ h2{
 
 /* declaração de variaveis */
 :root{
-    --tamanho_imagem_globo : 190px;
     --tamanho_imagem_pilar : 100px;
     --posicao_texto_pilar : 130px;
     --tamanho_texto_pilar : 20px;
     --tamanho_texto_equipe : 20px;
     --top_texto_equipe : 230px;
-    --top_imagem_globo : 30%;
     --top_botao_comecar : 350px;
+    --left_botao_comecar : 7%;
     --tamanho_circulo_equipe : 20px;
     --tamanho_texto_funcionalidade : 20px;
     --largura_bt_inicializador : 250px;
-    --right_imagem_globo : 20%;
     --altura_caixa_carrossel: 200px;
     --tamanho_fonte_titulo: 100px;
     --top_texto_iniciar: 39%;
+    --tamanho_lista_pontuacao: 30px;
 }
 
 @media screen and (max-width : 700px){
     :root{
-        --tamanho_imagem_globo : 120px;
         --tamanho_imagem_pilar : 75px;
         --posicao_texto_pilar : 100px;
         --tamanho_texto_pilar : 14px;
@@ -320,15 +343,15 @@ h2{
         --tamanho_circulo_equipe : 15px;
         --tamanho_texto_funcionalidade : 14px;
         --largura_bt_inicializador : 150px;
-        --top_imagem_globo : 45%;
-        --right_imagem_globo : 10%;
         --top_botao_comecar : 370px;
+        --left_botao_comecar : 25%;
         --altura_caixa_carrossel: 140px;
         --tamanho_fonte_titulo: 40px;
         --top_texto_iniciar: 30%;
+        --tamanho_lista_pontuacao: 20px;
     }
     
-    #barra{
-        display: block;
+    #imagem_globo{
+        display: none;
     }
 }
