@@ -114,7 +114,7 @@ h2{
     position: absolute;
     top: 570px;
     left: 0;
-    background-color: #042940;
+    background: linear-gradient(to right, #042940, #0e3749);
     height: 770px;
     width: 100%;
 }
