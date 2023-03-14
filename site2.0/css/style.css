@@ -282,7 +282,7 @@ h2{
     top: 3220px;
     width: 100%;
     height: 490px;
-    background-color: #042940;
+    background: linear-gradient(to right, #042940, #0e3749);
 }
 
 #inicializador{
