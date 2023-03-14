@@ -24,15 +24,15 @@ html, body{
 #tOqFazemos{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 35px;
+    font-size: var(--tamanho_fonte_topicos);
     top: 14px;
 }
 
 #tComo_func{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 35px;
-    top: 200px;
+    font-size: var(--tamanho_fonte_topicos);
+    top: 220px;
 }
 
 #tNossosPilares{
@@ -141,7 +141,7 @@ h2{
 
 #Lista_pontuacao{
     position: absolute;
-    top: 350px;
+    top: var(--top_lista_pontuacao);
     left: 3%;
     font-family: 'Cabin', sans-serif;
     font-style: normal;
@@ -272,6 +272,7 @@ h2{
 }
 
 
+
 /*css da parte final*/
 #pagina_quiz{
     position: absolute;
@@ -331,6 +332,8 @@ h2{
     --tamanho_fonte_titulo: 100px;
     --top_texto_iniciar: 39%;
     --tamanho_lista_pontuacao: 30px;
+    --tamanho_fonte_topicos : 35px;
+    --top_lista_pontuacao : 350px;
 }
 
 @media screen and (max-width : 700px){
@@ -348,10 +351,20 @@ h2{
         --altura_caixa_carrossel: 140px;
         --tamanho_fonte_titulo: 40px;
         --top_texto_iniciar: 30%;
-        --tamanho_lista_pontuacao: 20px;
+        --tamanho_lista_pontuacao: 25px;
+        --tamanho_fonte_topicos : 35px;
+        --top_lista_pontuacao : 360px;
     }
     
     #imagem_globo{
         display: none;
+    }
+}
+
+@media screen and (max-width : 400px){
+    :root{
+        --tamanho_lista_pontuacao : 20px;
+        --tamanho_fonte_topicos : 25px;
+        --top_lista_pontuacao : 410px;
     }
 }
