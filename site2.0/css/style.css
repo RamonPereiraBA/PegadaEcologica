@@ -202,7 +202,7 @@ h2{
     position: absolute;
     left: 0;
     top: 2570px;
-    background-color: #9AEBA3;
+    background: linear-gradient(to right, #9AEBA3, #81e68c);
     height: 650px;
     width: 100%;
 }
