@@ -64,7 +64,6 @@ function setar_pagina(){
 
   //Colando os textos
   funcionalidade.innerText = cards[pagina_atual].funcionalidade_card;
-  texto_equipe.innerText = cards[pagina_atual].texto_equipe_card;
   imagem.setAttribute('src', cards[pagina_atual].imagem_card);
 
   // configurando os circulos
@@ -77,6 +76,11 @@ function setar_pagina(){
       lista_circulos[x].style.backgroundColor = "#000000"
     }
   }
+
+  //Configurando a animação 
+  texto_equipe.innerText = cards[pagina_atual].texto_equipe_card;
+  texto_equipe.classList.add('my-div-animate');
+  setTimeout(() => {texto_equipe.classList.remove('my-div-animate');}, 700);
 }
 
 // função de quando for clicado em um dos círculos
