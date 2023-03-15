@@ -250,6 +250,22 @@ h2{
     font-size: var(--tamanho_texto_equipe);
 }
 
+/*animação do texto do carrousel*/
+.my-div-animate {
+    animation-name: my-animation;
+    animation-duration: 1s;
+}
+  
+@keyframes my-animation {
+    from {
+      opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+/**/
 #voltar{
     position: absolute;
     top: 85%;
