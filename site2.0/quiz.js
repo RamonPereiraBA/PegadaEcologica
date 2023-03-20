@@ -168,13 +168,6 @@ function pagina_questao(){
     //Modificando os textos
     numero_bola.innerText = (id+1);
     question.innerText = Questions[id].q;
-    
-    // Concertando a posição do numero bola
-    if ((id+1) >= 10){
-        numero_bola.style.left = "27%";
-    }else{
-        numero_bola.style.left = "39%";
-    }
 
     // encaixando as opções grandes no quiz (evitar erros de proporção)
     if (Questions[id].q.length > 39){
