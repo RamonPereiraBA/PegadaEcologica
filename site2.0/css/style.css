@@ -228,12 +228,14 @@ h2{
     width: 50%;
     height: var(--altura_caixa_carrossel);
     background-color: #012030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #funcionalidade{
     position: absolute;
     top: 80px;
-    left: 6%;
     color: #EBEBEB;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
