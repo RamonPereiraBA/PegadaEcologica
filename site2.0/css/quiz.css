@@ -91,6 +91,9 @@
     left: 2%;
     height: var(--tamanho_bola);
     width: var(--tamanho_bola);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #numero_bola{
