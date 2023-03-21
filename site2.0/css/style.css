@@ -307,6 +307,11 @@ h2{
 
 .elemento{
     margin-right: 20px;
+    transition: transform 1s;
+}
+
+.elemento:hover{
+    transform: scale(1.2);
 }
 
 /*css da parte final*/
