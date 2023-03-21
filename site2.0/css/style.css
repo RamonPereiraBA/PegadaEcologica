@@ -203,7 +203,7 @@ h2{
     left: 0;
     top: 2570px;
     background: linear-gradient(to right, #9AEBA3, #81e68c);
-    height: 650px;
+    height: 850px;
     width: 100%;
 }
 
@@ -275,26 +275,39 @@ h2{
 /**/
 #voltar{
     position: absolute;
-    top: 85%;
+    top: 600px;
     left: 12%;
 }
 
 #passar{
     position: absolute;
-    top: 85%;
+    top: 600px;
     right: 18%;
 }
 
 .circulo_carrousel{
     position: absolute;
-    top: 88%;
+    top: 600px;
     border-radius: 50%; 
     height: var(--tamanho_circulo_equipe);
     width: var(--tamanho_circulo_equipe);
     cursor: pointer;
 }
+#retangulo_redessociais{
+    position: absolute;
+    top: 700px;
+    width: 70%;
+    height: 100px;
+    left: 12%;
+    background-color: #dbdbdb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
+.elemento{
+    margin-right: 20px;
+}
 
 /*css da parte final*/
 #pagina_quiz{
@@ -302,7 +315,7 @@ h2{
     left: 0;
     display: flex;
     justify-content: center;
-    top: 3220px;
+    top: 3420px;
     width: 100%;
     height: 490px;
     background: linear-gradient(to right, #042940, #0e3749);
