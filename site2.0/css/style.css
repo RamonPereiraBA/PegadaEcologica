@@ -242,6 +242,11 @@ h2{
     font-size: var(--tamanho_texto_funcionalidade);
 }
 
+.animacao_funcionalidade{
+    animation: bounceIn;
+    animation-duration: 2s;
+}
+
 #texto_equipe{
     position: absolute;
     margin-left: 20px;
