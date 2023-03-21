@@ -8,24 +8,28 @@ const cards = [{
   nome_organizacao_card: "Programa Educação Ambiental",
   funcionalidade_card: "Colaboradores",
   texto_equipe_card: "Temos o objetivo de promover a educação ambiental junto à população. Visando o conhecimento ecológico necessário para a proteção e preservação ambiental.",  
+  redes: ["", "https://fundacaocsn.org.br/pea/", "", ""],    
   },
   {
   imagem_card: "../Imagens/logos/Logo fundacao.png",
   nome_organizacao_card: "Fundação CSN",
   funcionalidade_card: "Cordenadores",
   texto_equipe_card: "Somos responsáveis pelas ações sociais do Grupo CSN e estamos presentes nas principais cidades em que a empresa atua. Os pilares que sustentam a nossa atuação são educação, cultura, articulação e curadoria.",
+  redes: ["https://www.instagram.com/grupocsn/", "https://www.csn.com.br/", "https://www.linkedin.com/company/consolidatedsalesnetwork/about/", "https://www.facebook.com/CompanhiaSiderurgicaNacional/?locale=pt_BR"],  
   },
   {
   imagem_card: "../Imagens/logos/inpe-logo.png",
   nome_organizacao_card: "INPE",
   funcionalidade_card: "Créditos",
   texto_equipe_card: "Criada em 1961 com o objetivo de impulsionar o país nas pesquisas cientificas e nas tecnologias espaciais. Suas atividades se ampliaram e a importância dos estudos vão desde assuntos complexos sobre a origem do Universo até as questões de desflorestamento das nossas matas.",
+  redes: ["https://www.instagram.com/inpe.oficial/", "https://www.gov.br/inpe/pt-br", "", "https://www.facebook.com/inpe.oficial/?locale=pt_BR"],    
   },
   {
   imagem_card: "../Imagens/logos/etpc.png",
   nome_organizacao_card: "Escola Técnica Pandiá Calógeras",
   funcionalidade_card: "Desenvolvedores",
   texto_equipe_card: "Fundada em 1944 visando oferecer ensino técnico aos primeiros empregados da Companhia Siderúrgica Nacional e aos seus filhos, é referência nacional em educação para o trabalho, pela excelência de seu processo ensino-aprendizagem, atualização tecnológica e investimento social.",
+  redes: ["https://www.instagram.com/etpcvr/", "https://etpc.com.br/", "https://www.linkedin.com/school/escola-tecnica-pandia-calogeras/", "https://www.facebook.com/ETPCVR/?locale=pt_BR"],
   }
 ]
 
@@ -78,11 +82,37 @@ function setar_pagina(){
     }
   }
 
+  setar_redes();
+
   //Configurando a animação 
   texto_equipe.classList.add('my-div-animate');
   funcionalidade.classList.add('animacao_funcionalidade');
   setTimeout(() => {texto_equipe.classList.remove('my-div-animate');}, 700);
   setTimeout(() => {funcionalidade.classList.remove('animacao_funcionalidade');}, 700);
+}
+
+
+function setar_redes(){
+  //pegando todos os links
+  for (let i = 0; i < cards[pagina_atual].redes.length; i++){
+    // Se tiver a rede social adciona-la 
+    if (!cards[pagina_atual].redes[i]==""){
+      // se tiver link colocar na tela o simbolo e o link
+      get_redes()[i].style.display = "block";
+      get_redes()[i].href = cards[pagina_atual].redes[i];
+    }
+    else{
+      // se não remover da tela
+      get_redes()[i].style.display = "none";
+    }
+  }
+}
+
+// função para pegar as divs com os simbolos
+function get_redes(){
+  lista_redes = [document.getElementById("instagram"), document.getElementById("site"), 
+                document.getElementById("linkedin"), document.getElementById("facebook"),];
+   return lista_redes;
 }
 
 // função de quando for clicado em um dos círculos
