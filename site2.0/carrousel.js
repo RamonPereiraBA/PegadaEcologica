@@ -4,18 +4,18 @@ document.getElementById('c4')]
 
 // variavel lista com os membros da equipe
 const cards = [{
-  imagem_card: "../Imagens/logos/PEA.jpg",
-  nome_organizacao_card: "Programa Educação Ambiental",
-  funcionalidade_card: "Colaboradores",
-  texto_equipe_card: "Temos o objetivo de promover a educação ambiental junto à população. Visando o conhecimento ecológico necessário para a proteção e preservação ambiental.",  
-  redes: ["", "https://fundacaocsn.org.br/pea/", "", ""],    
-  },
-  {
   imagem_card: "../Imagens/logos/Logo fundacao.png",
   nome_organizacao_card: "Fundação CSN",
   funcionalidade_card: "Cordenadores",
   texto_equipe_card: "Somos responsáveis pelas ações sociais do Grupo CSN e estamos presentes nas principais cidades em que a empresa atua. Os pilares que sustentam a nossa atuação são educação, cultura, articulação e curadoria.",
   redes: ["https://www.instagram.com/grupocsn/", "https://www.csn.com.br/", "https://www.linkedin.com/company/consolidatedsalesnetwork/about/", "https://www.facebook.com/CompanhiaSiderurgicaNacional/?locale=pt_BR"],  
+  },
+  {
+  imagem_card: "../Imagens/logos/PEA.jpg",
+  nome_organizacao_card: "Programa Educação Ambiental",
+  funcionalidade_card: "Colaboradores",
+  texto_equipe_card: "Temos o objetivo de promover a educação ambiental junto à população. Visando o conhecimento ecológico necessário para a proteção e preservação ambiental.",  
+  redes: ["", "https://fundacaocsn.org.br/pea/", "", ""],    
   },
   {
   imagem_card: "../Imagens/logos/inpe-logo.png",
