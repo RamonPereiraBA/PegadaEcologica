@@ -1,4 +1,3 @@
-
 /* css geral*/
 
 html, body{
@@ -313,13 +312,27 @@ h2{
     transform: scale(1.2);
 }
 
+/* css dos desenvolvedores*/
+#desenvolvedores{
+    position: absolute;
+    top: 3420px;
+    height: 800px;
+    width: 100%;
+    background: linear-gradient(to right, #45C4B0, #2a9988);
+}
+
+#cards_desenvolvedores{
+    display: inline-block;
+
+}
+
 /*css da parte final*/
 #pagina_quiz{
     position: absolute;
     left: 0;
     display: flex;
     justify-content: center;
-    top: 3420px;
+    top: 4220px;
     width: 100%;
     height: 490px;
     background: linear-gradient(to right, #042940, #0e3749);
