@@ -291,13 +291,15 @@ h2{
     width: var(--tamanho_circulo_equipe);
     cursor: pointer;
 }
+
 #retangulo_redessociais{
     position: absolute;
     top: 700px;
     width: 70%;
     height: 100px;
     left: 12%;
-    background-color: #dbdbdb;
+    border-radius: 20px;
+    background-color: #cccccc;
     display: flex;
     justify-content: center;
     align-items: center;
