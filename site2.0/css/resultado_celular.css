@@ -13,6 +13,9 @@ body{
 /* resto do código */
 #caixa_titulo{
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -21,14 +24,11 @@ body{
 }
 
 #titulo_resultado {
-    margin: auto;
-    position: absolute;
     color: var(--cor_titulo_resultado);
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 8vh;
     top: 22%;
-    left: 21%;
 }
 
 #texto_resultado{
@@ -97,12 +97,12 @@ body{
     height: 50px;
     left: 25%;
     border: 0;
-    border-radius: 15px;
+    border-radius: 45px;
     transition-duration: .2s;
     cursor: pointer;
 }
 
-#ir_quiz{
+#ir_compartilhar{
     position: absolute;
     width: 200px;
     height: 50px;
@@ -111,10 +111,25 @@ body{
     left: 25%;
     border: 0;
     transition-duration: .2s;
-    border-radius: 15px;
+    border-radius: 45px;
+    background-color: #31C1B0;
+    cursor: pointer;
+}
+
+#ir_quiz{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    font-family: 'Cabin', sans-serif;
+    top: 48%;
+    left: 25%;
+    border: 0;
+    transition-duration: .2s;
+    border-radius: 45px;
     background-color: var(--cor_caixa_titulo);
     cursor: pointer;
 }
+
 
 #dica{
     position: fixed;
