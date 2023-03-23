@@ -85,9 +85,11 @@ texto.wordBreak = true;
 // configurando a dica
 function setar_dica(){
     if (!dica_esta_ativa){
+        dica.innerText = "Retornar"
         texto_geral.innerText = texto_dica;
         dica_esta_ativa = true;
     }else{
+        dica.innerText = "Quer uma dica?"
         texto_geral.innerText = texto;
         dica_esta_ativa = false;
     }
