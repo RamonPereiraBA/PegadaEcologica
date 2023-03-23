@@ -323,9 +323,38 @@ h2{
     background: linear-gradient(to right, #45C4B0, #2a9988);
 }
 
-#cards_desenvolvedores{
-    display: inline-block;
+#navegacao{
+    position: absolute;
+    top: 100px;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#navegacao ul{
+    display: flex;
+    overflow-x: scroll;
+}
+
+#navegacao ul::-webkit-scrollbar {
+    width: 10px;
+}
+  
+#navegacao ul::-webkit-scrollbar-track {
+    background: #fff;
+}
+  
+#navegacao ul::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 20px;
+    border: 3px solid #fff;
+}
+
+#navegacao ul li{
+    list-style: none;
+    margin-right: 30px;
 }
 
 /*css da parte final*/
