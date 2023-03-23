@@ -1,9 +1,11 @@
 // redirecionando a pagina
 const bt_inicio = document.getElementById("ir_inicio")
 const bt_quiz = document.getElementById("ir_quiz")
+const bt_compartilhar = document.getElementById("ir_compartilhar");
 
 bt_inicio.addEventListener('click', ir_inicio)
 bt_quiz.addEventListener('click', ir_quiz)
+bt_compartilhar.addEventListener('click', colar_texto)
 
 function ir_inicio(){
     location.href = "./index.html"
@@ -11,6 +13,11 @@ function ir_inicio(){
 
 function ir_quiz(){
     location.href = "./quiz.html"
+}
+
+function colar_texto(){
+    alert('Link copiado');
+    navigator.clipboard.writeText("https://greenlight.dev.br/");
 }
 
 // configurando a tela do resultado
