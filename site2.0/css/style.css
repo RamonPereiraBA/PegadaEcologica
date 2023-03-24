@@ -327,7 +327,8 @@ h2{
     position: absolute;
     top: 100px;
     height: 600px;
-    width: 100%;
+    width: var(--tamanho_navegacao_desenvolvedores);
+    left: var(--left_navegacao_desenvolvedores);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -341,15 +342,15 @@ h2{
 #navegacao ul::-webkit-scrollbar {
     width: 10px;
 }
-  
+
 #navegacao ul::-webkit-scrollbar-track {
-    background: #fff;
+    background: #1e413b;
+    border-radius: 20px;
 }
   
 #navegacao ul::-webkit-scrollbar-thumb {
     background-color: #999;
     border-radius: 20px;
-    border: 3px solid #fff;
 }
 
 #navegacao ul li{
@@ -418,6 +419,8 @@ h2{
     --tamanho_lista_pontuacao: 30px;
     --tamanho_fonte_topicos : 35px;
     --top_lista_pontuacao : 350px;
+    --tamanho_navegacao_desenvolvedores : 90%;
+    --left_navegacao_desenvolvedores : 5%;
 }
 
 @media screen and (max-width : 700px){
@@ -438,6 +441,8 @@ h2{
         --tamanho_lista_pontuacao: 25px;
         --tamanho_fonte_topicos : 35px;
         --top_lista_pontuacao : 360px;
+        --tamanho_navegacao_desenvolvedores : 100%;
+        --left_navegacao_desenvolvedores : 0%;
     }
     
     #imagem_globo{
