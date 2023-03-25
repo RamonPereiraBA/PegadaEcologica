@@ -44,7 +44,6 @@ let qualidade_resultado;
 if (resultado >= 50)
 {
     qualidade_resultado = "Excelente";
-    titulo.innerText = "Excelente";
     texto = "Parabéns!! Você está antenado com as questões ambientais e busca ter qualidade de vida sem agredir o meio ambiente.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoEx.png");
     dica.style.visibility = 'hidden'
@@ -54,7 +53,6 @@ if (resultado >= 50)
 else if (resultado >= 35 && resultado <= 49)
 {
     qualidade_resultado = "Moderada";
-    titulo.innerText = "Moderada";
     texto = "Sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração do planeta, de modo que seu consumo demanda mais do que a Terra pode repor.";
     texto_dica = "Dica: Procure fazer a pé ou de bicicleta os percursos curtos do dia a dia, como: ir à padaria, academia ou farmácia no seu bairro. Utilize o carro somente para percursos longos.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
