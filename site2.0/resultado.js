@@ -15,11 +15,6 @@ function ir_quiz(){
     location.href = "./quiz.html"
 }
 
-function colar_texto(){
-    alert('Link copiado');
-    navigator.clipboard.writeText("https://greenlight.dev.br/");
-}
-
 // configurando a tela do resultado
 // declarando as variaveis
 const urlParams = new URLSearchParams(window.location.search);
@@ -43,10 +38,12 @@ texto_resultado.innerText = resultado;
 let texto;
 let texto_dica;
 let dica_esta_ativa = false;
+let qualidade_resultado;
 
 // chegando o resultado
 if (resultado >= 50)
 {
+    qualidade_resultado = "Excelente";
     titulo.innerText = "Excelente";
     texto = "Parabéns!! Você está antenado com as questões ambientais e busca ter qualidade de vida sem agredir o meio ambiente.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoEx.png");
@@ -56,6 +53,7 @@ if (resultado >= 50)
 
 else if (resultado >= 35 && resultado <= 49)
 {
+    qualidade_resultado = "Moderada";
     titulo.innerText = "Moderada";
     texto = "Sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração do planeta, de modo que seu consumo demanda mais do que a Terra pode repor.";
     texto_dica = "Dica: Procure fazer a pé ou de bicicleta os percursos curtos do dia a dia, como: ir à padaria, academia ou farmácia no seu bairro. Utilize o carro somente para percursos longos.";
@@ -70,7 +68,7 @@ else if (resultado >= 35 && resultado <= 49)
 
 else
 {
-    titulo.innerText = "Péssimo";   
+    qualidade_resultado = "Péssimo";
     texto = "Você vive de forma insustentável, pois demanda demais do que a capacidade natural de regeneração do planeta.";
     texto_dica = "Dica: Verifique se o produto antigo não atende às suas necessidades e, se estiver quebrado ou com problemas. Separe o lixo para reciclagem e confira como funciona a coleta seletiva na sua cidade. Transportes alternativos, como bicicletas e caminhada reduzem a emissão de gases.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
@@ -82,6 +80,7 @@ else
     barra_resultado.classList.add("bg-danger");    
 }
 
+titulo.innerText = qualidade_resultado;   
 texto_geral.innerText = texto;
 // a formula a baixo ajusta a porcentagem, pois o maior resultado possível é 70
 barra_resultado.style.width = parseInt((parseInt(resultado)*100)/70)+"%";
@@ -110,4 +109,15 @@ dica.onmouseover = function() {
 // quando o mouse sair do botão
 dica.onmouseout = function() {
     dica.style.color = dicaCor
+}
+
+// Função para o botão compartilhar
+function colar_texto(){
+    try{
+        navigator.clipboard.writeText(`Minha pegada ecológica é ${qualidade_resultado}, ${resultado} em uma escala de 70. Mas e você? Como está sua pegada ecológica? Descubra acessando https://greenlight.dev.br/`);
+    }catch{
+        alert("Tivemos um problema no compartilhamento");
+        return;
+    }
+    alert(`O texto "Minha pegada ecológica é ${qualidade_resultado}, ${resultado} em uma escala de 70. Mas e você? Como está sua pegada ecológica? Descubra acessando https://greenlight.dev.br/" foi copiado`);
 }
