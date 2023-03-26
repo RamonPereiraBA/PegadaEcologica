@@ -337,6 +337,7 @@ h2{
 #navegacao ul{
     display: flex;
     overflow-x: scroll;
+    padding: 0;
 }
 
 #navegacao ul::-webkit-scrollbar {
