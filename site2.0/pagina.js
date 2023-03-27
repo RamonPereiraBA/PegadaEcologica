@@ -1,3 +1,16 @@
+// Animação dos pilares
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // configurando a função de rolar a tela
 const lista_lugares = [
     document.getElementById("inicio"),
@@ -29,6 +42,7 @@ seta_cima.addEventListener('click', ()=> rolar_pagina(0))
 const botao_inicial = document.getElementById("btn_começar");
 botao_inicial.addEventListener('click', () => rolar_pagina(4))
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Criando as caixas dos pilares
 const cores_caixa = ["#45C4B0ed", "#DAFDBA", "#45C4B0", "#DAFDBA"]
 const posicoes_caixa = ["140px", "440px", "740px", "1040px"]
@@ -49,6 +63,7 @@ function criar_caixa_pilar(){
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // configurando o botão iniciar quiz
 const botao_quiz = document.getElementById("inicializador");
 botao_quiz.addEventListener("click", ir_quiz)
