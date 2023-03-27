@@ -65,6 +65,21 @@ h2{
     50%{opacity: 0.5;}
     to{opacity: 1;}
 }
+
+.show{
+    animation-name: animacao_aparecer;
+    animation-duration: 1s;
+}
+
+@keyframes animacao_aparecer {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
 /* css da tela inicial*/
 #inicio{
     position: absolute;
@@ -357,6 +372,14 @@ h2{
 #navegacao ul li{
     list-style: none;
     margin-right: 30px;
+}
+
+.card{
+    transition: box-shadow 1s;
+}
+
+.card:hover{
+    box-shadow: 0 0 5px #8c00ff, 0 0 10px #8c00ff, 0 0 10px #8c00ff, 0 0 20px #8c00ff;
 }
 
 /*css da parte final*/
