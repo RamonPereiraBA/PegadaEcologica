@@ -111,11 +111,6 @@ dica.onmouseout = function() {
 
 // Função para o botão compartilhar
 function colar_texto(){
-    try{
-        navigator.clipboard.writeText(`Minha pegada ecológica é ${qualidade_resultado}, ${resultado} em uma escala de 70. Mas e você? Como está sua pegada ecológica? Descubra acessando https://greenlight.dev.br/`);
-    }catch{
-        alert("Tivemos um problema no compartilhamento");
-        return;
-    }
+    navigator.clipboard.writeText(`Minha pegada ecológica é ${qualidade_resultado}, ${resultado} em uma escala de 70. Mas e você? Como está sua pegada ecológica? Descubra acessando https://greenlight.dev.br/`);
     alert(`O texto "Minha pegada ecológica é ${qualidade_resultado}, ${resultado} em uma escala de 70. Mas e você? Como está sua pegada ecológica? Descubra acessando https://greenlight.dev.br/" foi copiado`);
 }
