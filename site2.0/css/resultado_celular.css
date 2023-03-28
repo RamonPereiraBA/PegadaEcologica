@@ -85,14 +85,14 @@ body{
     font-family: 'Cabin', sans-serif;
     font-size: var(--tamanho_texto_geral);
     color: aliceblue;
-    top: 3%;
+    top: 1%;
     left: 7%;
 }
 
 #ir_inicio{
     position: absolute;
     font-family: 'Cabin', sans-serif;
-    top: 27%;
+    top: 21%;
     width: 200px;
     height: 50px;
     left: 25%;
@@ -107,7 +107,7 @@ body{
     width: 200px;
     height: 50px;
     font-family: 'Cabin', sans-serif;
-    top: 38%;
+    top: 30%;
     left: 25%;
     border: 0;
     transition-duration: .2s;
@@ -121,7 +121,7 @@ body{
     width: 200px;
     height: 50px;
     font-family: 'Cabin', sans-serif;
-    top: 48%;
+    top: 39%;
     left: 25%;
     border: 0;
     transition-duration: .2s;
@@ -133,7 +133,7 @@ body{
 
 #dica{
     position: fixed;
-    top: 68%;
+    top: 64%;
     font-family: 'Cabin', sans-serif;
     font-size: 2.4vh;
     text-decoration: underline;
