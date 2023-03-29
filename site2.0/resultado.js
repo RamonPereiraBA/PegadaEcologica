@@ -19,12 +19,25 @@ function ir_quiz(){
 // declarando as variaveis
 const urlParams = new URLSearchParams(window.location.search);
 var resultado = urlParams.get('total');
-
+var dicaURL = urlParams.get('dica');
 
 if (resultado === null || resultado===""){
     resultado = 0;
 }
 
+// Descripitografando a dica
+var texto_dica;
+if (dicaURL.slice(-1)=="E"){
+    texto_dica = "Dica: Busque consumir menos energia e combustíveis fósseis."
+}else if(dicaURL.slice(-1)=="L"){
+    texto_dica = "Dica: Busque consumir menos produtos, a fim de gerar menos lixo."
+}else if(dicaURL.slice(-1)=="A"){
+    texto_dica = "Dica: Busque consumir menos carne e produtos industrializados."
+}else{
+    texto_dica = "Dica: Repense seus hábitos de consumo."
+}
+
+// Declarando as variaveis
 const titulo = document.getElementById("titulo_resultado");
 const texto_resultado = document.getElementById("resultado");
 const texto_geral = document.getElementById("texto_geral");
@@ -36,7 +49,6 @@ var dicaCor;
 texto_resultado.innerText = resultado;
 
 let texto;
-let texto_dica;
 let dica_esta_ativa = false;
 let qualidade_resultado;
 
@@ -54,7 +66,6 @@ else if (resultado >= 35 && resultado <= 49)
 {
     qualidade_resultado = "Moderada";
     texto = "Sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração do planeta, de modo que seu consumo demanda mais do que a Terra pode repor.";
-    texto_dica = "Dica: Procure fazer a pé ou de bicicleta os percursos curtos do dia a dia, como: ir à padaria, academia ou farmácia no seu bairro. Utilize o carro somente para percursos longos.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
     dica.addEventListener('click', setar_dica);
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
@@ -68,7 +79,6 @@ else
 {
     qualidade_resultado = "Péssimo";
     texto = "Você vive de forma insustentável, pois demanda demais do que a capacidade natural de regeneração do planeta.";
-    texto_dica = "Dica: Separe o lixo para reciclagem e confira como funciona a coleta seletiva na sua cidade. Transportes alternativos, como bicicletas e caminhada reduzem a emissão de gases.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
     dica.addEventListener('click', setar_dica)
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
