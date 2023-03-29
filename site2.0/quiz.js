@@ -93,20 +93,20 @@ const Questions = [{
 },
 {
     q: "Usa lâmpadas econômicas?",
-    a: [{ text: "Não", ponto: 1, estado: "visible"  },
-        { text: "1/4 das lâmpadas são econômicas", ponto: 2, estado: "visible"  },
+    a: [{ text: "Todas as lâmpadas que uso são econômicas", ponto: 5, estado: "visible" },
         { text: "Metade das lâmpadas que uso são econômicas", ponto: 4, estado: "visible" },
-        { text: "Todas as lâmpadas que uso são econômicas", ponto: 5, estado: "visible" },
+        { text: "1/4 das lâmpadas são econômicas", ponto: 2, estado: "visible" },
+        { text: "Não", ponto: 1, estado: "visible"},
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
 },
 {
     q: "Que meio de transporte você mais usa?",
-    a: [{ text: "Carro", ponto: 1, estado: "visible"  },
-        { text: "Bicicleta ou a pé", ponto: 5, estado: "visible"  },
+    a: [{ text: "Bicicleta ou a pé", ponto: 5, estado: "visible"  },
         { text: "Transporte público", ponto: 5, estado: "visible" },
         { text: "Carro, mas procuro andar a pé ou de bicicleta", ponto: 2, estado: "visible" },
+        { text: "Carro", ponto: 1, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
@@ -123,9 +123,9 @@ const Questions = [{
 },
 {
     q: "Quanto tempo você gasta no banho diariamente?",
-    a: [{ text: "acima de 26min", ponto: 1, estado: "visible"  },
+    a: [{ text: "de 5 a 15min", ponto: 5, estado: "visible" },
         { text: "de 16 a 25min", ponto: 3, estado: "visible"  },
-        { text: "de 5 a 15min", ponto: 5, estado: "visible" },
+        { text: "acima de 26min", ponto: 1, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
@@ -143,9 +143,9 @@ const Questions = [{
 },
 {
     q: "Qual a quantidade de alimentos que você consome que contém açúcar refinado?",
-    a: [{ text: "Menos de 100g por semana", ponto: 4, estado: "visible"  },
+    a: [{ text: "Nenhum alimento", ponto: 5, estado: "visible" },
+        { text: "Menos de 100g por semana", ponto: 4, estado: "visible"  },
         { text: "Mais de 100g por semana", ponto: 0, estado: "visible"  },
-        { text: "Nenhum alimento", ponto: 5, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
@@ -246,11 +246,47 @@ function voltar(){
 
 function finalizar(){
     var somatorioLista = 0;
+    var dicaurl = "d";
     for (let i = 0; i < Questions.length; i++){
-    somatorioLista += lista_respostas[i]
+        somatorioLista += lista_respostas[i]
     }
+    // Analizando o resultado
+    alimentos = [parseInt(questoes_selecionadas[0].slice(-1))>3, parseInt(questoes_selecionadas[1].slice(-1))>2, 
+                parseInt(questoes_selecionadas[3].slice(-1))>2, parseInt(questoes_selecionadas[13].slice(-1))>2]
+    
+    lixos = [parseInt(questoes_selecionadas[4].slice(-1))>2, parseInt(questoes_selecionadas[5].slice(-1))>1, 
+                parseInt(questoes_selecionadas[6].slice(-1))>1, parseInt(questoes_selecionadas[7].slice(-1))>3]
+    
+    energia = [parseInt(questoes_selecionadas[2].slice(-1))>1, parseInt(questoes_selecionadas[8].slice(-1))>2,
+                parseInt(questoes_selecionadas[9].slice(-1))>2, parseInt(questoes_selecionadas[12].slice(-1))>3]
+    
+    // Cada parametro será representado por uma letra
+    if (verificar_repeticoes(alimentos)){
+        dicaurl = dicaurl+"A";
+    }
+    if (verificar_repeticoes(lixos)){
+        dicaurl = dicaurl+"L";
+    }
+    if (verificar_repeticoes(energia)){
+        dicaurl = dicaurl+"E";
+    }
+
     // Redirecionando a página
-    location.href="resultado.html?total="+somatorioLista;
+    location.href="resultado.html?total="+somatorioLista+"&dica="+dicaurl;
+}
+
+// Função EXCLUSIVA da função finalizar
+function verificar_repeticoes(lista_repeticoes){
+    var repetido;
+    for (let a = 0; a < lista_repeticoes.length; a++){
+        if (lista_repeticoes[a] && repetido){
+            return true;
+        }
+        if (lista_repeticoes[a]){
+            repetido = true;
+        }
+    }
+    return false;
 }
 
 function verificar_respostas(){
