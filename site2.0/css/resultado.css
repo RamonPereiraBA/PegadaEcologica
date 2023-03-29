@@ -156,7 +156,7 @@
 
 #ir_inicio:hover, #ir_compartilhar:hover, #ir_quiz:hover
 {
-    outline-width: 8px;
+    outline-width: 5px;
     outline-style: solid;
 }
 
@@ -177,8 +177,14 @@
 
 /* ACTIVE */
 
+#ir_inicio:active, #ir_compartilhar:active, #ir_quiz:active
+{
+    outline-style: none;
+}
+
 #ir_inicio:active{
-    background: brightness(20%);
+    background: #808080;
+    outline: 0;
 }
 
 #ir_compartilhar:active{
