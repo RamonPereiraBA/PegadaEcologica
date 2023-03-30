@@ -1,8 +1,25 @@
 /* css geral*/
 
-html, body{
+html, body
+{
     overflow-x: hidden;
 }
+
+h1
+{
+    position: absolute;
+    top: 40px;
+    font-family: 'Montserrat', sans-serif;
+    left: 3%;
+}
+
+h2
+{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    left: 3%;
+}
+
 
 #tituloInicio{
     position: absolute;
@@ -20,37 +37,40 @@ html, body{
     top: var(--top_texto_iniciar);
 }
 
-#tOqFazemos{
+#tOqFazemos, #tComo_func, #tNossosPilares
+{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: var(--tamanho_fonte_topicos);
+}
+
+/* Manipulando o TOP dos textos */
+#tOqFazemos{
     top: 14px;
 }
 
 #tComo_func{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: var(--tamanho_fonte_topicos);
     top: 220px;
 }
 
-#tNossosPilares{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 35px;
+#tNossosPilares
+{
+    top: 22px;
 }
 
+#tNossaEquipe
+{
+    top: 18px;
+}
 
-h1{
-    position: absolute;
-    top: 40px;
-    font-family: 'Montserrat', sans-serif;
-    left: 3%;
-} 
-h2{
-    position: absolute;
-    font-family: 'Montserrat', sans-serif;
-    left: 3%;
+#tDesenvolvedores
+{
+    top: 18px;
+}
+
+#tFacaDiferenca
+{
+    top: 18px;
 }
 
 /* animações */
@@ -378,9 +398,6 @@ h2{
     transition: box-shadow 1s;
 }
 
-.card:hover{
-    box-shadow: 0 0 5px #8c00ff, 0 0 10px #8c00ff, 0 0 10px #8c00ff, 0 0 20px #8c00ff;
-}
 
 /*css da parte final*/
 #pagina_quiz{
@@ -400,6 +417,7 @@ h2{
     height: 13%;
     font-family: 'Montserrat', sans-serif;
     background-color: #EBEBEB;
+    border: 0;
     color: #042940;
     font-weight: 600;
     top: 160px;
