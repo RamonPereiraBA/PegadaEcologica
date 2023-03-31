@@ -398,6 +398,18 @@ h2
     transition: box-shadow 1s;
 }
 
+.focar{
+    animation-name: animacao_desfocar;
+    animation-duration: 1s;
+}
+
+@keyframes animacao_desfocar{
+    from{
+        filter: blur(3px);
+    }to{
+        filter: blur(0px);
+    }
+}
 
 /*css da parte final*/
 #pagina_quiz{
