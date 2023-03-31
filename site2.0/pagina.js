@@ -1,4 +1,4 @@
-// Animação dos pilares
+// Animação de aparecer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -9,6 +9,17 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+
+// outra animação
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('focar');
+        }
+    });
+});
+const elementos_lista_focar = document.querySelectorAll('.card');
+elementos_lista_focar.forEach((el) => observer2.observe(el));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // configurando a função de rolar a tela
