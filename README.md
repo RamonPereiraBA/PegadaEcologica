@@ -28,11 +28,16 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 
 ## ✔️ Design e Organização
-<a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1">`Figma` `Landing Page`</a>
+
+### 🖼️ Figma
+
+<a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1">`Landing Page`</a>
 <br>
-<a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">`Figma` `Tela Quiz`</a>
+<a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">`Tela Quiz`</a>
 <br>
-<a href="https://trello.com/b/rZaTN4So/todo-greenlight-2023">`Trello`</a> 
+
+### 🧰 Trello
+https://trello.com/b/rZaTN4So/todo-greenlight-2023
 <br>
 
 ## Api de Mensuração (Em progresso)
