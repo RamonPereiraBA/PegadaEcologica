@@ -1,3 +1,10 @@
+<style>
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+</style>
+
 <img style="height: 50%; width: 50%;" src="https://user-images.githubusercontent.com/82301731/216135751-11173142-9a00-49a2-bac9-455e4873c885.png" />
 <br>
 <img src= "http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
@@ -28,13 +35,6 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 
 ## Figma <img style="height: 1.5%; width: 1.5%; right: 4%;" src="https://user-images.githubusercontent.com/82301731/229357812-90dbf2b1-d7e9-4b56-b51e-38980b123f9a.png">
-
-<style>
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center;
-</style>
 
 <div align="center">
 <p>
