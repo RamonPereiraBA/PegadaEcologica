@@ -75,6 +75,8 @@ function mudar_cor_navbar() {
     for (let x=0; x<5;x++){
         if(window.scrollY >= lista_posicoes[x]){
             navbar.style.backgroundColor = lista_cores_navbar[x];
+        }else{
+            return;
         }
     }
 }
