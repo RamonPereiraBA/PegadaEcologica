@@ -35,7 +35,7 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 <a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">`Tela Quiz`</a>
 <br>
-
+<br>
 ### 🧰 Trello
 https://trello.com/b/rZaTN4So/todo-greenlight-2023
 <br>
