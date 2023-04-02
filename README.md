@@ -27,13 +27,13 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 
 <br>
 
-## <img style="height: 1%; width: 1%;" src="https://user-images.githubusercontent.com/82301731/229357812-90dbf2b1-d7e9-4b56-b51e-38980b123f9a.png"> Figma
-
+## <img style="height: 2.5%; width: 2.5%;" src="https://user-images.githubusercontent.com/82301731/229357812-90dbf2b1-d7e9-4b56-b51e-38980b123f9a.png"> Figma
+<p align="center">
 <a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1"><b>Landing Page</b></a>
-<br>
-<a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">Tela Quiz</a>
-<br>
-<a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado</a>
+ <a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">Tela Quiz</a>
+  <a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado</a>
+</p>
+
 <br>
 <br>
 ### Trello
