@@ -27,7 +27,7 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 
 <br>
 
-## Figma <img src="https://user-images.githubusercontent.com/82301731/229357812-90dbf2b1-d7e9-4b56-b51e-38980b123f9a.png">
+## Figma <img style="height: 20%; width: 20%;" src="https://user-images.githubusercontent.com/82301731/229357812-90dbf2b1-d7e9-4b56-b51e-38980b123f9a.png">
 
 <a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1"><b>Landing Page</b></a>
 <br>
