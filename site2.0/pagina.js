@@ -71,11 +71,19 @@ botao_inicial.addEventListener('click', () => rolar_pagina(5))
 const lista_cores_navbar = ['#9FC131', '#042940', '#13678A', '#9AEBA3', '#45C4B0', '#042940']
 const navbar = document.getElementById('navBar');
 
+const lista_cores_insta = ['#212529', '#B2CFE1', '#5E8CD6', '#3F8F48', '#786624']
+const instaVetor = document.getElementById("instaVetor")
+
 function mudar_cor_navbar() {
-    for (let x=0; x<5;x++){
-        if(window.scrollY >= lista_posicoes[x]){
-            navbar.style.backgroundColor = lista_cores_navbar[x];
-        }else{
+    for (let x=0; x<5;x++)
+    {
+        if(window.scrollY >= lista_posicoes[x]) /// 
+        {
+            navbar.style.backgroundColor = lista_cores_navbar[x]; // muda as cores
+            instaVetor.style.color = lista_cores_insta[x]
+        }
+        else
+        {
             return;
         }
     }
