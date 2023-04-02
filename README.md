@@ -32,19 +32,19 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <p align="center">
 <a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1">Landing Page</a>
 <br>
-<img style="width: 30%; height: 30%" src="https://user-images.githubusercontent.com/82301731/229010856-c057b3b2-9bf6-4bc0-8529-91605ecbccae.png">
+<img style="width: 20%; height: 20%" src="https://user-images.githubusercontent.com/82301731/229010856-c057b3b2-9bf6-4bc0-8529-91605ecbccae.png">
 </p>
 
 <p align="center">
 <a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">Tela Quiz</a>
 <br>
-<img style="width: 30%; height: 30%" src="https://user-images.githubusercontent.com/82301731/229011273-7b1888fd-e0a4-4992-b020-b00d872d29b4.png">
+<img style="width: 20%; height: 20%" src="https://user-images.githubusercontent.com/82301731/229011273-7b1888fd-e0a4-4992-b020-b00d872d29b4.png">
 </p>
 
 <p align="center">
 <a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado</a>
 <br>
-<img style="width: 20%; height: 20%" src="https://user-images.githubusercontent.com/82301731/229011575-bfce803c-3a84-4ca4-aa7f-42952a0fd4e6.png">
+<img style="width: 10%; height: 10%" src="https://user-images.githubusercontent.com/82301731/229011575-bfce803c-3a84-4ca4-aa7f-42952a0fd4e6.png">
 </p>
 
 <br>
