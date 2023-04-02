@@ -35,11 +35,13 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 <a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">Tela Quiz</a>
 <br>
+<a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado</a>
+<br>
 <br>
 ### Trello
 https://trello.com/b/rZaTN4So/todo-greenlight-2023
 <br>
-
+<br>
 ## Api de Mensuração (Em progresso)
 https://www.gov.br/conecta/catalogo/apis/cep-codigo-de-enderecamento-postal/swagger-json/swagger_view
 
