@@ -27,7 +27,7 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 
 <br>
 
-## Figma <img style="height: 1.5%; width: 1.5%; right: 4%;" src="https://user-images.githubusercontent.com/82301731/229357812-90dbf2b1-d7e9-4b56-b51e-38980b123f9a.png">
+## Figma <img style="height: 1.5%; width: 1.5%;" src="https://user-images.githubusercontent.com/82301731/229357812-90dbf2b1-d7e9-4b56-b51e-38980b123f9a.png">
 
 <a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1">Landing Page</a>
 <br>
@@ -36,7 +36,7 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado</a>
 <br>
 <br>
-## Trello <img src="https://user-images.githubusercontent.com/82301731/229360279-43485252-5a87-4d6d-b59a-1737f2b69a74.png">
+## Trello <img style="height: 1.5%; width: 1.5%;" src="https://user-images.githubusercontent.com/82301731/229360279-43485252-5a87-4d6d-b59a-1737f2b69a74.png">
 https://trello.com/b/rZaTN4So/todo-greenlight-2023
 <br>
 <br>
