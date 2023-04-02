@@ -36,7 +36,7 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado</a>
 <br>
 <br>
-## Trello
+## Trello <img src="https://user-images.githubusercontent.com/82301731/229360279-43485252-5a87-4d6d-b59a-1737f2b69a74.png">
 https://trello.com/b/rZaTN4So/todo-greenlight-2023
 <br>
 <br>
