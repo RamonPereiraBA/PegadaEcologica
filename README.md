@@ -29,14 +29,14 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 
 ## ✔️ Design e Organização
 
-### 🖼️ Figma
+### Figma
 
 <a href="https://www.figma.com/file/54dewYGjocdFVafZdo2jc4/pegadaecologicadesign2?t=uONlpmsG1vRaZQpU-1">`Landing Page`</a>
 <br>
 <a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">`Tela Quiz`</a>
 <br>
 <br>
-### 🧰 Trello
+### Trello
 https://trello.com/b/rZaTN4So/todo-greenlight-2023
 <br>
 
