@@ -74,10 +74,10 @@ h2
 }
 
 /* animações */
-@keyframes jumping {
-    from {transform: translateY(-15px);}
-    50% {transform: translateY(0);}
-    to {transform: translateY(-15px);}
+@keyframes aumentando {
+    from {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    to {transform: scale(1);}
 }
 
 @keyframes destaque_pagina{
@@ -458,6 +458,7 @@ h2
     top: 160px;
     border-radius: 88px;
     transition-duration: .4s;
+    animation: aumentando 1s linear infinite;
 }
 
 #inicializador:hover{
@@ -474,7 +475,6 @@ h2
     top: 70%;
     z-index: 3;
     cursor: pointer;
-    animation: jumping 1s linear infinite;
 }
 
 
