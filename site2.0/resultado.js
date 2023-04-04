@@ -1,11 +1,9 @@
 // redirecionando a pagina
 const bt_inicio = document.getElementById("ir_inicio")
 const bt_quiz = document.getElementById("ir_quiz")
-const bt_compartilhar = document.getElementById("ir_compartilhar");
 
 bt_inicio.addEventListener('click', ir_inicio)
 bt_quiz.addEventListener('click', ir_quiz)
-bt_compartilhar.addEventListener('click', colar_texto)
 
 function ir_inicio(){
     location.href = "./index.html"
@@ -117,10 +115,4 @@ dica.onmouseover = function() {
 // quando o mouse sair do botão
 dica.onmouseout = function() {
     dica.style.color = dicaCor
-}
-
-// Função para o botão compartilhar
-function colar_texto(){
-    navigator.clipboard.writeText(`Minha pegada ecológica é ${qualidade_resultado}, ${resultado} em uma escala de 70. Mas e você? Como está sua pegada ecológica? Descubra acessando https://greenlight.dev.br/`);
-    alert(`O texto "Minha pegada ecológica é ${qualidade_resultado}, ${resultado} em uma escala de 70. Mas e você? Como está sua pegada ecológica? Descubra acessando https://greenlight.dev.br/" foi copiado`);
 }
