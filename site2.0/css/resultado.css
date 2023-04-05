@@ -118,6 +118,20 @@
     cursor: pointer;
 }
 
+#ir_mediaGlobal{
+    position: absolute;
+    font-family: 'Cabin', sans-serif;
+    top: 70%;
+    right: 10%;
+    height: 90px;
+    width: 250px;
+    border: 0;
+    border-radius: 15px;
+    background-color: #31C1B0;
+    transition-duration: .2s;
+    cursor: pointer;
+}
+
 #ir_quiz{
     position: absolute;
     font-family: 'Cabin', sans-serif;
@@ -132,7 +146,7 @@
     cursor: pointer;
 }
 
-#ir_inicio, #ir_quiz
+#ir_inicio, #ir_quiz, #ir_mediaGlobal
 {
     outline-style: dashed;
     outline-width: 0px;
@@ -140,7 +154,7 @@
 
 /* HOVER */
 
-#ir_inicio:hover, #ir_quiz:hover
+#ir_inicio:hover, #ir_quiz:hover, #ir_mediaGlobal
 {
     outline-width: 5px;
     outline-style: solid;
@@ -151,6 +165,11 @@
     outline-color: #efefef;
 }
 
+#ir_mediaGlobal:hover
+{
+    outline-color: #31C1B0;
+}
+
 #ir_quiz:hover
 {
     outline-color: var(--cor_caixa_titulo);
@@ -158,18 +177,22 @@
 
 /* ACTIVE */
 
-#ir_inicio:active, #ir_quiz:active
+#ir_inicio:active, #ir_quiz:active, #ir_mediaGlobal
 {
     outline-style: none;
 }
 
 #ir_inicio:active{
-    background: #808080;
+    filter: brightness(50%);
     outline: 0;
 }
 
 #ir_quiz:active{
-    background-color: #630000;
+    filter: brightness(50%);
 }
 
+#ir_mediaGlobal:active{
+    filter: brightness(50%);
+    outline: 0;
+}
 
