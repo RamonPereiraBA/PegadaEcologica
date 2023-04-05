@@ -120,5 +120,5 @@ const botao_quiz = document.getElementById("inicializador");
 botao_quiz.addEventListener("click", ir_quiz)
 
 function ir_quiz(){
-    location.href="quiz.html"
+    location.href="quiz.php"
 }
