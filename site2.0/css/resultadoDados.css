@@ -1,3 +1,17 @@
+/* declaração de variaveis */
+:root{
+    --cor_caixa_titulo : #0CF25D;
+    --cor_titulo_resultado: #034159;
+    --cor_caixa_resultado : #025951;
+    --cor_caixa_geral : #034159;
+}
+
+
+html{
+    background-color: #012030;
+    overflow-y: scroll;
+}
+
 #caixa_titulo{
     position: fixed;
     top: 0;
@@ -5,4 +19,65 @@
     width: 100%;
     height: 20%;
     background-color: #D2F20C;
+}
+
+/* FONTES, CORES e POSIÇÕES */
+
+#texto_titulo, #numero_media, #irInicio, #RefazerQuiz
+{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    color: #012030;
+}
+
+#irInicio, #RefazerQuiz{
+    cursor: pointer;
+    left: 80%;
+    right: 0;
+    border: 0;
+    border-radius: 0px 0px 0px 50px;
+    height: 27%;
+    outline-style: dashed;
+    outline-width: 0px;
+}
+
+#numero_media{
+    left: 12%;
+    font-size: 12vh;
+    margin-top: 1%;
+}
+
+#texto_titulo{
+    left: 2%;
+    font-size: 4vh;
+}
+
+#irInicio
+{
+    margin-top: 2%;
+    top: 48%;
+}
+
+#RefazerQuiz{
+    margin-top: 2%;
+}
+
+/* HOVERS */
+#RefazerQuiz:hover{
+    outline-color: var(--cor_caixa_titulo);
+    outline-width: 5px;
+    outline-style: dashed;
+}
+
+#IrInicio:hover{
+    outline-color: var(--cor_caixa_titulo);
+    outline-width: 5px;
+    outline-style: dashed;
+}
+
+/* QUESTÕES */
+
+#textos{
+    position: absolute;
+    top: 15%;
 }
