@@ -33,7 +33,7 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 <a href="https://www.figma.com/file/LsCciXBSi0DoScpJfKoVp5/telaQuiz?t=m7s8e31eRGFU9Vuk-6">Tela Quiz</a>
 <br>
-<a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado</a>
+<a href="https://www.figma.com/file/se9WVH5Qd3Jrmm5uYTLrqD/telaResultado?t=43FOucxhTTwxQd7s-6">Resultado Mobile</a>
 <br>
 <br>
 ## Trello <img style="height: 1.7%; width: 1.7%;" src="https://user-images.githubusercontent.com/82301731/229360279-43485252-5a87-4d6d-b59a-1737f2b69a74.png">
