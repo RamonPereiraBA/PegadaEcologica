@@ -4,8 +4,23 @@
     --cor_titulo_resultado: #034159;
     --cor_caixa_resultado : #025951;
     --cor_caixa_geral : #034159;
+    --mediaGlobal_tamanho_texto: 4vh;
+    --numero_tamanho_texto: 12vh;
+    --largura_botoes: 270px;
+    --left_numeroGlobal: 12%;
+    --margin_top_numeroGlobal: 1%; 
 }
 
+@media screen and (max-width : 700px){
+    :root{
+        --mediaGlobal_tamanho_texto: 4vh;
+        --numero_tamanho_texto: 8vh;
+        --largura_botoes: 120px;
+        --left_numeroGlobal: 33%;
+        --margin_top_numeroGlobal: 8%; 
+    }
+    
+}
 
 html{
     background-color: #012030;
@@ -32,7 +47,7 @@ html{
 
 #irInicio, #RefazerQuiz{
     cursor: pointer;
-    left: 80%;
+    width: var(--largura_botoes);
     right: 0;
     border: 0;
     border-radius: 0px 0px 0px 50px;
@@ -42,14 +57,14 @@ html{
 }
 
 #numero_media{
-    left: 12%;
-    font-size: 12vh;
-    margin-top: 1%;
+    left: var(--left_numeroGlobal);
+    font-size: var(--numero_tamanho_texto);
+    margin-top: var(--margin_top_numeroGlobal);
 }
 
 #texto_titulo{
     left: 2%;
-    font-size: 4vh;
+    font-size: var(--mediaGlobal_tamanho_texto);
 }
 
 #irInicio
