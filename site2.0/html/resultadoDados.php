@@ -15,8 +15,8 @@
 </head>
 <body>
     <div id="caixa_titulo">
-        <p id="texto_titulo">média<br>global</p>
-        <p id="numero_media">770</p>
+        <p id="texto_titulo">Média<br>Global</p>
+        <p id="numero_media">69</p>
         <button id="irInicio">Retornar ao início</button>
         <button id="RefazerQuiz">Voltar ao QUIZ</button>
     </div>
