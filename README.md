@@ -47,6 +47,6 @@ https://www.gov.br/conecta/catalogo/apis/cep-codigo-de-enderecamento-postal/swag
 <br>
 <br>
 ## Sugestões
-<a href="https://sweetalert2.github.io/">deixar o site bonitinho</a>
+https://sweetalert2.github.io/
 
 
