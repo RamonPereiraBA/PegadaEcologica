@@ -1,3 +1,11 @@
+<?php
+require('../conexao_servidor.php');
+
+$stmt = $conn->prepare("SELECT * from tabelaecologica");
+$stmt->execute();
+$results1 = $stmt->fetchAll(PDO::FETCH_OBJ);
+echo($results1);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
