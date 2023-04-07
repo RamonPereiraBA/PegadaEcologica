@@ -16,7 +16,7 @@ function ir_mediaGlobal(){
 }
 
 function ir_quiz(){
-    location.href = "./quiz.html"
+    location.href = "./quiz.php"
 }
 
 // configurando a tela do resultado
