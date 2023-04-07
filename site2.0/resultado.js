@@ -93,12 +93,17 @@ else
 }
 
 titulo.innerText = qualidade_resultado;   
-texto_geral.innerText = texto;
-// a formula a baixo ajusta a porcentagem, pois o maior resultado possível é 70
-barra_resultado.style.width = parseInt((parseInt(resultado)*100)/70)+"%";
+texto_geral.innerText = texto
 dicaCor = dica.style.color
 texto.wordBreak = true;
 
+barra_resultado.style.width = "0%";
+function barra_resultado_aparecer(){
+    // a formula a baixo ajusta a porcentagem, pois o maior resultado possível é 70
+    barra_resultado.style.width = parseInt((parseInt(resultado)*100)/70)+"%";
+}
+
+setInterval(barra_resultado_aparecer, 500);
 
 // configurando a dica
 function setar_dica(){
