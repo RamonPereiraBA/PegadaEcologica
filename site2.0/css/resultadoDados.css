@@ -23,7 +23,6 @@
 }
 
 html{
-    background-color: #012030;
     overflow-y: scroll;
 }
 
@@ -34,6 +33,7 @@ html{
     width: 100%;
     height: 20%;
     background-color: #D2F20C;
+    z-index: 5;
 }
 
 /* FONTES, CORES e POSIÇÕES */
@@ -92,7 +92,42 @@ html{
 
 /* QUESTÕES */
 
-#textos{
+.textos{
     position: absolute;
-    top: 15%;
+    background-color: #012030;;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    display: flex;
+	flex-direction: column;
+    justify-content: center;
+	gap: 20px;
+}
+
+.questao{
+    margin-top: 40px;
+    margin-left: 10%;
+}
+
+.questao:nth-child(1){
+    margin-top: 0;
+}
+
+/* Questões detalhes*/
+#tituloQuestao{
+    margin-bottom: 40px;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+#tituloQuestao:first-child{
+    margin-top: 30px;
+}
+
+.option{
+    margin-bottom: 20px;
+    color: #FFFFFF;
 }
