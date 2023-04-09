@@ -1,5 +1,4 @@
 /* css geral*/
-
 html, body
 {
     overflow-x: hidden;
@@ -16,10 +15,11 @@ h1
 h2
 {
     position: absolute;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 600;
     left: 3%;
+    font-size: var(--tamanho_fonte_topicos);
 }
-
 
 #tituloInicio{
     position: absolute;
@@ -27,7 +27,6 @@ h2
     left: 6%;
     font-size: var(--tamanho_fonte_titulo);
 }
-
 
 #tInicio{
     position: absolute;
@@ -37,12 +36,19 @@ h2
     top: var(--top_texto_iniciar);
 }
 
-#tOqFazemos, #tComo_func, #tNossosPilares
+#tFacaDiferenca
 {
+    position: relative;
+    top: 19px;
+    color: #ebebeb;
+    justify-self: center;
+    height: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: var(--tamanho_fonte_topicos);
 }
+
+
 
 /* Manipulando o TOP dos textos */
 #tOqFazemos{
@@ -68,16 +74,12 @@ h2
     top: 18px;
 }
 
-#tFacaDiferenca
-{
-    top: 18px;
-}
 
 /* animações */
-@keyframes aumentando {
-    from {transform: scale(1);}
-    50% {transform: scale(1.05);}
-    to {transform: scale(1);}
+@keyframes degrade {
+    0% {background-color: #DBF227;}
+    50% {background-color: #9FC131;}
+    100% {background-color: #DBF227;}
 }
 
 @keyframes destaque_pagina{
@@ -100,6 +102,7 @@ h2
     }
 }
 
+
 /* css da nav bar*/
 #navBar{
     position: fixed;
@@ -116,12 +119,6 @@ h2
     left: 0;
 }
 
-.item_nav{
-    position: absolute;
-    top: 0;
-    right: 1%;
-    font-size: 30px;
-}
 
 /* css da tela inicial*/
 #inicio{
@@ -163,6 +160,10 @@ h2
 
 #imagem_globo:hover{
     transform: scale(1.05);
+}
+
+#imagem_globo:active{
+    transform: scale(.8);
 }
 
 
@@ -406,7 +407,7 @@ h2
     background: #1e413b;
     border-radius: 20px;
 }
-  
+
 #navegacao ul::-webkit-scrollbar-thumb {
     background-color: #999;
     border-radius: 20px;
@@ -443,7 +444,7 @@ h2
     top: 4220px;
     width: 100%;
     height: 490px;
-    background: linear-gradient(to right, #042940, #0e3749);
+    background: linear-gradient(360deg, #042940 1%, #298b7d 94.67%);
 }
 
 #inicializador{
@@ -451,25 +452,26 @@ h2
     width: var(--largura_bt_inicializador);
     height: 13%;
     font-family: 'Montserrat', sans-serif;
-    background-color: #EBEBEB;
     border: 0;
     color: #042940;
     font-weight: 600;
     top: 160px;
     border-radius: 88px;
-    transition-duration: .4s;
-    animation: aumentando 1s linear infinite;
+    animation: degrade 2s infinite;
+    box-shadow: #00000034 0px 12px 10px;
 }
 
 #inicializador:hover{
-    background-color: #9AEBA3;
-    box-shadow: 0 0 5px #9AEBA3, 0 0 10px #9AEBA3, 0 0 10px #9AEBA3, 0 0 20px #9AEBA3;
+    box-shadow: 0 0 5px #DBF227, 0 0 5px #DBF227, 0 0 5px #DBF227, 0 0 9px #DBF227;
+}
+
+#inicializador:active{
+    filter: brightness(60%);
 }
 
 
 #seta_cima{
     position: absolute;
-    left: 49%;
     width: 50px;
     height: 50px;
     top: 70%;
@@ -477,6 +479,24 @@ h2
     cursor: pointer;
 }
 
+#instaVetor, #githubVetor, #dropdownMenu2
+{
+    color: #212529;
+    -webkit-text-stroke: .2px;
+}
+
+.nav-link{
+    transform: scale(150%);
+}
+
+.nav-link:hover
+{
+    filter: brightness(250%);
+}
+.nav-link:active
+{
+    scale: 60%;
+}
 
 /* declaração de variaveis */
 :root{
