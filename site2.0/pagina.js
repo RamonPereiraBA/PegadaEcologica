@@ -74,25 +74,6 @@ const navbar = document.getElementById('navBar');
 const lista_cores_insta = ['#212529', '#B2CFE1', '#5E8CD6', '#3F8F48', '#786624']
 const instaVetor = document.getElementById("instaVetor")
 
-function mudar_cor_navbar() {
-    for (let x=0; x<5;x++)
-    {
-        if(window.scrollY >= lista_posicoes[x]) /// 
-        {
-            navbar.style.backgroundColor = lista_cores_navbar[x]; // muda as cores
-            instaVetor.style.color = lista_cores_insta[x]
-        }
-        else
-        {
-            return;
-        }
-    }
-}
-
-mudar_cor_navbar();
-
-setInterval(mudar_cor_navbar, 1500);
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Criando as caixas dos pilares
 const cores_caixa = ["#45C4B0ed", "#DAFDBA", "#45C4B0", "#DAFDBA"]
@@ -121,4 +102,21 @@ botao_quiz.addEventListener("click", ir_quiz)
 
 function ir_quiz(){
     location.href="quiz.php"
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// configurando icone da terra
+const botao_terra = document.getElementById("imagem_globo")
+const terrasVisao = ['bi-globe-asia-australia', 'bi-globe-central-south-asia', 'bi-globe-europe-africa', 'bi-globe-americas']
+botao_terra.addEventListener("click", mudarVisao)
+
+
+function mudarVisao()
+{
+    var indiceAleatorio = Math.floor(Math.random() * terrasVisao.length);
+    if (terrasVisao[indiceAleatorio] === botao_terra.classList[0])
+    {
+        mudarVisao()
+    }
+    botao_terra.classList.replace(botao_terra.classList[0], terrasVisao[indiceAleatorio]);
 }
