@@ -22,15 +22,16 @@
 	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-</head>
+
+  </head>
 <body>
   <!-- Nav bar-->
-  <ul id="navBar" class="nav">
+  <ul id="navBar" class="nav justify-content-end" style="background-color: rgba(154, 235, 163, 0.322); backdrop-filter: blur(10px);  display: flex;">
     <!-- dropdown -->
     <li class="nav-item">
       <div class="dropdown" id="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="bi bi-justify"></i>
+        <button class="btn btn-outline-light" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-pressed="true" aria-expanded="false" style="border: none; font-size: large;color: #212529;">
+          <i class="bi bi-list"></i> 
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <button class="dropdown-item" type="button" id="ir_objetivo"><i class="bi bi-calendar-check"></i> Objetivos</button>
@@ -42,7 +43,11 @@
     </li>
     <!-- resto da nav bar -->
     <li class="nav-item">
-      <a class="item_nav" href="https://www.instagram.com/greenlight.dev/"><i class="bi bi-instagram" id="instaVetor" style="color: #212529;"></i></a>
+      <a class="nav-link" href="https://www.instagram.com/greenlight.dev/"><i class="bi bi-instagram" id="instaVetor"></i></a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="https://github.com/XaropinhoS20/PegadaEcologica"><i class="bi bi-github" id="githubVetor"></i></a>
     </li>
   </ul>
 
@@ -53,7 +58,7 @@
       Pegada Ecológica</b></p>
       <h1 id="tituloInicio">GreenLight</h1>
     <button  id="btn_começar" >Descubra Agora!</button>
-    <i id="imagem_globo" class="bi bi-globe-americas"></i>
+    <i id="imagem_globo" class="bi bi-globe-americas" style="cursor: pointer;"></i>
   </div>
   
   <!-- tela do objetivo -->
@@ -105,8 +110,8 @@
       <div id="fundo_funcionalidade" class="border border-dark"><p id="funcionalidade"></p></div>
       <p id="texto_equipe"></p>
     </div>
-    <button class="btn btn-outline-secondary" id="voltar" type="button" onclick="passar_pagina('-')" ><<</button>
-    <button class="btn btn-outline-secondary" id="passar" type="button" onclick="passar_pagina('+')" >>></button>
+    <button class="btn btn-outline-secondary" id="voltar" type="button" onclick="passar_pagina('-')" ><i class="bi bi-arrow-left"></i></button>
+    <button class="btn btn-outline-secondary" id="passar" type="button" onclick="passar_pagina('+')" ><i class="bi bi-arrow-right"></i></button>
     <div id="circulos">
       <div class="circulo_carrousel" id="c1"></div>
       <div class="circulo_carrousel" id="c2"></div>
@@ -197,10 +202,10 @@
    </div>
 
   <!-- Pagina quiz -->
-  <div id="pagina_quiz">
+  <div id="pagina_quiz" style="justify-content: center;">
+    <p id="tFacaDiferenca">Descubra seu Impacto!!!</p>
     <img id="seta_cima" src="../Imagens/icons/seta_cima.png">
-    <h2 style="color: #EBEBEB;" id="tFacaDiferenca">Faça a diferença</h2>
-    <button class="btn btn-success" id="inicializador">Iniciar Quiz</i></button>
+    <button class="btn" id="inicializador">Iniciar</button>
   </div>
 
   <!-- scripts -->
