@@ -9,6 +9,8 @@
     --largura_botoes: 270px;
     --left_numeroGlobal: 12%;
     --margin_top_numeroGlobal: 1%; 
+    --fonte_titulo : 25px;
+    --fonte_opcao : 20px;
 }
 
 @media screen and (max-width : 700px){
@@ -17,7 +19,9 @@
         --numero_tamanho_texto: 8vh;
         --largura_botoes: 120px;
         --left_numeroGlobal: 33%;
-        --margin_top_numeroGlobal: 8%; 
+        --margin_top_numeroGlobal: 8%;
+        --fonte_titulo : 18px; 
+        --fonte_opcao : 15px;
     }
     
 }
@@ -120,7 +124,7 @@ html{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 25px;
+    font-size: var(--fonte_titulo);
 }
 
 #tituloQuestao:first-child{
@@ -130,4 +134,8 @@ html{
 .option{
     margin-bottom: 20px;
     color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--fonte_opcao);
 }
