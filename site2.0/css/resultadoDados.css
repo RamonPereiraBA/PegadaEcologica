@@ -1,6 +1,6 @@
 /* declaração de variaveis */
 :root{
-    --cor_caixa_titulo : #0CF25D;
+    --cor_caixa_titulo : #D2F20C;
     --cor_titulo_resultado: #034159;
     --cor_caixa_resultado : #025951;
     --cor_caixa_geral : #034159;
@@ -36,7 +36,7 @@ html{
     left: 0;
     width: 100%;
     height: 20%;
-    background-color: #D2F20C;
+    background-color: var(--cor_caixa_titulo);
     z-index: 5;
 }
 
@@ -80,7 +80,7 @@ html{
 
 #RefazerQuiz{
     margin-top: 2%;
-    background-color: #D2F20C;
+    background-color: var(--cor_caixa_titulo);
     filter: brightness(80%);
 }
 
