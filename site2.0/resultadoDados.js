@@ -16,6 +16,10 @@ function ir_resultado(){
 var mediaGlobal = document.getElementById("numero_media");
 var numeroMediGlobal = parseInt(mediaGlobal.innerText);
 if (numeroMediGlobal >= 50){
+    document.documentElement.style.setProperty('--cor_caixa_titulo', '#D2F20C');
+    document.documentElement.style.setProperty('--cor_caixa_resultado', '#C43302');
+    document.documentElement.style.setProperty('--cor_titulo_resultado', '#010221');
+    document.documentElement.style.setProperty('--cor_caixa_geral', '#AEF477');
 
 }else if (numeroMediGlobal >= 35 && numeroMediGlobal <= 49){
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
