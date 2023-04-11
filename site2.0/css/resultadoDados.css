@@ -75,23 +75,24 @@ html{
 {
     margin-top: 2%;
     top: 48%;
+    background-color: #D9D9D9;
 }
 
 #RefazerQuiz{
     margin-top: 2%;
+    background-color: #D2F20C;
+    filter: brightness(80%);
 }
 
 /* HOVERS */
-#RefazerQuiz:hover{
-    outline-color: var(--cor_caixa_titulo);
-    outline-width: 5px;
-    outline-style: dashed;
+#RefazerQuiz:hover, #irInicio:hover{
+    filter: brightness(70%);
 }
 
-#IrInicio:hover{
-    outline-color: var(--cor_caixa_titulo);
-    outline-width: 5px;
-    outline-style: dashed;
+/* ACTIVE */
+
+#RefazerQuiz:active, #irInicio:active{
+    filter: brightness(50%);
 }
 
 /* QUESTÕES */
