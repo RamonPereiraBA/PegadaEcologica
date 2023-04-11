@@ -154,7 +154,7 @@
 
 /* HOVER */
 
-#ir_inicio:hover, #ir_quiz:hover, #ir_mediaGlobal
+#ir_inicio:hover, #ir_quiz:hover, #ir_mediaGlobal:hover
 {
     outline-width: 5px;
     outline-style: solid;
@@ -177,7 +177,7 @@
 
 /* ACTIVE */
 
-#ir_inicio:active, #ir_quiz:active, #ir_mediaGlobal
+#ir_inicio:active, #ir_quiz:active, #ir_mediaGlobal:active
 {
     outline-style: none;
 }
