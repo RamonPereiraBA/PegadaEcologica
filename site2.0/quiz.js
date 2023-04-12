@@ -232,8 +232,6 @@ next.addEventListener("click", passar)
 
 prev.addEventListener("click", voltar)
 
-fim.addEventListener("click", finalizar)
-
 function passar(){
     id++;
     troca_pergunta()
