@@ -4,7 +4,7 @@ require('../conexao_servidor.php');
 $stmt = $conn->prepare("SELECT * from tabelaecologica");
 $stmt->execute();
 $results1 = $stmt->fetchAll(PDO::FETCH_OBJ);
-echo($results1);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,10 +60,15 @@ echo($results1);
 		<div class="navegacao">
 			<button id="prev">Anterior</button>
 			<button id="next">Próximo</button>
-			<button id="finalizar" class="enviarPesquisa">Finalizar</button>
+			<button id="finalizar" class="enviarPesquisa" onclick="<?php inserirDados('valor_do_parametro'); ?>">Executar função</button>
 		</div>
 	</div>
 	<script src="../quiz.js"></script>
 </body>
 </div>
 </html>
+<?php 
+function inserirDados(){
+	echo '<script>finalizar();</script>';
+}
+?>
