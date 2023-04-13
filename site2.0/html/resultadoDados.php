@@ -1,4 +1,39 @@
 <?php
+    $lista_medias = array();
+    require('../conexao_servidor.php');
+    
+    $stmt = $conn->prepare("SELECT * FROM tabelaecologica;");
+    $stmt->execute();
+    $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    // Preenche as listas com a quantidade de questões existentes
+    $soma_todos = 0;
+    $lista_alternativas = array();
+    for ($x=0; $x<14; $x++){
+        array_push($lista_alternativas, array(0,0,0,0,0));
+        array_push($lista_medias, array(0,0,0,0,0));
+    }
+
+    // Coleta os dados do servidor
+    $x = 0;
+    foreach($resultado as $r){
+        $soma_todos += $r->total;
+        for ($i=0;$i<14;$i++){
+            // Pega qual alternativa foi selecionada
+            $lista_alternativas[$i][substr($r->questoes, $i, 1)-1] += 1;
+        }
+        $x++;
+    }
+
+    // Calcula a média de cada resposta
+    for ($i=0; $i<14;$i++){
+        for ($a=0; $a<5; $a++){
+            $lista_medias[$i][$a] = intval(round(($lista_alternativas[$i][$a]/$x)*100));
+        }
+    }
+
+    $media_total = intval(round($soma_todos / $x));
+
     $listinha = array(array("q" => "Com que frequência você come carne vermelha?", "1" => "Nunca", "2" =>"três porções por semana", "3"=> "uma porção por dia", "4"=>"Frequentemente", "5"=>"Sempre"),
      array("q" => "Com que frequência você come peixe ou frutos do mar?", "1" => "Nunca", "2" =>"Raramente", "3"=> "Ocasionalmente", "4"=>"Frequentemente", "5"=>""), 
      array("q" => "Você usa ar condicionado ou aquecedor na sua casa?", "1" => "sim", "2" =>"não", "3"=> "", "4"=>"", "5"=>""),
@@ -14,11 +49,6 @@
      array("q" => "Quantas horas você gasta viajando de avião anualmente?", "1" => "Nunca viajo", "2" =>"0 a 4 horas", "3"=> "4 a 10 horas", "4"=>"10 a 25 horas", "5"=>"Mais de 25 horas"),
      array("q" => "Qual a quantidade de alimentos que você consome que contém açúcar refinado?", "1" => "Nenhum alimento", "2" =>"Menos de 100g por semana", "3"=> "Mais de 100g por semana", "4"=>"", "5"=>""),
     );
-
-    $lista_medias = array(array(20, 10, 40, 30, 0), array(10, 10, 80, 0, 0), array(10, 10, 10, 40, 30), array(10, 10, 10, 70, 0),
-                    array(50, 50, 0, 0, 0), array(40, 10, 50, 0, 0), array(90, 10, 0, 0, 0), array(10, 10, 80, 0, 0), array(20, 20, 20, 20, 20),
-                    array(50, 50, 0, 0, 0), array(20, 80, 0, 0, 0), array(10, 90, 0, 0, 0), array(90, 10, 0, 0, 0), array(40, 60, 0, 0, 0));
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,7 +68,7 @@
 <body>
     <div id="caixa_titulo">
         <p id="texto_titulo">Média<br>Global</p>
-        <p id="numero_media">69</p>
+        <p id="numero_media"><?= $media_total ?></p>
         <button id="irInicio">Retornar ao início</button>
         <button id="RefazerQuiz">Retornar ao resultado</button>
     </div>
@@ -47,13 +77,13 @@
             for ($x = 0; $x <= 13; $x++){ ?>
                 <div class="questao">
                     <div id="tituloQuestao"><?= $x+1 ?><?= " - " ?><?= $listinha[$x]["q"] ?></div>
-                    <div id="op1" class="option"><?php if ($lista_medias[$x][0] != 0)echo($lista_medias[$x][0]. "% marcaram - ");?><?= $listinha[$x]["1"] ?></div>
-                    <div id="op2" class="option"><?php if ($lista_medias[$x][1] != 0)echo($lista_medias[$x][1]. "% marcaram - ");?><?= $listinha[$x]["2"] ?></div>
-                    <div id="op3" class="option"><?php if ($lista_medias[$x][2] != 0)echo($lista_medias[$x][2]. "% marcaram - ");?><?= $listinha[$x]["3"] ?></div>
-                    <div id="op4" class="option"><?php if ($lista_medias[$x][3] != 0)echo($lista_medias[$x][3]. "% marcaram - ");?><?= $listinha[$x]["4"] ?></div>
-                    <div id="op5" class="option"><?php if ($lista_medias[$x][4] != 0)echo($lista_medias[$x][4]. "% marcaram - ");?><?= $listinha[$x]["5"] ?></div>
+                    <div id="op1" class="option"><?php if ($listinha[$x]["1"] != "")echo($lista_medias[$x][0]. "% marcaram - ");?><?= $listinha[$x]["1"] ?></div>
+                    <div id="op2" class="option"><?php if ($listinha[$x]["2"] != "")echo($lista_medias[$x][1]. "% marcaram - ");?><?= $listinha[$x]["2"] ?></div>
+                    <div id="op3" class="option"><?php if ($listinha[$x]["3"] != "")echo($lista_medias[$x][2]. "% marcaram - ");?><?= $listinha[$x]["3"] ?></div>
+                    <div id="op4" class="option"><?php if ($listinha[$x]["4"] != "")echo($lista_medias[$x][3]. "% marcaram - ");?><?= $listinha[$x]["4"] ?></div>
+                    <div id="op5" class="option"><?php if ($listinha[$x]["5"] != "")echo($lista_medias[$x][4]. "% marcaram - ");?><?= $listinha[$x]["5"] ?></div>
                 </div>
-         <?php }?>        
+            <?php }?>      
     </div>
     <script src="../resultadoDados.js"></script>
 </body>
