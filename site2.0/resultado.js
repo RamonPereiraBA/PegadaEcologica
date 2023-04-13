@@ -11,12 +11,8 @@ function ir_inicio(){
     location.href = "./index.html"
 }
 
-function ir_mediaGlobal(){
-    location.href= "resultadoDados.php"
-}
-
 function ir_quiz(){
-    location.href = "./quiz.php"
+    location.href = "./quiz.html"
 }
 
 // configurando a tela do resultado
@@ -27,6 +23,11 @@ var dicaURL = urlParams.get('dica');
 
 if (resultado === null || resultado===""){
     resultado = 0;
+}
+
+// Ir media global
+function ir_mediaGlobal(){
+    location.href= "resultadoDados.php?total="+resultado+"&dica="+dicaURL;
 }
 
 // Descripitografando a dica
