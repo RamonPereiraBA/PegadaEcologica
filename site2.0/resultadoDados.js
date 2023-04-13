@@ -1,3 +1,9 @@
+// Pegando os parametros
+const urlParams = new URLSearchParams(window.location.search);
+var resultado = urlParams.get('total');
+var dicaURL = urlParams.get('dica');
+
+///////////////////////////////////////////////////////////
 const irInicio = document.getElementById("irInicio");
 const irResultado = document.getElementById("RefazerQuiz");
 
@@ -9,7 +15,7 @@ function ir_inicio(){
 }
 
 function ir_resultado(){
-    location.href = "./resultado.html"
+    location.href = "./resultado.html?total="+resultado+"&dica="+dicaURL;
 }
 
 ///////////////////////////////////////////////////////
