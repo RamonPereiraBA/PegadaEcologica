@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "pegada123";
+$servername = "host";
+$username = "user";
+$password = "senha";
 $dbname = "pegadaecologica";
 
 
