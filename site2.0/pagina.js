@@ -109,14 +109,14 @@ function ir_quiz(){
 const botao_terra = document.getElementById("imagem_globo")
 const terrasVisao = ['bi-globe-asia-australia', 'bi-globe-central-south-asia', 'bi-globe-europe-africa', 'bi-globe-americas']
 botao_terra.addEventListener("click", mudarVisao)
-
+let indice_icone = 0;
+mudarVisao()
 
 function mudarVisao()
 {
-    var indiceAleatorio = Math.floor(Math.random() * terrasVisao.length);
-    if (terrasVisao[indiceAleatorio] === botao_terra.classList[0])
-    {
-        mudarVisao()
+    indice_icone ++;
+    if (indice_icone>3){
+        indice_icone = 0;
     }
-    botao_terra.classList.replace(botao_terra.classList[0], terrasVisao[indiceAleatorio]);
+    botao_terra.classList.replace(botao_terra.classList[0], terrasVisao[indice_icone]);
 }
