@@ -99,7 +99,7 @@ html{
 
 .textos{
     position: absolute;
-    background-color: #012030;;
+    background: linear-gradient(to bottom, #012030, #12181b);
     left: 0;
     top: 20%;
     width: 100%;
