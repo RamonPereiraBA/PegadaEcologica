@@ -38,3 +38,20 @@ if (numeroMediGlobal >= 50){
     document.documentElement.style.setProperty('--cor_titulo_resultado', '#010221');
     document.documentElement.style.setProperty('--cor_caixa_geral', '#B0BFBE');
 }
+
+///////////////////////////////////////////////////////////////////
+const barras = document.querySelectorAll(".progress-bar");
+const elementos_porcentagem = document.querySelectorAll(".porcentagem");
+let elementos_porcentagem_correto = [];
+
+// Corrigindo o problema dos elementos que não existem
+elementos_porcentagem.forEach(element => {
+    if (element.innerText != ""){
+        elementos_porcentagem_correto.push(element);
+    }
+});
+
+for(let x = 0;x<barras.length; x++){
+    const numero_porcentagem = elementos_porcentagem_correto[x].innerText.split("%")[0] + "%";
+    barras[x].style.width = numero_porcentagem;
+}
