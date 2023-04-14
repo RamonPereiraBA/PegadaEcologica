@@ -59,6 +59,11 @@
     <title>Resultado dados</title>
     <link rel="icon" href="../Imagens/Logosite.png">
     <link rel="stylesheet" href="../css/resultadoDados.css">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- fonte Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,12 +81,53 @@
         <?php 
             for ($x = 0; $x <= 13; $x++){ ?>
                 <div class="questao">
+                    <!-- Q1 -->
                     <div id="tituloQuestao"><?= $x+1 ?><?= " - " ?><?= $listinha[$x]["q"] ?></div>
-                    <div id="op1" class="option"><?php if ($listinha[$x]["1"] != "")echo($lista_medias[$x][0]. "% marcaram - ");?><?= $listinha[$x]["1"] ?></div>
-                    <div id="op2" class="option"><?php if ($listinha[$x]["2"] != "")echo($lista_medias[$x][1]. "% marcaram - ");?><?= $listinha[$x]["2"] ?></div>
-                    <div id="op3" class="option"><?php if ($listinha[$x]["3"] != "")echo($lista_medias[$x][2]. "% marcaram - ");?><?= $listinha[$x]["3"] ?></div>
-                    <div id="op4" class="option"><?php if ($listinha[$x]["4"] != "")echo($lista_medias[$x][3]. "% marcaram - ");?><?= $listinha[$x]["4"] ?></div>
-                    <div id="op5" class="option"><?php if ($listinha[$x]["5"] != "")echo($lista_medias[$x][4]. "% marcaram - ");?><?= $listinha[$x]["5"] ?></div>
+                    <div id="op1" class="option">
+                        <span class="porcentagem"><?php echo($lista_medias[$x][0]. "% marcaram - ");?></span>
+                        <?= $listinha[$x]["1"] ?>
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                            <div class="progress-bar bg-success" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div id="op2" class="option">
+                        <span class="porcentagem"><?php echo($lista_medias[$x][1]. "% marcaram - ");?></span>
+                        <?= $listinha[$x]["2"] ?>
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                            <div class="progress-bar bg-warning" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div id="op3" class="option">
+                        <span class="porcentagem"><?php if ($listinha[$x]["3"] != "")echo($lista_medias[$x][2]. "% marcaram - ");?></span>
+                        <?= $listinha[$x]["3"] ?>
+                        <?php if ($listinha[$x]["3"] != ""){ ?>
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                            <div class="progress-bar bg-warning" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <?php }?>
+                    </div>
+                    <!-- Q4 -->
+                    <div id="op4" class="option">
+                        <span class="porcentagem"><?php if ($listinha[$x]["4"] != "")echo($lista_medias[$x][3]. "% marcaram - ");?></span>
+                        <?= $listinha[$x]["4"] ?>
+                        <?php if ($listinha[$x]["4"] != ""){ ?>
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                            <div class="progress-bar bg-danger" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <?php }?>
+                    </div>
+                    <!-- Q5 -->
+                    <div id="op5" class="option">
+                        <span class="porcentagem"><?php if ($listinha[$x]["5"] != "")echo($lista_medias[$x][4]. "% marcaram - ");?></span>
+                        <?= $listinha[$x]["5"] ?>
+                        <?php if ($listinha[$x]["5"] != ""){ ?>
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                            <div class="progress-bar bg-danger" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <?php }?>
+                    </div>
                 </div>
             <?php }?>      
     </div>
