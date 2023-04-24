@@ -124,6 +124,7 @@ function mudarVisao()
 
     if (numCliques > 15)
     {
-        location.href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        location.href="https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        numCliques = 0;
     }
 }
