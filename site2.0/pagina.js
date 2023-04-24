@@ -112,11 +112,18 @@ botao_terra.addEventListener("click", mudarVisao)
 let indice_icone = 0;
 mudarVisao()
 
+var numCliques = 0
 function mudarVisao()
 {
+    numCliques++;
     indice_icone ++;
     if (indice_icone>3){
         indice_icone = 0;
     }
     botao_terra.classList.replace(botao_terra.classList[0], terrasVisao[indice_icone]);
+
+    if (numCliques > 15)
+    {
+        location.href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
 }
