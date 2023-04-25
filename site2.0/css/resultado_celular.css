@@ -135,9 +135,15 @@ body{
     position: fixed;
     top: 64%;
     font-family: 'Cabin', sans-serif;
-    font-size: 2.4vh;
+    font-size: 2vh;
     text-decoration: underline;
     color: var(--cor_caixa_titulo);
-    left: 70%;
+    right: 8%;
     cursor: pointer;
+}
+
+/* ACTIVE */
+
+#ir_inicio:active, #ir_quiz:active, #ir_mediaGlobal:active{
+    filter: brightness(50%);
 }
