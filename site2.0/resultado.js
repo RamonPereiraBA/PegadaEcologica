@@ -1,15 +1,9 @@
 // redirecionando a pagina
 const bt_inicio = document.getElementById("ir_inicio")
-const bt_quiz = document.getElementById("ir_quiz")
 const bt_ir_mediaGlobal = document.getElementById("ir_mediaGlobal")
 
 bt_inicio.addEventListener('click', ir_inicio)
-bt_quiz.addEventListener('click', ir_quiz)
 bt_ir_mediaGlobal.addEventListener('click', ir_mediaGlobal)
-
-function ir_inicio(){
-    location.href = "./index.html"
-}
 
 function ir_quiz(){
     location.href = "./quiz.html"
