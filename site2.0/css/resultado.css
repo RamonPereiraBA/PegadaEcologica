@@ -6,129 +6,169 @@
     --cor_caixa_geral : #034159;
 }
 
-body{
-    background-color: #012030;
-}
-
 /* resto do código */
 #caixa_titulo{
     position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 140px;
+    width: 40%;
+    height: 30%;
     background-color: var(--cor_caixa_titulo);
 }
 
 #titulo_resultado {
     color: var(--cor_titulo_resultado);
+    position: absolute;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 8vh;
-    top: 22%;
+    font-size: 7vh;
+    top: 40%;
+    left: 20%;
+}
+
+#caixa_resultado{
+    position: fixed;
+    top: 30%;
+    left: 0;
+    width: 40%;
+    height: 70%;
+    background-color: var(--cor_caixa_resultado);
+}
+
+#imagem_fundo{
+    position: fixed;
+    top: 30%;
+    left: 0;
+    width: 40%;
+    height: 70%;
+    opacity: 12%;
 }
 
 #texto_resultado{
     position: absolute;
     font-family: 'Cabin', sans-serif;
-    font-size: var(--tamanho_texto_resultado);
+    font-size: 4vh;
     color: var(--cor_caixa_titulo);
     top: 5%;
-    left: 10%;
+    left: 20%;
+}
+
+/* barra de progresso */
+
+.progress{
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    z-index: 2;
+}
+
+.progress:hover{
+    box-shadow: 0 0 5px var(--cor_caixa_titulo), 0 0 25px var(--cor_caixa_titulo), 0 0 50px var(--cor_caixa_titulo),
+     0 0 200px var(--cor_caixa_titulo);
+}
+
+#resultado{
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15vh;
+    color: var(--cor_caixa_titulo);
+    top: 20%;
+    left: 39%;
 }
 
 #caixa_geral{
     position: fixed;
-    top: 49%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: #012030;
-}
-#imagem_fundo{
-    position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    opacity: 12%;
-}
-
-#caixa_resultado{
-    position: fixed;
-    top: 140px;
-    left: 0;
-    width: 100%;
-    height: 72%;
-    background-color: #012030;
-}
-#resultado{
-    position: absolute;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11vh;
-    color: var(--cor_caixa_titulo);
-    top: 9.5%;
-    left: 9%;
-}
-
-.progress{
-    position: absolute;
-    top: 30%;
-    z-index: 2;
+    left: 40%;
+    width: 60%;
+    height: 100%;
+    background-color: var(--cor_caixa_geral);
 }
 
 #texto_geral{
     position: absolute;
     font-family: 'Cabin', sans-serif;
-    font-size: var(--tamanho_texto_geral);
+    font-size: 3vh;
     color: aliceblue;
-    top: 1%;
-    left: 7%;
+    top: 20%;
+    left: 10%;
+    margin-right: 20px;
+}
+
+#dica{
+    position: absolute;
+    top: 80%;
+    font-family: 'Cabin', sans-serif;
+    font-size: 3vh;
+    color: var(--cor_caixa_resultado);
+    left: 4%;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #ir_inicio{
     position: absolute;
     font-family: 'Cabin', sans-serif;
-    top: 26%;
-    width: 200px;
-    height: 50px;
-    left: 25%;
+    top: 60%;
+    right: 10%;
+    height: 90px;
+    width: 250px;
     border: 0;
-    border-radius: 45px;
+    border-radius: 15px;
     transition-duration: .2s;
     cursor: pointer;
 }
 
 #ir_mediaGlobal{
     position: absolute;
-    width: 200px;
-    height: 50px;
     font-family: 'Cabin', sans-serif;
-    top: 38%;
-    left: 25%;
+    top: 79%;
+    right: 10%;
+    height: 90px;
+    width: 250px;
     border: 0;
-    transition-duration: .2s;
-    border-radius: 45px;
+    border-radius: 15px;
     background-color: #31C1B0;
+    transition-duration: .2s;
     cursor: pointer;
 }
 
-#dica{
-    position: fixed;
-    top: 64%;
-    font-family: 'Cabin', sans-serif;
-    font-size: 2vh;
-    text-decoration: underline;
-    color: var(--cor_caixa_titulo);
-    right: 8%;
-    cursor: pointer;
+#ir_inicio, #ir_mediaGlobal
+{
+    outline-style: dashed;
+    outline-width: 0px;
+}
+
+/* HOVER */
+
+#ir_inicio:hover, #ir_mediaGlobal:hover
+{
+    outline-width: 5px;
+    outline-style: solid;
+}
+
+#ir_inicio:hover
+{
+    outline-color: #efefef;
+}
+
+#ir_mediaGlobal:hover
+{
+    outline-color: #31C1B0;
 }
 
 /* ACTIVE */
 
-#ir_inicio:active, #ir_mediaGlobal:active{
+#ir_inicio:active, #ir_mediaGlobal:active
+{
+    outline-style: none;
+}
+
+#ir_inicio:active{
     filter: brightness(50%);
+    outline: 0;
+}
+
+#ir_mediaGlobal:active{
+    filter: brightness(50%);
+    outline: 0;
 }
