@@ -92,7 +92,7 @@ body{
 #ir_inicio{
     position: absolute;
     font-family: 'Cabin', sans-serif;
-    top: 21%;
+    top: 26%;
     width: 200px;
     height: 50px;
     left: 25%;
@@ -107,7 +107,7 @@ body{
     width: 200px;
     height: 50px;
     font-family: 'Cabin', sans-serif;
-    top: 30%;
+    top: 38%;
     left: 25%;
     border: 0;
     transition-duration: .2s;
@@ -115,21 +115,6 @@ body{
     background-color: #31C1B0;
     cursor: pointer;
 }
-
-#ir_quiz{
-    position: absolute;
-    width: 200px;
-    height: 50px;
-    font-family: 'Cabin', sans-serif;
-    top: 39%;
-    left: 25%;
-    border: 0;
-    transition-duration: .2s;
-    border-radius: 45px;
-    background-color: var(--cor_caixa_titulo);
-    cursor: pointer;
-}
-
 
 #dica{
     position: fixed;
@@ -144,6 +129,6 @@ body{
 
 /* ACTIVE */
 
-#ir_inicio:active, #ir_quiz:active, #ir_mediaGlobal:active{
+#ir_inicio:active, #ir_mediaGlobal:active{
     filter: brightness(50%);
 }
