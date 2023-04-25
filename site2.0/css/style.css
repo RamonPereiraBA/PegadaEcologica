@@ -15,8 +15,8 @@ h1
 h2
 {
     position: absolute;
-    font-family: 'Montserrat', sans-serif; 
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif !important; 
+    font-weight: 600 !important;
     left: 3%;
     font-size: var(--tamanho_fonte_topicos);
 }
