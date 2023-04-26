@@ -5,8 +5,8 @@ const bt_ir_mediaGlobal = document.getElementById("ir_mediaGlobal")
 bt_inicio.addEventListener('click', ir_inicio)
 bt_ir_mediaGlobal.addEventListener('click', ir_mediaGlobal)
 
-function ir_quiz(){
-    location.href = "./quiz.html"
+function ir_inicio(){
+    location.href = "./index.html"
 }
 
 // configurando a tela do resultado
