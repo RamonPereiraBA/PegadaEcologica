@@ -31,7 +31,7 @@ html{
 }
 
 #caixa_titulo{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -107,6 +107,19 @@ html{
 	flex-direction: column;
     justify-content: center;
 	gap: 20px;
+}
+
+/* Texto inicial */
+.textos p{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 20px;
 }
 
 .questao{
