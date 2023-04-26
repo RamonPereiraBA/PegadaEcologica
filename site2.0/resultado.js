@@ -5,8 +5,13 @@ const bt_ir_mediaGlobal = document.getElementById("ir_mediaGlobal")
 bt_inicio.addEventListener('click', ir_inicio)
 bt_ir_mediaGlobal.addEventListener('click', ir_mediaGlobal)
 
+// ir inicio
 function ir_inicio(){
-    location.href = "./index.html"
+    location.href = "index.html"
+}
+// Ir media global
+function ir_mediaGlobal(){
+    location.href= "resultadoDados.php?total="+resultado+"&dica="+dicaURL;
 }
 
 // configurando a tela do resultado
@@ -19,10 +24,6 @@ if (resultado === null || resultado===""){
     resultado = 0;
 }
 
-// Ir media global
-function ir_mediaGlobal(){
-    location.href= "resultadoDados.php?total="+resultado+"&dica="+dicaURL;
-}
 
 // Descripitografando a dica
 var texto_dica;
