@@ -92,7 +92,7 @@ body{
 #ir_inicio{
     position: absolute;
     font-family: 'Cabin', sans-serif;
-    top: 26%;
+    top: 32%;
     width: 200px;
     height: 50px;
     left: 25%;
@@ -107,7 +107,7 @@ body{
     width: 200px;
     height: 50px;
     font-family: 'Cabin', sans-serif;
-    top: 38%;
+    top: 42%;
     left: 25%;
     border: 0;
     transition-duration: .2s;
@@ -118,7 +118,7 @@ body{
 
 #dica{
     position: fixed;
-    top: 64%;
+    top: 72%;
     font-family: 'Cabin', sans-serif;
     font-size: 2vh;
     text-decoration: underline;
