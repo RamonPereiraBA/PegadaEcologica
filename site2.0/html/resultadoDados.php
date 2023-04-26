@@ -87,7 +87,7 @@
                     <div id="op1" class="option">
                         <span class="porcentagem"><?php echo($lista_medias[$x][0]. "% marcaram - ");?></span>
                         <?= $listinha[$x]["1"] ?>
-                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc;">
                             <div class="progress-bar bg-success" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                     <div id="op2" class="option">
                         <span class="porcentagem"><?php echo($lista_medias[$x][1]. "% marcaram - ");?></span>
                         <?= $listinha[$x]["2"] ?>
-                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc;">
                             <div class="progress-bar bg-warning" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                         <span class="porcentagem"><?php if ($listinha[$x]["3"] != "")echo($lista_medias[$x][2]. "% marcaram - ");?></span>
                         <?= $listinha[$x]["3"] ?>
                         <?php if ($listinha[$x]["3"] != ""){ ?>
-                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc;">
                             <div class="progress-bar bg-warning" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <?php }?>
@@ -114,7 +114,7 @@
                         <span class="porcentagem"><?php if ($listinha[$x]["4"] != "")echo($lista_medias[$x][3]. "% marcaram - ");?></span>
                         <?= $listinha[$x]["4"] ?>
                         <?php if ($listinha[$x]["4"] != ""){ ?>
-                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc;">
                             <div class="progress-bar bg-danger" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <?php }?>
@@ -124,7 +124,7 @@
                         <span class="porcentagem"><?php if ($listinha[$x]["5"] != "")echo($lista_medias[$x][4]. "% marcaram - ");?></span>
                         <?= $listinha[$x]["5"] ?>
                         <?php if ($listinha[$x]["5"] != ""){ ?>
-                        <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc;">
                             <div class="progress-bar bg-danger" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <?php }?>
