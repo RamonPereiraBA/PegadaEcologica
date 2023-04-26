@@ -69,16 +69,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Ubuntu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="caixa_titulo">
         <p id="texto_titulo">Média<br>Global</p>
         <p id="numero_media"><?= $media_total ?></p>
         <button id="irInicio">Retornar ao início</button>
-        <button id="RefazerQuiz">Retornar ao resultado</button>
+        <button id="irResultado">Retornar ao resultado</button>
+        <img id="caixa_titulo_imagem" src="../Imagens/grama.jpg"></img>
     </div>
     <div class="textos">
-        <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz. As perguntas possuem a porcentagem das pessoas que fizeram essa pesquisa.</p>
+        <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz.<br><br> As perguntas possuem a porcentagem dos indivíduos que fizeram a pesquisa.</p>
         <?php 
             for ($x = 0; $x <= 13; $x++){ ?>
                 <div class="questao">
