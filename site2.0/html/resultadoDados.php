@@ -91,8 +91,7 @@
                     <!-- Q1 -->
                     <div id="tituloQuestao"><?= $x+1 ?><?= " - " ?><?= $listinha[$x]["q"] ?></div>
                     <div id="op1" class="option">
-                        <span class="porcentagem"><?php echo($lista_medias[$x][0]. "% marcaram - ");?></span>
-                        <?= $listinha[$x]["1"] ?>
+                        <span class="porcentagem"><?php echo($lista_medias[$x][0]. "% marcaram - ");?></span><?= $listinha[$x]["1"] ?>
                         <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc;">
                             <div class="progress-bar bg-success" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -110,7 +109,7 @@
                         <span class="porcentagem"><?php if ($listinha[$x]["3"] != "")echo($lista_medias[$x][2]. "% marcaram - ");?></span>
                         <?= $listinha[$x]["3"] ?>
                         <?php if ($listinha[$x]["3"] != ""){ ?>
-                        <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc;">
+                        <div class="progress" style="height: 15px; width: 60%; border-radius: 16px; background: #cccccc; margin-left: 0;">
                             <div class="progress-bar bg-warning" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <?php }?>
