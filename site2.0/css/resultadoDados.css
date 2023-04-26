@@ -142,7 +142,6 @@ html{
 
 .questao{
     margin-top: 40px;
-    margin-left: 10%;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -152,6 +151,7 @@ html{
 
 /* Questões detalhes*/
 #tituloQuestao{
+    margin-left: 10%;
     margin-bottom: 40px;
     color: #FFFFFF;
     font-weight: 600;
@@ -167,4 +167,8 @@ html{
     color: #FFFFFF;
     font-weight: 400;
     font-size: var(--fonte_opcao);
+}
+
+.progress{
+    margin-left: 0;
 }
