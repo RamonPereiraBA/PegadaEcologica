@@ -112,7 +112,7 @@ body{
     border: 0;
     transition-duration: .2s;
     border-radius: 45px;
-    background-color: #31C1B0;
+    background-color: var(--cor_caixa_titulo);
     cursor: pointer;
 }
 
