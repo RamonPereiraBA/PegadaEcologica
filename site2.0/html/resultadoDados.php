@@ -78,6 +78,7 @@
         <button id="RefazerQuiz">Retornar ao resultado</button>
     </div>
     <div class="textos">
+        <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz. As perguntas possuem a porcentagem das pessoas que fizeram essa pesquisa.</p>
         <?php 
             for ($x = 0; $x <= 13; $x++){ ?>
                 <div class="questao">
