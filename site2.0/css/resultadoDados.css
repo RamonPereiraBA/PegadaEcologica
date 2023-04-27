@@ -169,6 +169,10 @@ html{
     font-size: var(--fonte_opcao);
 }
 
+.texto_opcoes{
+     margin-left: 10%;
+}
+
 .progress{
-    margin-left: 0;
+    margin-left: 10%;
 }
