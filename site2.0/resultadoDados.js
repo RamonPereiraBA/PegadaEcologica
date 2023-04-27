@@ -5,7 +5,7 @@ var dicaURL = urlParams.get('dica');
 
 ///////////////////////////////////////////////////////////
 const irInicio = document.getElementById("irInicio");
-const irResultado = document.getElementById("RefazerQuiz");
+const irResultado = document.getElementById("irResultado");
 
 irInicio.addEventListener('click', ir_inicio)
 irResultado.addEventListener('click', ir_resultado)
@@ -42,6 +42,7 @@ if (numeroMediGlobal >= 50){
 ///////////////////////////////////////////////////////////////////
 const barras = document.querySelectorAll(".progress-bar");
 const elementos_porcentagem = document.querySelectorAll(".porcentagem");
+console.log(elementos_porcentagem)
 let elementos_porcentagem_correto = [];
 
 // Corrigindo o problema dos elementos que não existem
