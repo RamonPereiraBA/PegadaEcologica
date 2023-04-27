@@ -42,7 +42,6 @@ if (numeroMediGlobal >= 50){
 ///////////////////////////////////////////////////////////////////
 const barras = document.querySelectorAll(".progress-bar");
 const elementos_porcentagem = document.querySelectorAll(".porcentagem");
-console.log(elementos_porcentagem)
 let elementos_porcentagem_correto = [];
 
 // Corrigindo o problema dos elementos que não existem
