@@ -26,6 +26,7 @@ h2
     font-family: 'Montserrat', sans-serif;
     left: 6%;
     font-size: var(--tamanho_fonte_titulo);
+    animation: descer 2s;
 }
 
 #tInicio{
@@ -34,6 +35,15 @@ h2
     font-size: 20px;
     left: 7%;
     top: var(--top_texto_iniciar);
+}
+
+@keyframes descer{
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
 }
 
 #tFacaDiferenca
@@ -89,8 +99,7 @@ h2
 }
 
 .show_animacao{
-    animation-name: animacao_aparecer;
-    animation-duration: 1s;
+    animation: animacao_aparecer 1s;
 }
 
 @keyframes animacao_aparecer {
@@ -101,7 +110,6 @@ h2
         transform: translateX(0);
     }
 }
-
 
 /* css da nav bar*/
 #navBar{
@@ -156,6 +164,7 @@ h2
     top: 30%;
     font-size: 250px;
     transition: transform 1s;
+    animation: descer 1.5s;
 }
 
 #imagem_globo:hover{
