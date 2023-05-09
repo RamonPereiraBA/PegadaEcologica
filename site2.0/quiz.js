@@ -14,8 +14,8 @@ var opcaoSelecionada = false;
 const Questions = [{
     q: "Com que frequência você come carne vermelha?",
     a: [{ text: "Nunca", ponto: 5, estado: "visible" },
-        { text: "três porções por semana", ponto: 5, estado: "visible" },
-        { text: "uma porção por dia", ponto: 4, estado: "visible" },
+        { text: "três porções por semana", ponto: 4, estado: "visible" },
+        { text: "uma porção por dia", ponto: 2, estado: "visible" },
         { text: "Frequentemente", ponto: 1, estado: "visible" },
         { text: "Sempre", ponto: 0, estado: "visible" }
     ]
@@ -24,9 +24,9 @@ const Questions = [{
 {
     q: "Com que frequência você come peixe ou frutos do mar?",
     a: [{ text: "Nunca", ponto: 5, estado: "visible"  },
-        { text: "Raramente", ponto: 5, estado: "visible" },
-        { text: "Ocasionalmente", ponto: 4, estado: "visible" },
-        { text: "Frequentemente", ponto: 3, estado: "visible" },
+        { text: "Raramente", ponto: 4, estado: "visible" },
+        { text: "Ocasionalmente", ponto: 3, estado: "visible" },
+        { text: "Frequentemente", ponto: 2, estado: "visible" },
         { text: "", ponto: 1, estado: "hidden" }
     ]
 
@@ -34,7 +34,7 @@ const Questions = [{
 {
     q: "Você usa ar condicionado ou aquecedor na sua casa?",
     a: [{ text: "Sim", ponto: 1, estado: "visible"},
-        { text: "Não", ponto: 5, estado: "visible" },
+        { text: "Não", ponto: 4, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" }
@@ -53,7 +53,7 @@ const Questions = [{
 },
 {
     q: "Quantas vezes por ano você compra roupas novas?",
-    a: [{ text: "Nunca", ponto: 6, estado: "visible"  },
+    a: [{ text: "Nunca", ponto: 5, estado: "visible"  },
         { text: "Uma vez por ano", ponto: 5, estado: "visible"  },
         { text: "Duas vezes por ano", ponto: 4, estado: "visible" },
         { text: "Três vezes por ano", ponto: 2, estado: "visible" },
@@ -63,7 +63,7 @@ const Questions = [{
 },
 {
     q: "Com que frequência você compra equipamentos eletrônicos?",
-    a: [{ text: "somente quando quebram e precisam ser substituídos", ponto: 5, estado: "visible"  },
+    a: [{ text: "somente quando quebram e precisam ser substituídos", ponto: 4, estado: "visible"  },
         { text: "ocasionalmente troco por versões mais modernas", ponto: 2, estado: "visible"  },
         { text: "troco sempre por aparelhos mais modernos", ponto: 0, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
@@ -73,8 +73,8 @@ const Questions = [{
 },
 {
     q: "Com que frequência você compra livros e jornais?",
-    a: [{ text: "Leio notícias pela internet ou compro livros impressos em papel reciclado", ponto: 5, estado: "visible"  },
-        { text: "Tenho assinatura mensal de um jornal e geralmente compro algum livro", ponto: 4, estado: "visible"  },
+    a: [{ text: "Leio notícias pela internet ou compro livros impressos em papel reciclado", ponto: 4, estado: "visible"  },
+        { text: "Tenho assinatura mensal de um jornal e geralmente compro algum livro", ponto: 3, estado: "visible"  },
         { text: "Compro livros ocasionalmente", ponto: 2, estado: "visible" },
         { text: "Compro livros com frequência", ponto: 1, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
@@ -83,18 +83,18 @@ const Questions = [{
 },
 {
     q: "Como você descarta o lixo da sua casa?",
-    a: [{ text: "Não me preocupo em separar", ponto: 1, estado: "visible"  },
-        { text: "Em duas lixeiras", ponto: 4, estado: "visible"  },
-        { text: "Materiais eletrônicos encaminhados a postos de recolhimento", ponto: 5, estado: "visible" },
+    a: [{ text: "Materiais eletrônicos encaminhados a postos de recolhimento", ponto: 4, estado: "visible" },
+        { text: "Em duas lixeiras", ponto: 3, estado: "visible"  },
         { text: "Em uma única lixeira", ponto: 1, estado: "visible" },
+        { text: "Não me preocupo em separar", ponto: 1, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
 },
 {
     q: "Usa lâmpadas econômicas?",
-    a: [{ text: "Todas as lâmpadas que uso são econômicas", ponto: 5, estado: "visible" },
-        { text: "Metade das lâmpadas que uso são econômicas", ponto: 4, estado: "visible" },
+    a: [{ text: "Todas as lâmpadas que uso são econômicas", ponto: 4, estado: "visible" },
+        { text: "Metade das lâmpadas que uso são econômicas", ponto: 3, estado: "visible" },
         { text: "1/4 das lâmpadas são econômicas", ponto: 2, estado: "visible" },
         { text: "Não", ponto: 1, estado: "visible"},
         { text: "", ponto: 0, estado: "hidden" },
@@ -113,8 +113,8 @@ const Questions = [{
 },
 {
     q: "Com que frequência você bebe refrigerante?",
-    a: [{ text: "Nunca", ponto: 5, estado: "visible"  },
-        { text: "Raramente", ponto: 4, estado: "visible"  },
+    a: [{ text: "Nunca", ponto: 4, estado: "visible"  },
+        { text: "Raramente", ponto: 3, estado: "visible"  },
         { text: "Ocasionalmente", ponto: 2, estado: "visible" },
         { text: "Frequentemente", ponto: 1, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
@@ -123,7 +123,7 @@ const Questions = [{
 },
 {
     q: "Quanto tempo você gasta no banho diariamente?",
-    a: [{ text: "de 5 a 15min", ponto: 5, estado: "visible" },
+    a: [{ text: "de 5 a 15min", ponto: 4, estado: "visible" },
         { text: "de 16 a 25min", ponto: 3, estado: "visible"  },
         { text: "acima de 26min", ponto: 1, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden" },
@@ -142,14 +142,31 @@ const Questions = [{
 
 },
 {
-    q: "Qual a quantidade de alimentos que você consome que contém açúcar refinado?",
-    a: [{ text: "Nenhum alimento", ponto: 5, estado: "visible" },
-        { text: "Menos de 100g por semana", ponto: 4, estado: "visible"  },
-        { text: "Mais de 100g por semana", ponto: 0, estado: "visible"  },
+    q: "Você possui horta na sua casa?",
+    a: [{ text: "Sim", ponto: 4, estado: "visible" },
+        { text: "Não", ponto: 2, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden"  },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
-
+},
+{
+    q: "Você adota equipamentos que reduzem o consumo de água ou energia em sua residência",
+    a: [{ text: "Sim", ponto: 4, estado: "visible" },
+        { text: "Não", ponto: 2, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+},
+{
+    q: "Você realiza algum tipo de reaproveitamento da água?",
+    a: [{ text: "Sim", ponto: 4, estado: "visible" },
+        { text: "Não", ponto: 2, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
 }
 ]
 
@@ -316,7 +333,7 @@ function botao_esta_selecionado(){
 }
 
 function troca_pergunta(){
-    barra_resultado.style.width = (((id+1)/14)*100)+"%";
+    barra_resultado.style.width = (((id+1)/16)*100)+"%";
     pagina_questao();
     checagem_botoes();
     botao_esta_selecionado();
