@@ -9,7 +9,7 @@
     // Preenche as listas com a quantidade de questões existentes
     $soma_todos = 0;
     $lista_alternativas = array();
-    for ($x=0; $x<14; $x++){
+    for ($x=0; $x<16; $x++){
         array_push($lista_alternativas, array(0,0,0,0,0));
         array_push($lista_medias, array(0,0,0,0,0));
     }
@@ -18,7 +18,7 @@
     $x = 0;
     foreach($resultado as $r){
         $soma_todos += $r->total;
-        for ($i=0;$i<14;$i++){
+        for ($i=0;$i<16;$i++){
             // Pega qual alternativa foi selecionada
             $lista_alternativas[$i][substr($r->questoes, $i, 1)-1] += 1;
         }
@@ -26,7 +26,7 @@
     }
 
     // Calcula a média de cada resposta
-    for ($i=0; $i<14;$i++){
+    for ($i=0; $i<16;$i++){
         for ($a=0; $a<5; $a++){
             $lista_medias[$i][$a] = intval(round(($lista_alternativas[$i][$a]/$x)*100));
         }
@@ -41,13 +41,15 @@
      array("q" => "Quantas vezes por ano você compra roupas novas?", "1" => "Nunca", "2" =>"Uma vez por ano", "3"=> "Duas vezes por ano", "4"=>"Três vezes por ano", "5"=>"Uma vez por mês ou mais"),
      array("q" => "Com que frequência você compra equipamentos eletrônicos?", "1" => "somente quando quebram e precisam ser substituídos", "2" =>"ocasionalmente troco por versões mais modernas", "3"=> "troco sempre por aparelhos mais modernos", "4"=>"", "5"=>""),
      array("q" => "Com que frequência você compra livros e jornais?", "1" => "Leio notícias pela internet ou compro livros impressos em papel reciclado", "2" =>"Tenho assinatura mensal de um jornal e geralmente compro algum livro", "3"=> "Compro livros ocasionalmente", "4"=>"Compro livros com frequência", "5"=>""),
-     array("q" => "Como você descarta o lixo da sua casa?", "1" => "Não me preocupo em separar", "2" =>"Em duas lixeiras", "3"=> "Materiais eletrônicos encaminhados a postos de recolhimento", "4"=>"Em uma única lixeira", "5"=>""),
+     array("q" => "Como você descarta o lixo da sua casa?", "1" => "Materiais eletrônicos encaminhados a postos de recolhimento", "2" =>"Em duas lixeiras", "3"=> "Em uma única lixeira", "4"=>"Não me preocupo em separar", "5"=>""),
      array("q" => "Usa lâmpadas econômicas?", "1" => "Todas as lâmpadas que uso são econômicas", "2" =>"Metade das lâmpadas que uso são econômicas", "3"=> "1/4 das lâmpadas são econômicas", "4"=>"Não", "5"=>""),
      array("q" => "Que meio de transporte você mais usa?", "1" => "Bicicleta ou a pé", "2" =>"Transporte público", "3"=> "Carro, mas procuro andar a pé ou de bicicleta", "4"=>"Carro", "5"=>""),
      array("q" => "Com que frequência você bebe refrigerante?", "1" => "Nunca", "2" =>"Raramente", "3"=> "Ocasionalmente", "4"=>"Frequentemente", "5"=>""),
      array("q" => "Quanto tempo você gasta no banho diariamente?", "1" => "de 5 a 15min", "2" =>"de 16 a 25min", "3"=> "acima de 26min", "4"=>"", "5"=>""),
      array("q" => "Quantas horas você gasta viajando de avião anualmente?", "1" => "Nunca viajo", "2" =>"0 a 4 horas", "3"=> "4 a 10 horas", "4"=>"10 a 25 horas", "5"=>"Mais de 25 horas"),
-     array("q" => "Qual a quantidade de alimentos que você consome que contém açúcar refinado?", "1" => "Nenhum alimento", "2" =>"Menos de 100g por semana", "3"=> "Mais de 100g por semana", "4"=>"", "5"=>""),
+     array("q" => "Você possui horta na sua casa?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>""),
+     array("q" => "Você adota equipamentos que reduzem o consumo de energia em sua residência?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>"")
+     array("q" => "Você realiza algum tipo de reaproveitamento da água?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>"")
     );
 ?>
 <!DOCTYPE html>
@@ -85,7 +87,7 @@
     </div>
     <div class="textos">
         <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz.<br><br> As perguntas possuem a porcentagem dos indivíduos que fizeram a pesquisa.</p>
-        <?php for ($x = 0; $x <= 13; $x++){ ?>
+        <?php for ($x = 0; $x <= 15; $x++){ ?>
             <div class="questao">
                 <!-- Quetão -->
                 <div id="tituloQuestao"><?= $x+1 ?><?= " - " ?><?= $listinha[$x]["q"] ?></div>
