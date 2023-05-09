@@ -3,7 +3,7 @@
     --tamanho_questao : 3vh;
     --tamanho_texto_opcao_grande : 2vh;
     --tamanho_texto_opcao_pequeno : 2.5vh;
-    --posicao_botao_direita: 34%;
+    --posicao_botao_direita: 5%;
     --posicao_botao_finalizar_top: 72%;
     --posicao_botao_finalizar_left: 30%;
     --posicao_bola_top: 6%;
@@ -18,7 +18,7 @@
         --tamanho_questao : 5vh;
         --tamanho_texto_opcao_grande : 2.5vh;
         --tamanho_texto_opcao_pequeno : 3vh;
-        --posicao_botao_direita: 34%;
+        --posicao_botao_direita: 40%;
         --posicao_botao_finalizar_top: 82%;
         --posicao_botao_finalizar_left: 70%;
         --tamanho_bola: 70px;
@@ -45,7 +45,7 @@
         --tamanho_questao : 3vh;
         --tamanho_texto_opcao_grande : 1.5vh;
         --tamanho_texto_opcao_pequeno : 2vh;
-        --posicao_botao_direita: 54%;
+        --posicao_botao_direita: 5%;
         --posicao_botao_finalizar_top: 72%;
         --posicao_botao_finalizar_left: 30%;
         --posicao_bola_top: 6%;
@@ -185,7 +185,7 @@
     padding: 2% 7%;
     background-color: #DAFDBA;
     color: #172026;
-    left: var(--posicao_botao_direita);
+    right: var(--posicao_botao_direita);
     cursor: pointer;
     top: 82%;
 }
