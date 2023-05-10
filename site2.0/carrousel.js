@@ -17,14 +17,7 @@ const cards = [{
   texto_equipe_card: "Temos o objetivo de promover a educação ambiental junto à população. Visando o conhecimento ecológico necessário para a proteção e preservação ambiental.",  
   redes: ["", "https://fundacaocsn.org.br/pea/", "", ""],    
   },
-  {
-  imagem_card: "../Imagens/logos/inpe-logo.png",
-  nome_organizacao_card: "INPE",
-  funcionalidade_card: "Créditos",
-  texto_equipe_card: "Criada em 1961 com o objetivo de impulsionar o país nas pesquisas cientificas e nas tecnologias espaciais. Suas atividades se ampliaram e a importância dos estudos vão desde assuntos complexos sobre a origem do Universo até as questões de desflorestamento das nossas matas.",
-  redes: ["https://www.instagram.com/inpe.oficial/", "https://www.gov.br/inpe/pt-br", "", "https://www.facebook.com/inpe.oficial/?locale=pt_BR"],    
-  },
-  {
+  { 
   imagem_card: "../Imagens/logos/etpc.png",
   nome_organizacao_card: "Escola Técnica Pandiá Calógeras",
   funcionalidade_card: "Desenvolvedores",
