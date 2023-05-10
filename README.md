@@ -41,6 +41,8 @@ Você pode acessar o nosso site <a href="https:\\www.greenlight.dev.br" >por aqu
 <br>
 <a href="https://www.figma.com/file/cznf0jQXlD4E4lLFw2LnJ7/postsPagina?node-id=0%3A1&t=kpEja2bHoXCWLRQ7-1">Página Posts (WIP)</a>
 <br>
+<a href="https://www.figma.com/file/GkEnDHEwbG40YVton0AirD/telaEmail?type=design&t=1GFtNIXddfg4zfGC-6">Página Email</a>
+<br>
 <br>
 ## Trello <img style="height: 1.7%; width: 1.7%;" src="https://user-images.githubusercontent.com/82301731/229360279-43485252-5a87-4d6d-b59a-1737f2b69a74.png">
 https://trello.com/b/rZaTN4So/todo-greenlight-2023
