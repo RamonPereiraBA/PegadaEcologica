@@ -479,13 +479,29 @@ h2
 }
 
 
-#seta_cima{
+#seta_cima
+{
     position: absolute;
-    width: 50px;
+    width: 200px;
     height: 50px;
+    background-color: #EBEBEB;
+    font-family: 'Cabin', sans-serif;
     top: 70%;
     z-index: 3;
+    color: #042940;
     cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 0;
+}
+
+#seta_cima:hover
+{
+    box-shadow: inset 200px 0 0 0 #042940;
+    color: #EBEBEB;
+}
+
+#seta_cima:active{
+    filter: brightness(70%);
 }
 
 #instaVetor, #githubVetor, #dropdownMenu2
@@ -506,6 +522,7 @@ h2
 {
     scale: 60%;
 }
+
 
 /* declaração de variaveis */
 :root{
