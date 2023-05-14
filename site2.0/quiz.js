@@ -151,7 +151,7 @@ const Questions = [{
     ]
 },
 {
-    q: "Você adota equipamentos que reduzem o consumo de água ou energia em sua residência",
+    q: "Você usa equipamentos que reduzem o consumo de água ou energia?",
     a: [{ text: "Sim", ponto: 4, estado: "visible" },
         { text: "Não", ponto: 2, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden"  },
@@ -172,26 +172,22 @@ const Questions = [{
 
 /* configurando a resposta de todas as seções, a lista não pode ficar vazia. 
 A lista tem que ter a quantidade de elementos igual à de perguntas */
-for (let i = 0; i < Questions.length; i++)
-{
+// for (let i = 0; i < Questions.length; i++)
+// {
+//     questoes_selecionadas.push(0);   
+//     lista_respostas.push(0);   
+// }
+Questions.forEach(() => { // se quiser, remove esse foreach e revive o bloco acima
     questoes_selecionadas.push(0);   
-    lista_respostas.push(0);   
-}
+    lista_respostas.push(0); 
+});
 
 function pagina_questao(){
     const question = document.getElementById("question");
-    const opcoes = document.getElementById("opcoesid");
     const numero_bola = document.getElementById("numero_bola");
     //Modificando os textos
     numero_bola.innerText = (id+1);
     question.innerText = Questions[id].q;
-
-    // encaixando as opções grandes no quiz (evitar erros de proporção)
-    if (Questions[id].q.length > 39){
-        opcoes.style.height = "98%";   
-    }else{
-        opcoes.style.height = "38%";  
-    }
     
     // criando e configurando as alternativas
     for (let i = 1; i < 6; i++)
@@ -213,33 +209,44 @@ function pagina_questao(){
 }
 
 function checagem_botoes(){
+    // // habilitar/desabilitar next
+    // if (id + 1 < Questions.length){
+    //     if (questoes_selecionadas[id] == 0){
+    //         next.disabled = true;
+    //         next.style.display = "none";
+    //     }
+    //     else{
+    //     next.disabled = false;
+    //     next.style.display = "block";
+    //     }
+    // }
+    // else{
+    //     next.disabled = true;
+    //     next.style.display = "none";
+    // }
+
+    // // habilitar/desabilitar prev
+    // if (id == 0){
+    //     prev.disabled = true;
+    //     prev.style.display = "none";
+    // }
+    // else{
+    //     prev.disabled = false;
+    //     prev.style.display = "block";
+    //     prev.style.cursor = "pointer";
+    // }
     // habilitar/desabilitar next
-    if (id + 1 < Questions.length){
-        if (questoes_selecionadas[id] == 0){
-            next.disabled = true;
-            next.style.display = "none";
-        }
-        else{
-        next.disabled = false;
-        next.style.display = "block";
-        }
-    }
-    else{
+    if (id + 1 < Questions.length) { // o user não chegou na última questão
+        next.disabled = (questoes_selecionadas[id] === 0); // o user não selecionou alguma alternativa?
+        next.style.display = (next.disabled) ? "none" : "block";
+    } else { // o user está na última questão
         next.disabled = true;
         next.style.display = "none";
     }
 
     // habilitar/desabilitar prev
-    if (id == 0){
-        prev.disabled = true;
-        prev.style.display = "none";
-    }
-    else{
-        prev.disabled = false;
-        prev.style.display = "block";
-        prev.style.cursor = "pointer";
-    }
-    
+    prev.disabled = (id === 0);
+    prev.style.display = (prev.disabled) ? "none" : "block";  
 }
 
 verificar_respostas();
@@ -265,10 +272,15 @@ function finalizar(){
     var somatorioLista = 0;
     var dicaurl = "d";
     var questoes_juntas = "";
-    for (let i = 0; i < Questions.length; i++){
+    // for (let i = 0; i < Questions.length; i++){
+    //     somatorioLista += lista_respostas[i];
+    //     questoes_juntas += (questoes_selecionadas[i].slice(-1));
+    // }
+    Questions.forEach(() => { // se quiser, remove esse foreach e revive o bloco acima
         somatorioLista += lista_respostas[i];
         questoes_juntas += (questoes_selecionadas[i].slice(-1));
-    }
+    });
+
     // Analizando o resultado
     alimentos = [parseInt(questoes_selecionadas[0].slice(-1))>3, parseInt(questoes_selecionadas[1].slice(-1))>2, 
                 parseInt(questoes_selecionadas[3].slice(-1))>2, parseInt(questoes_selecionadas[13].slice(-1))>2]

@@ -125,7 +125,7 @@
     background-color: transparent;
     width: var(--altura_opcoes);
     margin-bottom: .7%;
-    height: 38%;
+    height: fit-content;
     top: 29%;
     justify-content: left; 
 }
