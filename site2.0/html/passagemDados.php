@@ -37,8 +37,15 @@ if (isset($_POST['botao'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <!-- css -->
+	<link rel="icon" href="../Imagens/logosite.png">
     <link rel="stylesheet" href="../css/passagemDados.css">
+
+    <!-- Importando presets das fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Antes de continuar...</h1>
@@ -46,9 +53,10 @@ if (isset($_POST['botao'])) {
     <!-- Formulario botão radio  -->
     <form>
         <input type="radio" id="option1" name="option" value="sim">
-        <label for="option1">Sim</label><br>
+        <label for="option1">Sim</label>
         <input type="radio" id="option2" name="option" value="não">
         <label for="option2">Não</label><br>
+        <p>*Seus dados serão coletados para auxiliar nossas pesquisas. Mas eles não serão exibidos para mais ninguém*</p>
         <!-- Formulario do email -->
         <div id="formulario_email">
             <p>Insira seu Email</p>
@@ -56,7 +64,6 @@ if (isset($_POST['botao'])) {
         </div>
         <button name="botao">Continuar</button>
     </form>
-    <p>*Seus dados serão enviados para nós com o fim de nos ajudar em nossa pesquisa, mas eles não serão exibidos para mais ninguém*</p>
     
     <script src="../passagemDados.js"></script>
 </body>

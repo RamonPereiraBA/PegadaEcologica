@@ -272,14 +272,10 @@ function finalizar(){
     var somatorioLista = 0;
     var dicaurl = "d";
     var questoes_juntas = "";
-    // for (let i = 0; i < Questions.length; i++){
-    //     somatorioLista += lista_respostas[i];
-    //     questoes_juntas += (questoes_selecionadas[i].slice(-1));
-    // }
-    Questions.forEach(() => { // se quiser, remove esse foreach e revive o bloco acima
+    for (let i = 0; i < Questions.length; i++){
         somatorioLista += lista_respostas[i];
         questoes_juntas += (questoes_selecionadas[i].slice(-1));
-    });
+    }
 
     // Analizando o resultado
     alimentos = [parseInt(questoes_selecionadas[0].slice(-1))>3, parseInt(questoes_selecionadas[1].slice(-1))>2, 
