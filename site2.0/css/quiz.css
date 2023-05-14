@@ -101,7 +101,6 @@
     color: #012030;
     font-weight: 700;
     font-size: var(--fonte_numero_bola);
-    top: var(--posicao_numero_bola_top);
     font-family: 'Montserrat', sans-serif;
 }
 
