@@ -341,19 +341,21 @@ h2
 /**/
 #voltar{
     position: absolute;
-    top: 600px;
+    top: 650px;
     left: 12%;
+    font-size: larger;
 }
 
 #passar{
     position: absolute;
-    top: 600px;
+    top: 650px;
     right: 18%;
+    font-size: larger;
 }
 
 .circulo_carrousel{
     position: absolute;
-    top: 600px;
+    top: 660px;
     border-radius: 50%; 
     height: var(--tamanho_circulo_equipe);
     width: var(--tamanho_circulo_equipe);
@@ -362,11 +364,12 @@ h2
 
 #retangulo_redessociais{
     position: absolute;
-    top: 700px;
+    top: 543px;
     width: 70%;
-    height: 100px;
+    height: 70px;
     left: 12%;
-    border-radius: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     background-color: #cccccc;
     display: flex;
     justify-content: center;

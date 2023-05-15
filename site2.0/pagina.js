@@ -110,9 +110,8 @@ const botao_terra = document.getElementById("imagem_globo")
 const terrasVisao = ['bi-globe-asia-australia', 'bi-globe-central-south-asia', 'bi-globe-europe-africa', 'bi-globe-americas']
 botao_terra.addEventListener("click", mudarVisao)
 let indice_icone = 0;
-mudarVisao()
-
 var numCliques = 0
+
 function mudarVisao()
 {
     numCliques++;

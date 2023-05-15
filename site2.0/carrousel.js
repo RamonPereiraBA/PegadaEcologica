@@ -21,7 +21,7 @@ const cards = [{
   imagem_card: "../Imagens/logos/etpc.png",
   nome_organizacao_card: "Escola Técnica Pandiá Calógeras",
   funcionalidade_card: "Desenvolvedores",
-  texto_equipe_card: "Fundada em 1944 visando oferecer ensino técnico aos primeiros empregados da Companhia Siderúrgica Nacional e aos seus filhos, é referência nacional em educação para o trabalho, pela excelência de seu processo ensino-aprendizagem, atualização tecnológica e investimento social.",
+  texto_equipe_card: "Fundada em 1944 visando oferecer ensino técnico aos primeiros empregados da Companhia Siderúrgica Nacional, é referência nacional em educação para o trabalho, atualização tecnológica e investimento social.",
   redes: ["https://www.instagram.com/etpcvr/", "https://etpc.com.br/", "https://www.linkedin.com/school/escola-tecnica-pandia-calogeras/", "https://www.facebook.com/ETPCVR/?locale=pt_BR"],
   }
 ]
