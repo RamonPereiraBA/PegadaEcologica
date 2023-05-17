@@ -6,7 +6,7 @@ document.getElementById('c4')]
 const cards = [{
   imagem_card: "../Imagens/logos/Logo fundacao.png",
   nome_organizacao_card: "Fundação CSN",
-  funcionalidade_card: "Cordenadores",
+  funcionalidade_card: "Coordenadores",
   texto_equipe_card: "Somos responsáveis pelas ações sociais do Grupo CSN e estamos presentes nas principais cidades em que a empresa atua. Os pilares que sustentam a nossa atuação são educação, cultura, articulação e curadoria.",
   redes: ["https://www.instagram.com/grupocsn/", "https://www.csn.com.br/", "https://www.linkedin.com/company/consolidatedsalesnetwork/about/", "https://www.facebook.com/CompanhiaSiderurgicaNacional/?locale=pt_BR"],  
   },
