@@ -2,13 +2,12 @@ html{
     background-color: #45C4B0;
     color: #012030;
     font-family: 'Montserrat', sans-serif;
+    margin-right: 5%;
     margin-left: 5%;
 }
 
 h1{
     font-weight: 700;
-    width: 90%;
-    margin-right: 5%;
     word-break: normal;
     font-size:xx-large;
 }
@@ -20,6 +19,7 @@ label{
 }
 
 input[type="radio"]{
+    margin: 2% 0 2% 0;
     border: 0;
     width: 18px;
     height: 18px;
@@ -31,8 +31,7 @@ label:hover,input[type="radio"]:hover{
 
 p{
     font-weight: 500;
-    width: 86%;
-    margin-right: 4%;
+    max-width: 80%;
     font-size: larger;
     word-break: normal;
     line-break: normal;
