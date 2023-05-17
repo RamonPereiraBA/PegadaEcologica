@@ -1,31 +1,35 @@
 <?php
-require('../conexao_servidor.php');
-/*
-
 $total = $_GET['total'];
 $questoes = $_GET['questoes'];
 
-$stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes, email) VALUES (:valor1, :valor2, :valor3)");
+function mandar_banco_dados($email, $data){
+    require('../conexao_servidor.php');
 
-$stmt->bindValue(':valor1', $total);
-$stmt->bindValue(':valor2', $questoes);
-$stmt->bindValue(':valor3', $email);
+    $stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes) VALUES (:valor1, :valor2)");
+    
+    $stmt->bindValue(':valor1', $GLOBALS["total"]);
+    $stmt->bindValue(':valor2', $GLOBALS["questoes"]);
+    
+    $stmt->execute();
+     
+    $stmt2 = $conn->prepare("INSERT INTO tabelainfo (email, dia) VALUES (:valor1, :valor2)");
+    
+    $stmt2->bindValue(':valor1', $email);
+    $stmt2->bindValue(':valor2', $data);
+    
+    $stmt2->execute();
+        
+}
 
-$stmt->execute();
-*/
 
-function checar_email($teste){
-    if ($teste == ""){
-        echo "Coloque o email";
-        return false;
-    }
-    return true;
+function checagem($email){
+    $data_atual = date("Y-m-d");
+    mandar_banco_dados($email, $data_atual);
 }
 
 if (isset($_POST['botao'])) {
     $email_variavel = $_POST['email'];
-    echo $email_variavel;
-    
+    checagem($email_variavel);
 }
 
 ?>
@@ -51,7 +55,7 @@ if (isset($_POST['botao'])) {
     <h1>Antes de continuar...</h1>
     <p>Deseja contribuir para a nossa pesquisa?</p>
     <!-- Formulario botão radio  -->
-    <form>
+    <form method="post">
         <input type="radio" id="option1" name="option" value="sim">
         <label for="option1">Sim</label>
         <input type="radio" id="option2" name="option" value="não">
