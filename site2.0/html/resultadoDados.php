@@ -1,74 +1,109 @@
 <?php
-$total = $_GET['total'];
-$questoes = $_GET['questoes'];
-
-function mandar_banco_dados($email, $data){
+    $lista_medias = array();
     require('../conexao_servidor.php');
-
-    $stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes) VALUES (:valor1, :valor2)");
     
-    $stmt->bindValue(':valor1', $GLOBALS["total"]);
-    $stmt->bindValue(':valor2', $GLOBALS["questoes"]);
-    
+    $stmt = $conn->prepare("SELECT * FROM tabelaecologica;");
     $stmt->execute();
-     
-    $stmt2 = $conn->prepare("INSERT INTO tabelainfo (email, dia) VALUES (:valor1, :valor2)");
-    
-    $stmt2->bindValue(':valor1', $email);
-    $stmt2->bindValue(':valor2', $data);
-    
-    $stmt2->execute();
-        
-}
+    $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+    // Preenche as listas com a quantidade de questões existentes
+    $soma_todos = 0;
+    $lista_alternativas = array();
+    for ($x=0; $x<16; $x++){
+        array_push($lista_alternativas, array(0,0,0,0,0));
+        array_push($lista_medias, array(0,0,0,0,0));
+    }
 
-function checagem($email){
-    $data_atual = date("Y-m-d");
-    mandar_banco_dados($email, $data_atual);
-}
+    // Coleta os dados do servidor
+    $x = 0;
+    foreach($resultado as $r){
+        $soma_todos += $r->total;
+        for ($i=0;$i<16;$i++){
+            // Pega qual alternativa foi selecionada
+            $lista_alternativas[$i][substr($r->questoes, $i, 1)-1] += 1;
+        }
+        $x++;
+    }
 
-if (isset($_POST['botao'])) {
-    $email_variavel = $_POST['email'];
-    checagem($email_variavel);
-}
+    // Calcula a média de cada resposta
+    for ($i=0; $i<16;$i++){
+        for ($a=0; $a<5; $a++){
+            $lista_medias[$i][$a] = intval(round(($lista_alternativas[$i][$a]/$x)*100));
+        }
+    }
 
+    $media_total = intval(round($soma_todos / $x));
+
+    $listinha = array(array("q" => "Com que frequência você come carne vermelha?", "1" => "Nunca", "2" =>"três porções por semana", "3"=> "uma porção por dia", "4"=>"Frequentemente", "5"=>"Sempre"),
+     array("q" => "Com que frequência você come peixe ou frutos do mar?", "1" => "Nunca", "2" =>"Raramente", "3"=> "Ocasionalmente", "4"=>"Frequentemente", "5"=>""), 
+     array("q" => "Você usa ar condicionado ou aquecedor na sua casa?", "1" => "sim", "2" =>"não", "3"=> "", "4"=>"", "5"=>""),
+     array("q" => "Qual a procedência dos alimentos que você consome?", "1" => "De minha própria horta", "2" =>"A maior parte de feiras", "3"=> "Normalmente em supermercados", "4"=>"Sempre de supermercados", "5"=>""),
+     array("q" => "Quantas vezes por ano você compra roupas novas?", "1" => "Nunca", "2" =>"Uma vez por ano", "3"=> "Duas vezes por ano", "4"=>"Três vezes por ano", "5"=>"Uma vez por mês ou mais"),
+     array("q" => "Com que frequência você compra equipamentos eletrônicos?", "1" => "somente quando quebram e precisam ser substituídos", "2" =>"ocasionalmente troco por versões mais modernas", "3"=> "troco sempre por aparelhos mais modernos", "4"=>"", "5"=>""),
+     array("q" => "Com que frequência você compra livros e jornais?", "1" => "Leio notícias pela internet ou compro livros impressos em papel reciclado", "2" =>"Tenho assinatura mensal de um jornal e geralmente compro algum livro", "3"=> "Compro livros ocasionalmente", "4"=>"Compro livros com frequência", "5"=>""),
+     array("q" => "Como você descarta o lixo da sua casa?", "1" => "Materiais eletrônicos encaminhados a postos de recolhimento", "2" =>"Em duas lixeiras", "3"=> "Em uma única lixeira", "4"=>"Não me preocupo em separar", "5"=>""),
+     array("q" => "Usa lâmpadas econômicas?", "1" => "Todas as lâmpadas que uso são econômicas", "2" =>"Metade das lâmpadas que uso são econômicas", "3"=> "1/4 das lâmpadas são econômicas", "4"=>"Não", "5"=>""),
+     array("q" => "Que meio de transporte você mais usa?", "1" => "Bicicleta ou a pé", "2" =>"Transporte público", "3"=> "Carro, mas procuro andar a pé ou de bicicleta", "4"=>"Carro", "5"=>""),
+     array("q" => "Com que frequência você bebe refrigerante?", "1" => "Nunca", "2" =>"Raramente", "3"=> "Ocasionalmente", "4"=>"Frequentemente", "5"=>""),
+     array("q" => "Quanto tempo você gasta no banho diariamente?", "1" => "de 5 a 15min", "2" =>"de 16 a 25min", "3"=> "acima de 26min", "4"=>"", "5"=>""),
+     array("q" => "Quantas horas você gasta viajando de avião anualmente?", "1" => "Nunca viajo", "2" =>"0 a 4 horas", "3"=> "4 a 10 horas", "4"=>"10 a 25 horas", "5"=>"Mais de 25 horas"),
+     array("q" => "Você possui horta na sua casa?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>""),
+     array("q" => "Você adota equipamentos que reduzem o consumo de energia em sua residência?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>""),
+     array("q" => "Você realiza algum tipo de reaproveitamento da água?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>"")
+    );
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-	<link rel="icon" href="../Imagens/logosite.png">
-    <link rel="stylesheet" href="../css/passagemDados.css">
+    <title>Resultado dados</title>
+    <link rel="icon" href="../Imagens/Logosite.png">
+    <link rel="stylesheet" href="../css/resultadoDados.css">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- Importando presets das fontes -->
+    <!-- fonte Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
-    <!-- Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap" rel="stylesheet">
+    <!-- Ubuntu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Antes de continuar...</h1>
-    <p>Deseja contribuir para a nossa pesquisa?</p>
-    <!-- Formulario botão radio  -->
-    <form method="post">
-        <input type="radio" id="option1" name="option" value="sim">
-        <label for="option1">Sim</label>
-        <input type="radio" id="option2" name="option" value="não">
-        <label for="option2">Não</label><br>
-        <p>*Seus dados serão coletados para auxiliar nossas pesquisas. Mas eles não serão exibidos para mais ninguém*</p>
-        <!-- Formulario do email -->
-        <div id="formulario_email">
-            <p>Insira seu Email</p>
-            <input type="email" id="input_email" name="email" placeholder="Email">
-        </div>
-        <button name="botao">Continuar</button>
-    </form>
-    
-    <script src="../passagemDados.js"></script>
+    <div id="caixa_titulo">
+        <p id="texto_titulo">Média<br>Global</p>
+        <p id="numero_media"><?= $media_total ?></p>
+        <button id="irInicio">Retornar ao início</button>
+        <button id="irResultado">Retornar ao resultado</button>
+        <img id="caixa_titulo_imagem" src="../Imagens/grama.jpg"></img>
+    </div>
+    <div class="textos">
+        <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz.<br><br> As perguntas possuem a porcentagem dos indivíduos que fizeram a pesquisa.</p>
+        <?php for ($x = 0; $x <= 15; $x++){ ?>
+            <div class="questao">
+                <!-- Quetão -->
+                <div id="tituloQuestao"><?= $x+1 ?><?= " - " ?><?= $listinha[$x]["q"] ?></div>
+                <?php for ($a = 1; $a <=5; $a++){?>
+                <div class="option">
+                    <div class="texto_opcoes"><span class="porcentagem"><?php if ($listinha[$x][strval($a)] != "")echo($lista_medias[$x][$a-1]. "% marcaram - ");?></span>
+                    <?= $listinha[$x][strval($a)] ?></div>
+                    <?php if ($listinha[$x][strval($a)] != ""){ ?>
+                    <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
+                        <div class="progress-bar bg-success" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <?php } ?>
+                </div>
+                <?php } ?>
+        <?php }?>      
+    </div>
+    <script src="../resultadoDados.js"></script>
 </body>
 </html>
