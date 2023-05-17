@@ -12,11 +12,13 @@ options.forEach((option) => {
 
 // Criando uma função que mostra a parte do email
 const formulario = document.getElementById("formulario_email");
+const campo_email = document.getElementById("input_email");
 function verificar_radioButton(parametro){
     if (parametro == "sim"){
         formulario.style.display = "block";
     }else{
         formulario.style.display = "none";
+        campo_email.value = "";
     }
     btContinuar.style.display = "block"
 }
