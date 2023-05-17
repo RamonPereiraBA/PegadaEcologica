@@ -38,7 +38,6 @@ html{
     height: 20%;
     background-color: var(--cor_caixa_titulo);
     z-index: 5;
-    box-shadow: var(--cor_caixa_titulo) 0px 3px 88px;
 }
 
 
