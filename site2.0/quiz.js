@@ -170,13 +170,7 @@ const Questions = [{
 }
 ]
 
-/* configurando a resposta de todas as seções, a lista não pode ficar vazia. 
-A lista tem que ter a quantidade de elementos igual à de perguntas */
-// for (let i = 0; i < Questions.length; i++)
-// {
-//     questoes_selecionadas.push(0);   
-//     lista_respostas.push(0);   
-// }
+/* configurando a resposta de todas as seções, a lista não pode ficar vazia. */
 Questions.forEach(() => { // se quiser, remove esse foreach e revive o bloco acima
     questoes_selecionadas.push(0);   
     lista_respostas.push(0); 
@@ -209,32 +203,6 @@ function pagina_questao(){
 }
 
 function checagem_botoes(){
-    // // habilitar/desabilitar next
-    // if (id + 1 < Questions.length){
-    //     if (questoes_selecionadas[id] == 0){
-    //         next.disabled = true;
-    //         next.style.display = "none";
-    //     }
-    //     else{
-    //     next.disabled = false;
-    //     next.style.display = "block";
-    //     }
-    // }
-    // else{
-    //     next.disabled = true;
-    //     next.style.display = "none";
-    // }
-
-    // // habilitar/desabilitar prev
-    // if (id == 0){
-    //     prev.disabled = true;
-    //     prev.style.display = "none";
-    // }
-    // else{
-    //     prev.disabled = false;
-    //     prev.style.display = "block";
-    //     prev.style.cursor = "pointer";
-    // }
     // habilitar/desabilitar next
     if (id + 1 < Questions.length) { // o user não chegou na última questão
         next.disabled = (questoes_selecionadas[id] === 0); // o user não selecionou alguma alternativa?

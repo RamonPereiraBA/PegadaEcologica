@@ -59,7 +59,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado dados</title>
-    <link rel="icon" href="../Imagens/Logosite.png">
+    <link rel="icon" href="../Imagens/icons/resultado_dados_icon.png">
     <link rel="stylesheet" href="../css/resultadoDados.css">
     
     <!-- Bootstrap -->
