@@ -1,4 +1,5 @@
 import React from "react";
+
 var lista_posts = [
     {
         "nome_do_post": "Post 1",
@@ -49,26 +50,30 @@ function App(){
         return (
             <>
                 <h2>Sobre {props.titulo}</h2>
-                <div id={props.nome_div}>
+                <section class="divPost">
+                  <div class="scrollPost">
                     {lista_posts.map((post_atual) => (
                     <>
                         { props.titulo === post_atual.secao &&(
                         <>
-                        <img src={post_atual.link_imagem} />
-                        <a href="https://media.licdn.com/dms/image/D4D22AQE6_1censMOvA/feedshare-shrink_800/0/1682281663348?e=1687392000&v=beta&t=WiqMwAUTCgs5ZG5efMrPAPVK-ETpSIoFDXez0kk9YqE">{post_atual.nome_do_post}</a>
-                        <p>{post_atual.data}</p>
+                        <div class="post">
+                          <img src={post_atual.link_imagem} />
+                          <a href="https://media.licdn.com/dms/image/D4D22AQE6_1censMOvA/feedshare-shrink_800/0/1682281663348?e=1687392000&v=beta&t=WiqMwAUTCgs5ZG5efMrPAPVK-ETpSIoFDXez0kk9YqE">{post_atual.nome_do_post}</a>
+                          <p>{post_atual.data}</p>
+                        </div>
                         </>
                         )}
                     </>
                     ))}
-                </div>
+                  </div>
+                </section>
             </>
         )
     }
 
     return (
         <>
-            <p><strong>Posts</strong></p>
+            <h1>Posts</h1>
             <p>A seguir estão, de forma organizada, os nossos posts do INSTAGRAM.</p>
             <Post titulo="ecologia" nome_div="ecologia"/>
             <Post titulo="projeto" nome_div="projeto"/>
