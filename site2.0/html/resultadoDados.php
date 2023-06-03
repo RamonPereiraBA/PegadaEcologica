@@ -1,4 +1,6 @@
 <?php
+    header('Access-Control-Allow-Origin: *');
+    
     $lista_medias = array();
     require('../conexao_servidor.php');
     
@@ -51,59 +53,13 @@
      array("q" => "Você adota equipamentos que reduzem o consumo de energia em sua residência?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>""),
      array("q" => "Você realiza algum tipo de reaproveitamento da água?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>"")
     );
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado dados</title>
-    <link rel="icon" href="../Imagens/icons/resultado_dados_icon.png">
-    <link rel="stylesheet" href="../css/resultadoDados.css">
+
+    // Criando o json
+    $dados_json = array(
+        'media' => $media_total,
+        'lista_medias' => $lista_medias
+    );
     
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- fonte Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-
-    <!-- Ubuntu -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="caixa_titulo">
-        <p id="texto_titulo">Média<br>Global</p>
-        <p id="numero_media"><?= $media_total ?></p>
-        <button id="irInicio">Retornar ao início</button>
-        <button id="irResultado">Retornar ao resultado</button>
-        <img id="caixa_titulo_imagem" src="../Imagens/grama.jpg"></img>
-    </div>
-    <div class="textos">
-        <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz.<br><br> As perguntas possuem a porcentagem dos indivíduos que fizeram a pesquisa.</p>
-        <?php for ($x = 0; $x <= 15; $x++){ ?>
-            <div class="questao">
-                <!-- Quetão -->
-                <div id="tituloQuestao"><?= $x+1 ?><?= " - " ?><?= $listinha[$x]["q"] ?></div>
-                <?php for ($a = 1; $a <=5; $a++){?>
-                <div class="option">
-                    <div class="texto_opcoes"><span class="porcentagem"><?php if ($listinha[$x][strval($a)] != "")echo($lista_medias[$x][$a-1]. "% marcaram - ");?></span>
-                    <?= $listinha[$x][strval($a)] ?></div>
-                    <?php if ($listinha[$x][strval($a)] != ""){ ?>
-                    <div class="progress" style="height: 15px; width: 60%; border-radius: 0px; background: #cccccc;">
-                        <div class="progress-bar bg-success" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <?php } ?>
-                </div>
-                <?php } ?>
-        <?php }?>      
-    </div>
-    <script src="../resultadoDados.js"></script>
-</body>
-</html>
+    $json = json_encode($dados_json);
+    die($json);
+?>
