@@ -526,71 +526,6 @@ h2
     scale: 60%;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    margin-top: 18%;
-}
-
-.flip-card
-{
-    position: relative;
-    background-color: transparent;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 390px;
-    height: 200px;
-    width: 100%;
-    perspective: 1000px;
-}
-
-/* This container is needed to position the front and back side */
-.flip-card-inner 
-{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner 
-{
-    transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back 
-{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-}
-
-/* Style the front side (fallback if image is missing) */
-/* .flip-card-front 
-{
-    background-color: #bbb;
-    color: black;
-} */
-
-/* Style the back side */
-.flip-card-back 
-{
-    background-color: #EBEBEB;
-    color: #042940;
-    transform: rotateY(180deg);
-    overflow: auto;
-}
-
-.txtCard{
-    text-align: left;
-    margin-left: 10px;
-}
-
 /* declaração de variaveis */
 :root{
     --tamanho_imagem_pilar : 100px;
@@ -612,21 +547,6 @@ h2
     --tamanho_navegacao_desenvolvedores : 90%;
     --left_navegacao_desenvolvedores : 5%;
 }
-
-@media screen and (max-width : 950px)
-{
-    .container {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin-top: 13%;
-    }
-    .flip-card {
-        max-width: 100%;
-        margin-bottom: 5px;
-      }
-}
-
 @media screen and (max-width : 700px){
     :root{
         --tamanho_imagem_pilar : 75px;
@@ -648,25 +568,12 @@ h2
         --tamanho_navegacao_desenvolvedores : 100%;
         --left_navegacao_desenvolvedores : 0%;
     }
-    
-    .flip-card {
-        max-width: 100%;
-        margin-bottom: 15%;
-      }
+    #imagem_globo{
+        display: none;
+    }
 }
 
 @media screen and (max-width : 400px){
-    .container {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin-top: 28%;
-    }
-    
-    .flip-card {
-        max-width: 100%;
-        margin-bottom: 15%;
-      }
     :root{
         --tamanho_lista_pontuacao : 20px;
         --tamanho_fonte_topicos : 25px;
