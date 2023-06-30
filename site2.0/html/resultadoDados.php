@@ -36,7 +36,7 @@
 
     $media_total = intval(round($soma_todos / $x));
 
-    $listinha = array(array("q" => "Com que frequência você come carne vermelha?", "1" => "Nunca", "2" =>"três porções por semana", "3"=> "uma porção por dia", "4"=>"Frequentemente", "5"=>"Sempre"),
+    /*$listinha = array(array("q" => "Com que frequência você come carne vermelha?", "1" => "Nunca", "2" =>"três porções por semana", "3"=> "uma porção por dia", "4"=>"Frequentemente", "5"=>"Sempre"),
      array("q" => "Com que frequência você come peixe ou frutos do mar?", "1" => "Nunca", "2" =>"Raramente", "3"=> "Ocasionalmente", "4"=>"Frequentemente", "5"=>""), 
      array("q" => "Você usa ar condicionado ou aquecedor na sua casa?", "1" => "sim", "2" =>"não", "3"=> "", "4"=>"", "5"=>""),
      array("q" => "Qual a procedência dos alimentos que você consome?", "1" => "De minha própria horta", "2" =>"A maior parte de feiras", "3"=> "Normalmente em supermercados", "4"=>"Sempre de supermercados", "5"=>""),
@@ -53,7 +53,7 @@
      array("q" => "Você adota equipamentos que reduzem o consumo de energia em sua residência?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>""),
      array("q" => "Você realiza algum tipo de reaproveitamento da água?", "1" => "Sim", "2" =>"Não", "3"=> "", "4"=>"", "5"=>"")
     );
-
+*/
     // Criando o json
     $dados_json = array(
         'media' => $media_total,
