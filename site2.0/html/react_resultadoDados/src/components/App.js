@@ -175,39 +175,94 @@ function App(){
         <br></br>
         <br></br>
         <div className="barra">
-          <div className="barra_porcentagem"></div>
-          <div className="barra_texto" style={{width : parseInt((parseInt(props.porcentagem)*70)/100)+"%"}}></div>
+          <div className="barra_total"></div>
+          <div className="barra_porcentagem" style={{width : parseInt((parseInt(props.porcentagem)*70)/100)+"%"}}></div>
           <div className="texto_barra">{props.porcentagem}% marcaram {props.alternativa}</div>
         </div>
       </>
     )
   }
 
+  function Barra_porcentagem_coluna(props){
+    return(
+      <>
+        <div className="barra_coluna">
+          <div className="barra_total_coluna"></div>
+          <div className="barra_porcentagem_coluna" style={{height : parseInt((parseInt(props.porcentagem)*90)/100)+"px"}}></div>
+          <div className="texto_barra_coluna">{props.porcentagem}% marcaram {props.alternativa}</div>
+        </div>
+      </>
+    )
+  }
+
+
+
+  const [selectedOption, setSelectedOption] = useState("barra");
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <>
-    <h1>Média Global</h1>
-    <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz.<br></br><br></br> As perguntas possuem a porcentagem dos indivíduos que fizeram a pesquisa.</p> 
-      {carregou ?(
-        <>          
-          {lista_perguntas_e_alternativas.map((questao, index_questao) => (
+     {carregou ?(
+        <> 
+          <h1>Média Global</h1>
+          <p>{resultado_media}</p>
+          <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz.<br></br><br></br> As perguntas possuem a porcentagem dos indivíduos que fizeram a pesquisa.</p>          
+          <a href="../../index.html">Voltar ao início</a>
+          <a href="../../resultado.html">Voltar a tela de resultado</a>
+          <select value={selectedOption} onChange={handleChange}>
+            <option value="barra">gráficos de barras</option>
+            <option value="circulo">gráficos circulares</option>
+          </select>
+          {selectedOption == "barra" ?(
             <>
-            <div className="questao">
-              <p>{questao['q']}</p>
-              {lista_gambiarra.map((alternativa, index_alternativa) => (
-                <>
-                {lista_perguntas_e_alternativas[index_questao][index_alternativa+1] !== "" &&(
-                  <>
-                    <Barra_porcentagem
-                      porcentagem={resultado_lista_arrays[index_questao][index_alternativa]} 
-                      alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
-                    />
-                  </>
-                )}
-                </>
+              {lista_perguntas_e_alternativas.map((questao, index_questao) => (
+              <>
+                <div className="questao">
+                  <p>{questao['q']}</p>
+                  {lista_gambiarra.map((alternativa, index_alternativa) => (
+                    <>
+                    {lista_perguntas_e_alternativas[index_questao][index_alternativa+1] !== "" &&(
+                      <>
+                        <Barra_porcentagem
+                          porcentagem={resultado_lista_arrays[index_questao][index_alternativa]} 
+                          alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
+                        />
+                      </>
+                    )}
+                    </>
+                  ))}
+                </div>
+              </>
               ))}
-            </div>
             </>
-          ))}
+          ):(
+            <>
+              {lista_perguntas_e_alternativas.map((questao, index_questao) => (
+              <>
+                <div className="questao">
+                  <p>{questao['q']}</p>
+                  {lista_gambiarra.map((alternativa, index_alternativa) => (
+                  <>
+                  {lista_perguntas_e_alternativas[index_questao][index_alternativa+1] !== "" &&(
+                    <>
+                      <Barra_porcentagem_coluna
+                        porcentagem={resultado_lista_arrays[index_questao][index_alternativa]} 
+                        alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
+                      />
+                    </>
+                  )}
+                  </>
+                  ))}
+                </div>
+              </>
+              ))}
+            </>
+          )}
+          
+          <p><strong>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%.</strong></p>
         </>
       ):(
         <>
