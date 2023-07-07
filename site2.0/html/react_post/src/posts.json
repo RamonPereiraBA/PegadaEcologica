@@ -4,21 +4,21 @@
     "link_imagem": "https://drive.google.com/file/d/1GdIIxWswESWVaDDhUXgHkkJgNULj1T2w/view?usp=drive_link",
     "data": "22-04-2023",
     "link_post": "https://www.instagram.com/p/CrWLD0_J3FJ/",
-    "secao": "Sobre o Projeto" 
+    "secao": "Sobre o projeto" 
   },
   {
     "nome_do_post": "Nossa História",
     "link_imagem": "https://media.licdn.com/dms/image/D4E22AQEEgColVwX5yg/feedshare-shrink_800/0/1682547547977?e=1689811200&v=beta&t=wOzRGy5kfRxM9uwCMFijThB4jUAYo7Kslw-58wAT4-g",
     "data": "26-04-2023",
     "link_post": "https://www.instagram.com/p/CrhAsdPMLAD/",
-    "secao": "Sobre Projeto" 
+    "secao": "Sobre o projeto" 
   },
   {
     "nome_do_post": "Codigo Aberto",
     "link_imagem": "https://media.licdn.com/dms/image/D5622AQHnEoer7_0sOw/feedshare-shrink_800/0/1684367826268?e=1689811200&v=beta&t=kmcEpW9p8JBYOa61mNy_18KV63IqqEFSLVvBK0RO6sw",
     "data": "03-05-2023",
     "link_post": "https://www.instagram.com/p/CrzKL-8MDXq/",
-    "secao": "Sobre a Programação do Site" 
+    "secao": "Sobre a programação do site" 
   },
   {
     "nome_do_post": "Biocapacidade",
@@ -32,14 +32,14 @@
     "link_imagem": "https://media.licdn.com/dms/image/D5622AQHE_frQAB3WvA/feedshare-shrink_800/0/1684368043539?e=1689811200&v=beta&t=GlHcI5iFvPO7qUsRq8M_QynAXT5S3uA6w04ukrDtYzk",
     "data": "07-05-2023",
     "link_post": "https://www.instagram.com/p/Cr9jes7MjWB/",
-    "secao": "Sobre o Projeto" 
+    "secao": "Sobre o projeto" 
   },
   {
     "nome_do_post": "Responsividade",
     "link_imagem": "https://media.licdn.com/dms/image/D5622AQF50Ro3WLC2kA/feedshare-shrink_800/0/1684367351323?e=1689811200&v=beta&t=cmwC60m707G3Lr3cSEyIkGY4H5k8wWIaSOkxpWgTFQc",
     "data": "09-05-2023",
     "link_post": "https://www.instagram.com/p/CsCs_4YM2st/",
-    "secao": "Sobre a Programação do Site" 
+    "secao": "Sobre a programação do site" 
   },
   {
     "nome_do_post": "Ilha de Lixo do Pacífico",
@@ -53,14 +53,14 @@
     "link_imagem": "https://media.licdn.com/dms/image/D5622AQFczxXILa2gxg/feedshare-shrink_800/0/1684368296332?e=1689811200&v=beta&t=8G9-m7Qk30Ad1tOqOXSDPd2wTvWkrkOuZcYpwzBN_-s",
     "data": "14-05-2023",
     "link_post": "https://www.instagram.com/p/CsOfSgkM-cL/",
-    "secao": "Nossos Especiais" 
+    "secao": "Nossos especiais" 
   },
   {
     "nome_do_post": "Sobre Quiz",
     "link_imagem": "https://media.licdn.com/dms/image/D5622AQFmKORxTN2PFw/feedshare-shrink_800/0/1684367183296?e=1689811200&v=beta&t=OeTNjS55CPYvNK-bLO7_hUctHT7niMjXr7lTPbCHTn4",
     "data": "17-05-2023",
     "link_post": "https://www.instagram.com/p/CsXGQAzMAK2/",
-    "secao": "Sobre o Projeto" 
+    "secao": "Sobre o projeto" 
   },
   {
     "nome_do_post": "Relógio Juizo Final",
@@ -103,5 +103,19 @@
     "data": "14-06-2023",
     "link_post": "https://www.instagram.com/p/CtfJVKsOmXP/",
     "secao": "Sobre a programação do site" 
+  },
+  {
+    "nome_do_post": "Energia Nuclear",
+    "link_imagem": "https://media.licdn.com/dms/image/D4D22AQGkOWmhro-zrw/feedshare-shrink_1280/0/1687306900331?e=1691625600&v=beta&t=bjxBVSlkf6BYv4Id6KnZxaRRrpQxvhNJxmR76y9M53E",
+    "data": "20-06-2023",
+    "link_post": "https://www.instagram.com/p/Ctu2lyEsROh/",
+    "secao": "Sobre ecologia" 
+  },
+  {
+    "nome_do_post": "Formação de um Arco-Íris",
+    "link_imagem": "https://media.licdn.com/dms/image/D4D22AQF6LJX6PXsBuw/feedshare-shrink_1280/0/1688000237223?e=1691625600&v=beta&t=K3Vu4SCWUBZ_pdAn5YQnrYQkA1-6E1xgf8GIqZAhTac",
+    "data": "28-06-2023",
+    "link_post": "https://www.instagram.com/p/CuDg_4Ds44V/",
+    "secao": "Nossos especiais" 
   }
 ]
