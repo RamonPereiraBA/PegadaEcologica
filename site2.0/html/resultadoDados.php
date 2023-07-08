@@ -4,7 +4,15 @@
     $lista_medias = array();
     require('../conexao_servidor.php');
     
-    $stmt = $conn->prepare("SELECT * FROM tabelaecologica;");
+    // Se a data foi passada, coleta os dados daquele dia
+    if (isset($_GET['data'])) {
+        $data = $_GET['data'];
+        $stmt = $conn->prepare("SELECT tabelaecologica.total, tabelaecologica.questoes FROM tabelaecologica INNER JOIN tabelainfo ON tabelaecologica.id = tabelainfo.id WHERE tabelainfo.dia = '$data';");
+    } else {
+        // Se não pega os dados de todos os dias
+        $stmt = $conn->prepare("SELECT total, questoes FROM tabelaecologica;");
+    }
+
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -26,15 +34,20 @@
         }
         $x++;
     }
-
-    // Calcula a média de cada resposta
-    for ($i=0; $i<16;$i++){
-        for ($a=0; $a<5; $a++){
-            $lista_medias[$i][$a] = intval(round(($lista_alternativas[$i][$a]/$x)*100));
+    // Se tem dados, calcule a média.
+    if ($soma_todos != 0){
+        // Calcula a média de cada resposta
+        for ($i=0; $i<16;$i++){
+            for ($a=0; $a<5; $a++){
+                $lista_medias[$i][$a] = intval(round(($lista_alternativas[$i][$a]/$x)*100));
+            }
         }
-    }
 
-    $media_total = intval(round($soma_todos / $x));
+        $media_total = intval(round($soma_todos / $x));
+    }else{
+        // Se não tem dados deixa como 0
+        $media_total = 0;
+    }
 
     // Criando o json
     $dados_json = array(
@@ -42,6 +55,7 @@
         'lista_medias' => $lista_medias
     );
     
+    // O FrontEnd deve ter um sistema que veja que a média foi 0 e diga que não há dados daquele dia
     $json = json_encode($dados_json);
     die($json);
 ?>
