@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect, useState, useRef }  from 'react';
 import axios from 'axios';
 
 var lista_gambiarra = [0, 0, 0, 0, 0]
@@ -134,12 +134,11 @@ var lista_perguntas_e_alternativas = [
   }
 ];
 
-var resultado_media = "0"
-var resultado_lista_arrays = []
-
 function App(){
   const [texto_json, setTexto_json] = useState("");
   const [carregou, setCarregou] = useState(false);
+  const resultado_media = useRef(0);
+  const resultado_lista_arrays = useRef([]);
   
   useEffect(() => {
     const fetchTextData = async () => {
@@ -159,12 +158,12 @@ function App(){
     if (texto_json) {
       const inicio_media = texto_json.indexOf("media") + 7;
       const fim_media = texto_json.indexOf(",", inicio_media);
-      resultado_media = texto_json.substring(inicio_media, fim_media);
+      resultado_media.current = texto_json.substring(inicio_media, fim_media);
   
       // Pegando a lista de arrays
       const inicio_lista_arrays = texto_json.indexOf("lista_medias") + 14;
       const fim_lista_arrays = texto_json.indexOf("}", inicio_lista_arrays);
-      resultado_lista_arrays = JSON.parse(texto_json.substring(inicio_lista_arrays, fim_lista_arrays));
+      resultado_lista_arrays.current = JSON.parse(texto_json.substring(inicio_lista_arrays, fim_lista_arrays));
       setCarregou(true);
     }
   }, [texto_json]);
@@ -172,12 +171,10 @@ function App(){
   function Barra_porcentagem(props){
     return(
       <>
-        <br></br>
-        <br></br>
-        <div className="barra">
-          <div className="barra_total"></div>
-          <div className="barra_porcentagem" style={{width : parseInt((parseInt(props.porcentagem)*70)/100)+"%"}}></div>
-          <div className="texto_barra">{props.porcentagem}% marcaram {props.alternativa}</div>
+        <div className="alternativa">
+          <div className="preenchimento-porcentagem" style={{width : (parseInt(props.porcentagem))+"%"}}></div>
+          <div className="resposta">{props.alternativa}</div>
+          <div className="porcentagem-texto">{props.porcentagem}%</div>
         </div>
       </>
     )
@@ -207,27 +204,35 @@ function App(){
     <>
      {carregou ?(
         <> 
-          <h1>Média Global</h1>
-          <p>{resultado_media}</p>
-          <p>A partir daqui, você verá a média geral correspondente a todas as pessoas que fizeram o quiz.<br></br><br></br> As perguntas possuem a porcentagem dos indivíduos que fizeram a pesquisa.</p>          
-          <a href="../../index.html">Voltar ao início</a>
-          <a href="../../resultado.html">Voltar a tela de resultado</a>
-          <select value={selectedOption} onChange={handleChange}>
-            <option value="barra">gráficos de barras</option>
-            <option value="circulo">gráficos circulares</option>
-          </select>
-          {selectedOption == "barra" ?(
-            <>
+          <section id="secao-1">
+            <p>A <strong>Pegada Ecológica Global</strong> é</p>
+            {resultado_media.current >= 50 ? <h1>Excelente 🔥</h1> : resultado_media.current >= 35 ? <h1>Moderado</h1> : <h1>Pessimo</h1>}
+            <p>A <strong>média geral</strong> é de</p>
+            <p><span>{resultado_media.current}</span> pontos!!!</p>
+          </section>
+
+          <section id="secao-2">
+            <p>Essa página tem o intuito de exibir a <strong>Pegada Ecológica Global</strong> e <strong>média geral</strong> de todos os indivíduos que fizeram o quiz.<br></br><br></br> Esses dados são anônimos e qualquer pessoa que fizer o quiz terá influência neles.</p>
+            <p>A partir daqui, você terá acesso às respostas médias por questão de todas as pessoas que fizeram o quiz. 👀</p>            
+            <a href="../../index.html">Voltar ao início</a>
+            <a href="../../resultado.html">Voltar a tela de resultado</a>
+          </section>
+
+          <hr></hr>
+              <section id="secao-3">
               {lista_perguntas_e_alternativas.map((questao, index_questao) => (
               <>
-                <div className="questao">
-                  <p>{questao['q']}</p>
+                <div className="box-questao">
+                <div className="box-pergunta">
+                  <div className="numero-questao">{index_questao + 1}</div>
+                  <div className="pergunta">{questao['q']}</div>
+                </div>
                   {lista_gambiarra.map((alternativa, index_alternativa) => (
                     <>
                     {lista_perguntas_e_alternativas[index_questao][index_alternativa+1] !== "" &&(
                       <>
                         <Barra_porcentagem
-                          porcentagem={resultado_lista_arrays[index_questao][index_alternativa]} 
+                          porcentagem={resultado_lista_arrays.current[index_questao][index_alternativa]} 
                           alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
                         />
                       </>
@@ -237,34 +242,10 @@ function App(){
                 </div>
               </>
               ))}
+              </section>
+              <p><strong>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%.</strong></p>
             </>
           ):(
-            <>
-              {lista_perguntas_e_alternativas.map((questao, index_questao) => (
-              <>
-                <div className="questao">
-                  <p>{questao['q']}</p>
-                  {lista_gambiarra.map((alternativa, index_alternativa) => (
-                  <>
-                  {lista_perguntas_e_alternativas[index_questao][index_alternativa+1] !== "" &&(
-                    <>
-                      <Barra_porcentagem_coluna
-                        porcentagem={resultado_lista_arrays[index_questao][index_alternativa]} 
-                        alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
-                      />
-                    </>
-                  )}
-                  </>
-                  ))}
-                </div>
-              </>
-              ))}
-            </>
-          )}
-          
-          <p><strong>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%.</strong></p>
-        </>
-      ):(
         <>
         <p>Carregando...</p>
         </>

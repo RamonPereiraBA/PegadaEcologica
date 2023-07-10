@@ -4,80 +4,197 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../../Imagens/icons/posts_icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../Imagens/icons/resultado_dados_icon.png" type="image/x-icon">
     <meta
     http-equiv="Cache-Control"
     content="no-cache, no-store, must-revalidate"
     />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>Postagens</title>
+    <title>Média Global</title>
     
     <!-- Poppins - fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="root"></div>
     <style>
-        body{     
-            background: linear-gradient(92.06deg, #9FC131 60.14%, rgba(159, 193, 49, 0.58) 117.86%);
-            
-        }
-        
-        .questao{
-            display: block;
-            margin-bottom: 50px;
-        }
+       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap');
 
-        .barra {
-            display: block;
-            position: relative; 
-        }
+:root
+{
+    --cor-fundo: #F2F2F2;
+    --cor-blocos: #3FCEF6;
+    --cor-texto: #012030;
+}
 
-        .barra_total {
-            width: 70%;
-            height: 30px;
-            background-color: red;
-            position: absolute; 
-            top: 0; 
-        }
+body
+{
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
 
-        .barra_porcentagem {
-            height: 30px;
-            background-color: gray;
-            position: absolute; 
-            top: 0; 
-        }
+*
+{
+    font-family: 'Poppins', 'sans-serif';
+    margin: 0;
+}
 
-        .texto_barra {
-            position: absolute; 
-            top: 0; 
-        }
-        /* --------------------------- */ 
-        .barra_coluna {
-            display: block;
-        }
+p
+{
+    font-weight: 300;
+    font-size: 1.5rem;
+}
 
-        .barra_total_coluna {
-            width: 10%;
-            height: 90px;
-            background-color: red;
-        }
+h1, span
+{
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 800;
+    margin-bottom: 5%;
+}
 
-        .barra_porcentagem_coluna {
-            width: 10%;
-            background-color: gray;
-        }
+#secao-1
+{
+    text-align: center;
+    margin-bottom: 20%;
+    padding-top: 15%;
+    background-image: linear-gradient(360deg,rgba(242, 242, 242, 1) 5%,rgba(242, 242, 242, .5) 95%), url("../../../Imagens/grama.jpg");
+}
 
-        .texto_barra_coluna {
-            
-        }
+#secao-1 p:last-child
+{
+    padding-bottom: 15%;
+}
+
+#secao-2 p
+{
+    max-width: 65%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+#secao-2 p:last-child
+{
+    margin-bottom: 20%;
+}
+
+#secao-3
+{
+    margin-top: 18%;
+}
+
+/* putaria começa daqui pra baixo */
+
+.box-questao
+{
+    margin: auto;
+    width: 60%;
+    margin-bottom: 15%;
+}
+
+.numero-questao
+{
+    background-color: var(--cor-blocos);
+    font-size: x-large;
+    font-weight: 400;
+    display: flex;
+    width: 4rem;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.pergunta
+{
+    align-self: center;
+    margin-left: 5%;
+    word-break: break-word;
+}
+
+.box-pergunta
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.alternativa
+{
+    background-color: none;
+    border: 1px solid var(--cor-texto);
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px auto;
+    position: relative;
+}
+
+.resposta
+{
+    word-break: break-word;  
+}
+
+.porcentagem-texto
+{
+    margin-left: auto;
+}
+
+.alternativa > .preenchimento-porcentagem {
+    margin-left: -10px;
+  }
+
+.preenchimento-porcentagem
+{
+    background-color: var(--cor-blocos);
+    position: absolute;
+    top: 0;
+    margin: 0;
+    z-index: -1;
+    height: 100%;
+}
+
+@media only screen and (max-width: 500px) 
+{
+    h1, span
+    {
+        font-size: 3rem;
+    }
+
+    p
+    {
+        font-size: 1.2rem;
+    }
+    
+    #secao-1
+    {
+        padding-top: 54%;
+        margin-bottom: 30%;
+    }
+
+    #secao-1 p:last-child
+    {
+        padding-bottom: 65%;
+    }
+
+    #secao-1
+    {
+        background-image: linear-gradient(360deg,rgba(242, 242, 242, 1) 5%,rgba(242, 242, 242, .7) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
+    }
+
+    .box-questao
+    {
+        width: 85%;
+    }
+
+    #secao-2 p
+    {
+        max-width: 85%;
+        margin-bottom: 20%;
+    }
+}
     </style>
 </body>
 </html>
