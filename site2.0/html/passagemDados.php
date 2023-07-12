@@ -4,7 +4,7 @@ $questoes = $_GET['questoes'];
 
 function mandar_banco_dados($email, $data){
     require('../conexao_servidor.php');
-
+    
     $stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes) VALUES (:valor1, :valor2)");
     
     $stmt->bindValue(':valor1', $GLOBALS["total"]);
@@ -18,18 +18,25 @@ function mandar_banco_dados($email, $data){
     $stmt2->bindValue(':valor2', $data);
     
     $stmt2->execute();
-        
-}
-
-
-function checagem($email){
-    $data_atual = date("Y-m-d");
-    mandar_banco_dados($email, $data_atual);
 }
 
 if (isset($_POST['botao'])) {
     $email_variavel = $_POST['email'];
-    checagem($email_variavel);
+    $data_atual = date("Y-m-d");
+
+    if ($email_variavel == null){
+        mandar_banco_dados(null, $data_atual);
+        header('Location: resultado.html');
+        exit();
+    }
+
+    if (! filter_var($email_variavel, FILTER_VALIDATE_EMAIL)){
+        echo("Seu email é invalido");
+    }else {
+        mandar_banco_dados($email_variavel, $data_atual);
+        header('Location: resultado.html');
+        exit();
+    }
 }
 
 ?>
@@ -59,14 +66,14 @@ if (isset($_POST['botao'])) {
 </head>
 <body>
     <h1>Antes de continuar...</h1>
-    <p>Deseja contribuir para a nossa pesquisa?</p>
+    <p>Você gostaria de compartilhar seu endereço de e-mail conosco?</p>
     <!-- Formulario botão radio  -->
     <form method="post">
         <input type="radio" id="option1" name="option" value="sim">
         <label for="option1">Sim</label>
         <input type="radio" id="option2" name="option" value="não">
         <label for="option2">Não</label><br>
-        <p>*Seus dados serão coletados para auxiliar nossas pesquisas. Mas eles não serão exibidos para mais ninguém*</p>
+        <p>*Seu e-mail será utilizado para o envio dos resultados de nossas pesquisas para você. Garantimos que ele não será compartilhado com terceiros*</p>
         <!-- Formulario do email -->
         <div id="formulario_email">
             <p>Insira seu Email</p>

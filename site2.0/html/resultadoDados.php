@@ -4,8 +4,8 @@
     $lista_medias = array();
     require('../conexao_servidor.php');
     
-    // Se a data foi passada, coleta os dados daquele dia
-    if (isset($_GET['data'])) {
+    // Se a data foi passada e ela só tem numeros e o caractere "-", coleta os dados daquele dia
+    if (isset($_GET['data']) and preg_match('/^[0-9-]+$/', $_GET['data'])) {
         $data = $_GET['data'];
         $stmt = $conn->prepare("SELECT tabelaecologica.total, tabelaecologica.questoes FROM tabelaecologica INNER JOIN tabelainfo ON tabelaecologica.id = tabelainfo.id WHERE tabelainfo.dia = '$data';");
     } else {
