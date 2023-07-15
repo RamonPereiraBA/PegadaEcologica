@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef }  from 'react';
 
-var lista_gambiarra = [0, 0, 0, 0, 0]
-
 var lista_perguntas_e_alternativas = [
   {
       "q": "Com que frequência você come carne vermelha?",
@@ -134,6 +132,7 @@ var lista_perguntas_e_alternativas = [
 ];
 
 function App(){
+  // Declaração de variaveis
   const [texto_json, setTexto_json] = useState("");
   const [carregou, setCarregou] = useState(false);
   const resultado_media = useRef(0);
@@ -143,42 +142,53 @@ function App(){
   const manipular_data = (e) => {
     e.preventDefault();
     const valor_numerico = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+    // Verifica se pode colocar o hífen, e se pode, onde pode
     if (valor_numerico.length > 2 && valor_numerico.length <= 4){
-      const data_correta = valor_numerico.slice(0, 2) + "-" + valor_numerico.slice(2);
+      const data_correta = `${valor_numerico.slice(0, 2)}-${valor_numerico.slice(2)}`;
       setData(data_correta); 
       return;
     }else if (valor_numerico.length > 4){
-      const data_correta = valor_numerico.slice(0, 2) + "-" + valor_numerico.slice(2, 4) + "-" + valor_numerico.slice(4);
+      const data_correta = `${valor_numerico.slice(0, 2)}-${valor_numerico.slice(2, 4)}-${valor_numerico.slice(4)}`;
       setData(data_correta); 
       return;
     }
+    // Se não tem hífen, retorne o valor númerico apenas
     setData(valor_numerico); 
   };
 
-  useEffect(() => {
-    const fetchTextData = async () => {
-      try {
-        const response = await fetch('http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php');
-        const data = await response.text();
-        setTexto_json(data);
-      } catch (error) {
-        console.error('Erro ao carregar o texto:', error);
-      }
+  const enviar_data = () => {
+    // Se a data não foi passada, volte ao normal
+    if (!data){
+      fetchTextData();
+      return;
+    }
+    // juntando a data
+    const data_para_API = `${data.slice(6, 10)}-${data.slice(3, 5)}-${data.slice(0, 2)}`;
+    
+    const pesquisar_dados = async () => {
+      const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data_para_API}`);
+      const dados = await response.json();
+      setCarregou(false);
+      setTexto_json(dados);
     };
-  
+    pesquisar_dados();
+  };
+
+  const fetchTextData = async () => {
+    const response = await fetch('http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php');
+    const dados = await response.json();
+    setCarregou(false);
+    setTexto_json(dados);
+  };
+
+  useEffect(() => {
     fetchTextData();
   }, []);
   
   useEffect(() => {
     if (texto_json) {
-      const inicio_media = texto_json.indexOf("media") + 7;
-      const fim_media = texto_json.indexOf(",", inicio_media);
-      resultado_media.current = texto_json.substring(inicio_media, fim_media);
-  
-      // Pegando a lista de arrays
-      const inicio_lista_arrays = texto_json.indexOf("lista_medias") + 14;
-      const fim_lista_arrays = texto_json.indexOf("}", inicio_lista_arrays);
-      resultado_lista_arrays.current = JSON.parse(texto_json.substring(inicio_lista_arrays, fim_lista_arrays));
+      resultado_media.current = texto_json["media"];
+      resultado_lista_arrays.current = texto_json["lista_medias"];
       setCarregou(true);
     }
   }, [texto_json]);
@@ -207,20 +217,28 @@ function App(){
           </section>
 
           <section id="secao-2">
-            <p>Essa página tem o intuito de exibir a <strong>Pegada Ecológica Global</strong> e <strong>média geral</strong> de todos os indivíduos que fizeram o quiz.<br></br><br></br> Esses dados são anônimos e qualquer pessoa que fizer o quiz terá influência neles.</p>
-            <p>A partir daqui, você terá acesso às respostas médias por questão de todas as pessoas que fizeram o quiz. 👀</p>            
+            <p>Esta página tem o intuito de exibir a <strong>Pegada Ecológica Global</strong> e <strong>média geral</strong> de todos os indivíduos que responderam a pesquisa. 🌳<br></br><br></br> Esses dados são anônimos e qualquer indivíduo que responder a pesquisa terá influência nesses resultados. 🔐</p>
+            <p>A partir daqui, você terá acesso às respostas médias por questão de todas as pessoas que participaram da pesquisa. 👀</p>            
             <a href="../../index.html">Voltar ao início</a>
             <a href="../../resultado.html">Voltar a tela de resultado</a>
           </section>
 
           <hr></hr>
           <section id="secao-3">
-            <input
-              type="text"
-              value={data}
-              onChange={manipular_data}
-              maxLength={10}
-            />
+            <div id="filtro">
+              <p className="texto_filtrar">
+                Filtrar Por:  
+              </p>
+              <label htmlFor="input_data">Data: </label>
+              <input
+                type="text"
+                value={data}
+                id="input_data"
+                onChange={manipular_data}
+                maxLength={10}
+              />
+              <button onClick={enviar_data}>Pesquisar</button>
+            </div>
             {lista_perguntas_e_alternativas.map((questao, index_questao) => (
               <>
                 <div className="box-questao">
@@ -228,15 +246,13 @@ function App(){
                 <div className="numero-questao">{index_questao + 1}</div>
                 <div className="pergunta">{questao['q']}</div>
                 </div>
-                  {lista_gambiarra.map((alternativa, index_alternativa) => (
+                  {Array(5).fill(0).map((alternativa, index_alternativa) => (
                     <>
                     {lista_perguntas_e_alternativas[index_questao][index_alternativa+1] !== "" &&(
-                      <>
                       <Barra_porcentagem
                         porcentagem={resultado_lista_arrays.current[index_questao][index_alternativa]} 
                         alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
                       />
-                      </>
                     )}
                     </>
                   ))}
@@ -247,9 +263,7 @@ function App(){
           <p><strong>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%.</strong></p>
         </>
       ):(
-        <>
         <p>Carregando...</p>
-        </>
       )}
     </>
   )
