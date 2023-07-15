@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef }  from 'react';
-import axios from 'axios';
 
 var lista_gambiarra = [0, 0, 0, 0, 0]
 
@@ -139,7 +138,23 @@ function App(){
   const [carregou, setCarregou] = useState(false);
   const resultado_media = useRef(0);
   const resultado_lista_arrays = useRef([]);
+  const [data, setData] = useState("")
   
+  const manipular_data = (e) => {
+    e.preventDefault();
+    const valor_numerico = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+    if (valor_numerico.length > 2 && valor_numerico.length <= 4){
+      const data_correta = valor_numerico.slice(0, 2) + "-" + valor_numerico.slice(2);
+      setData(data_correta); 
+      return;
+    }else if (valor_numerico.length > 4){
+      const data_correta = valor_numerico.slice(0, 2) + "-" + valor_numerico.slice(2, 4) + "-" + valor_numerico.slice(4);
+      setData(data_correta); 
+      return;
+    }
+    setData(valor_numerico); 
+  };
+
   useEffect(() => {
     const fetchTextData = async () => {
       try {
@@ -180,29 +195,9 @@ function App(){
     )
   }
 
-  function Barra_porcentagem_coluna(props){
-    return(
-      <>
-        <div className="barra_coluna">
-          <div className="barra_total_coluna"></div>
-          <div className="barra_porcentagem_coluna" style={{height : parseInt((parseInt(props.porcentagem)*90)/100)+"px"}}></div>
-          <div className="texto_barra_coluna">{props.porcentagem}% marcaram {props.alternativa}</div>
-        </div>
-      </>
-    )
-  }
-
-
-
-  const [selectedOption, setSelectedOption] = useState("barra");
-
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
   return (
     <>
-     {carregou ?(
+      {carregou ?(
         <> 
           <section id="secao-1">
             <p>A <strong>Pegada Ecológica Global</strong> é</p>
@@ -219,40 +214,45 @@ function App(){
           </section>
 
           <hr></hr>
-              <section id="secao-3">
-              {lista_perguntas_e_alternativas.map((questao, index_questao) => (
+          <section id="secao-3">
+            <input
+              type="text"
+              value={data}
+              onChange={manipular_data}
+              maxLength={10}
+            />
+            {lista_perguntas_e_alternativas.map((questao, index_questao) => (
               <>
                 <div className="box-questao">
                 <div className="box-pergunta">
-                  <div className="numero-questao">{index_questao + 1}</div>
-                  <div className="pergunta">{questao['q']}</div>
+                <div className="numero-questao">{index_questao + 1}</div>
+                <div className="pergunta">{questao['q']}</div>
                 </div>
                   {lista_gambiarra.map((alternativa, index_alternativa) => (
                     <>
                     {lista_perguntas_e_alternativas[index_questao][index_alternativa+1] !== "" &&(
                       <>
-                        <Barra_porcentagem
-                          porcentagem={resultado_lista_arrays.current[index_questao][index_alternativa]} 
-                          alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
-                        />
+                      <Barra_porcentagem
+                        porcentagem={resultado_lista_arrays.current[index_questao][index_alternativa]} 
+                        alternativa={lista_perguntas_e_alternativas[index_questao][index_alternativa+1]}
+                      />
                       </>
                     )}
                     </>
                   ))}
                 </div>
-              </>
+                </>
               ))}
-              </section>
-              <p><strong>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%.</strong></p>
-            </>
-          ):(
+          </section>
+          <p><strong>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%.</strong></p>
+        </>
+      ):(
         <>
         <p>Carregando...</p>
         </>
       )}
     </>
-    )
-
+  )
 }
 
 export default App;
