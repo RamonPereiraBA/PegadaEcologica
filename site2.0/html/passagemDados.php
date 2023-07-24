@@ -1,14 +1,11 @@
 <?php
-$total = $_GET['total'];
-$questoes = $_GET['questoes'];
-
-function mandar_banco_dados($email, $data){
+function mandar_banco_dados($email, $data, $total, $questoes){
     require('../conexao_servidor.php');
     
     $stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes) VALUES (:valor1, :valor2)");
     
-    $stmt->bindValue(':valor1', $GLOBALS["total"]);
-    $stmt->bindValue(':valor2', $GLOBALS["questoes"]);
+    $stmt->bindValue(':valor1', $total);
+    $stmt->bindValue(':valor2', $questoes);
     
     $stmt->execute();
      
@@ -20,27 +17,40 @@ function mandar_banco_dados($email, $data){
     $stmt2->execute();
 }
 
-if (isset($_POST['botao'])) {
+if (isset($_POST['botao'])){
     $email_variavel = $_POST['email'];
     $data_atual = date("Y-m-d");
+    $total_variavel = $_POST['total'];
+    $questoes_variavel = $_POST['questoes'];
+    $dica_variavel = $_POST['dica'];
+
+    if (!is_numeric($questoes_variavel) and strlen($questoes_variavel) != 16 and
+        !is_numeric($total_variavel) and $total_variavel > 70 and $total_variavel <=0){
+        //
+        header('Location: quiz.html');
+        exit();
+    }
 
     if ($email_variavel == null){
-        mandar_banco_dados(null, $data_atual);
-        header('Location: resultado.html');
+        mandar_banco_dados(null, $data_atual, $total_variavel, $questoes_variavel);
+        header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
         exit();
     }
 
     if (! filter_var($email_variavel, FILTER_VALIDATE_EMAIL)){
         echo("Seu email é invalido");
     }else {
-        mandar_banco_dados($email_variavel, $data_atual);
-        header('Location: resultado.html');
+        mandar_banco_dados($email_variavel, $data_atual, $total_variavel, $questoes_variavel);
+        header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
         exit();
     }
 }
 
+if ($_SERVER["REQUEST_METHOD"] === "POST" and 
+    is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 16 and
+    is_numeric($_POST['resultado_total']) and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0) 
+{      
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -69,6 +79,11 @@ if (isset($_POST['botao'])) {
     <p>Você gostaria de compartilhar seu endereço de e-mail conosco?</p>
     <!-- Formulario botão radio  -->
     <form method="post">
+        <!-- Quardando dados -->
+        <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
+        <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
+        <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
+        <!-- Formulario -->
         <input type="radio" id="option1" name="option" value="sim">
         <label for="option1">Sim</label>
         <input type="radio" id="option2" name="option" value="não">
@@ -81,7 +96,9 @@ if (isset($_POST['botao'])) {
         </div>
         <button name="botao">Continuar</button>
     </form>
-    
     <script src="../passagemDados.js"></script>
 </body>
 </html>
+<?php }else{
+        header('Location: quiz.html');
+} ?>

@@ -171,7 +171,7 @@ const Questions = [{
 ]
 
 /* configurando a resposta de todas as seções, a lista não pode ficar vazia. */
-Questions.forEach(() => { // se quiser, remove esse foreach e revive o bloco acima
+Questions.forEach(() => { 
     questoes_selecionadas.push(0);   
     lista_respostas.push(0); 
 });
@@ -265,23 +265,23 @@ function finalizar(){
     if (verificar_repeticoes(energia)){
         dicaurl = dicaurl+"E";
     }
+    // Pegando o formulario
+    const formulario = document.getElementById('form_variaveis');
 
+    // Definindo os valores dos campos antes de enviar
+    formulario.resultado_questoes.value = questoes_juntas;
+    formulario.resultado_total.value = somatorioLista;
+    formulario.resultado_dica.value = dicaurl;
+    
+    // Enviando o formulário
+    formulario.submit();
     // Redirecionando a página
-    location.href="passagemDados.php?total="+somatorioLista+"&dica="+dicaurl+"&questoes="+questoes_juntas;
+    //location.href="passagemDados.php?total="+somatorioLista+"&dica="+dicaurl+"&questoes="+questoes_juntas;
 }
 
 // Função EXCLUSIVA da função finalizar
 function verificar_repeticoes(lista_repeticoes){
-    var repetido;
-    for (let a = 0; a < lista_repeticoes.length; a++){
-        if (lista_repeticoes[a] && repetido){
-            return true;
-        }
-        if (lista_repeticoes[a]){
-            repetido = true;
-        }
-    }
-    return false;
+    return lista_repeticoes.filter(Boolean).length >=2;
 }
 
 function verificar_respostas(){

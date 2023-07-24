@@ -41,9 +41,9 @@
 			Pergunta vem aqui.
 		</div>
 		<div class="opcoes" id="opcoesid">
-			<button class="option" id="op1" >opção1</button>
+			<button class="option" id="op1">opção1</button>
 	
-			<button class="option" id="op2" >opção2</button>
+			<button class="option" id="op2">opção2</button>
 	
 			<button class="option" id="op3">opção3</button>
 	
@@ -56,6 +56,11 @@
 			<button id="next">Próximo</button>
 			<button id="finalizar" class="enviarPesquisa">Finalizar</button>
 		</div>
+		<form id="form_variaveis" method="post" action="passagemDados.php">
+			<input type="hidden" name="resultado_questoes" value="">
+			<input type="hidden" name="resultado_total" value="">
+			<input type="hidden" name="resultado_dica" value="">
+		</form>
 	</div>
 	<script src="../quiz.js"></script>
 </body>
