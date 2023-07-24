@@ -175,7 +175,7 @@ function App(){
   };
 
   const fetchTextData = async () => {
-    const response = await fetch('http://localhost/testePHP/PegadaEcologica2/site2.0/html/resultadoDados.php');
+    const response = await fetch('http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php');
     const dados = await response.json();
     setCarregou(false);
     setTexto_json(dados);
