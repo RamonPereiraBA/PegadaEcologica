@@ -5,9 +5,10 @@
     require('../conexao_servidor.php');
     
     // Se a data foi passada e ela só tem numeros e o caractere "-", coleta os dados daquele dia
-    if (isset($_GET['data']) and preg_match('/^[0-9-]+$/', $_GET['data'])) {
+    if (isset($_GET['data']) and preg_match('/^[0-9-]+$/', $_GET['data']) and isset($_GET['data2']) and preg_match('/^[0-9-]+$/', $_GET['data2'])) {
         $data = $_GET['data'];
-        $stmt = $conn->prepare("SELECT tabelaecologica.total, tabelaecologica.questoes FROM tabelaecologica INNER JOIN tabelainfo ON tabelaecologica.id = tabelainfo.id WHERE tabelainfo.dia = '$data';");
+        $data2 = $_GET['data2'];
+        $stmt = $conn->prepare("SELECT tabelaecologica.total, tabelaecologica.questoes FROM tabelaecologica INNER JOIN tabelainfo ON tabelaecologica.id = tabelainfo.id WHERE tabelainfo.dia BETWEEN '$data' AND '$data2';");
     } else {
         // Se não pega os dados de todos os dias
         $stmt = $conn->prepare("SELECT total, questoes FROM tabelaecologica;");

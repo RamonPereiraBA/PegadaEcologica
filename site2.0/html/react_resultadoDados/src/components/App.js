@@ -132,48 +132,59 @@ var lista_perguntas_e_alternativas = [
 ];
 
 function App(){
+  function Input_data(props){
+    // Por enquanto usado apenas para atualizar a tela
+    const [data_input, setData_input] = useState("")
+
+    const manipular_data = (e) => {
+      e.preventDefault();
+      const valor_numerico = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+      // Vendo se o valor está correto para a pesquisa
+      props.set_pesquisar(valor_numerico.length === 8);
+      // Verifica se pode colocar o hífen, e se pode, onde pode
+      if (valor_numerico.length > 2 && valor_numerico.length <= 4){
+        const data_correta = `${valor_numerico.slice(0, 2)}-${valor_numerico.slice(2)}`;
+        props.data.current = data_correta; 
+        setData_input(data_correta);
+        return;
+      }else if (valor_numerico.length > 4){
+        const data_correta = `${valor_numerico.slice(0, 2)}-${valor_numerico.slice(2, 4)}-${valor_numerico.slice(4)}`;
+        props.data.current = data_correta; 
+        setData_input(data_correta);
+        return;
+      }
+      // Se não tem hífen, retorne o valor númerico apenas
+      props.data.current = valor_numerico; 
+      setData_input(valor_numerico);
+    };
+
+    return(
+      <>
+        <label htmlFor="input_data">{props.texto}: </label>
+        <input
+          type="text"
+          value={props.data.current}
+          id="input_data"
+          onChange={manipular_data}
+          maxLength={10}
+        />
+      </>
+    )
+  }
+
+  //----------------------------------------------------------------------
+
   // Declaração de variaveis
   const [texto_json, setTexto_json] = useState("");
   const [carregou, setCarregou] = useState(false);
+  const [pode_pesquisar, setPode_pesquisar] = useState(false);
+  const [pode_pesquisar2, setPode_pesquisar2] = useState(false);
   const resultado_media = useRef(0);
   const resultado_lista_arrays = useRef([]);
-  const [data, setData] = useState("")
-  
-  const manipular_data = (e) => {
-    e.preventDefault();
-    const valor_numerico = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
-    // Verifica se pode colocar o hífen, e se pode, onde pode
-    if (valor_numerico.length > 2 && valor_numerico.length <= 4){
-      const data_correta = `${valor_numerico.slice(0, 2)}-${valor_numerico.slice(2)}`;
-      setData(data_correta); 
-      return;
-    }else if (valor_numerico.length > 4){
-      const data_correta = `${valor_numerico.slice(0, 2)}-${valor_numerico.slice(2, 4)}-${valor_numerico.slice(4)}`;
-      setData(data_correta); 
-      return;
-    }
-    // Se não tem hífen, retorne o valor númerico apenas
-    setData(valor_numerico); 
-  };
+  const data = useRef("");
+  const data2 = useRef("");
 
-  const enviar_data = () => {
-    // Se a data não foi passada, volte ao normal
-    if (!data){
-      fetchTextData();
-      return;
-    }
-    // juntando a data
-    const data_para_API = `${data.slice(6, 10)}-${data.slice(3, 5)}-${data.slice(0, 2)}`;
-    
-    const pesquisar_dados = async () => {
-      const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data_para_API}`);
-      const dados = await response.json();
-      setCarregou(false);
-      setTexto_json(dados);
-    };
-    pesquisar_dados();
-  };
-
+  // Pega a API
   const fetchTextData = async () => {
     const response = await fetch('http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php');
     const dados = await response.json();
@@ -181,10 +192,12 @@ function App(){
     setTexto_json(dados);
   };
 
+  // Ao rodar pela primeira vez executa essa função
   useEffect(() => {
     fetchTextData();
   }, []);
   
+  // Sempre que a API estiver carregada, ele pega os dados dela
   useEffect(() => {
     if (texto_json) {
       resultado_media.current = texto_json["media"];
@@ -192,6 +205,21 @@ function App(){
       setCarregou(true);
     }
   }, [texto_json]);
+
+  // Fazendo pesquisa com data
+  const enviar_data = () => {
+    // juntando a data
+    const data_para_API = `${data.current.slice(6, 10)}-${data.current.slice(3, 5)}-${data.current.slice(0, 2)}`;
+    const data_para_API2 = `${data2.current.slice(6, 10)}-${data2.current.slice(3, 5)}-${data2.current.slice(0, 2)}`;
+
+    const pesquisar_dados = async () => {
+      const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data_para_API}&data2=${data_para_API2}`);
+      const dados = await response.json();
+      setCarregou(false);
+      setTexto_json(dados);
+    };
+    pesquisar_dados();
+  };
 
   function Barra_porcentagem(props){
     return(
@@ -229,15 +257,10 @@ function App(){
               <p className="texto_filtrar">
                 Filtrar Por:  
               </p>
-              <label htmlFor="input_data">Data: </label>
-              <input
-                type="text"
-                value={data}
-                id="input_data"
-                onChange={manipular_data}
-                maxLength={10}
-              />
-              <button onClick={enviar_data}>Pesquisar</button>
+              <Input_data data={data} texto="Data inicial" set_pesquisar={setPode_pesquisar}/>
+              <Input_data data={data2} texto="Data final" set_pesquisar={setPode_pesquisar2}/>
+              <button onClick={enviar_data} disabled={!pode_pesquisar || !pode_pesquisar2}>Pesquisar</button>
+              <button onClick={fetchTextData}>Resetar</button>
             </div>
             {lista_perguntas_e_alternativas.map((questao, index_questao) => (
               <>
