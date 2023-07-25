@@ -138,7 +138,7 @@ function App(){
   const resultado_media = useRef(0);
   const resultado_lista_arrays = useRef([]);
   const [data, setData] = useState("")
-  
+
   const manipular_data = (e) => {
     e.preventDefault();
     const valor_numerico = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
@@ -156,6 +156,35 @@ function App(){
     setData(valor_numerico); 
   };
 
+  const opcoes_data = [
+    {value: 'todos_ate_agora', text: 'Todos até Agora'},
+    {value: 'data_especifica', text: 'Data Específica'}
+  ];
+
+  const [selected, setSelected] = useState(opcoes_data[0].value);
+
+  const mudarOpcaoData = event => {
+    if (event.target.value === "data_especifica")
+    {
+      mostrarCampo();
+    }
+    else
+    {
+      atualizarPagina();
+    }
+    setSelected(event.target.value);
+  };
+
+  const mostrarCampo = () => {
+    const campo_inserir_data = document.getElementById("campo-inserir-data");
+    campo_inserir_data.style.display = "flex";
+  }
+
+  const atualizarPagina = () => {
+    window.scrollTo(0, 0)
+    window.location.reload(false);
+  }
+
   const enviar_data = () => {
     // Se a data não foi passada, volte ao normal
     if (!data){
@@ -172,6 +201,7 @@ function App(){
       setTexto_json(dados);
     };
     pesquisar_dados();
+    window.scrollTo(0, 0);
   };
 
   const fetchTextData = async () => {
@@ -211,33 +241,39 @@ function App(){
         <> 
           <section id="secao-1">
             <p>A <strong>Pegada Ecológica Global</strong> é</p>
-            {resultado_media.current >= 50 ? <h1>Excelente 🔥</h1> : resultado_media.current >= 35 ? <h1>Moderado</h1> : <h1>Pessimo</h1>}
+            {resultado_media.current >= 50 ? <h1>Excelente 🔥</h1> : resultado_media.current >= 35 ? <h1>Moderada 🤷</h1> : <h1>Péssima 💔</h1>}
             <p>A <strong>média geral</strong> é de</p>
             <p><span>{resultado_media.current}</span> pontos!!!</p>
           </section>
 
           <section id="secao-2">
-            <p>Esta página tem o intuito de exibir a <strong>Pegada Ecológica Global</strong> e <strong>média geral</strong> de todos os indivíduos que responderam a pesquisa. 🌳<br></br><br></br> Esses dados são anônimos e qualquer indivíduo que responder a pesquisa terá influência nesses resultados. 🔐</p>
-            <p>A partir daqui, você terá acesso às respostas médias por questão de todas as pessoas que participaram da pesquisa. 👀</p>            
-            <a href="../../index.html">Voltar ao início</a>
-            <a href="../../resultado.html">Voltar a tela de resultado</a>
+            <p>Esta página tem o intuito de exibir a <strong>Pegada Ecológica Global</strong> e <strong>média geral</strong> de todos os indivíduos que responderam a pesquisa 🌳<br></br><br></br> Esses dados são anônimos e todas as pessoas que responderam a pesquisa terão influência no resultado 🔐</p>
+            <p>Você pode visualizar os dados dentro de uma <i>data específica</i> ou em <i>todos os tempos</i>. Basta selecionar na ferramenta de filtro abaixo 👀</p>            
+            {/* <a href="../../index.html">Voltar ao início</a>
+            <a href="../../resultado.html">Voltar a tela de resultado</a> */}
           </section>
 
           <hr></hr>
           <section id="secao-3">
             <div id="filtro">
-              <p className="texto_filtrar">
-                Filtrar Por:  
-              </p>
-              <label htmlFor="input_data">Data: </label>
-              <input
-                type="text"
-                value={data}
-                id="input_data"
-                onChange={manipular_data}
-                maxLength={10}
-              />
-              <button onClick={enviar_data}>Pesquisar</button>
+              <label htmlFor="opcao-data">Filtrando por:</label>
+              <select name="opcao-data" id="opcao-data" value={selected} onChange={mudarOpcaoData}>
+                {opcoes_data.map(option => (
+                  <option key={option.value} value={option.value}>{option.text}</option>
+                ))}
+              </select>
+              <div id="campo-inserir-data">            
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  placeholder='Ponha um Dia Específico'
+                  value={data}
+                  id="input_data"
+                  onChange={manipular_data}
+                  maxLength={10}
+                />
+                <button id="btVisualizar" onClick={enviar_data}>Visualizar</button>
+              </div>
             </div>
             {lista_perguntas_e_alternativas.map((questao, index_questao) => (
               <>
@@ -259,11 +295,27 @@ function App(){
                 </div>
                 </>
               ))}
+          <p>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%*</p>
           </section>
-          <p><strong>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%.</strong></p>
+          <footer>
+            <div id="campo-redes">
+              <h3>Siga nossas Redes 🔥</h3>
+              <div id="campo-redes-icones">
+                  <a class="nav-link" href="https://www.instagram.com/greenlight.dev/"><i class="bi bi-instagram"></i></a>
+                  <a class="nav-link" href="https://github.com/XaropinhoS20/PegadaEcologica"><i class="bi bi-github"></i></a>
+                  <a class="nav-link" href="https://www.linkedin.com/in/greenlight-pegada-ecol%C3%B3gica-925bb2273/"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            
+            <div id="campo-outros">
+              <a href='#'>Sobre Nós</a>
+              <a href='#'>Equipe</a>
+              <a href='#'>Dados Globais</a>
+            </div>
+          </footer>
         </>
       ):(
-        <p>Carregando...</p>
+        <p></p>
       )}
     </>
   )

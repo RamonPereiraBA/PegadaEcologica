@@ -17,6 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 </head>
 <body>
     <div id="root"></div>
@@ -87,18 +92,115 @@ h1, span
     margin-top: 9%;
 }
 
-/* putaria começa daqui pra baixo */
-
 #filtro{
     margin-bottom: 9%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-.texto_filtrar{
-    margin-right: 1%;
+#opcao-data
+{
+    cursor: pointer;
+    border-radius: 5px;
+    min-width: 15%;
+    height: 35px;
+    margin-top: 8px;
 }
+
+input
+{
+    margin-bottom: 9%;
+    align-self: center;
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+}
+
+select
+{
+    padding-left: 10px;
+}
+
+#campo-inserir-data
+{
+    display: none;
+    margin-top: 4%;
+    flex-direction: column;
+}
+
+#btVisualizar
+{
+    border-radius: 30px;
+    height: 30px;
+    background-color: var(--cor-blocos);
+    cursor: pointer;
+    border: none;
+}
+
+#btVisualizar:hover
+{
+    filter: brightness(85%);
+}
+
+#btVisualizar:active
+{
+    filter: brightness(70%);
+}
+
+footer
+{
+    background-color: red;
+    height: 400px;
+    display: flex;
+}
+
+#campo-redes
+{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+#campo-redes-icones
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#campo-redes-icones a
+{
+    margin-top: 10px;
+    scale: 180%;
+    color: var(--cor-texto);
+    padding: 12px;
+    margin-right: 12px;
+    transition: transform .6s;
+}
+
+#campo-redes-icones a:hover
+{
+    transform: scale(1.5);
+}
+
+#campo-outros
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 5%;
+    margin-top: 5%;
+    text-align: right;
+}
+
+#campo-outros a
+{
+    color: var(--cor-texto);
+    text-decoration: underline;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+}
+/* putaria começa daqui pra baixo */
 
 .box-questao
 {
