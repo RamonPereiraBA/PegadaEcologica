@@ -150,14 +150,14 @@ select
 
 footer
 {
-    background-color: red;
+    /* background-color: red; */
     height: 400px;
     display: flex;
+    background-image: linear-gradient(180deg, rgba(242, 242, 242, 1) 5%,rgba(242, 242, 242, .5) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
 }
 
 #campo-redes
 {
-    position: absolute;
     margin-top: 5%;
     margin-left: 10%;
 }
@@ -315,6 +315,18 @@ footer
     {
         max-width: 85%;
         margin-bottom: 20%;
+    }
+
+    footer
+    {
+        flex-direction: column;
+    }
+
+    #campo-outros
+    {
+        margin-top: 10%;
+        margin-left: 10%;
+        text-align: left;
     }
 }
     </style>
