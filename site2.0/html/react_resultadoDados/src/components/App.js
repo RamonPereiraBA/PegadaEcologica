@@ -131,6 +131,11 @@ var lista_perguntas_e_alternativas = [
   }
 ];
 
+const opcoes_data = [
+  {valor: 'todos_ate_agora', texto: 'Todos até Agora'},
+  {valor: 'data_especifica', texto: 'Data Específica'}
+];
+
 function App(){
   function Input_data(props){
     // Por enquanto usado apenas para atualizar a tela
@@ -160,12 +165,13 @@ function App(){
 
     return(
       <>
-        <label htmlFor="input_data">{props.texto}: </label>
         <input
           type="text"
-          value={props.data.current}
+          inputmode="numeric"
+          placeholder='Ponha um Dia Específico (Ex: 11-07-2023)'
           id="input_data"
           onChange={manipular_data}
+          value={props.data.current}
           maxLength={10}
         />
       </>
@@ -173,20 +179,12 @@ function App(){
   }
 
   //----------------------------------------------------------------------
-  // const opcoes_data = [
-  //   {value: 'todos_ate_agora', text: 'Todos até Agora'},
-  //   {value: 'data_especifica', text: 'Data Específica'}
-  // ];
-
-  // const [selected, setSelected] = useState(opcoes_data[0].value);
-
-  //    setSelected(event.target.value);
-
   // Declaração de variaveis
   const [texto_json, setTexto_json] = useState("");
   const [carregou, setCarregou] = useState(false);
   const [pode_pesquisar, setPode_pesquisar] = useState(false);
   const [pode_pesquisar2, setPode_pesquisar2] = useState(false);
+  const [selected, setSelected] = useState(opcoes_data[0].valor);
   const resultado_media = useRef(0);
   const resultado_lista_arrays = useRef([]);
   const data = useRef("");
@@ -213,6 +211,15 @@ function App(){
       setCarregou(true);
     }
   }, [texto_json]);
+
+  // Pegando do dropdown
+  const mudarOpcaoData = (e) => {
+    e.preventDefault();
+    setSelected(e.target.value);
+    if (e.target.valor !== "data_especifica"){
+        fetchTextData(); 
+    }
+  }
 
   // Fazendo pesquisa com data
   const enviar_data = () => {
@@ -261,31 +268,21 @@ function App(){
 
           <hr></hr>
           <section id="secao-3">
-          {/* <p className="texto_filtrar">
-                Filtrar Por:  
-              </p>
-              <Input_data data={data} texto="Data inicial" set_pesquisar={setPode_pesquisar}/>
-              <Input_data data={data2} texto="Data final" set_pesquisar={setPode_pesquisar2}/>
-              <button onClick={enviar_data} disabled={!pode_pesquisar || !pode_pesquisar2}>Pesquisar</button>
-              <button onClick={fetchTextData}>Resetar</button> */}
             <div id="filtro">
               <label htmlFor="opcao-data">Filtrando por:</label>
               <select name="opcao-data" id="opcao-data" value={selected} onChange={mudarOpcaoData}>
                 {opcoes_data.map(option => (
-                  <option key={option.value} value={option.value}>{option.text}</option>
+                  <option key={option.valor} value={option.valor}>{option.texto}</option>
                 ))}
               </select>
-              <div id="campo-inserir-data">            
-                <input
-                  type="text"
-                  inputmode="numeric"
-                  placeholder='Ponha um Dia Específico'
-                  value={data}
-                  id="input_data"
-                  onChange={manipular_data}
-                  maxLength={10}
-                />
-                <button id="btVisualizar" onClick={enviar_data}>Visualizar</button>
+              <div id="campo-inserir-data">   
+                {selected === "data_especifica" &&(    
+                  <>
+                  <Input_data data={data} set_pesquisar={setPode_pesquisar}/>
+                  <Input_data data={data2} set_pesquisar={setPode_pesquisar2}/>
+                  <button id='btVisualizar' onClick={enviar_data} disabled={!pode_pesquisar || !pode_pesquisar2}>Pesquisar</button>
+                  </>
+                )}     
               </div>
             </div>
             {lista_perguntas_e_alternativas.map((questao, index_questao) => (
@@ -328,7 +325,7 @@ function App(){
           </footer>
         </>
       ):(
-        <p></p>
+        <p>Carregando..</p>
       )}
     </>
   )
