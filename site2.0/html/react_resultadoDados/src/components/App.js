@@ -133,6 +133,8 @@ var lista_perguntas_e_alternativas = [
 
 const opcoes_data = [
   {valor: 'todos_ate_agora', texto: 'Todos até Agora'},
+  {valor: 'semana_retrasada', texto: 'Semana retrasada'},
+  {valor: 'mes_retrasado', texto: 'Mês retrasado'},
   {valor: 'data_especifica', texto: 'Data Específica'}
 ];
 
@@ -168,7 +170,7 @@ function App(){
         <input
           type="text"
           inputmode="numeric"
-          placeholder='Ponha um Dia Específico (Ex: 11-07-2023)'
+          placeholder={`${props.texto} (Ex: 11-07-2023)`}
           id="input_data"
           onChange={manipular_data}
           value={props.data.current}
@@ -198,6 +200,13 @@ function App(){
     setTexto_json(dados);
   };
 
+  const pesquisar_dados = async (data, data2) => {
+    const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data}&data2=${data2}`);
+    const dados = await response.json();
+    setCarregou(false);
+    setTexto_json(dados);
+  };
+
   // Ao rodar pela primeira vez executa essa função
   useEffect(() => {
     fetchTextData();
@@ -208,6 +217,17 @@ function App(){
     if (texto_json) {
       resultado_media.current = texto_json["media"];
       resultado_lista_arrays.current = texto_json["lista_medias"];
+      // Mudando a cor do fundo
+      if (resultado_media.current > 50){
+        document.documentElement.style.setProperty('--cor-fundo', '#A5FFAC');
+        document.documentElement.style.setProperty('--cor-blocos', '#ABC315');
+      }else if(resultado_media.current < 50 && resultado_media.current >= 35){
+        document.documentElement.style.setProperty('--cor-fundo', '#F2F2F2');
+        document.documentElement.style.setProperty('--cor-blocos', '#F2BE24');
+      }else{
+        document.documentElement.style.setProperty('--cor-fundo', '#F4C1C1');
+        document.documentElement.style.setProperty('--cor-blocos', '#D92929');
+      }
       setCarregou(true);
     }
   }, [texto_json]);
@@ -215,10 +235,20 @@ function App(){
   // Pegando do dropdown
   const mudarOpcaoData = (e) => {
     e.preventDefault();
-    setSelected(e.target.value);
-    if (e.target.valor !== "data_especifica"){
-        fetchTextData(); 
+    switch(e.target.value){
+      case "todos_ate_agora":
+        fetchTextData();
+        break;
+      case "data_especifica":
+        break;
+      case "semana_retrasada":
+        calcular_data("semana");
+        break;
+      case "mes_retrasado":
+        calcular_data("mes");
+        break;
     }
+    setSelected(e.target.value);
   }
 
   // Fazendo pesquisa com data
@@ -227,14 +257,47 @@ function App(){
     const data_para_API = `${data.current.slice(6, 10)}-${data.current.slice(3, 5)}-${data.current.slice(0, 2)}`;
     const data_para_API2 = `${data2.current.slice(6, 10)}-${data2.current.slice(3, 5)}-${data2.current.slice(0, 2)}`;
 
-    const pesquisar_dados = async () => {
-      const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data_para_API}&data2=${data_para_API2}`);
-      const dados = await response.json();
-      setCarregou(false);
-      setTexto_json(dados);
-    };
-    pesquisar_dados();
+    pesquisar_dados(data_para_API, data_para_API2);
   };
+
+  function calcular_data(quando){
+    const dataAtual = new Date();
+    var dia = dataAtual.getDate();
+    var mes = dataAtual.getMonth() + 1; // A contagem começa em 0, por isso do mais 1
+    const ano = dataAtual.getFullYear();
+
+    // Formatar o mês e o dia para terem sempre dois dígitos
+    mes = mes < 10 ? "0" + mes : mes;
+    dia = dia < 10 ? "0" + dia : dia;
+
+    const dataHoje = ano + "-" + mes + "-" + dia;
+    
+    if (quando === "semana"){
+      const umaSemanaAtras = new Date(dataAtual.getTime() - 7 * 24 * 60 * 60 * 1000);
+      
+      var dia_semana = umaSemanaAtras.getDate();
+      var mes_semana = umaSemanaAtras.getMonth() + 1;
+      const ano_semana = umaSemanaAtras.getFullYear();
+      
+      mes_semana = mes_semana < 10 ? "0" + mes_semana : mes_semana;
+      dia_semana = dia_semana < 10 ? "0" + dia_semana : dia_semana;
+      
+      var data_pesquisar = ano_semana + "-" + mes_semana + "-" + dia_semana;
+    }else{
+      const trintaDiasAtras = new Date(dataAtual.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+      var dia_mes = trintaDiasAtras.getDate();
+      var mes_mes = trintaDiasAtras.getMonth() + 1;
+      const ano_mes = trintaDiasAtras.getFullYear();
+
+      mes_mes = mes_mes < 10 ? "0" + mes_mes : mes_mes;
+      dia_mes = dia_mes < 10 ? "0" + dia_mes : dia_mes;
+
+      var data_pesquisar = ano_mes + "-" + mes_mes + "-" + dia_mes;
+    }
+
+    pesquisar_dados(data_pesquisar, dataHoje);
+  }
 
   function Barra_porcentagem(props){
     return(
@@ -278,8 +341,8 @@ function App(){
               <div id="campo-inserir-data">   
                 {selected === "data_especifica" &&(    
                   <>
-                  <Input_data data={data} set_pesquisar={setPode_pesquisar}/>
-                  <Input_data data={data2} set_pesquisar={setPode_pesquisar2}/>
+                  <Input_data data={data} set_pesquisar={setPode_pesquisar} texto="Data inicial"/>
+                  <Input_data data={data2} set_pesquisar={setPode_pesquisar2} texto="Data final"/>
                   <button id='btVisualizar' onClick={enviar_data} disabled={!pode_pesquisar || !pode_pesquisar2}>Pesquisar</button>
                   </>
                 )}     
