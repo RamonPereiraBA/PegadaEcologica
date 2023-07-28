@@ -321,7 +321,7 @@ function App(){
           <section id="secao-1">
             <p>A <strong>Pegada Ecológica Global</strong> é</p>
             {resultado_media.current >= 50 ? <h1>Excelente 🔥</h1> : resultado_media.current >= 35 ? <h1>Moderada 🤷</h1> : <h1>Péssima 💔</h1>}
-            <p>A <strong>média geral</strong> é de</p>
+            <p>Pois a <strong>média geral</strong> é de</p>
             <p><span>{resultado_media.current}</span> pontos!!!</p>
           </section>
 
