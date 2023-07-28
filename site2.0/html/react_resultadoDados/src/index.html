@@ -33,6 +33,8 @@
     --cor-fundo: #F2F2F2;
     --cor-blocos: #3FCEF6;
     --cor-texto: #012030;
+    /* cor de transparência */
+    --cor-trans: 242, 242, 242;
 }
 
 body
@@ -67,7 +69,7 @@ h1, span
     text-align: center;
     margin-bottom: 20%;
     padding-top: 15%;
-    background-image: linear-gradient(360deg,rgba(242, 242, 242, 1) 5%,rgba(242, 242, 242, .5) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
+    background-image: linear-gradient(360deg,rgba(var(--cor-trans), 1) 5%,rgba(var(--cor-trans), .5) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
 }
 
 #secao-1 p:last-child
@@ -93,7 +95,7 @@ h1, span
 }
 
 #filtro{
-    margin-bottom: 9%;
+    margin-bottom: 12%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,22 +126,29 @@ select
 
 #campo-inserir-data
 {
+    display: flex;
     margin-top: 4%;
     flex-direction: column;
+    min-width: 20%;
 }
 
 #btVisualizar
 {
     border-radius: 30px;
-    height: 30px;
     background-color: var(--cor-blocos);
     cursor: pointer;
+    min-width: 60%;
+    padding: 10px;
+    align-self: center;
+    color: var(--cor-texto);
     border: none;
+    transition: .2s ease-out all;
 }
 
 #btVisualizar:hover
 {
-    filter: brightness(85%);
+    /* filter: brightness(85%); */
+    box-shadow: var(--cor-blocos) 0px 0px 25px -5px;
 }
 
 #btVisualizar:active
@@ -152,7 +161,7 @@ footer
     /* background-color: red; */
     height: 400px;
     display: flex;
-    background-image: linear-gradient(180deg, rgba(242, 242, 242, 1) 5%,rgba(242, 242, 242, .5) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
+    background-image: linear-gradient(180deg, rgba(var(--cor-trans), 1) 5%,rgba(var(--cor-trans), .5) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
 }
 
 #campo-redes
@@ -187,7 +196,7 @@ footer
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 10%;
     margin-top: 5%;
     text-align: right;
 }
@@ -198,6 +207,11 @@ footer
     text-decoration: underline;
     font-size: 1.25rem;
     margin-bottom: 25px;
+}
+
+#campo-outros a:hover
+{
+    filter: opacity(75%);
 }
 /* putaria começa daqui pra baixo */
 
@@ -302,7 +316,7 @@ footer
 
     #secao-1
     {
-        background-image: linear-gradient(360deg,rgba(242, 242, 242, 1) 5%,rgba(242, 242, 242, .7) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
+        background-image: linear-gradient(360deg,rgba(var(--cor-trans), 1) 5%,rgba(var(--cor-trans), .7) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
     }
 
     .box-questao

@@ -221,12 +221,15 @@ function App(){
       if (resultado_media.current > 50){
         document.documentElement.style.setProperty('--cor-fundo', '#A5FFAC');
         document.documentElement.style.setProperty('--cor-blocos', '#ABC315');
+        document.documentElement.style.setProperty('--cor-trans', '165, 255, 172');
       }else if(resultado_media.current < 50 && resultado_media.current >= 35){
         document.documentElement.style.setProperty('--cor-fundo', '#F2F2F2');
         document.documentElement.style.setProperty('--cor-blocos', '#F2BE24');
+        document.documentElement.style.setProperty('--cor-trans', '242, 242, 242');
       }else{
         document.documentElement.style.setProperty('--cor-fundo', '#F4C1C1');
         document.documentElement.style.setProperty('--cor-blocos', '#D92929');
+        document.documentElement.style.setProperty('--cor-trans', '244, 193, 193');
       }
       setCarregou(true);
     }
@@ -324,7 +327,7 @@ function App(){
 
           <section id="secao-2">
             <p>Esta página tem o intuito de exibir a <strong>Pegada Ecológica Global</strong> e <strong>média geral</strong> de todos os indivíduos que responderam a pesquisa 🌳<br></br><br></br> Esses dados são anônimos e todas as pessoas que responderam a pesquisa terão influência no resultado 🔐</p>
-            <p>Você pode visualizar os dados dentro de uma <i>data específica</i> ou em <i>todos os tempos</i>. Basta selecionar na ferramenta de filtro abaixo 👀</p>            
+            <p>Você pode visualizar os dados de <i>todos até agora</i> ou em uma <i>data específica</i>. Basta selecionar na ferramenta de filtro abaixo 👀</p>            
             {/* <a href="../../index.html">Voltar ao início</a>
             <a href="../../resultado.html">Voltar a tela de resultado</a> */}
           </section>
@@ -381,9 +384,9 @@ function App(){
             </div>
             
             <div id="campo-outros">
-              <a href='#'>Sobre Nós</a>
               <a href='#'>Equipe</a>
-              <a href='#'>Dados Globais</a>
+              <a href='#'>Sobre Nós</a>
+              <a href='#'>Página Inicial</a>
             </div>
           </footer>
         </>
