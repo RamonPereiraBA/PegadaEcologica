@@ -1,4 +1,12 @@
 <?php
+$erro_email = false;
+
+////////
+$total_variavel = "";
+$questoes_variavel = "";
+$dica_variavel = "";
+
+//////////////
 function mandar_banco_dados($email, $data, $total, $questoes){
     require('../conexao_servidor.php');
     
@@ -38,7 +46,7 @@ if (isset($_POST['botao'])){
     }
 
     if (! filter_var($email_variavel, FILTER_VALIDATE_EMAIL)){
-        echo("Seu email é invalido");
+        $erro_email = true;
     }else {
         mandar_banco_dados($email_variavel, $data_atual, $total_variavel, $questoes_variavel);
         header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
@@ -46,9 +54,9 @@ if (isset($_POST['botao'])){
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" and 
+if ($erro_email or ($_SERVER["REQUEST_METHOD"] === "POST" and 
     is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 16 and
-    is_numeric($_POST['resultado_total']) and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0) 
+    is_numeric($_POST['resultado_total']) and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0)) 
 {      
 ?>
 <!DOCTYPE html>
@@ -80,9 +88,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     <!-- Formulario botão radio  -->
     <form method="post">
         <!-- Quardando dados -->
-        <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
-        <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
-        <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
+        <?php if (!$erro_email){ ?>
+            <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
+            <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
+            <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
+        <?php } else{?>
+            <input type="hidden" name="questoes" value="<?= $total_variavel ?>">
+            <input type="hidden" name="total" value="<?= $questoes_variavel ?>">
+            <input type="hidden" name="dica" value="<?= $dica_variavel ?>">
+            <script>alert("O e-mail digitado está errado")</script>
+        <?php } ?>
         <!-- Formulario -->
         <input type="radio" id="option1" name="option" value="sim">
         <label for="option1">Sim</label>
