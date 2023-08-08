@@ -1,126 +1,316 @@
-// redirecionando a pagina
-const bt_inicio = document.getElementById("ir_inicio")
-const bt_ir_mediaGlobal = document.getElementById("ir_mediaGlobal")
-
-bt_inicio.addEventListener('click', ir_inicio)
-bt_ir_mediaGlobal.addEventListener('click', ir_mediaGlobal)
-
-// ir inicio
-function ir_inicio(){
-    location.href = "index.html"
-}
-// Ir media global
-function ir_mediaGlobal(){
-    location.href= "resultadoDados.php?total="+resultado+"&dica="+dicaURL;
-}
-
-// configurando a tela do resultado
-// declarando as variaveis
-const urlParams = new URLSearchParams(window.location.search);
-var resultado = urlParams.get('total');
-var dicaURL = urlParams.get('dica');
-
-if (resultado === null || resultado===""){
-    resultado = 0;
-}
-
-
-// Descripitografando a dica
-var texto_dica;
-if (dicaURL.slice(-1)=="E"){
-    texto_dica = "Dica: Reduza o uso de dispositivos elétricos de alto consumo e opte por meios de transporte com baixo (ou quase nenhum) consumo de combustíveis fósseis ao viajar."
-}else if(dicaURL.slice(-1)=="L"){
-    // texto_dica = "Dica: Busque consumir menos produtos, a fim de gerar menos lixo."
-    texto_dica = "Dica: Opte por adquirir produtos de menor impacto ambiental, privilegiando os recicláveis sempre que possível. Pratique a separação adequada do lixo e faça o descarte correto."
-}else if(dicaURL.slice(-1)=="A"){
-    texto_dica = "Dica: Reduza o consumo excessivo de carne, bem como de alimentos processados e com alto teor de açúcar."
-}else{
-    texto_dica = "Dica: Repense seus hábitos de consumo."
-}
-
-// Declarando as variaveis
-const titulo = document.getElementById("titulo_resultado");
-const texto_resultado = document.getElementById("resultado");
-const texto_geral = document.getElementById("texto_geral");
-const dica = document.getElementById('dica');
+const next = document.getElementById('next')
+const prev = document.getElementById('prev')
+const fim = document.getElementById('finalizar')
 const barra_resultado = document.getElementById("barra_resultado");
-const imagem_fundo = document.getElementById("imagem_fundo");
-var dicaCor;
+const color_background =  document.getElementById('op1').style.backgroundColor;
+var id = 0
+//Questão selecionada pega o do do html
+var questoes_selecionadas = []
+//Lista resopostas pega a quantidade de ponto de cada pergunta
+var lista_respostas = []
+var opcaoSelecionada = false;
 
-texto_resultado.innerText = resultado;
+// questõs que vão ser perguntadas
+const Questions = [{
+    q: "Com que frequência você come carne vermelha?",
+    a: [{ text: "Nunca", ponto: 5, estado: "visible" },
+        { text: "três porções por semana", ponto: 4, estado: "visible" },
+        { text: "uma porção por dia", ponto: 2, estado: "visible" },
+        { text: "Frequentemente", ponto: 1, estado: "visible" },
+        { text: "Sempre", ponto: 0, estado: "visible" }
+    ]
 
-let texto;
-let dica_esta_ativa = false;
-let qualidade_resultado;
-
-// chegando o resultado
-if (resultado >= 50)
+},
 {
-    qualidade_resultado = "Excelente";
-    texto = "Parabéns!! Você está antenado com as questões ambientais e busca ter qualidade de vida sem agredir o meio ambiente.";
-    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoEx.png");
-    dica.style.visibility = 'hidden'
-    barra_resultado.classList.add("bg-success");
-}
+    q: "Com que frequência você come peixe ou frutos do mar?",
+    a: [{ text: "Nunca", ponto: 5, estado: "visible"  },
+        { text: "Raramente", ponto: 4, estado: "visible" },
+        { text: "Ocasionalmente", ponto: 3, estado: "visible" },
+        { text: "Frequentemente", ponto: 2, estado: "visible" },
+        { text: "", ponto: 1, estado: "hidden" }
+    ]
 
-else if (resultado >= 35 && resultado <= 49)
+},
 {
-    qualidade_resultado = "Moderada";
-    texto = "Sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração do planeta, de modo que seu consumo demanda mais do que a Terra pode repor.";
-    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
-    dica.addEventListener('click', setar_dica);
-    document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
-    document.documentElement.style.setProperty('--cor_caixa_resultado', '#C43302');
-    document.documentElement.style.setProperty('--cor_titulo_resultado', '#010221');
-    document.documentElement.style.setProperty('--cor_caixa_geral', '#B7BF99');
-    barra_resultado.classList.add("bg-warning");
-}
+    q: "Você usa ar condicionado ou aquecedor na sua casa?",
+    a: [{ text: "Sim", ponto: 1, estado: "visible"},
+        { text: "Não", ponto: 4, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" }
+    ]
 
-else
+},
 {
-    qualidade_resultado = "Péssimo";
-    texto = "Você vive de forma insustentável, pois demanda demais do que a capacidade natural de regeneração do planeta.";
-    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
-    dica.addEventListener('click', setar_dica)
-    document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
-    document.documentElement.style.setProperty('--cor_caixa_resultado', '#260101');
-    document.documentElement.style.setProperty('--cor_titulo_resultado', '#010221');
-    document.documentElement.style.setProperty('--cor_caixa_geral', '#B0BFBE');
-    barra_resultado.classList.add("bg-danger");    
+    q: "Qual a procedência dos alimentos que você consome?",
+    a: [{ text: "De minha própria horta", ponto: 5, estado: "visible"  },
+        { text: "A maior parte de feiras", ponto: 4, estado: "visible" },
+        { text: "Normalmente em supermercados", ponto: 3, estado: "visible" },
+        { text: "Sempre de supermercados", ponto: 1, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" }
+    ]
+
+},
+{
+    q: "Quantas vezes por ano você compra roupas novas?",
+    a: [{ text: "Nunca", ponto: 5, estado: "visible"  },
+        { text: "Uma vez por ano", ponto: 5, estado: "visible"  },
+        { text: "Duas vezes por ano", ponto: 4, estado: "visible" },
+        { text: "Três vezes por ano", ponto: 2, estado: "visible" },
+        { text: "Uma vez por mês ou mais", ponto: 1, estado: "visible" },
+    ]
+
+},
+{
+    q: "Com que frequência você compra equipamentos eletrônicos?",
+    a: [{ text: "somente quando quebram e precisam ser substituídos", ponto: 4, estado: "visible"  },
+        { text: "ocasionalmente troco por versões mais modernas", ponto: 2, estado: "visible"  },
+        { text: "troco sempre por aparelhos mais modernos", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+
+},
+{
+    q: "Com que frequência você compra livros e jornais?",
+    a: [{ text: "Leio notícias pela internet ou compro livros impressos em papel reciclado", ponto: 4, estado: "visible"  },
+        { text: "Tenho assinatura mensal de um jornal e geralmente compro algum livro", ponto: 3, estado: "visible"  },
+        { text: "Compro livros ocasionalmente", ponto: 2, estado: "visible" },
+        { text: "Compro livros com frequência", ponto: 1, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+
+},
+{
+    q: "Como você descarta o lixo da sua casa?",
+    a: [{ text: "Materiais eletrônicos encaminhados a postos de recolhimento", ponto: 4, estado: "visible" },
+        { text: "Em duas lixeiras", ponto: 3, estado: "visible"  },
+        { text: "Em uma única lixeira", ponto: 1, estado: "visible" },
+        { text: "Não me preocupo em separar", ponto: 1, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+
+},
+{
+    q: "Usa lâmpadas econômicas?",
+    a: [{ text: "Todas as lâmpadas que uso são econômicas", ponto: 4, estado: "visible" },
+        { text: "Metade das lâmpadas que uso são econômicas", ponto: 3, estado: "visible" },
+        { text: "1/4 das lâmpadas são econômicas", ponto: 2, estado: "visible" },
+        { text: "Não", ponto: 1, estado: "visible"},
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+
+},
+{
+    q: "Que meio de transporte você mais usa?",
+    a: [{ text: "Bicicleta ou a pé", ponto: 5, estado: "visible"  },
+        { text: "Transporte público", ponto: 5, estado: "visible" },
+        { text: "Carro, mas procuro andar a pé ou de bicicleta", ponto: 2, estado: "visible" },
+        { text: "Carro", ponto: 1, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+
+},
+{
+    q: "Com que frequência você bebe refrigerante?",
+    a: [{ text: "Nunca", ponto: 4, estado: "visible"  },
+        { text: "Raramente", ponto: 3, estado: "visible"  },
+        { text: "Ocasionalmente", ponto: 2, estado: "visible" },
+        { text: "Frequentemente", ponto: 1, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+
+},
+{
+    q: "Quanto tempo você gasta no banho diariamente?",
+    a: [{ text: "de 5 a 15min", ponto: 4, estado: "visible" },
+        { text: "de 16 a 25min", ponto: 3, estado: "visible"  },
+        { text: "acima de 26min", ponto: 1, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+
+},
+{
+    q: "Quantas horas você gasta viajando de avião anualmente?",
+    a: [{ text: "Nunca viajo", ponto: 5, estado: "visible"  },
+        { text: "0 a 4 horas", ponto: 4, estado: "visible"  },
+        { text: "4 a 10 horas", ponto: 3, estado: "visible" },
+        { text: "10 a 25 horas", ponto: 2, estado: "visible" },
+        { text: "Mais de 25 horas", ponto: 0, estado: "visible" },
+    ]
+
+},
+{
+    q: "Você possui horta na sua casa?",
+    a: [{ text: "Sim", ponto: 4, estado: "visible" },
+        { text: "Não", ponto: 2, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+},
+{
+    q: "Você usa equipamentos que reduzem o consumo de água ou energia?",
+    a: [{ text: "Sim", ponto: 4, estado: "visible" },
+        { text: "Não", ponto: 2, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
+},
+{
+    q: "Você realiza algum tipo de reaproveitamento da água?",
+    a: [{ text: "Sim", ponto: 4, estado: "visible" },
+        { text: "Não", ponto: 2, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
+    ]
 }
+]
 
-titulo.innerText = qualidade_resultado;   
-texto_geral.innerText = texto
-dicaCor = dica.style.color
-texto.wordBreak = true;
+/* configurando a resposta de todas as seções, a lista não pode ficar vazia. */
+Questions.forEach(() => { 
+    questoes_selecionadas.push(0);   
+    lista_respostas.push(0); 
+});
 
-barra_resultado.style.width = "0%";
-function barra_resultado_aparecer(){
-    // a formula a baixo ajusta a porcentagem, pois o maior resultado possível é 70
-    barra_resultado.style.width = parseInt((parseInt(resultado)*100)/70)+"%";
-}
+function pagina_questao(){
+    const question = document.getElementById("question");
+    const numero_bola = document.getElementById("numero_bola");
+    //Modificando os textos
+    numero_bola.innerText = (id+1);
+    question.innerText = Questions[id].q;
+    
+    // criando e configurando as alternativas
+    for (let i = 1; i < 6; i++)
+    {
+        const op = document.getElementById('op'+i);
+        op.innerText = Questions[id].a[i - 1].text;
+        op.style.visibility = Questions[id].a[i - 1].estado;
 
-setInterval(barra_resultado_aparecer, 500);
-
-// configurando a dica
-function setar_dica(){
-    if (!dica_esta_ativa){
-        dica.innerText = "Retornar"
-        texto_geral.innerText = texto_dica;
-        dica_esta_ativa = true;
-    }else{
-        dica.innerText = "Quer uma dica?"
-        texto_geral.innerText = texto;
-        dica_esta_ativa = false;
+        op.addEventListener("click", () => {   
+            //Modificando a lista com valores
+            lista_respostas[id] = Questions[id].a[i - 1].ponto;
+            questoes_selecionadas[id] = op.id;
+            //Chamando as funções ajustadoras
+            botao_esta_selecionado()
+            verificar_respostas()
+            checagem_botoes()
+        })
     }
 }
 
-// quando o mouse ficar em cima do botão
-dica.onmouseover = function() {
-        dica.style.color = "#FFFF"
+function checagem_botoes(){
+    // habilitar/desabilitar next
+    if (id + 1 < Questions.length) { // o user não chegou na última questão
+        next.disabled = (questoes_selecionadas[id] === 0); // o user não selecionou alguma alternativa?
+        next.style.display = (next.disabled) ? "none" : "block";
+    } else { // o user está na última questão
+        next.disabled = true;
+        next.style.display = "none";
+    }
+
+    // habilitar/desabilitar prev
+    prev.disabled = (id === 0);
+    prev.style.display = (prev.disabled) ? "none" : "block";  
 }
 
-// quando o mouse sair do botão
-dica.onmouseout = function() {
-    dica.style.color = dicaCor
+verificar_respostas();
+troca_pergunta()
+
+next.addEventListener("click", passar)
+
+prev.addEventListener("click", voltar)
+
+fim.addEventListener("click", finalizar)
+
+function passar(){
+    id++;
+    troca_pergunta()
+}
+
+function voltar(){
+    id--;
+    troca_pergunta()
+}
+
+function finalizar(){
+    var somatorioLista = 0;
+    var dicaurl = "d";
+    var questoes_juntas = "";
+    for (let i = 0; i < Questions.length; i++){
+        somatorioLista += lista_respostas[i];
+        questoes_juntas += (questoes_selecionadas[i].slice(-1));
+    }
+
+    // Analizando o resultado
+    alimentos = [parseInt(questoes_selecionadas[0].slice(-1))>3, parseInt(questoes_selecionadas[1].slice(-1))>2, 
+                parseInt(questoes_selecionadas[3].slice(-1))>2, parseInt(questoes_selecionadas[13].slice(-1))>2]
+    
+    lixos = [parseInt(questoes_selecionadas[4].slice(-1))>2, parseInt(questoes_selecionadas[5].slice(-1))>1, 
+                parseInt(questoes_selecionadas[6].slice(-1))>1, parseInt(questoes_selecionadas[7].slice(-1))>3]
+    
+    energia = [parseInt(questoes_selecionadas[2].slice(-1))>1, parseInt(questoes_selecionadas[8].slice(-1))>2,
+                parseInt(questoes_selecionadas[9].slice(-1))>2, parseInt(questoes_selecionadas[12].slice(-1))>3]
+    
+    // Cada parametro será representado por uma letra
+    if (verificar_repeticoes(alimentos)){
+        dicaurl = dicaurl+"A";
+    }
+    if (verificar_repeticoes(lixos)){
+        dicaurl = dicaurl+"L";
+    }
+    if (verificar_repeticoes(energia)){
+        dicaurl = dicaurl+"E";
+    }
+    // Pegando o formulario
+    const formulario = document.getElementById('form_variaveis');
+
+    // Definindo os valores dos campos antes de enviar
+    formulario.resultado_questoes.value = questoes_juntas;
+    formulario.resultado_total.value = somatorioLista;
+    formulario.resultado_dica.value = dicaurl;
+    
+    // Enviando o formulário
+    formulario.submit();
+    // Redirecionando a página
+    //location.href="passagemDados.php?total="+somatorioLista+"&dica="+dicaurl+"&questoes="+questoes_juntas;
+}
+
+// Função EXCLUSIVA da função finalizar
+function verificar_repeticoes(lista_repeticoes){
+    return lista_repeticoes.filter(Boolean).length >=2;
+}
+
+function verificar_respostas(){
+    // Se na lista inclui 0, significa que nem todas as perguntas foram respondidas
+    if (questoes_selecionadas.includes(0)){
+        fim.disabled = true
+        fim.style.display = "none";
+    }
+    else{
+        fim.disabled = false
+        fim.style.display = "block";
+        fim.style.cursor = "pointer";
+    }
+}
+
+function botao_esta_selecionado(){
+    opcao = "op"
+    for (let i = 1; i < 6; i++){
+        if (opcao+i == questoes_selecionadas[id]){
+            document.getElementById('op'+i).style.backgroundColor = "#EBEBEB"
+        }
+        else{
+            document.getElementById('op'+i).style.backgroundColor = color_background
+        }}
+}
+
+function troca_pergunta(){
+    barra_resultado.style.width = (((id+1)/16)*100)+"%";
+    pagina_questao();
+    checagem_botoes();
+    botao_esta_selecionado();
 }
