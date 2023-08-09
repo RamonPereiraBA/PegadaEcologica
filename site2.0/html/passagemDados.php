@@ -54,9 +54,22 @@ if (isset($_POST['botao'])){
     }
 }
 
+function verificar_respostas($lista){
+    $respostas = [5, 4, 2, 4, 5, 3, 4, 4, 4, 4, 4, 3, 5, 2, 2, 2];
+    $array_resposta_user = str_split($lista, 1);
+
+    foreach($array_resposta_user as $indice => $res){
+        if ($res > $respostas[$indice]){
+            return false;
+        }
+    }
+    return true;
+}
+
 if ($erro_email or ($_SERVER["REQUEST_METHOD"] === "POST" and 
-    is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 16 and
-    is_numeric($_POST['resultado_total']) and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0)) 
+    is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 16 
+    and verificar_respostas($_POST['resultado_questoes']) and is_numeric($_POST['resultado_total']) 
+    and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0)) 
 {      
 ?>
 <!DOCTYPE html>
