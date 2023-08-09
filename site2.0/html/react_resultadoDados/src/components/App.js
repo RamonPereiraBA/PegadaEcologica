@@ -133,12 +133,32 @@ var lista_perguntas_e_alternativas = [
 
 const opcoes_data = [
   {valor: 'todos_ate_agora', texto: 'Todos até Agora'},
+  {valor: 'hoje', texto: 'hoje'},
   {valor: 'semana_retrasada', texto: 'Semana retrasada'},
   {valor: 'mes_retrasado', texto: 'Mês retrasado'},
   {valor: 'data_especifica', texto: 'Data Específica'}
 ];
 
 function App(){
+  function Aba_copiar_texto(props){
+    const [copiar_api, setCopiarAPI] = useState(false);
+
+    const copiarApi = () => {
+      navigator.clipboard.writeText(props.texto);
+      setCopiarAPI(true);
+
+      setTimeout (() => {
+          setCopiarAPI(false);
+      }, 2000);
+    };
+    return (
+      <>
+      {copiar_api ? <p id="certo">{props.texto}</p> : <p id="errado">{props.texto}</p>}
+      <button onClick={copiarApi}>Copiar Texto</button>
+      </>
+    )
+  }
+
   function Input_data(props){
     // Por enquanto usado apenas para atualizar a tela
     const [data_input, setData_input] = useState("")
@@ -187,6 +207,7 @@ function App(){
   const [pode_pesquisar, setPode_pesquisar] = useState(false);
   const [pode_pesquisar2, setPode_pesquisar2] = useState(false);
   const [selected, setSelected] = useState(opcoes_data[0].valor);
+  const [ativar_drop, setAtivar_drop] = useState(false);
   const resultado_media = useRef(0);
   const resultado_lista_arrays = useRef([]);
   const data = useRef("");
@@ -245,9 +266,12 @@ function App(){
         break;
       case "data_especifica":
         break;
+      case "hoje":
+        calcular_data("hoje");
+        break;
       case "semana_retrasada":
         calcular_data("semana");
-        break;
+      break;
       case "mes_retrasado":
         calcular_data("mes");
         break;
@@ -276,7 +300,9 @@ function App(){
 
     const dataHoje = ano + "-" + mes + "-" + dia;
     
-    if (quando === "semana"){
+    if (quando=="hoje"){
+      var data_pesquisar = dataHoje;
+    }else if (quando === "semana"){
       const umaSemanaAtras = new Date(dataAtual.getTime() - 7 * 24 * 60 * 60 * 1000);
       
       var dia_semana = umaSemanaAtras.getDate();
@@ -373,6 +399,22 @@ function App(){
                 </>
             ))}
           <p>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%*</p>
+          
+          <hr></hr>
+          
+          <button onClick={() => setAtivar_drop(!ativar_drop)}>mostrar</button>
+          
+          {ativar_drop && (
+            <>
+              <h3>Método 1- Acesso da média de todos os dias</h3>
+              <Aba_copiar_texto texto="greenlight.dev.br/resultadoDados.php"/>
+              <h3>Método 2- Acesso da média de dias específicos (especificando o dia inicial e final)</h3>
+              <Aba_copiar_texto texto="greenlight.dev.br/resultadoDados.php?data='data1'&data2='data2'"/>   
+            </>
+          )}
+          
+          <hr></hr>
+
           </section>
           <footer>
             <div id="campo-redes">
