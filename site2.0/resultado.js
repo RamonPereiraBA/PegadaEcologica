@@ -28,11 +28,12 @@ if (resultado === null || resultado===""){
 // Descripitografando a dica
 var texto_dica;
 if (dicaURL.slice(-1)=="E"){
-    texto_dica = "Dica: Busque consumir menos energia e combustíveis fósseis."
+    texto_dica = "Dica: Reduza o uso de dispositivos elétricos de alto consumo e opte por meios de transporte com baixo (ou quase nenhum) consumo de combustíveis fósseis ao viajar."
 }else if(dicaURL.slice(-1)=="L"){
-    texto_dica = "Dica: Busque consumir menos produtos, a fim de gerar menos lixo."
+    // texto_dica = "Dica: Busque consumir menos produtos, a fim de gerar menos lixo."
+    texto_dica = "Dica: Opte por adquirir produtos de menor impacto ambiental, privilegiando os recicláveis sempre que possível. Pratique a separação adequada do lixo e faça o descarte correto."
 }else if(dicaURL.slice(-1)=="A"){
-    texto_dica = "Dica: Busque consumir menos carne e produtos industrializados."
+    texto_dica = "Dica: Reduza o consumo excessivo de carne, bem como de alimentos processados e com alto teor de açúcar."
 }else{
     texto_dica = "Dica: Repense seus hábitos de consumo."
 }
