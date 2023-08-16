@@ -1,13 +1,5 @@
 <?php
-$erro_email = false;
-
-////////
-$total_variavel = "";
-$questoes_variavel = "";
-$dica_variavel = "";
-
-//////////////
-function mandar_banco_dados($email, $data, $total, $questoes){
+function mandar_banco_dados($ocupacao, $data, $total, $questoes){
     require('../conexao_servidor.php');
     
     $stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes) VALUES (:valor1, :valor2)");
@@ -17,7 +9,7 @@ function mandar_banco_dados($email, $data, $total, $questoes){
     
     $stmt->execute();
      
-    $stmt2 = $conn->prepare("INSERT INTO tabelainfo (email, dia) VALUES (:valor1, :valor2)");
+    $stmt2 = $conn->prepare("INSERT INTO tabelainfo (ocupacao, dia) VALUES (:valor1, :valor2)");
     
     $stmt2->bindValue(':valor1', $email);
     $stmt2->bindValue(':valor2', $data);
@@ -26,7 +18,7 @@ function mandar_banco_dados($email, $data, $total, $questoes){
 }
 
 if (isset($_POST['botao'])){
-    $email_variavel = $_POST['email'];
+    $ocupacao_variavel = $_POST['ocupacao'];
     $data_atual = date("Y-m-d");
     $total_variavel = $_POST['total'];
     $questoes_variavel = $_POST['questoes'];
@@ -39,19 +31,9 @@ if (isset($_POST['botao'])){
         exit();
     }
 
-    if ($email_variavel == null){
-        mandar_banco_dados(null, $data_atual, $total_variavel, $questoes_variavel);
-        header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
-        exit();
-    }
-
-    if (! filter_var($email_variavel, FILTER_VALIDATE_EMAIL)){
-        $erro_email = true;
-    }else {
-        mandar_banco_dados($email_variavel, $data_atual, $total_variavel, $questoes_variavel);
-        header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
-        exit();
-    }
+    mandar_banco_dados($email_variavel, $data_atual, $total_variavel, $questoes_variavel);
+    header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
+    exit();
 }
 
 function verificar_respostas($lista){
@@ -66,10 +48,10 @@ function verificar_respostas($lista){
     return true;
 }
 
-if ($erro_email or ($_SERVER["REQUEST_METHOD"] === "POST" and 
+if ($_SERVER["REQUEST_METHOD"] === "POST" and 
     is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 16 
     and verificar_respostas($_POST['resultado_questoes']) and is_numeric($_POST['resultado_total']) 
-    and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0)) 
+    and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0)
 {      
 ?>
 <!DOCTYPE html>
@@ -101,16 +83,9 @@ if ($erro_email or ($_SERVER["REQUEST_METHOD"] === "POST" and
     <!-- Formulario botão radio  -->
     <form method="post">
         <!-- Quardando dados -->
-        <?php if (!$erro_email){ ?>
-            <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
-            <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
-            <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
-        <?php } else{?>
-            <input type="hidden" name="questoes" value="<?= $total_variavel ?>">
-            <input type="hidden" name="total" value="<?= $questoes_variavel ?>">
-            <input type="hidden" name="dica" value="<?= $dica_variavel ?>">
-            <script>alert("O e-mail digitado está errado")</script>
-        <?php } ?>
+        <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
+        <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
+        <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
         <!-- Formulario -->
         <input type="radio" id="option1" name="option" value="sim">
         <label for="option1">Sim</label>
@@ -118,10 +93,12 @@ if ($erro_email or ($_SERVER["REQUEST_METHOD"] === "POST" and
         <label for="option2">Não</label><br>
         <p>*Seu e-mail será utilizado para o envio dos resultados de nossas pesquisas para você. Garantimos que ele não será compartilhado com terceiros*</p>
         <!-- Formulario do email -->
-        <div id="formulario_email">
-            <p>Insira seu Email</p>
-            <input type="email" id="input_email" name="email" placeholder="Email">
-        </div>
+        <label for="ocupacao">Escolha sua ocupação:</label>
+        <select name="ocupacao" id="ocupacao">
+            <option value="1">Professor</option>
+            <option value="2">Aluno</option>
+            <option value="3">Visitante</option>
+        </select>
         <button name="botao">Continuar</button>
     </form>
     <script src="../passagemDados.js"></script>
