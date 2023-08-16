@@ -19,21 +19,20 @@ function mandar_banco_dados($ocupacao, $data, $total, $questoes){
 
 if (isset($_POST['botao'])){
     $ocupacao_variavel = $_POST['ocupacao'];
-    echo($ocupacao_variavel);
-    return;
     $data_atual = date("Y-m-d");
     $total_variavel = $_POST['total'];
     $questoes_variavel = $_POST['questoes'];
     $dica_variavel = $_POST['dica'];
 
     if (!is_numeric($questoes_variavel) and strlen($questoes_variavel) != 16 and
-        !is_numeric($total_variavel) and $total_variavel > 70 and $total_variavel <=0){
-        //
-        header('Location: quiz.html');
-        exit();
+        !is_numeric($total_variavel) and ($total_variavel > 70 or $total_variavel <=0)
+        and ($ocupacao_variavel < 1 or $ocupacao_variavel > 3) and !is_numeric($ocupacao_variavel)){
+             //
+            header('Location: quiz.html');
+            exit();
     }
 
-    mandar_banco_dados($email_variavel, $data_atual, $total_variavel, $questoes_variavel);
+    mandar_banco_dados($ocupacao_variavel, $data_atual, $total_variavel, $questoes_variavel);
     header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
     exit();
 }
@@ -89,12 +88,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
         <!-- Formulario -->
         <label for="ocupacao_for">Escolha sua ocupação:</label>
         <select name="ocupacao" id="ocupacao_id">
+            <option value="nao_escolhido">Escolha</option>
             <option value="1">Professor</option>
             <option value="2">Aluno</option>
             <option value="3">Visitante</option>
-            <option value="nao_escolhido">Escolha</option>
         </select>
-        <button name="botao">Continuar</button>
+        <button name="botao" id="botao">Continuar</button>
     </form>
     <script src="../passagemDados.js"></script>
 </body>
