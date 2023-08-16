@@ -17,7 +17,7 @@ function App(){
 
         return (
             <>
-                <h2>{props.titulo}</h2>
+                <h3>{props.titulo}</h3>
                 <section className="divPost">
                   <div className="scrollPost" ref={carrousel}>
                     {Posts_json.map((post_atual) => (
@@ -43,12 +43,37 @@ function App(){
 
     return (
         <>
-            <h1>Posts</h1>
-            <p>A seguir estão, de forma organizada, os nossos posts do INSTAGRAM.</p>
-            <Post titulo="Sobre ecologia"/>
-            <Post titulo="Sobre o projeto"/>
-            <Post titulo="Sobre a programação do site" />
-            <Post titulo="Nossos especiais"/>
+            <header>
+                <h1>
+                    Conheça nossas <br/>
+                    <span>
+                        <i>
+                            REDES SOCIAIS 🌎
+                        </i>
+                    </span>
+                </h1>
+            </header>
+            <section id="explicacao">
+                <p>Com o objetivo de divulgar nosso trabalho, criamos um <a href=""><i>Instagram</i></a> e <a href=""><i>Linkedin</i></a> para o projeto.</p>
+                <p>Essa página tem o intuito de organizar nossas publicações no Instagram através de TÓPICOS.</p>
+            </section>
+            <section id="posts">
+                <section id="posts-ecologia">
+                    <Post titulo="ECOLOGIA 🍀"/>
+                </section>
+                <section id="posts-projeto">
+                    <Post titulo="Sobre o projeto"/>
+                </section>
+                <section id="posts-programacao">
+                    <Post titulo="Sobre a programação do site" />
+                </section>
+                <section id="posts-especial">
+                    <Post titulo="Nossos especiais"/>
+                </section>
+            </section>
+            <footer>
+
+            </footer>
         </>
     )
 
