@@ -11,7 +11,7 @@ function mandar_banco_dados($ocupacao, $data, $total, $questoes){
      
     $stmt2 = $conn->prepare("INSERT INTO tabelainfo (ocupacao, dia) VALUES (:valor1, :valor2)");
     
-    $stmt2->bindValue(':valor1', $email);
+    $stmt2->bindValue(':valor1', $ocupacao);
     $stmt2->bindValue(':valor2', $data);
     
     $stmt2->execute();
@@ -19,6 +19,8 @@ function mandar_banco_dados($ocupacao, $data, $total, $questoes){
 
 if (isset($_POST['botao'])){
     $ocupacao_variavel = $_POST['ocupacao'];
+    echo($ocupacao_variavel);
+    return;
     $data_atual = date("Y-m-d");
     $total_variavel = $_POST['total'];
     $questoes_variavel = $_POST['questoes'];
@@ -60,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta
+        <meta
       http-equiv="Cache-Control"
       content="no-cache, no-store, must-revalidate"
     />
@@ -79,25 +81,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
 </head>
 <body>
     <h1>Antes de continuar...</h1>
-    <p>Você gostaria de compartilhar seu endereço de e-mail conosco?</p>
-    <!-- Formulario botão radio  -->
     <form method="post">
         <!-- Quardando dados -->
         <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
         <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
         <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
         <!-- Formulario -->
-        <input type="radio" id="option1" name="option" value="sim">
-        <label for="option1">Sim</label>
-        <input type="radio" id="option2" name="option" value="não">
-        <label for="option2">Não</label><br>
-        <p>*Seu e-mail será utilizado para o envio dos resultados de nossas pesquisas para você. Garantimos que ele não será compartilhado com terceiros*</p>
-        <!-- Formulario do email -->
-        <label for="ocupacao">Escolha sua ocupação:</label>
-        <select name="ocupacao" id="ocupacao">
+        <label for="ocupacao_for">Escolha sua ocupação:</label>
+        <select name="ocupacao" id="ocupacao_id">
             <option value="1">Professor</option>
             <option value="2">Aluno</option>
             <option value="3">Visitante</option>
+            <option value="nao_escolhido">Escolha</option>
         </select>
         <button name="botao">Continuar</button>
     </form>

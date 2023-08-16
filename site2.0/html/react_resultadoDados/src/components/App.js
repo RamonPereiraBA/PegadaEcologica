@@ -354,9 +354,7 @@ function App(){
 
           <section id="secao-2">
             <p>Esta página tem o intuito de exibir a <strong>Pegada Ecológica Global</strong> e <strong>média geral</strong> de todos que responderam a pesquisa 🌳<br></br><br></br> Esses dados são anônimos e todas as pessoas que participaram terão influência no resultado 🔐</p>
-            <p>Você pode filtrar as respostas com base na data. É só usar a ferramenta de filtro abaixo 👀</p>            
-            {/* <a href="../../index.html">Voltar ao início</a>
-            <a href="../../resultado.html">Voltar a tela de resultado</a> */}
+            <p>Você pode filtrar as respostas com base na data. É só usar a ferramenta de filtro abaixo 👀</p> 
           </section>
 
           <hr></hr>
