@@ -17,15 +17,15 @@ function App(){
 
         return (
             <>
-                <h3>{props.titulo}</h3>
                 <section className="divPost">
+                <h3>{props.titulo}</h3>
                   <div className="scrollPost" ref={carrousel}>
                     {Posts_json.map((post_atual) => (
-                    <>
+                        <>
                         { props.titulo === post_atual.secao &&(
                         <>
                         <div className="post">
-                          <img src={post_atual.link_imagem} />
+                          {/* <img src={post_atual.link_imagem} /> */}
                           <a href={post_atual.link_post}>{post_atual.nome_do_post}</a>
                           <p>{post_atual.data}</p>
                         </div>
@@ -34,8 +34,10 @@ function App(){
                     </>
                     ))}
                   </div>
-                  <button onClick={ir_esquerda}>esquerda</button>
-                  <button onClick={ir_direita}>direita</button>
+                    {/* <div className="scrollPost-botoes">
+                        <button className="bt-esquerda" onClick={ir_esquerda}>esquerda</button>
+                        <button className="bt-direita" onClick={ir_direita}>direita</button>
+                    </div> */}
                 </section>
             </>
         )
@@ -62,13 +64,13 @@ function App(){
                     <Post titulo="ECOLOGIA 🍀"/>
                 </section>
                 <section id="posts-projeto">
-                    <Post titulo="Sobre o projeto"/>
+                    <Post titulo="PROJETO 📁"/>
                 </section>
                 <section id="posts-programacao">
-                    <Post titulo="Sobre a programação do site" />
+                    <Post titulo="PROGRAMAÇÃO DO SITE  🖥️ " />
                 </section>
                 <section id="posts-especial">
-                    <Post titulo="Nossos especiais"/>
+                    <Post titulo="ESPECIAIS ✨"/>
                 </section>
             </section>
             <footer>
