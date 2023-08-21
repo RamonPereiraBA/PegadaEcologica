@@ -29,9 +29,6 @@
         background-image: linear-gradient(360deg,rgba(var(--cor-trans), 1) 5%,rgba(var(--cor-trans), .5) 95%), url("../../../Imagens/imagens_fundo/FundoEx.png");
     }
 
-
-    
-    
     h1
     {
         text-align: center;
@@ -47,15 +44,17 @@
 
     span
     {
-        font-size: 2.5rem;
+        font-size: calc(1rem + 2.5vw);
         letter-spacing: 3px;
         font-weight: 800;
     }
     
     #explicacao p
     {
-        margin: auto;
-        width: fit-content;
+        margin: 0 auto;
+        width: 60%;
+        font-size: 1.25rem;
+        text-align: center;
     }
     
     section#explicacao
@@ -71,7 +70,6 @@
     section#posts section
     {
         margin: 15vh 0;
-        word-wrap: break-word;
 
     }
 
@@ -84,7 +82,7 @@
     {
         display: flex;
         overflow-x: auto;
-        white-space: nowrap;
+        /* white-space: nowrap; */
         gap: 15px;
         /* cursor: grab; */
     }
@@ -92,7 +90,6 @@
     .divPost
     {
         position: relative;
-        word-wrap: break-word;
     }
     
     /* .scrollPost-botoes
@@ -110,11 +107,13 @@
         border: 1px solid var(--texto);
         width: 15rem;
         height: 20rem;
+        text-align: center;
+        padding: 10px;
+        position: relative;
 
         & a
         {
             color: var(--texto);
-            
 
             &:hover
             {
@@ -124,6 +123,9 @@
 
         & p
         {
+            position: absolute;
+            font-size: small;
+            top: 92%;
         }
     }
 

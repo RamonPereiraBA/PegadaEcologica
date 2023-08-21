@@ -26,7 +26,7 @@ function App(){
                         <>
                         <div className="post">
                           {/* <img src={post_atual.link_imagem} /> */}
-                          <a href={post_atual.link_post}>{post_atual.nome_do_post}</a>
+                            <a href={post_atual.link_post}>{post_atual.nome_do_post}</a>
                           <p>{post_atual.data}</p>
                         </div>
                         </>
@@ -56,8 +56,9 @@ function App(){
                 </h1>
             </header>
             <section id="explicacao">
-                <p>Com o objetivo de divulgar nosso trabalho, criamos um <a href=""><i>Instagram</i></a> e <a href=""><i>Linkedin</i></a> para o projeto.</p>
-                <p>Essa página tem o intuito de organizar nossas publicações no Instagram através de TÓPICOS.</p>
+                <p>Para divulgarmos nosso projeto, criamos um <a href=""><i>Instagram</i></a> e <a href=""><i>Linkedin</i></a>.
+                Veja os tópicos dos nossos posts abaixo 👀
+                </p>
             </section>
             <section id="posts">
                 <section id="posts-ecologia">
