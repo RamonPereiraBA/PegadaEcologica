@@ -24,12 +24,13 @@ if (isset($_POST['botao'])){
     $questoes_variavel = $_POST['questoes'];
     $dica_variavel = $_POST['dica'];
 
-    if (!is_numeric($questoes_variavel) and strlen($questoes_variavel) != 16 and
-        !is_numeric($total_variavel) and ($total_variavel > 70 or $total_variavel <=0)
-        and ($ocupacao_variavel < 1 or $ocupacao_variavel > 3) and !is_numeric($ocupacao_variavel)){
-             //
-            header('Location: quiz.html');
-            exit();
+    if (!is_numeric($questoes_variavel) or strlen($questoes_variavel) != 16 or !is_numeric($total_variavel) 
+        or $total_variavel > 70 or $total_variavel <=0 or $ocupacao_variavel < 1 or $ocupacao_variavel > 3 
+        or !is_numeric($ocupacao_variavel) or !verificar_respostas($_POST['resultado_questoes']))
+    {
+        //
+        header('Location: quiz.html');
+        exit();
     }
 
     mandar_banco_dados($ocupacao_variavel, $data_atual, $total_variavel, $questoes_variavel);
