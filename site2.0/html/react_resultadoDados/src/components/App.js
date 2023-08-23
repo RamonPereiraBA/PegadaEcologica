@@ -139,6 +139,11 @@ const opcoes_data = [
   {valor: 'data_especifica', texto: 'Data Específica'}
 ];
 
+//
+let data_pesquisar = "0";
+let data_inicial = "0";
+let ocupacao = "0";
+
 function App(){
   function Aba_copiar_texto(props){
     const [copiar_api, setCopiarAPI] = useState(false);
@@ -214,15 +219,8 @@ function App(){
   const data2 = useRef("");
 
   // Pega a API
-  const fetchTextData = async () => {
-    const response = await fetch('http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php');
-    const dados = await response.json();
-    setCarregou(false);
-    setTexto_json(dados);
-  };
-
-  const pesquisar_dados = async (data, data2) => {
-    const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data}&data2=${data2}`);
+  const pesquisar_dados = async () => {
+    const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data_pesquisar}&data2=${data_inicial}&ocupacao=${ocupacao}`);
     const dados = await response.json();
     setCarregou(false);
     setTexto_json(dados);
@@ -230,7 +228,7 @@ function App(){
 
   // Ao rodar pela primeira vez executa essa função
   useEffect(() => {
-    fetchTextData();
+    pesquisar_dados();
   }, []);
   
   // Sempre que a API estiver carregada, ele pega os dados dela
@@ -262,7 +260,9 @@ function App(){
     e.preventDefault();
     switch(e.target.value){
       case "todos_ate_agora":
-        fetchTextData();
+        data_inicial = "0";
+        data_pesquisar = "0";
+        pesquisar_dados();
         break;
       case "data_especifica":
         break;
@@ -279,13 +279,19 @@ function App(){
     setSelected(e.target.value);
   }
 
+  const mudarOcupacao = (e) => {
+    e.preventDefault();
+    ocupacao = e.target.value;
+    pesquisar_dados();
+  }
+
   // Fazendo pesquisa com data
   const enviar_data = () => {
     // juntando a data
-    const data_para_API = `${data.current.slice(6, 10)}-${data.current.slice(3, 5)}-${data.current.slice(0, 2)}`;
-    const data_para_API2 = `${data2.current.slice(6, 10)}-${data2.current.slice(3, 5)}-${data2.current.slice(0, 2)}`;
+    data_inicial = `${data.current.slice(6, 10)}-${data.current.slice(3, 5)}-${data.current.slice(0, 2)}`;
+    data_pesquisar = `${data2.current.slice(6, 10)}-${data2.current.slice(3, 5)}-${data2.current.slice(0, 2)}`;
 
-    pesquisar_dados(data_para_API, data_para_API2);
+    pesquisar_dados();
   };
 
   function calcular_data(quando){
@@ -298,10 +304,10 @@ function App(){
     mes = mes < 10 ? "0" + mes : mes;
     dia = dia < 10 ? "0" + dia : dia;
 
-    const dataHoje = ano + "-" + mes + "-" + dia;
+    data_inicial = ano + "-" + mes + "-" + dia;
     
     if (quando=="hoje"){
-      var data_pesquisar = dataHoje;
+      data_pesquisar = data_inicial;
     }else if (quando === "semana"){
       const umaSemanaAtras = new Date(dataAtual.getTime() - 7 * 24 * 60 * 60 * 1000);
       
@@ -312,7 +318,7 @@ function App(){
       mes_semana = mes_semana < 10 ? "0" + mes_semana : mes_semana;
       dia_semana = dia_semana < 10 ? "0" + dia_semana : dia_semana;
       
-      var data_pesquisar = ano_semana + "-" + mes_semana + "-" + dia_semana;
+      data_pesquisar = ano_semana + "-" + mes_semana + "-" + dia_semana;
     }else{
       const trintaDiasAtras = new Date(dataAtual.getTime() - 30 * 24 * 60 * 60 * 1000);
 
@@ -323,10 +329,10 @@ function App(){
       mes_mes = mes_mes < 10 ? "0" + mes_mes : mes_mes;
       dia_mes = dia_mes < 10 ? "0" + dia_mes : dia_mes;
 
-      var data_pesquisar = ano_mes + "-" + mes_mes + "-" + dia_mes;
+      data_pesquisar = ano_mes + "-" + mes_mes + "-" + dia_mes;
     }
 
-    pesquisar_dados(data_pesquisar, dataHoje);
+    pesquisar_dados();
   }
 
   function Barra_porcentagem(props){
@@ -375,7 +381,15 @@ function App(){
                   </>
                 )}     
               </div>
+              <select name="opcao-ocupacao" id="opcao-ocupacao" value={ocupacao} onChange={mudarOcupacao}>
+                  <option value="0">Qualquer</option>
+                  <option value="1">Professor</option>
+                  <option value="2">Aluno</option>
+                  <option value="3">Visitante</option>
+              </select>
             </div>
+            {resultado_media.current !== 0 ? (
+            <>
             {lista_perguntas_e_alternativas.map((questao, index_questao) => (
               <>
                 <div className="box-questao">
@@ -398,6 +412,11 @@ function App(){
             ))}
           <p>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%*</p>
           
+          </> ) : (
+            <>
+            <p>Opps...</p>
+            </>
+          )}
           <hr></hr>
           
           <button onClick={() => setAtivar_drop(!ativar_drop)}>mostrar</button>
