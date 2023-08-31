@@ -17,21 +17,48 @@ function mandar_banco_dados($ocupacao, $data, $total, $questoes){
     $stmt2->execute();
 }
 
+function somarTotal($questoes){
+    $pointsList = array(
+        array(5, 4, 2, 1, 0),
+        array(5, 4, 3, 2, 0),
+        array(1, 4, 0, 0, 0),
+        array(5, 4, 3, 1, 0),
+        array(5, 5, 4, 2, 1),
+        array(4, 2, 0, 0, 0),
+        array(4, 3, 2, 1, 0),
+        array(4, 3, 1, 1, 0),
+        array(4, 3, 2, 1, 0),
+        array(5, 5, 2, 1, 0),
+        array(4, 3, 2, 1, 0),
+        array(4, 3, 1, 0, 0),
+        array(5, 4, 3, 2, 0),
+        array(4, 2, 0, 0, 0),
+        array(4, 2, 0, 0, 0),
+        array(4, 2, 0, 0, 0)
+    );
+    $total = 0;
+    foreach (str_split($questoes, 1) as $indice => $letra){
+        $total += $pointsList[$indice][$letra - 1];
+    }
+    return $total;
+}
+
 if (isset($_POST['botao'])){
     $ocupacao_variavel = $_POST['ocupacao'];
     $data_atual = date("Y-m-d");
-    $total_variavel = $_POST['total'];
     $questoes_variavel = $_POST['questoes'];
     $dica_variavel = $_POST['dica'];
 
-    if (!is_numeric($questoes_variavel) and strlen($questoes_variavel) != 16 and
-        !is_numeric($total_variavel) and ($total_variavel > 70 or $total_variavel <=0)
-        and ($ocupacao_variavel < 1 or $ocupacao_variavel > 3) and !is_numeric($ocupacao_variavel)){
-             //
-            header('Location: quiz.html');
-            exit();
+    if (!is_numeric($questoes_variavel) or strlen($questoes_variavel) != 16 or $ocupacao_variavel < 1 or 
+        $ocupacao_variavel > 3 or !is_numeric($ocupacao_variavel) or !verificar_respostas($questoes_variavel))
+    {
+        //
+        header('Location: quiz.html');
+        exit();
     }
-
+    $total_variavel = somarTotal($questoes_variavel);
+    echo($total_variavel);
+    return;
     mandar_banco_dados($ocupacao_variavel, $data_atual, $total_variavel, $questoes_variavel);
     header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
     exit();
@@ -40,7 +67,8 @@ if (isset($_POST['botao'])){
 function verificar_respostas($lista){
     $respostas = [5, 4, 2, 4, 5, 3, 4, 4, 4, 4, 4, 3, 5, 2, 2, 2];
     $array_resposta_user = str_split($lista, 1);
-
+    
+    // Verificando se o valor da resposta está no quiz, evitando fraudes
     foreach($array_resposta_user as $indice => $res){
         if ($res > $respostas[$indice]){
             return false;
@@ -51,8 +79,7 @@ function verificar_respostas($lista){
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" and 
     is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 16 
-    and verificar_respostas($_POST['resultado_questoes']) and is_numeric($_POST['resultado_total']) 
-    and $_POST['resultado_total'] <= 70 and $_POST['resultado_total'] > 0)
+    and verificar_respostas($_POST['resultado_questoes']))
 {      
 ?>
 <!DOCTYPE html>

@@ -6,8 +6,6 @@ const color_background =  document.getElementById('op1').style.backgroundColor;
 var id = 0
 //Questão selecionada pega o do do html
 var questoes_selecionadas = []
-//Lista resopostas pega a quantidade de ponto de cada pergunta
-var lista_respostas = []
 var opcaoSelecionada = false;
 
 // questõs que vão ser perguntadas
@@ -183,7 +181,6 @@ const Questions = [{
 /* configurando a resposta de todas as seções, a lista não pode ficar vazia. */
 Questions.forEach(() => { 
     questoes_selecionadas.push(0);   
-    lista_respostas.push(0); 
 });
 
 function pagina_questao(){
@@ -202,7 +199,6 @@ function pagina_questao(){
 
         op.addEventListener("click", () => {   
             //Modificando a lista com valores
-            lista_respostas[id] = Questions[id].a[i - 1].ponto;
             questoes_selecionadas[id] = op.id;
             //Chamando as funções ajustadoras
             botao_esta_selecionado()
@@ -247,11 +243,9 @@ function voltar(){
 }
 
 function finalizar(){
-    var somatorioLista = 0;
     var dicaurl = "d";
     var questoes_juntas = "";
     for (let i = 0; i < Questions.length; i++){
-        somatorioLista += lista_respostas[i];
         questoes_juntas += (questoes_selecionadas[i].slice(-1));
     }
 
@@ -280,13 +274,10 @@ function finalizar(){
 
     // Definindo os valores dos campos antes de enviar
     formulario.resultado_questoes.value = questoes_juntas;
-    formulario.resultado_total.value = somatorioLista;
     formulario.resultado_dica.value = dicaurl;
     
     // Enviando o formulário
     formulario.submit();
-    // Redirecionando a página
-    //location.href="passagemDados.php?total="+somatorioLista+"&dica="+dicaurl+"&questoes="+questoes_juntas;
 }
 
 // Função EXCLUSIVA da função finalizar

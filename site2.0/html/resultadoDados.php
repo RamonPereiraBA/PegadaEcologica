@@ -4,13 +4,31 @@
     $lista_medias = array();
     require('../conexao_servidor.php');
     
-    // Se a data foi passada e ela só tem numeros e o caractere "-", coleta os dados daquele dia
-    if (isset($_GET['data']) and preg_match('/^[0-9-]+$/', $_GET['data']) and isset($_GET['data2']) and preg_match('/^[0-9-]+$/', $_GET['data2'])) {
+    // Verificando se a ocupação e a data estão certas
+    $bool_data = (
+        isset($_GET['data']) and preg_match('/^[0-9-]+$/', $_GET['data']) and
+        isset($_GET['data2']) and preg_match('/^[0-9-]+$/', $_GET['data2']) and
+        $_GET['data'] != "0" and $_GET['data2'] != "0"
+    );
+    $bool_ocupacao = (isset($_GET['ocupacao']) and in_array($_GET['ocupacao'], [1, 2, 3]));
+    
+    if ($bool_data and $bool_ocupacao) {
+        // fazendo um join quando todas as informações são passadas
+        $data = $_GET['data'];
+        $data2 = $_GET['data2'];
+        $ocupacao = $_GET['ocupacao'];
+        $stmt = $conn->prepare("SELECT tabelaecologica.total, tabelaecologica.questoes FROM tabelaecologica INNER JOIN tabelainfo ON tabelaecologica.id = tabelainfo.id WHERE tabelainfo.dia BETWEEN '$data' AND '$data2' AND tabelainfo.ocupacao = '$ocupacao';");
+    } else if ($bool_data) {
+        // fazendo um join só se a data for passada
         $data = $_GET['data'];
         $data2 = $_GET['data2'];
         $stmt = $conn->prepare("SELECT tabelaecologica.total, tabelaecologica.questoes FROM tabelaecologica INNER JOIN tabelainfo ON tabelaecologica.id = tabelainfo.id WHERE tabelainfo.dia BETWEEN '$data' AND '$data2';");
-    } else {
-        // Se não pega os dados de todos os dias
+    }else if($bool_ocupacao){
+        // fazendo um join só se a ocupação for passada
+        $ocupacao = $_GET['ocupacao'];
+        $stmt = $conn->prepare("SELECT tabelaecologica.total, tabelaecologica.questoes FROM tabelaecologica INNER JOIN tabelainfo ON tabelaecologica.id = tabelainfo.id WHERE tabelainfo.ocupacao = '$ocupacao';");
+    }else{
+        // Se não passar as informções pega os dados de todos os dias e todas as ocupações
         $stmt = $conn->prepare("SELECT total, questoes FROM tabelaecologica;");
     }
 
