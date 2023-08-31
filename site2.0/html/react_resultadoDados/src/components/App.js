@@ -136,7 +136,7 @@ var lista_perguntas_e_alternativas = [
 
 const opcoes_data = [
   {valor: 'todos_ate_agora', texto: 'Todos até Agora'},
-  {valor: 'hoje', texto: 'hoje'},
+  {valor: 'hoje', texto: 'Hoje'},
   {valor: 'semana_retrasada', texto: 'Semana retrasada'},
   {valor: 'mes_retrasado', texto: 'Mês retrasado'},
   {valor: 'data_especifica', texto: 'Data Específica'}
@@ -372,6 +372,13 @@ function App(){
           <section id="secao-3">
             <div id="filtro">
               <label htmlFor="opcao-data">Filtrando por:</label>
+              {/* faz da maneira que eu fiz abaixo, não se faz lista dessa forma no react */}
+              <select name="opcao-data" id="opcao-ocupacao" value={ocupacao} onChange={mudarOcupacao}>
+                  <option value="0">Qualquer</option>
+                  <option value="1">Professor</option>
+                  <option value="2">Aluno</option>
+                  <option value="3">Visitante</option>
+              </select>
               <select name="opcao-data" id="opcao-data" value={selected} onChange={mudarOpcaoData}>
                 {opcoes_data.map(option => (
                   <option key={option.valor} value={option.valor}>{option.texto}</option>
@@ -386,12 +393,6 @@ function App(){
                   </>
                 )}     
               </div>
-              <select name="opcao-ocupacao" id="opcao-ocupacao" value={ocupacao} onChange={mudarOcupacao}>
-                  <option value="0">Qualquer</option>
-                  <option value="1">Professor</option>
-                  <option value="2">Aluno</option>
-                  <option value="3">Visitante</option>
-              </select>
             </div>
             {resultado_media.current !== 0 ? (
             <>
@@ -419,7 +420,7 @@ function App(){
           
           </> ) : (
             <>
-            <p>Opps...</p>
+            <p>Opps...<br></br>Não há registros para o filtro</p>
             </>
           )}
 
