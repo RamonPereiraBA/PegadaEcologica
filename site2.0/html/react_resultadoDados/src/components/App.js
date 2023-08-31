@@ -422,20 +422,6 @@ function App(){
             <p>Opps...</p>
             </>
           )}
-          <hr></hr>
-          
-          <button onClick={() => setAtivar_drop(!ativar_drop)}>mostrar</button>
-          
-          {ativar_drop && (
-            <>
-              <h3>Método 1- Acesso da média de todos os dias</h3>
-              <Aba_copiar_texto texto="greenlight.dev.br/resultadoDados.php"/>
-              <h3>Método 2- Acesso da média de dias específicos (especificando o dia inicial e final)</h3>
-              <Aba_copiar_texto texto="greenlight.dev.br/resultadoDados.php?data='data1'&data2='data2'"/>   
-            </>
-          )}
-          
-          <hr></hr>
 
           </section>
           <footer>
