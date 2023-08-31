@@ -2,111 +2,15 @@ import React, { useEffect, useState, useRef }  from 'react';
 
 var lista_perguntas_e_alternativas = [
   {
-      "q": "Com que frequência você come carne vermelha?",
-      1: "Nunca",
-      2: "três porções por semana",
-      3: "uma porção por dia",
-      4: "Frequentemente",
-      5: "Sempre"
-  },
-  {
-      "q": "Com que frequência você come peixe ou frutos do mar?",
-      1: "Nunca",
-      2: "Raramente",
-      3: "Ocasionalmente",
-      4: "Frequentemente",
-      5: ""
-  },
-  {
-      "q": "Você usa ar condicionado ou aquecedor na sua casa?",
-      1: "sim",
-      2: "não",
-      3: "",
+      "q": "Com que frequência você consome alimentos cultivados localmente?",
+      1: "Diariamente",
+      2: "Eventualmente",
+      3: "Nunca",
       4: "",
       5: ""
   },
   {
-      "q": "Qual a procedência dos alimentos que você consome?",
-      1: "De minha própria horta",
-      2: "A maior parte de feiras",
-      3: "Normalmente em supermercados",
-      4: "Sempre de supermercados",
-      5: ""
-  },
-  {
-      "q": "Quantas vezes por ano você compra roupas novas?",
-      1: "Nunca",
-      2: "Uma vez por ano",
-      3: "Duas vezes por ano",
-      4: "Três vezes por ano",
-      5: "Uma vez por mês ou mais"
-  },
-  {
-      "q": "Com que frequência você compra equipamentos eletrônicos?",
-      1: "somente quando quebram e precisam ser substituídos",
-      2: "ocasionalmente troco por versões mais modernas",
-      3: "troco sempre por aparelhos mais modernos",
-      4: "",
-      5: ""
-  },
-  {
-      "q": "Com que frequência você compra livros e jornais?",
-      1: "Leio notícias pela internet ou compro livros impressos em papel reciclado",
-      2: "Tenho assinatura mensal de um jornal e geralmente compro algum livro",
-      3: "Compro livros ocasionalmente",
-      4: "Compro livros com frequência",
-      5: ""
-  },
-  {
-      "q": "Como você descarta o lixo da sua casa?",
-      1: "Materiais eletrônicos encaminhados a postos de recolhimento",
-      2: "Em duas lixeiras",
-      3: "Em uma única lixeira",
-      4: "Não me preocupo em separar",
-      5: ""
-  },
-  {
-      "q": "Usa lâmpadas econômicas?",
-      1: "Todas as lâmpadas que uso são econômicas",
-      2: "Metade das lâmpadas que uso são econômicas",
-      3: "1/4 das lâmpadas são econômicas",
-      4: "Não",
-      5: ""
-  },
-  {
-      "q": "Que meio de transporte você mais usa?",
-      1: "Bicicleta ou a pé",
-      2: "Transporte público",
-      3: "Carro, mas procuro andar a pé ou de bicicleta",
-      4: "Carro",
-      5: ""
-  },
-  {
-      "q": "Com que frequência você bebe refrigerante?",
-      1: "Nunca",
-      2: "Raramente",
-      3: "Ocasionalmente",
-      4: "Frequentemente",
-      5: ""
-  },
-  {
-      "q": "Quanto tempo você gasta no banho diariamente?",
-      1: "de 5 a 15min",
-      2: "de 16 a 25min",
-      3: "acima de 26min",
-      4: "",
-      5: ""
-  },
-  {
-      "q": "Quantas horas você gasta viajando de avião anualmente?",
-      1: "Nunca viajo",
-      2: "0 a 4 horas",
-      3: "4 a 10 horas",
-      4: "10 a 25 horas",
-      5: "Mais de 25 horas"
-  },
-  {
-      "q": "Você possui horta na sua casa?",
+      "q": "Você possui horta em sua residência? (No solo ou em vasos)",
       1: "Sim",
       2: "Não",
       3: "",
@@ -114,7 +18,26 @@ var lista_perguntas_e_alternativas = [
       5: ""
   },
   {
-      "q": "Você adota equipamentos que reduzem o consumo de energia em sua residência?",
+      "q": "Com que frequência você consome produtos embalados ou processados?",
+      1: "Diariamente",
+      2: "Eventualmente",
+      3: "Nunca",
+      4: "",
+      5: ""
+  },
+  {
+      "q": "Qual o meio de transporte que você mais usa?",
+      1: "Automóvel próprio",
+      2: "Automóvel de terceiros (locado ou aplicativo)",
+      3: "Automóvel de terceiros (carona)",
+      4: "Motocicleta própria",
+      5: "Motocicleta de terceiros (locado ou aplicativo)",
+      // 6: "Motocicleta de terceiros (carona)";
+      // 7: "Transporte público – ônibus";
+      // 8: "Bicicleta";
+  },
+  { // cpm campo de texto
+      "q": "Você adota equipamentos e tecnologias que reduzem o consumo de água e/ou energia em sua residência?", 
       1: "Sim",
       2: "Não",
       3: "",
@@ -122,13 +45,93 @@ var lista_perguntas_e_alternativas = [
       5: ""
   },
   {
-      "q": "Você realiza algum tipo de reaproveitamento da água?",
+      "q": "Quanto tempo você gasta no banho diariamente?", 
+      1: "5 a 10 min",
+      2: "11 a 25 min",
+      3: "26 a 35 min",
+      4: "26 a 35 min",
+      5: ""
+  },
+  {
+      "q": "Quando você compra equipamentos eletrônicos?",
+      1: "Somente quando quebram e precisam ser substituídos",
+      2: "Ocasionalmente troco por versões mais modernas",
+      3: "Troco sempre por aparelhos mais modernos",
+      4: "",
+      5: ""
+  },
+  {
+      "q": "Quando você compra produtos e/ou equipamentos você busca informações sobre a adoção de medidas sustentáveis por parte da empresa?",
       1: "Sim",
       2: "Não",
       3: "",
       4: "",
       5: ""
-  }
+  },
+  {
+      "q": "Você pratica a coleta seletiva na sua residência?",
+      1: "Sim",
+      2: "Não",
+      3: "",
+      4: "",
+      5: ""
+  },
+  {
+      "q": "Você realiza a compostagem na sua residência?",
+      1: "Sim",
+      2: "Não",
+      3: "",
+      4: "",
+      5: ""
+  },
+  {
+      "q": "Você realiza algum tipo de reaproveitamento de água? (De chuva, de máquina de lavar roupa, outros)",
+      1: "Sim",
+      2: "Não",
+      3: "",
+      4: "",
+      5: ""
+  },
+  // {
+  //     "q": "Quanto tempo você gasta no banho diariamente?",
+  //     1: "de 5 a 15min",
+  //     2: "de 16 a 25min",
+  //     3: "acima de 26min",
+  //     4: "",
+  //     5: ""
+  // },
+  // {
+  //     "q": "Quantas horas você gasta viajando de avião anualmente?",
+  //     1: "Nunca viajo",
+  //     2: "0 a 4 horas",
+  //     3: "4 a 10 horas",
+  //     4: "10 a 25 horas",
+  //     5: "Mais de 25 horas"
+  // },
+  // {
+  //     "q": "Você possui horta na sua casa?",
+  //     1: "Sim",
+  //     2: "Não",
+  //     3: "",
+  //     4: "",
+  //     5: ""
+  // },
+  // {
+  //     "q": "Você adota equipamentos que reduzem o consumo de energia em sua residência?",
+  //     1: "Sim",
+  //     2: "Não",
+  //     3: "",
+  //     4: "",
+  //     5: ""
+  // },
+  // {
+  //     "q": "Você realiza algum tipo de reaproveitamento da água?",
+  //     1: "Sim",
+  //     2: "Não",
+  //     3: "",
+  //     4: "",
+  //     5: ""
+  // }
 ];
 
 const opcoes_data = [
@@ -207,11 +210,13 @@ function App(){
   const [pode_pesquisar, setPode_pesquisar] = useState(false);
   const [pode_pesquisar2, setPode_pesquisar2] = useState(false);
   const [selected, setSelected] = useState(opcoes_data[0].valor);
-  const [ativar_drop, setAtivar_drop] = useState(false);
   const resultado_media = useRef(0);
   const resultado_lista_arrays = useRef([]);
   const data = useRef("");
   const data2 = useRef("");
+
+  // variaveis modal
+  const modal = document.querySelector("[data-modal]")
 
   // Pega a API
   const fetchTextData = async () => {
@@ -396,23 +401,31 @@ function App(){
                 </div>
                 </>
             ))}
-          <p>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%*</p>
-          
-          <hr></hr>
-          
-          <button onClick={() => setAtivar_drop(!ativar_drop)}>mostrar</button>
-          
-          {ativar_drop && (
-            <>
-              <h3>Método 1- Acesso da média de todos os dias</h3>
-              <Aba_copiar_texto texto="greenlight.dev.br/resultadoDados.php"/>
-              <h3>Método 2- Acesso da média de dias específicos (especificando o dia inicial e final)</h3>
-              <Aba_copiar_texto texto="greenlight.dev.br/resultadoDados.php?data='data1'&data2='data2'"/>   
-            </>
-          )}
-          
-          <hr></hr>
-
+            <p>*Devido ao arredondamento dos números, as porcentagens podem não somar exatamente 100%*</p>
+            
+            {/* modal */}
+            {/* <p>É um dev? <a  onClick={() => modal.showModal}><i>Veja nosso JSON</i></a></p>
+            <dialog data-modal class="modal">
+                <h3>Como Acessar o JSON?</h3>
+                <details>
+                    <summary><h4>Método 1</h4></summary>
+                    Acessando a <a href="https://greenlight.dev.br/html/resultadoDados.php">média de todos os dias</a>
+                </details>
+                <details>
+                    <summary><h4>Método 2</h4></summary>
+                    Acessando uma <i>data específica:</i><br/>
+                    <code>https://greenlight.dev.br/html/resultadoDados.php?data=<b>data-especifica</b>&data2=<b>segunda-data-especifica</b></code>
+                </details>
+                <button data-close-modal onClick={() => modal.close()}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <p>Fechar</p>
+                </button>
+            </dialog> */}
           </section>
           <footer>
             <div id="campo-redes">

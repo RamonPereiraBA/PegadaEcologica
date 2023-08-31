@@ -12,162 +12,172 @@ var opcaoSelecionada = false;
 
 // questõs que vão ser perguntadas
 const Questions = [{
-    q: "Com que frequência você come carne vermelha?",
-    a: [{ text: "Nunca", ponto: 5, estado: "visible" },
-        { text: "três porções por semana", ponto: 4, estado: "visible" },
-        { text: "uma porção por dia", ponto: 2, estado: "visible" },
-        { text: "Frequentemente", ponto: 1, estado: "visible" },
-        { text: "Sempre", ponto: 0, estado: "visible" }
+    q: "Com que frequência você consome alimentos cultivados localmente? ",
+    a: [{ text: "Diariamente", ponto: 5, estado: "visible" },
+        { text: "Eventualmente", ponto: 4, estado: "visible" },
+        { text: "Nunca", ponto: 2, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" }
     ]
 
 },
 {
-    q: "Com que frequência você come peixe ou frutos do mar?",
-    a: [{ text: "Nunca", ponto: 5, estado: "visible"  },
-        { text: "Raramente", ponto: 4, estado: "visible" },
-        { text: "Ocasionalmente", ponto: 3, estado: "visible" },
-        { text: "Frequentemente", ponto: 2, estado: "visible" },
-        { text: "", ponto: 1, estado: "hidden" }
+    q: "Você possui horta em sua residência? (No solo ou em vasos)",
+    a: [{ text: "Sim", ponto: 5, estado: "visible"  },
+        { text: "Não", ponto: 2, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" }
     ]
 
 },
 {
-    q: "Você usa ar condicionado ou aquecedor na sua casa?",
-    a: [{ text: "Sim", ponto: 1, estado: "visible"},
-        { text: "Não", ponto: 4, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
+    q: "Com que frequência você consome produtos embalados ou processados?",
+    a: [{ text: "Diariamente", ponto: 2, estado: "visible"},
+        { text: "Eventualmente", ponto: 3, estado: "visible" },
+        { text: "Nunca", ponto: 5, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" }
     ]
 
 },
 {
-    q: "Qual a procedência dos alimentos que você consome?",
-    a: [{ text: "De minha própria horta", ponto: 5, estado: "visible"  },
-        { text: "A maior parte de feiras", ponto: 4, estado: "visible" },
-        { text: "Normalmente em supermercados", ponto: 3, estado: "visible" },
-        { text: "Sempre de supermercados", ponto: 1, estado: "visible" },
+    q: "Qual o meio de transporte que você mais usa?",
+    a: [{ text: "Automóvel próprio", ponto: 2, estado: "visible"},
+        { text: "Automóvel de terceiros (locado ou aplicativo)", ponto: 3, estado: "visible" },
+        { text: "Automóvel de terceiros (carona)", ponto: 3, estado: "hidden" },
+        { text: "Motocicleta própria", ponto: 4, estado: "hidden" },
+        { text: "Motocicleta de terceiros (locado ou aplicativo)", ponto: 5, estado: "hidden" }
+    ]
+
+},
+{
+    q: "Você adota equipamentos e tecnologias que reduzem o consumo de água e/ou energia em sua residência?",
+    a: [{ text: "Sim", ponto: 5, estado: "visible"  },
+        { text: "Não", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" }
     ]
 
 },
 {
-    q: "Quantas vezes por ano você compra roupas novas?",
-    a: [{ text: "Nunca", ponto: 5, estado: "visible"  },
-        { text: "Uma vez por ano", ponto: 5, estado: "visible"  },
-        { text: "Duas vezes por ano", ponto: 4, estado: "visible" },
-        { text: "Três vezes por ano", ponto: 2, estado: "visible" },
-        { text: "Uma vez por mês ou mais", ponto: 1, estado: "visible" },
+    q: "Quanto tempo você gasta no banho diariamente?", 
+    a: [{ text: "5 a 10 min", ponto: 5, estado: "visible"  },
+        { text: "11 a 25 min", ponto: 4, estado: "visible"  },
+        { text: "26 a 35 min", ponto: 3, estado: "visible" },
+        { text: "Acima de 35 min", ponto: 2, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" },
     ]
 
 },
 {
-    q: "Com que frequência você compra equipamentos eletrônicos?",
-    a: [{ text: "somente quando quebram e precisam ser substituídos", ponto: 4, estado: "visible"  },
-        { text: "ocasionalmente troco por versões mais modernas", ponto: 2, estado: "visible"  },
-        { text: "troco sempre por aparelhos mais modernos", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Com que frequência você compra livros e jornais?",
-    a: [{ text: "Leio notícias pela internet ou compro livros impressos em papel reciclado", ponto: 4, estado: "visible"  },
-        { text: "Tenho assinatura mensal de um jornal e geralmente compro algum livro", ponto: 3, estado: "visible"  },
-        { text: "Compro livros ocasionalmente", ponto: 2, estado: "visible" },
-        { text: "Compro livros com frequência", ponto: 1, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Como você descarta o lixo da sua casa?",
-    a: [{ text: "Materiais eletrônicos encaminhados a postos de recolhimento", ponto: 4, estado: "visible" },
-        { text: "Em duas lixeiras", ponto: 3, estado: "visible"  },
-        { text: "Em uma única lixeira", ponto: 1, estado: "visible" },
-        { text: "Não me preocupo em separar", ponto: 1, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Usa lâmpadas econômicas?",
-    a: [{ text: "Todas as lâmpadas que uso são econômicas", ponto: 4, estado: "visible" },
-        { text: "Metade das lâmpadas que uso são econômicas", ponto: 3, estado: "visible" },
-        { text: "1/4 das lâmpadas são econômicas", ponto: 2, estado: "visible" },
-        { text: "Não", ponto: 1, estado: "visible"},
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Que meio de transporte você mais usa?",
-    a: [{ text: "Bicicleta ou a pé", ponto: 5, estado: "visible"  },
-        { text: "Transporte público", ponto: 5, estado: "visible" },
-        { text: "Carro, mas procuro andar a pé ou de bicicleta", ponto: 2, estado: "visible" },
-        { text: "Carro", ponto: 1, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Com que frequência você bebe refrigerante?",
-    a: [{ text: "Nunca", ponto: 4, estado: "visible"  },
-        { text: "Raramente", ponto: 3, estado: "visible"  },
-        { text: "Ocasionalmente", ponto: 2, estado: "visible" },
-        { text: "Frequentemente", ponto: 1, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Quanto tempo você gasta no banho diariamente?",
-    a: [{ text: "de 5 a 15min", ponto: 4, estado: "visible" },
-        { text: "de 16 a 25min", ponto: 3, estado: "visible"  },
-        { text: "acima de 26min", ponto: 1, estado: "visible"  },
+    q: "Quando você compra equipamentos eletrônicos?",
+    a: [{ text: "Somente quando quebram e precisam ser substituídos", ponto: 5, estado: "visible"  },
+        { text: "Ocasionalmente troco por versões mais modernas", ponto: 3, estado: "visible"  },
+        { text: "Troco sempre por aparelhos mais modernos", ponto: 0, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
 },
 {
-    q: "Quantas horas você gasta viajando de avião anualmente?",
-    a: [{ text: "Nunca viajo", ponto: 5, estado: "visible"  },
-        { text: "0 a 4 horas", ponto: 4, estado: "visible"  },
-        { text: "4 a 10 horas", ponto: 3, estado: "visible" },
-        { text: "10 a 25 horas", ponto: 2, estado: "visible" },
-        { text: "Mais de 25 horas", ponto: 0, estado: "visible" },
+    q: "Quando você compra produtos e/ou equipamentos você busca informações sobre a adoção de medidas sustentáveis por parte da empresa?",
+    a: [{ text: "Sim", ponto: 5, estado: "visible"  },
+        { text: "Não", ponto: 0, estado: "visible"  },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
     ]
 
 },
 {
-    q: "Você possui horta na sua casa?",
-    a: [{ text: "Sim", ponto: 4, estado: "visible" },
-        { text: "Não", ponto: 2, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden"  },
-        { text: "", ponto: 0, estado: "hidden" },
+    q: "Você pratica a coleta seletiva na sua residência?",
+    a: [{ text: "Sim", ponto: 5, estado: "visible" },
+        { text: "Não", ponto: 0, estado: "visible"  },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
+
 },
 {
-    q: "Você usa equipamentos que reduzem o consumo de água ou energia?",
-    a: [{ text: "Sim", ponto: 4, estado: "visible" },
-        { text: "Não", ponto: 2, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden"  },
-        { text: "", ponto: 0, estado: "hidden" },
+    q: "Você realiza a compostagem na sua residência?",
+    a: [{ text: "Sim", ponto: 5, estado: "visible" },
+        { text: "Não", ponto: 0, estado: "visible"  },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
+
 },
 {
-    q: "Você realiza algum tipo de reaproveitamento da água?",
-    a: [{ text: "Sim", ponto: 4, estado: "visible" },
-        { text: "Não", ponto: 2, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden"  },
-        { text: "", ponto: 0, estado: "hidden" },
+    q: "Você realiza algum tipo de reaproveitamento de água? (De chuva, de máquina de lavar roupa, outros)",
+    a: [{ text: "Sim", ponto: 5, estado: "visible" },
+        { text: "Não", ponto: 0, estado: "visible"  },
+        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "visible"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
-}
+
+},
+// {
+//     q: "Com que frequência você bebe refrigerante?",
+//     a: [{ text: "Nunca", ponto: 4, estado: "visible"  },
+//         { text: "Raramente", ponto: 3, estado: "visible"  },
+//         { text: "Ocasionalmente", ponto: 2, estado: "visible" },
+//         { text: "Frequentemente", ponto: 1, estado: "visible" },
+//         { text: "", ponto: 0, estado: "hidden" },
+//     ]
+
+// },
+// {
+//     q: "Quanto tempo você gasta no banho diariamente?",
+//     a: [{ text: "de 5 a 15min", ponto: 4, estado: "visible" },
+//         { text: "de 16 a 25min", ponto: 3, estado: "visible"  },
+//         { text: "acima de 26min", ponto: 1, estado: "visible"  },
+//         { text: "", ponto: 0, estado: "hidden" },
+//         { text: "", ponto: 0, estado: "hidden" },
+//     ]
+
+// },
+// {
+//     q: "Quantas horas você gasta viajando de avião anualmente?",
+//     a: [{ text: "Nunca viajo", ponto: 5, estado: "visible"  },
+//         { text: "0 a 4 horas", ponto: 4, estado: "visible"  },
+//         { text: "4 a 10 horas", ponto: 3, estado: "visible" },
+//         { text: "10 a 25 horas", ponto: 2, estado: "visible" },
+//         { text: "Mais de 25 horas", ponto: 0, estado: "visible" },
+//     ]
+
+// },
+// {
+//     q: "Você possui horta na sua casa?",
+//     a: [{ text: "Sim", ponto: 4, estado: "visible" },
+//         { text: "Não", ponto: 2, estado: "visible"  },
+//         { text: "", ponto: 0, estado: "hidden"  },
+//         { text: "", ponto: 0, estado: "hidden" },
+//         { text: "", ponto: 0, estado: "hidden" },
+//     ]
+// },
+// {
+//     q: "Você usa equipamentos que reduzem o consumo de água ou energia?",
+//     a: [{ text: "Sim", ponto: 4, estado: "visible" },
+//         { text: "Não", ponto: 2, estado: "visible"  },
+//         { text: "", ponto: 0, estado: "hidden"  },
+//         { text: "", ponto: 0, estado: "hidden" },
+//         { text: "", ponto: 0, estado: "hidden" },
+//     ]
+// },
+// {
+//     q: "Você realiza algum tipo de reaproveitamento da água?",
+//     a: [{ text: "Sim", ponto: 4, estado: "visible" },
+//         { text: "Não", ponto: 2, estado: "visible"  },
+//         { text: "", ponto: 0, estado: "hidden"  },
+//         { text: "", ponto: 0, estado: "hidden" },
+//         { text: "", ponto: 0, estado: "hidden" },
+//     ]
+// }
 ]
 
 /* configurando a resposta de todas as seções, a lista não pode ficar vazia. */
