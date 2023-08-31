@@ -14,8 +14,8 @@ const Questions = [{
     a: [{ text: "Diariamente", ponto: 5, estado: "visible" },
         { text: "Eventualmente", ponto: 4, estado: "visible" },
         { text: "Nunca", ponto: 2, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" }
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" }
     ]
 
 },
@@ -23,8 +23,8 @@ const Questions = [{
     q: "Você possui horta em sua residência? (No solo ou em vasos)",
     a: [{ text: "Sim", ponto: 5, estado: "visible"  },
         { text: "Não", ponto: 2, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" }
     ]
 
@@ -33,7 +33,7 @@ const Questions = [{
     q: "Com que frequência você consome produtos embalados ou processados?",
     a: [{ text: "Diariamente", ponto: 2, estado: "visible"},
         { text: "Eventualmente", ponto: 3, estado: "visible" },
-        { text: "Nunca", ponto: 5, estado: "hidden" },
+        { text: "Nunca", ponto: 5, estado: "visible" },
         { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" }
     ]
@@ -43,9 +43,9 @@ const Questions = [{
     q: "Qual o meio de transporte que você mais usa?",
     a: [{ text: "Automóvel próprio", ponto: 2, estado: "visible"},
         { text: "Automóvel de terceiros (locado ou aplicativo)", ponto: 3, estado: "visible" },
-        { text: "Automóvel de terceiros (carona)", ponto: 3, estado: "hidden" },
-        { text: "Motocicleta própria", ponto: 4, estado: "hidden" },
-        { text: "Motocicleta de terceiros (locado ou aplicativo)", ponto: 5, estado: "hidden" }
+        { text: "Automóvel de terceiros (carona)", ponto: 3, estado: "visible" },
+        { text: "Motocicleta própria", ponto: 4, estado: "visible" },
+        { text: "Motocicleta de terceiros (locado ou aplicativo)", ponto: 5, estado: "visible" }
     ]
 
 },
@@ -53,8 +53,8 @@ const Questions = [{
     q: "Você adota equipamentos e tecnologias que reduzem o consumo de água e/ou energia em sua residência?",
     a: [{ text: "Sim", ponto: 5, estado: "visible"  },
         { text: "Não", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" }
     ]
 
@@ -65,7 +65,7 @@ const Questions = [{
         { text: "11 a 25 min", ponto: 4, estado: "visible"  },
         { text: "26 a 35 min", ponto: 3, estado: "visible" },
         { text: "Acima de 35 min", ponto: 2, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
     ]
 
 },
@@ -83,8 +83,8 @@ const Questions = [{
     q: "Quando você compra produtos e/ou equipamentos você busca informações sobre a adoção de medidas sustentáveis por parte da empresa?",
     a: [{ text: "Sim", ponto: 5, estado: "visible"  },
         { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible" },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden" },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
@@ -93,8 +93,8 @@ const Questions = [{
     q: "Você pratica a coleta seletiva na sua residência?",
     a: [{ text: "Sim", ponto: 5, estado: "visible" },
         { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
@@ -103,8 +103,8 @@ const Questions = [{
     q: "Você realiza a compostagem na sua residência?",
     a: [{ text: "Sim", ponto: 5, estado: "visible" },
         { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
@@ -113,8 +113,8 @@ const Questions = [{
     q: "Você realiza algum tipo de reaproveitamento de água? (De chuva, de máquina de lavar roupa, outros)",
     a: [{ text: "Sim", ponto: 5, estado: "visible" },
         { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "visible"  },
+        { text: "", ponto: 0, estado: "hidden" },
+        { text: "", ponto: 0, estado: "hidden"  },
         { text: "", ponto: 0, estado: "hidden" },
     ]
 
@@ -310,7 +310,7 @@ function botao_esta_selecionado(){
 }
 
 function troca_pergunta(){
-    barra_resultado.style.width = (((id+1)/16)*100)+"%";
+    barra_resultado.style.width = (((id+1)/11)*100)+"%";
     pagina_questao();
     checagem_botoes();
     botao_esta_selecionado();
