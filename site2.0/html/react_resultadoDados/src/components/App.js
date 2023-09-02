@@ -436,9 +436,8 @@ function App(){
             </div>
             
             <div id="campo-outros">
-              <a href='#'>Equipe</a>
-              <a href='#'>Sobre Nós</a>
               <a href='#'>Página Inicial</a>
+              <a href='#'>Sobre Nós (Em Manutenção)</a>
             </div>
           </footer>
         </>
