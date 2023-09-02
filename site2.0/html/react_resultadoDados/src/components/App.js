@@ -371,7 +371,7 @@ function App(){
           <hr></hr>
           <section id="secao-3">
             <div id="filtro">
-              <label htmlFor="opcao-data">Filtrando por:</label>
+              {/* <label htmlFor="opcao-data">Filtrando por:</label> */}
               {/* faz da maneira que eu fiz abaixo, não se faz lista dessa forma no react */}
               <select name="opcao-data" id="opcao-ocupacao" value={ocupacao} onChange={mudarOcupacao}>
                   <option value="0">Qualquer</option>
@@ -420,7 +420,7 @@ function App(){
           
           </> ) : (
             <>
-            <p>Opps...<br></br>Não há registros para o filtro</p>
+            <p>Ops...<br></br>Não há registros para o filtro</p>
             </>
           )}
 
