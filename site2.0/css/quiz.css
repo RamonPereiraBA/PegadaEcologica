@@ -13,6 +13,13 @@
     --posicao_questao_left: 11%;
     --altura_opcoes: 81%;
 }
+@media screen and (max-width: 600px)
+{
+    .opcoes{
+        margin-top: 25%;
+    }
+}
+
 @media screen and (min-width : 780px){
     :root{
         --tamanho_questao : 5vh;
@@ -28,6 +35,7 @@
         --posicao_questao_left: 8%;
         --altura_opcoes: 60%;
     }
+    
 }
 
 @media screen and (min-width : 1000px) 
