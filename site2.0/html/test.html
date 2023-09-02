@@ -5,13 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/test.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="icon" href="../Imagens/logosite.png">
+    
+    <!-- informações gerais e sistema de busca -->
     <title>GREENLIGHT</title>
+    <meta name="description" content="Calcule sua Pegada Ecológica e descubra seu impacto no meio ambiente!">
+    <meta name="keywords" content="Pegada Ecológica,greenlight, Ecológico, sustentável, CSN, Educação Ambiental, PEA CSN Pegada">
+
+    <!-- cache -->
+    <meta
+    http-equiv="Cache-Control"
+    content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 </head>
 <body>
     <header>
         <nav>
-            <a class="nav-link" href="#">Sobre nós</a>
-            <a class="nav-link" href="#">Colaboradores</a>
+            <a class="nav-link" href="#">Sobre nós (Em Manutenção)</a>
         </nav>
         <div id="elementos-principais">
             <div id="header-main-content">
@@ -19,14 +31,14 @@
                 <p>Nossos hábitos são como <b>Pegadas</b> que deixamos na terra ao longo de nossas vidas.</p>
                 <p>Isso posto, esse projeto tem a missão de revelar sua <b>Pegada Ecológica</b>.</p>
             </div>
-            <img src="../Imagens/cherry tree-bro (2) 1.png" alt="cherry tree">
+            <img src="../Imagens/cherry tree-bro (2) 1.png" alt="Nature illustrations by Storyset">
         </div>
     </header>
     <main>
         <section id="secao-1">
             <h2>Beleza, mas o que é uma <span>Pegada Ecológica</span>?</h2>
             <p>É a medida do seu impacto no meio ambiente. A <i><b>Pegada</b></i> que você deixa na terra.</p>
-            <img src="../Imagens/Natural Resource Depletion-amico 1.png" alt="natural source depletion">
+            <img src="../Imagens/Natural Resource Depletion-amico 1.png" alt="Nature illustrations by Storyset">
         </section>
     
         <section id="secao-2">
@@ -36,21 +48,21 @@
                     <h3>PROPÓSITO</h3>
                     <p>Participando da nossa pesquisa, você estará contribuindo para um propósito maior - um mundo mais saudável e consciente.</p>
                 </div>
-                <img src="../Imagens/International cooperation-bro 1.png" alt="international cooperation">
+                <img src="../Imagens/International cooperation-bro 1.png" alt="People illustrations by Storyset">
             </section>
             <section>
                 <div>
                     <h3>FUTURO SUSTENTÁVEL</h3>
                     <p>Sua contribuição é fundamental para que possamos compreender os desafios ambientais.</p>
                 </div>
-                <img src="../Imagens/International cooperation-rafiki 1.png" alt="">
+                <img src="../Imagens/International cooperation-rafiki 1.png" alt="People illustrations by Storyset">
             </section>
             <section>
                 <div>
                     <h3>MUDANÇAS POSITIVAS</h3>
                     <p>Ao término da pesquisa será exibido um <b>relatório detalhado</b> do seu resultado. Com insights e sugestões para reduzir seu impacto ambiental. Gerando conscientização e mudanças positivas nos seus hábitos.</p>
                 </div>
-                <img src="../Imagens/Reforestation-amico 1.png" alt="">
+                <img src="../Imagens/Reforestation-amico 1.png" alt="Nature illustrations by Storyset">
             </section>
         </section>
     
@@ -58,16 +70,16 @@
             <h1>Vamos mudar o mundo 🔥</h1>
             <div id="opcoes">
                 <div>
-                    <img src="../Imagens/cherry tree-pana 2.png" alt="">
+                    <img src="../Imagens/cherry tree-pana 2.png" alt="Nature illustrations by Storyset">
                     <h3>Faça a Diferença</h3>
                     <p>Calcule sua Pegada Ecológica e Descubra seu Impacto Ambiental!</p>
-                    <button><i>CALCULE AGORA</i></button>
+                    <button id="calcule-agora"><i>CALCULE AGORA</i></button>
                 </div>
                 <div>
-                    <img src="../Imagens/cherry tree-pana (1) 1.png" alt="">
+                    <img src="../Imagens/cherry tree-pana (1) 1.png" alt="Nature illustrations by Storyset">
                     <h3>Visualizar Dados</h3>
                     <p>Veja a Média Geral de todos  que já fizeram a pesquisa</p>
-                    <button><i>VER MÉDIA</i></button>
+                    <button id="ver-media"><i>VER MÉDIA</i></button>
                 </div>
             </div>
             <p>É um dev? <a data-open-modal><i>Veja nosso JSON</i></a></p>
@@ -97,6 +109,8 @@
                     const abrir_botao = document.querySelector("[data-open-modal]")
                     const fechar_botao = document.querySelector("[data-close-modal]")
                     const modal = document.querySelector("[data-modal]")
+                    const ir_quiz = document.getElementById("calcule-agora");
+                    const ir_media = document.getElementById("ver-media");
 
                     abrir_botao.addEventListener("click", () => {
                         modal.showModal()
@@ -106,6 +120,14 @@
                         modal.close()
                     })
 
+                    // redirecionamento
+                    ir_quiz.addEventListener("click", () => {
+                        location.href = "quiz.html";
+                    })
+
+                    ir_media.addEventListener("click", () => {
+                        location.href = "#";
+                    })
                 </script>
         </section>
     </main>
@@ -117,8 +139,7 @@
             <a href="https://github.com/XaropinhoS20/PegadaEcologica"><i class="bi bi-github"></i></a=>
             <a href="https://www.linkedin.com/in/greenlight-pegada-ecol%C3%B3gica-925bb2273/"><i class="bi bi-linkedin"></i></a=>
         </div>
-        <a href=""><i>Sobre nós</i></a>
-        <a href=""><i>Colaboradores</i></a>
+        <a href="#"><i>Sobre nós (Em Manutenção)</i></a>
         <a href="https://www.freepik.com" title="Créditos das imagens contidas nesse site"><i>Designed by Freepik</i></a>
     </footer>
 </body>

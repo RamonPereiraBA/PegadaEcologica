@@ -76,7 +76,7 @@ header h1
 header span
 {
     font-weight: 800;
-    font-size: 6rem;
+    font-size: calc(4rem + 2vw);
     text-transform: uppercase;
     line-height: 80px;
 }
@@ -538,12 +538,17 @@ details code
     @media only screen and (max-width: 870px)
     {
         header h1,
-        nav,
         header p
         {
-            margin: auto;
-            text-align: center;
+            margin-left: 5vw;
+            /* text-align: center; */
         } 
+
+        nav
+        {
+            margin-right: 5vw;
+            font-size: .9rem;
+        }
         
         header h1
         {
@@ -675,9 +680,15 @@ details code
 
     @media only screen and (max-width: 500px)
     {
+        header h1
+        {
+            font-size: 1.5rem;
+        }
+
         header span
         {
-            font-size: 3rem;
+            font-size: calc(3rem + 1.25vw);
+            line-height: 40px;
         }
 
         header
