@@ -93,15 +93,85 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     <meta http-equiv="Expires" content="0" />
     <title>Cadastro</title>
 	<link rel="icon" href="../Imagens/logosite.png">
-    <link rel="stylesheet" href="../css/passagemDados.css">
-
-    <!-- Importando presets das fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../css/passagemDados.css"> -->
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
+
+:root
+{
+    --fundo: #F2F2F2;
+    --verde-span: #9FC131;
+    --texto-header: #005C53;
+    --texto: #012030;
+    --tamanho-fonte: 2vw;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body
+{
+    font-family: 'Poppins', 'sans-serif';
+    background-color: var(--fundo);
+    color: var(--texto);
+    text-align: center;
+}
+
+h1
+{
+    margin-top: 5%;
+}
+
+#formulario h3
+{
+    margin-top: 8vh;
+    margin-bottom: 4vh;
+    font-weight: 600;
+}
+
+#formulario h3:last-of-type
+{    
+    font-weight: 500;
+    font-size: .8rem;
+}
+
+input[type="radio"]
+{
+    font-size: 1.25rem;
+}
+
+#formulario label
+{
+    cursor: pointer;
+    margin-left: 5px;
+    margin-bottom: 5vh;
+    font-size: calc(1rem + .4vw);
+}
+
+button
+{
+    cursor: pointer;
+    display: block;
+    margin: 5vh auto;
+    padding: 15px 8vw;
+    background-color:transparent;
+    font-family: 'Poppins', 'sans-serif';
+    font-size: calc(1rem + .5vw);
+}
+
+button:active
+{
+    position: relative;
+    top: 2px;
+}
+
+</style>
 <body>
     <h1>Antes de continuar...</h1>
     <form method="post" id="formulario_variaveis">
@@ -117,15 +187,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     <div id="formulario">
         <div id="form_1_id">
             <h3>Deseja ampliar nossa Pesquisa nos informando mais sobre você?</h3>
-            <input type="radio" value="s" name="resposta_form_1">Sim, quero contribuir e ajudar o meio ambiente!<br>
-            <input type="radio" value="n" name="resposta_form_1">Não, quero ver meu resultado<br>
+            <input type="radio" value="s" name="resposta_form_1" id="radio-sim-quero">
+                <label for="radio-sim-quero">
+                    Sim, quero contribuir e ajudar o meio ambiente!
+                </label>
+            <br>
+            <input type="radio" value="n" name="resposta_form_1" id="radio-nao-quero">
+                <label for="radio-nao-quero">
+                    Não, quero ver meu resultado
+                </label>
             <h3>🔒 Garantimos que as perguntas serão usadas apenas como maneira de ampliar nosso foco na cidade</h3>                
             <button onclick="confirmar_1()">Continuar</button>
         </div>
         <div id="form_2_id" style="display: none;">
-            <h3>É morador de Volta Redonda</h3>
-            <input type="radio" value="s" name="resposta_form_2">Sim<br>
-            <input type="radio" value="n" name="resposta_form_2">Não<br>
+            <h3>É morador de Volta Redonda?</h3>
+            <input type="radio" value="s" name="resposta_form_2" id="radio-sim-vr">
+            <label for="radio-sim-vr">
+                Sim
+            </label>
+            <br>
+            <input type="radio" value="n" name="resposta_form_2" id="radio-nao-vr">
+            <label for="radio-nao-vr">
+                Não
+            </label>
             <button onclick="confirmar_2()">Continuar</button>
         </div>
         <div id="form_3_id" style="display: none;">
@@ -136,7 +220,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
         </div>
     </div>
     <script src="../passagemDados.js"></script>
-
 </body>
 </html>
 <?php }else{
