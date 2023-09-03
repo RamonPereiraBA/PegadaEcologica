@@ -373,12 +373,12 @@ function App(){
             <div id="filtro">
               {/* <label htmlFor="opcao-data">Filtrando por:</label> */}
               {/* faz da maneira que eu fiz abaixo, não se faz lista dessa forma no react */}
-              <select name="opcao-data" id="opcao-ocupacao" value={ocupacao} onChange={mudarOcupacao}>
+              {/* <select name="opcao-data" id="opcao-ocupacao" value={ocupacao} onChange={mudarOcupacao}>
                   <option value="0">Qualquer</option>
                   <option value="1">Professor</option>
                   <option value="2">Aluno</option>
                   <option value="3">Visitante</option>
-              </select>
+              </select> */}
               <select name="opcao-data" id="opcao-data" value={selected} onChange={mudarOpcaoData}>
                 {opcoes_data.map(option => (
                   <option key={option.valor} value={option.valor}>{option.texto}</option>

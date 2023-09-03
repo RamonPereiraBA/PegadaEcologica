@@ -1,15 +1,23 @@
-const bt_continuar =  document.getElementById("botao");
-// Primeiro, obtenha uma referência para o elemento select pelo ID
-var containerEl = document.getElementById("ocupacao_id"); // container
-var elem = containerEl.getElementsByTagName("option"); // elemento
-
-containerEl.addEventListener("change", function() {
-    // O código dentro desta função será executado quando o valor mudar
-    var valorSelecionado = containerEl.value; // objetivo: pegar o valor selecionado
-    if (valorSelecionado === "nao_escolhido"){
-        bt_continuar.style.display = "none";
+const form = document.getElementById("formulario_variaveis");
+const form_1 = document.getElementById("form_1_id");
+const form_2 = document.getElementById("form_2_id");
+const form_3 = document.getElementById("form_3_id");
+function confirmar_1(){
+    const resposta_form_1 = document.querySelector('input[name="resposta_form_1"]:checked');
+    if (resposta_form_1.value === "n"){
+        form.submit();
         return;
     }
-    
-    bt_continuar.style.display = "block"
-});
+    form_1.style.display = "none";
+    form_2.style.display = "block";
+}
+
+function confirmar_2(){
+    const resposta_form_2 = document.querySelector('input[name="resposta_form_2"]:checked');
+    if (resposta_form_2.value === "n"){
+        form.submit();
+        return;
+    }
+    form_2.style.display = "none";
+    form_3.style.display = "block";
+}

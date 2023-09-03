@@ -18,54 +18,51 @@ function mandar_banco_dados($ocupacao, $data, $total, $questoes){
 }
 
 function somarTotal($questoes){
-    $pointsList = array(
-        array(5, 4, 2, 1, 0),
-        array(5, 4, 3, 2, 0),
-        array(1, 4, 0, 0, 0),
-        array(5, 4, 3, 1, 0),
-        array(5, 5, 4, 2, 1),
-        array(4, 2, 0, 0, 0),
-        array(4, 3, 2, 1, 0),
-        array(4, 3, 1, 1, 0),
-        array(4, 3, 2, 1, 0),
-        array(5, 5, 2, 1, 0),
-        array(4, 3, 2, 1, 0),
-        array(4, 3, 1, 0, 0),
-        array(5, 4, 3, 2, 0),
-        array(4, 2, 0, 0, 0),
-        array(4, 2, 0, 0, 0),
-        array(4, 2, 0, 0, 0)
+    // O valor de cada opção
+    $valores_questoes = array(
+        array(7, 4, 2, 0, 0),
+        array(6, 2, 0, 0, 0),
+        array(6, 3, 2, 0, 0),
+        array(6, 4, 3, 3, 2),
+        array(6, 0, 0, 0, 0),
+        array(6, 4, 3, 2, 0),
+        array(7, 3, 0, 0, 0),
+        array(7, 0, 0, 0, 0),
+        array(6, 0, 0, 0, 0),
+        array(6, 0, 0, 0, 0),
+        array(7, 0, 0, 0, 0)
     );
     $total = 0;
     foreach (str_split($questoes, 1) as $indice => $letra){
-        $total += $pointsList[$indice][$letra - 1];
+        $total += $valores_questoes[$indice][$letra - 1];
     }
     return $total;
 }
 
-if (isset($_POST['botao'])){
+if ($_SERVER["REQUEST_METHOD"] === "POST" and isset($_POST['bairro'])){
+    echo ("foi");
+    return;
     $ocupacao_variavel = $_POST['ocupacao'];
     $data_atual = date("Y-m-d");
     $questoes_variavel = $_POST['questoes'];
     $dica_variavel = $_POST['dica'];
 
-    if (!is_numeric($questoes_variavel) or strlen($questoes_variavel) != 16 or $ocupacao_variavel < 1 or 
-        $ocupacao_variavel > 3 or !is_numeric($ocupacao_variavel) or !verificar_respostas($questoes_variavel))
+    if (!is_numeric($questoes_variavel) or strlen($questoes_variavel) != 11 or 
+        !verificar_respostas($questoes_variavel))
     {
-        //
+        ///////////////////////////////////////////////////////////////////////////////
         header('Location: quiz.html');
         exit();
     }
     $total_variavel = somarTotal($questoes_variavel);
-    echo($total_variavel);
-    return;
     mandar_banco_dados($ocupacao_variavel, $data_atual, $total_variavel, $questoes_variavel);
     header('Location: resultado.html?total='. $total_variavel . "&dica=" . $dica_variavel);
     exit();
 }
 
 function verificar_respostas($lista){
-    $respostas = [5, 4, 2, 4, 5, 3, 4, 4, 4, 4, 4, 3, 5, 2, 2, 2];
+    // Nessa lista contem a quantidade de opções do quiz
+    $respostas = [3, 2, 3, 5, 2, 4, 3, 2, 2, 2, 2];
     $array_resposta_user = str_split($lista, 1);
     
     // Verificando se o valor da resposta está no quiz, evitando fraudes
@@ -78,7 +75,7 @@ function verificar_respostas($lista){
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" and 
-    is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 16 
+    is_numeric($_POST['resultado_questoes']) and strlen($_POST['resultado_questoes']) == 11
     and verificar_respostas($_POST['resultado_questoes']))
 {      
 ?>
@@ -107,22 +104,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
 </head>
 <body>
     <h1>Antes de continuar...</h1>
-    <form method="post">
+    <form method="post" id="formulario_variaveis">
         <!-- Quardando dados -->
         <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
         <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
         <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
-        <!-- Formulario -->
-        <label for="ocupacao_for">Escolha sua ocupação:</label>
-        <select name="ocupacao" id="ocupacao_id">
-            <option value="nao_escolhido">Escolha</option>
-            <option value="1">Professor</option>
-            <option value="2">Aluno</option>
-            <option value="3">Visitante</option>
-        </select>
-        <button name="botao" id="botao">Continuar</button>
+        <input type="hidden" name="morador" value="">
+        <input type="hidden" name="bairro" value="">
+        <input type="hidden" name="unidade" value="">
     </form>
+    <!-- Formulario -->
+    <div id="formulario">
+        <div id="form_1_id">
+            <h3>Deseja ampliar nossa Pesquisa nos informando mais sobre você?</h3>
+            <input type="radio" value="s" name="resposta_form_1">Sim, quero contribuir e ajudar o meio ambiente!<br>
+            <input type="radio" value="n" name="resposta_form_1">Não, quero ver meu resultado<br>
+            <h3>🔒 Garantimos que as perguntas serão usadas apenas como maneira de ampliar nosso foco na cidade</h3>                
+            <button onclick="confirmar_1()">Continuar</button>
+        </div>
+        <div id="form_2_id" style="display: none;">
+            <h3>É morador de Volta Redonda</h3>
+            <input type="radio" value="s" name="resposta_form_2">Sim<br>
+            <input type="radio" value="n" name="resposta_form_2">Não<br>
+            <button onclick="confirmar_2()">Continuar</button>
+        </div>
+        <div id="form_3_id" style="display: none;">
+            <h3>Informe seu bairro</h3>
+            <input type="radio" value="s" name="resposta_form_2">Sim<br>
+            <input type="radio" value="n" name="resposta_form_2">Não<br>
+            <button onclick="confirmar_2()">Continuar</button>
+        </div>
+    </div>
     <script src="../passagemDados.js"></script>
+
 </body>
 </html>
 <?php }else{

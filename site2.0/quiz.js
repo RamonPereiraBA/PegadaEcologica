@@ -9,174 +9,107 @@ var questoes_selecionadas = []
 var opcaoSelecionada = false;
 
 // questõs que vão ser perguntadas
-const Questions = [{
-    q: "Com que frequência você consome alimentos cultivados localmente? ",
-    a: [{ text: "Diariamente", ponto: 5, estado: "visible" },
-        { text: "Eventualmente", ponto: 4, estado: "visible" },
-        { text: "Nunca", ponto: 2, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" }
-    ]
-
-},
-{
-    q: "Você possui horta em sua residência? (No solo ou em vasos)",
-    a: [{ text: "Sim", ponto: 5, estado: "visible"  },
-        { text: "Não", ponto: 2, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" }
-    ]
-
-},
-{
-    q: "Com que frequência você consome produtos embalados ou processados?",
-    a: [{ text: "Diariamente", ponto: 2, estado: "visible"},
-        { text: "Eventualmente", ponto: 3, estado: "visible" },
-        { text: "Nunca", ponto: 5, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" }
-    ]
-
-},
-{
-    q: "Qual o meio de transporte que você mais usa?",
-    a: [{ text: "Automóvel próprio", ponto: 2, estado: "visible"},
-        { text: "Automóvel de terceiros (locado ou aplicativo)", ponto: 3, estado: "visible" },
-        { text: "Automóvel de terceiros (carona)", ponto: 3, estado: "visible" },
-        { text: "Motocicleta própria", ponto: 4, estado: "visible" },
-        { text: "Motocicleta de terceiros (locado ou aplicativo)", ponto: 5, estado: "visible" }
-    ]
-
-},
-{
-    q: "Você adota equipamentos e tecnologias que reduzem o consumo de água e/ou energia em sua residência?",
-    a: [{ text: "Sim", ponto: 5, estado: "visible"  },
-        { text: "Não", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" }
-    ]
-
-},
-{
-    q: "Quanto tempo você gasta no banho diariamente?", 
-    a: [{ text: "5 a 10 min", ponto: 5, estado: "visible"  },
-        { text: "11 a 25 min", ponto: 4, estado: "visible"  },
-        { text: "26 a 35 min", ponto: 3, estado: "visible" },
-        { text: "Acima de 35 min", ponto: 2, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Quando você compra equipamentos eletrônicos?",
-    a: [{ text: "Somente quando quebram e precisam ser substituídos", ponto: 5, estado: "visible"  },
-        { text: "Ocasionalmente troco por versões mais modernas", ponto: 3, estado: "visible"  },
-        { text: "Troco sempre por aparelhos mais modernos", ponto: 0, estado: "visible" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Quando você compra produtos e/ou equipamentos você busca informações sobre a adoção de medidas sustentáveis por parte da empresa?",
-    a: [{ text: "Sim", ponto: 5, estado: "visible"  },
-        { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Você pratica a coleta seletiva na sua residência?",
-    a: [{ text: "Sim", ponto: 5, estado: "visible" },
-        { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden"  },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Você realiza a compostagem na sua residência?",
-    a: [{ text: "Sim", ponto: 5, estado: "visible" },
-        { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden"  },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-{
-    q: "Você realiza algum tipo de reaproveitamento de água? (De chuva, de máquina de lavar roupa, outros)",
-    a: [{ text: "Sim", ponto: 5, estado: "visible" },
-        { text: "Não", ponto: 0, estado: "visible"  },
-        { text: "", ponto: 0, estado: "hidden" },
-        { text: "", ponto: 0, estado: "hidden"  },
-        { text: "", ponto: 0, estado: "hidden" },
-    ]
-
-},
-// {
-//     q: "Com que frequência você bebe refrigerante?",
-//     a: [{ text: "Nunca", ponto: 4, estado: "visible"  },
-//         { text: "Raramente", ponto: 3, estado: "visible"  },
-//         { text: "Ocasionalmente", ponto: 2, estado: "visible" },
-//         { text: "Frequentemente", ponto: 1, estado: "visible" },
-//         { text: "", ponto: 0, estado: "hidden" },
-//     ]
-
-// },
-// {
-//     q: "Quanto tempo você gasta no banho diariamente?",
-//     a: [{ text: "de 5 a 15min", ponto: 4, estado: "visible" },
-//         { text: "de 16 a 25min", ponto: 3, estado: "visible"  },
-//         { text: "acima de 26min", ponto: 1, estado: "visible"  },
-//         { text: "", ponto: 0, estado: "hidden" },
-//         { text: "", ponto: 0, estado: "hidden" },
-//     ]
-
-// },
-// {
-//     q: "Quantas horas você gasta viajando de avião anualmente?",
-//     a: [{ text: "Nunca viajo", ponto: 5, estado: "visible"  },
-//         { text: "0 a 4 horas", ponto: 4, estado: "visible"  },
-//         { text: "4 a 10 horas", ponto: 3, estado: "visible" },
-//         { text: "10 a 25 horas", ponto: 2, estado: "visible" },
-//         { text: "Mais de 25 horas", ponto: 0, estado: "visible" },
-//     ]
-
-// },
-// {
-//     q: "Você possui horta na sua casa?",
-//     a: [{ text: "Sim", ponto: 4, estado: "visible" },
-//         { text: "Não", ponto: 2, estado: "visible"  },
-//         { text: "", ponto: 0, estado: "hidden"  },
-//         { text: "", ponto: 0, estado: "hidden" },
-//         { text: "", ponto: 0, estado: "hidden" },
-//     ]
-// },
-// {
-//     q: "Você usa equipamentos que reduzem o consumo de água ou energia?",
-//     a: [{ text: "Sim", ponto: 4, estado: "visible" },
-//         { text: "Não", ponto: 2, estado: "visible"  },
-//         { text: "", ponto: 0, estado: "hidden"  },
-//         { text: "", ponto: 0, estado: "hidden" },
-//         { text: "", ponto: 0, estado: "hidden" },
-//     ]
-// },
-// {
-//     q: "Você realiza algum tipo de reaproveitamento da água?",
-//     a: [{ text: "Sim", ponto: 4, estado: "visible" },
-//         { text: "Não", ponto: 2, estado: "visible"  },
-//         { text: "", ponto: 0, estado: "hidden"  },
-//         { text: "", ponto: 0, estado: "hidden" },
-//         { text: "", ponto: 0, estado: "hidden" },
-//     ]
-// }
-]
+const Questions = [
+    {
+        q: "Com que frequência você consome alimentos cultivados localmente? ",
+        a: [{ text: "Diariamente", estado: "visible" },
+            { text: "Eventualmente", estado: "visible" },
+            { text: "Nunca", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" }
+        ]
+    },
+    {
+        q: "Você possui horta em sua residência? (No solo ou em vasos)",
+        a: [{ text: "Sim", estado: "visible" },
+            { text: "Não", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" }
+        ]
+    },
+    {
+        q: "Com que frequência você consome produtos embalados ou processados?",
+        a: [{ text: "Nunca", estado: "visible" },
+            { text: "Eventualmente", estado: "visible" },
+            { text: "Diariamente", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" }
+        ]
+    },
+    {
+        q: "Qual o meio de transporte que você mais usa?",
+        a: [{ text: "Motocicleta de terceiros (locado ou aplicativo)", estado: "visible" },
+            { text: "Motocicleta própria", estado: "visible" },
+            { text: "Automóvel de terceiros (locado ou aplicativo)", estado: "visible" },
+            { text: "Automóvel de terceiros (carona)", estado: "visible" },
+            { text: "Automóvel próprio", estado: "visible" }
+        ]
+    },
+    {
+        q: "Você adota equipamentos e tecnologias que reduzem o consumo de água e/ou energia em sua residência?",
+        a: [{ text: "Sim", estado: "visible" },
+            { text: "Não", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" }
+        ]
+    },
+    {
+        q: "Quanto tempo você gasta no banho diariamente?",
+        a: [{ text: "5 a 10 min", estado: "visible" },
+            { text: "11 a 25 min", estado: "visible" },
+            { text: "26 a 35 min", estado: "visible" },
+            { text: "Acima de 35 min", estado: "visible" },
+            { text: "", estado: "hidden" },
+        ]
+    },
+    {
+        q: "Quando você compra equipamentos eletrônicos?",
+        a: [{ text: "Somente quando quebram e precisam ser substituídos", estado: "visible" },
+            { text: "Ocasionalmente troco por versões mais modernas", estado: "visible" },
+            { text: "Troco sempre por aparelhos mais modernos", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+        ]
+    },
+    {
+        q: "Quando você compra produtos e/ou equipamentos você busca informações sobre a adoção de medidas sustentáveis por parte da empresa?",
+        a: [{ text: "Sim", estado: "visible" },
+            { text: "Não", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+        ]
+    },
+    {
+        q: "Você pratica a coleta seletiva na sua residência?",
+        a: [{ text: "Sim", estado: "visible" },
+            { text: "Não", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+        ]
+    },
+    {
+        q: "Você realiza a compostagem na sua residência?",
+        a: [{ text: "Sim", estado: "visible" },
+            { text: "Não", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+        ]
+    },
+    {
+        q: "Você realiza algum tipo de reaproveitamento de água? (De chuva, de máquina de lavar roupa, outros)",
+        a: [{ text: "Sim", estado: "visible" },
+            { text: "Não", estado: "visible" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+            { text: "", estado: "hidden" },
+        ]
+    }
+];
 
 /* configurando a resposta de todas as seções, a lista não pode ficar vazia. */
 Questions.forEach(() => { 
@@ -240,6 +173,7 @@ function passar(){
 function voltar(){
     id--;
     troca_pergunta()
+    console.log(questoes_selecionadas)
 }
 
 function finalizar(){
@@ -250,14 +184,14 @@ function finalizar(){
     }
 
     // Analizando o resultado
-    alimentos = [parseInt(questoes_selecionadas[0].slice(-1))>3, parseInt(questoes_selecionadas[1].slice(-1))>2, 
-                parseInt(questoes_selecionadas[3].slice(-1))>2, parseInt(questoes_selecionadas[13].slice(-1))>2]
+    alimentos = [parseInt(questoes_selecionadas[0].slice(-1))>1, parseInt(questoes_selecionadas[1].slice(-1))>1, 
+                 parseInt(questoes_selecionadas[2].slice(-1))>1]
     
-    lixos = [parseInt(questoes_selecionadas[4].slice(-1))>2, parseInt(questoes_selecionadas[5].slice(-1))>1, 
-                parseInt(questoes_selecionadas[6].slice(-1))>1, parseInt(questoes_selecionadas[7].slice(-1))>3]
+    lixos = [parseInt(questoes_selecionadas[7].slice(-1))>1, parseInt(questoes_selecionadas[8].slice(-1))>1, 
+                 parseInt(questoes_selecionadas[6].slice(-1))>1]
     
-    energia = [parseInt(questoes_selecionadas[2].slice(-1))>1, parseInt(questoes_selecionadas[8].slice(-1))>2,
-                parseInt(questoes_selecionadas[9].slice(-1))>2, parseInt(questoes_selecionadas[12].slice(-1))>3]
+    agua = [parseInt(questoes_selecionadas[4].slice(-1))>1, parseInt(questoes_selecionadas[5].slice(-1))>1,
+                 parseInt(questoes_selecionadas[10].slice(-1))>1]
     
     // Cada parametro será representado por uma letra
     if (verificar_repeticoes(alimentos)){
@@ -266,7 +200,7 @@ function finalizar(){
     if (verificar_repeticoes(lixos)){
         dicaurl = dicaurl+"L";
     }
-    if (verificar_repeticoes(energia)){
+    if (verificar_repeticoes(agua)){
         dicaurl = dicaurl+"E";
     }
     // Pegando o formulario
