@@ -9,7 +9,7 @@ function mandar_banco_dados($bairro, $unidade, $data, $total, $questoes){
     
     $stmt->execute();
      
-    $stmt2 = $conn->prepare("INSERT INTO tabelainfo (bairro, unidade, dia) VALUES (:valor1, :valor2, :valor3");
+    $stmt2 = $conn->prepare("INSERT INTO tabelainfo (bairro, departamento, dia) VALUES (:valor1, :valor2, :valor3)");
     
     $stmt2->bindValue(':valor1', $bairro);
     $stmt2->bindValue(':valor2', $unidade);
@@ -187,8 +187,8 @@ button:active
         <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
         <input type="hidden" name="total" value="<?= $_POST['resultado_total'] ?>">
         <input type="hidden" name="dica" value="<?= $_POST['resultado_dica'] ?>">
-        <input type="hidden" name="bairro" value="">
-        <input type="hidden" name="unidade" value="">
+        <input type="hidden" name="bairro" value="n respodido">
+        <input type="hidden" name="unidade" value="n respondido">
     </form>
     <!-- Formulario -->
     <div id="formulario">

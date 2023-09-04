@@ -36,7 +36,7 @@ function confirmar_2(){
 function confirmar_3(){
     const csn_checkbox = document.getElementById("csn");
     if (csn_checkbox.checked){
-        form.unidade.value = "";
+        form.unidade.value = "n respondido";
     }else{
         const departamento_selecionado = document.getElementById("departamentos");
         form.unidade.value = departamento_selecionado.value;
