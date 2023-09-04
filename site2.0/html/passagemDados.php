@@ -94,6 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     <title>Cadastro</title>
 	<link rel="icon" href="../Imagens/logosite.png">
     <!-- <link rel="stylesheet" href="../css/passagemDados.css"> -->
+
+    <!-- biblioteca pra pesquisar na dropdown -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
@@ -120,15 +124,20 @@ body
     font-family: 'Poppins', 'sans-serif';
     background-color: var(--fundo);
     color: var(--texto);
-    text-align: center;
+    text-align: left;
+    padding: 10px;
 }
-
-h1
+#formulario
 {
-    margin-top: 5%;
+    width: fit-content;
+    margin: 15vh auto;
+}
+#formulario select
+{
+    width: calc(18vw + 30%);
 }
 
-#formulario h3
+h3
 {
     margin-top: 8vh;
     margin-bottom: 4vh;
@@ -158,7 +167,7 @@ button
 {
     cursor: pointer;
     display: block;
-    margin: 5vh auto;
+    margin: 5vh 0;
     padding: 15px 8vw;
     background-color:transparent;
     font-family: 'Poppins', 'sans-serif';
@@ -173,7 +182,6 @@ button:active
 
 </style>
 <body>
-    <h1>Antes de continuar...</h1>
     <form method="post" id="formulario_variaveis">
         <!-- Quardando dados -->
         <input type="hidden" name="questoes" value="<?= $_POST['resultado_questoes'] ?>">
@@ -185,6 +193,7 @@ button:active
     <!-- Formulario -->
     <div id="formulario">
         <div id="form_1_id">
+            <!-- <h1>Antes de continuar...</h1> -->
             <h3>Deseja ampliar nossa Pesquisa nos informando mais sobre você?</h3>
             <input type="radio" value="s" name="resposta_form_1" id="radio-sim-quero">
                 <label for="radio-sim-quero">
@@ -196,10 +205,10 @@ button:active
                     Não, quero ver meu resultado
                 </label>
             <h3>🔒 Garantimos que as perguntas serão usadas apenas como maneira de ampliar nosso foco na cidade</h3>                
-            <button onclick="confirmar_1()">Continuar</button>
+            <button id="btContinuar" onclick="confirmar_1()">Continuar</button>
         </div>
         <div id="form_2_id" style="display: none;">
-            <h3>É morador de Volta Redonda?</h3>
+            <h3 style="font-size: large;">É morador de Volta Redonda?</h3>
             <input type="radio" value="s" name="resposta_form_2" id="radio-sim-vr">
             <label for="radio-sim-vr">
                 Sim
@@ -209,15 +218,106 @@ button:active
             <label for="radio-nao-vr">
                 Não
             </label>
-            <button onclick="confirmar_2()">Continuar</button>
+            <button id="btContinuar" onclick="confirmar_2()">Continuar</button>
         </div>
         <div id="form_3_id" style="display: none;">
-            <label for="bairro_dropdown">Informe seu bairro</label>
-            <select id="bairro_dropdown_id" name="bairro_dropdown">
-                <option value="bairro">bairro</option>
+            <label for="bairro_dropdown" style="margin-top: 4%;">Informe seu bairro</label>
+            <br>
+            <select class="select2" id="bairro_dropdown_id" name="bairro_dropdown">
+                <option value="Ilha Parque">Ilha Parque</option>
+                <option value="Jardim das Américas">Jardim das Américas</option>
+                <option value="Parque das Ilhas">Parque das Ilhas</option>
+                <option value="Santo Agostinho">Santo Agostinho</option>
+                <option value="Vila Americana">Vila Americana</option>
+                <option value="Volta Grande 1 e 3">Volta Grande 1 e 3</option>
+                <option value="Volta Grande 2">Volta Grande 2</option>
+                <option value="Brasilândia">Brasilândia</option>
+                <option value="Caieiras">Caieiras</option>
+                <option value="Câilândia">Câilândia</option>
+                <option value="Candelária">Candelária</option>
+                <option value="Dom Bosco">Dom Bosco</option>
+                <option value="Pinto da Serra">Pinto da Serra</option>
+                <option value="São Sebastião">São Sebastião</option>
+                <option value="São Luiz/Nova São Luiz">São Luiz/Nova São Luiz</option>
+                <option value="Água Limpa">Água Limpa</option>
+                <option value="Nova Primavera">Nova Primavera</option>
+                <option value="Pedreira">Pedreira</option>
+                <option value="Recanto Vila Rica (Três Poços)">Recanto Vila Rica (Três Poços)</option>
+                <option value="Três Poços">Três Poços</option>
+                <option value="Vista Bela">Vista Bela</option>
+                <option value="Casa de Pedra">Casa de Pedra</option>
+                <option value="Cidade Nova">Cidade Nova</option>
+                <option value="Conjunto Residencial Vila Rica">Conjunto Residencial Vila Rica</option>
+                <option value="Jardim Belvedere">Jardim Belvedere</option>
+                <option value="Jardim Esperança">Jardim Esperança</option>
+                <option value="Jardim Tiradentes">Jardim Tiradentes</option>
+                <option value="Jardim Vila Rica">Jardim Vila Rica</option>
+                <option value="Roma 1/ Condado do Ipê/ Parque das Garças">Roma 1/ Condado do Ipê/ Parque das Garças</option>
+                <option value="Roma II/ S. Francisco/ Santa Bárbara">Roma II/ S. Francisco/ Santa Bárbara</option>
+                <option value="Rio das Flores">Rio das Flores</option>
+                <option value="Siderópolis">Siderópolis</option>
+                <option value="Vivendas do Lago">Vivendas do Lago</option>
+                <option value="Village Sul">Village Sul</option>
+                <option value="Vista Verde">Vista Verde</option>
+                <option value="Bela Vista">Bela Vista</option>
+                <option value="Jardim Amália">Jardim Amália</option>
+                <option value="Jardim Normandia/Village Santa Helena/ Jd Provence 2">Jardim Normandia/Village Santa Helena/ Jd Provence 2</option>
+                <option value="Jardim Provence 1">Jardim Provence 1</option>
+                <option value="Laranjal">Laranjal</option>
+                <option value="Monte Castelo">Monte Castelo</option>
+                <option value="Morada da Colina/ Mirante do Vale">Morada da Colina/ Mirante do Vale</option>
+                <option value="São Geraldo">São Geraldo</option>
+                <option value="São João">São João</option>
+                <option value="Sessenta">Sessenta</option>
+                <option value="Vale da Colina">Vale da Colina</option>
+                <option value="Vila Santa Cecília">Vila Santa Cecília</option>
+                <option value="Eucaliptal">Eucaliptal</option>
+                <option value="Minerlândia">Minerlândia</option>
+                <option value="Santa Inês">Santa Inês</option>
+                <option value="São Carlos">São Carlos</option>
+                <option value="São Cristóvão">São Cristóvão</option>
+                <option value="São Lucas/ 207/ 208">São Lucas/ 207/ 208</option>
+                <option value="249 / Duzentos e Quarenta e Nove">249 / Duzentos e Quarenta e Nove</option>
+                <option value="Conforto">Conforto</option>
+                <option value="Jardim Europa">Jardim Europa</option>
+                <option value="Jardim Ponte Alta">Jardim Ponte Alta</option>
+                <option value="Jardim Suíça">Jardim Suíça</option>
+                <option value="Ponte Alta">Ponte Alta</option>
+                <option value="Rústico/ Santa Tereza">Rústico/ Santa Tereza</option>
+                <option value="Siderville">Siderville</option>
+                <option value="Belo Horizonte">Belo Horizonte</option>
+                <option value="Coqueiros">Coqueiros</option>
+                <option value="Mariana Torres">Mariana Torres</option>
+                <option value="Verde Vale">Verde Vale</option>
+                <option value="Vila Brasília">Vila Brasília</option>
+                <option value="Açude I, II, III, IV">Açude I, II, III, IV</option>
+                <option value="Belmonte">Belmonte</option>
+                <option value="Estrada União Retiro/ Morada do Campo">Estrada União Retiro/ Morada do Campo</option>
+                <option value="Jardim Belmonte">Jardim Belmonte</option>
+                <option value="Jardim Padre Josimo Tavares">Jardim Padre Josimo Tavares</option>
+                <option value="Santa Rita de Cássia">Santa Rita de Cássia</option>
+                <option value="Siderlândia">Siderlândia</option>
+                <option value="Eldorado">Eldorado</option>
+                <option value="Jardim Cidade do Aço">Jardim Cidade do Aço</option>
+                <option value="Village Jardim Primavera">Village Jardim Primavera</option>
+                <option value="Vila Mury/Limoeiro">Vila Mury/Limoeiro</option>
+                <option value="Retiro">Retiro</option>
+                <option value="Aero Clube">Aero Clube</option>
+                <option value="Aterrado">Aterrado</option>
+                <option value="Barreira Cravo">Barreira Cravo</option>
+                <option value="Veneza">Veneza</option>
+                <option value="Jardim Paraíba">Jardim Paraíba</option>
+                <option value="N. Srº, das Graças">N. Srº, das Graças</option>
+                <option value="Niterói">Niterói</option>
+                <option value="Voldac">Voldac</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Cruz II">Santa Cruz II</option>
+                <option value="Santa Rita do Zarur">Santa Rita do Zarur</option>
             </select>
+            <br>
             <label for="departamentos">Trabalha na CSN? Nos informe sua Unidade Organizacional</label>
-            <select id="departamentos" name="departamentos">
+            <br>
+            <select class="select2" id="departamentos" name="departamentos">
                 <option value="COORDENACAO DE ENGENHARIA">COORDENACAO DE ENGENHARIA</option>
                 <option value="DIRETORIA EXECUTIVA PRODUCAO SIDERURGIA">DIRETORIA EXECUTIVA PRODUCAO SIDERURGIA</option>
                 <option value="GERENCIA TRANSPORTE FERROVIARIO INTERNO">GERENCIA TRANSPORTE FERROVIARIO INTERNO</option>
@@ -314,9 +414,11 @@ button:active
                 <option value="GERENCIA GERAL SINTERIZACAO E ALTO FORNO">GERENCIA GERAL SINTERIZACAO E ALTO FORNO</option>
                 <option value="GERENCIA GERAL DE REDUTORES">GERENCIA GERAL DE REDUTORES</option>
             </select>
-            <label for="csn">Não trabalho na CSN</label>
+            <br>
+            <br>
             <input type="checkbox" id="csn" name="csn">
-            <button onclick="confirmar_3()">Continuar</button>
+            <label for="csn">Não trabalho na CSN</label>
+            <button id="btContinuar" onclick="confirmar_3()">Continuar</button>
         </div>
     </div>
     <script src="../passagemDados.js"></script>
