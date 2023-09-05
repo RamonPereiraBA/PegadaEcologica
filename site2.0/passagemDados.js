@@ -6,8 +6,8 @@ const form_3 = document.getElementById("form_3_id");
 function confirmar_1(){
     const resposta_form_1 = document.querySelector('input[name="resposta_form_1"]:checked');
     if (resposta_form_1 === null){
-        alert("Por favor, responda a pergunta")
-        console.log("---")
+        var erro = document.getElementById("mensagem_erro1");
+        erro.style.display = "block"
         return;
     }
     if (resposta_form_1.value === "n"){
@@ -21,8 +21,8 @@ function confirmar_1(){
 function confirmar_2(){
     const resposta_form_2 = document.querySelector('input[name="resposta_form_2"]:checked');
     if (resposta_form_2 === null){
-        alert("Por favor, responda a pergunta")
-        console.log("---")
+        var erro = document.getElementById("mensagem_erro2");
+        erro.style.display = "block"
         return;
     }
     if (resposta_form_2.value === "n"){
