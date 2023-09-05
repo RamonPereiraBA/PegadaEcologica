@@ -26,6 +26,7 @@ function confirmar_2(){
         return;
     }
     if (resposta_form_2.value === "n"){
+        form.bairro.value = "n mora"
         form.submit();
         return;
     }
@@ -36,7 +37,7 @@ function confirmar_2(){
 function confirmar_3(){
     const csn_checkbox = document.getElementById("csn");
     if (csn_checkbox.checked){
-        form.unidade.value = "n respondido";
+        form.unidade.value = "n trabalha";
     }else{
         const departamento_selecionado = document.getElementById("departamentos");
         form.unidade.value = departamento_selecionado.value;
