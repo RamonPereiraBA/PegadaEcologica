@@ -11,7 +11,7 @@ function ir_inicio(){
 }
 // Ir media global
 function ir_mediaGlobal(){
-    location.href= "resultadoDados.php?total="+resultado+"&dica="+dicaURL;
+    location.href= "../resultadoDados";
 }
 
 // configurando a tela do resultado
@@ -66,7 +66,7 @@ if (resultado >= 50)
 else if (resultado >= 35 && resultado <= 49)
 {
     qualidade_resultado = "Moderada";
-    texto = "Reduza o consumo de água, tentando usar equipamentos com potencial de diminuir o desperdício.";
+    texto = "Isso significa que seu consumo acaba sendo superior a velocidade em que a terra consegue repor para natureza.  A sua pegada se assemelha a de países como Alemanha e França  que necessitam de cerca de 2,7 planetas para repor o que consomem.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
     dica.addEventListener('click', setar_dica);
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
@@ -79,7 +79,7 @@ else if (resultado >= 35 && resultado <= 49)
 else
 {
     qualidade_resultado = "Péssimo";
-    texto = "Que pena,  parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome,  sendo  um número bastante alto.  Mas isso pode melhorar! ";
+    texto = "Que pena, parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome, sendo um número bastante alto. Mas isso pode melhorar! ";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
     dica.addEventListener('click', setar_dica)
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');

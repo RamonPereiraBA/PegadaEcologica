@@ -1,6 +1,7 @@
 <?php
 function mandar_banco_dados($bairro, $unidade, $data, $total, $questoes){
-    require('../conexao_servidor.php');
+    // Ajuste a pasta que esse arquivo esta
+    require('conexao_servidor.php');
     
     $stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes) VALUES (:valor1, :valor2)");
     
@@ -24,7 +25,7 @@ function somarTotal($questoes){
         array(7, 4, 2, 0, 0),
         array(6, 2, 0, 0, 0),
         array(6, 3, 2, 0, 0),
-        array(6, 4, 3, 3, 2),
+        array(1, 3, 4, 6, 0),
         array(6, 0, 0, 0, 0),
         array(6, 4, 3, 2, 0),
         array(7, 3, 0, 0, 0),

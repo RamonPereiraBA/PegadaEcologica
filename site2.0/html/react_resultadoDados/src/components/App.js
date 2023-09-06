@@ -27,11 +27,11 @@ var lista_perguntas_e_alternativas = [
   },
   {
       "q": "Qual o meio de transporte que você mais usa?",
-      1: "Automóvel próprio",
-      2: "Automóvel de terceiros (locado ou aplicativo)",
-      3: "Automóvel de terceiros (carona)",
-      4: "Motocicleta própria",
-      5: "Motocicleta de terceiros (locado ou aplicativo)",
+      1: "Automóvel",
+      2: "Motocicleta",
+      3: "Transporte Público",
+      4: "Bicicleta",
+      5: "",
       // 6: "Motocicleta de terceiros (carona)";
       // 7: "Transporte público – ônibus";
       // 8: "Bicicleta";
@@ -137,8 +137,8 @@ var lista_perguntas_e_alternativas = [
 const opcoes_data = [
   {valor: 'todos_ate_agora', texto: 'Todos até Agora'},
   {valor: 'hoje', texto: 'Hoje'},
-  {valor: 'semana_retrasada', texto: 'Semana retrasada'},
-  {valor: 'mes_retrasado', texto: 'Mês retrasado'},
+  {valor: 'semana_retrasada', texto: 'Últimos 7 Dias'},
+  {valor: 'mes_retrasado', texto: 'Últimos 30 Dias'},
   {valor: 'data_especifica', texto: 'Data Específica'}
 ];
 
@@ -225,7 +225,7 @@ function App(){
 
   // Pega a API
   const pesquisar_dados = async () => {
-    const response = await fetch(`http://localhost/site/pegadaecologica/site2.0/html/resultadoDados.php?data=${data_pesquisar}&data2=${data_inicial}&ocupacao=${ocupacao}`);
+    const response = await fetch(`https://greenlight.dev.br/resultadoDados.php?data=${data_pesquisar}&data2=${data_inicial}&ocupacao=${ocupacao}`);
     const dados = await response.json();
     setCarregou(false);
     setTexto_json(dados);
@@ -436,7 +436,7 @@ function App(){
             </div>
             
             <div id="campo-outros">
-              <a href='#'>Página Inicial</a>
+              <a href='../index.html'>Página Inicial</a>
               <a href='#'>Sobre Nós (Em Manutenção)</a>
             </div>
           </footer>

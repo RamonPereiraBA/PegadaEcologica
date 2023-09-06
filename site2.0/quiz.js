@@ -39,11 +39,11 @@ const Questions = [
     },
     {
         q: "Qual o meio de transporte que você mais usa?",
-        a: [{ text: "Motocicleta de terceiros (locado ou aplicativo)", estado: "visible" },
-            { text: "Motocicleta própria", estado: "visible" },
-            { text: "Automóvel de terceiros (locado ou aplicativo)", estado: "visible" },
-            { text: "Automóvel de terceiros (carona)", estado: "visible" },
-            { text: "Automóvel próprio", estado: "visible" }
+        a: [{ text: "Automóvel", estado: "visible" },
+            { text: "Motocicleta", estado: "visible" },
+            { text: "Transporte Público", estado: "visible" },
+            { text: "Bicicleta", estado: "visible" },
+            { text: "", estado: "hidden" }
         ]
     },
     {

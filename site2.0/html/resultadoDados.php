@@ -2,7 +2,7 @@
     header('Access-Control-Allow-Origin: *');
     
     $lista_medias = array();
-    require('../conexao_servidor.php');
+    require('conexao_servidor.php');
     
     // Verificando se a ocupação e a data estão certas
     $bool_data = (
@@ -38,7 +38,7 @@
     // Preenche as listas com a quantidade de questões existentes
     $soma_todos = 0;
     $lista_alternativas = array();
-    for ($x=0; $x<16; $x++){
+    for ($x=0; $x<11; $x++){
         array_push($lista_alternativas, array(0,0,0,0,0));
         array_push($lista_medias, array(0,0,0,0,0));
     }
@@ -47,7 +47,7 @@
     $x = 0;
     foreach($resultado as $r){
         $soma_todos += $r->total;
-        for ($i=0;$i<16;$i++){
+        for ($i=0;$i<11;$i++){
             // Pega qual alternativa foi selecionada
             $lista_alternativas[$i][substr($r->questoes, $i, 1)-1] += 1;
         }
@@ -56,7 +56,7 @@
     // Se tem dados, calcule a média.
     if ($soma_todos != 0){
         // Calcula a média de cada resposta
-        for ($i=0; $i<16;$i++){
+        for ($i=0; $i<11;$i++){
             for ($a=0; $a<5; $a++){
                 $lista_medias[$i][$a] = intval(round(($lista_alternativas[$i][$a]/$x)*100));
             }
