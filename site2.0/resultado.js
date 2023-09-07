@@ -11,7 +11,7 @@ function ir_inicio(){
 }
 // Ir media global
 function ir_mediaGlobal(){
-    location.href= "resultadoDados.php?total="+resultado+"&dica="+dicaURL;
+    location.href= "../resultadoDados";
 }
 
 // configurando a tela do resultado
@@ -28,7 +28,7 @@ if (resultado === null || resultado===""){
 // Descripitografando a dica
 var texto_dica;
 if (dicaURL.slice(-1)=="E"){
-    texto_dica = "Dica: Reduza o uso de dispositivos elétricos de alto consumo e opte por meios de transporte com baixo (ou quase nenhum) consumo de combustíveis fósseis ao viajar."
+    texto_dica = "Dica: Reduza o consumo de água, tentando usar equipamentos com potencial de diminuir o desperdício"
 }else if(dicaURL.slice(-1)=="L"){
     // texto_dica = "Dica: Busque consumir menos produtos, a fim de gerar menos lixo."
     texto_dica = "Dica: Opte por adquirir produtos de menor impacto ambiental, privilegiando os recicláveis sempre que possível. Pratique a separação adequada do lixo e faça o descarte correto."
@@ -57,7 +57,7 @@ let qualidade_resultado;
 if (resultado >= 50)
 {
     qualidade_resultado = "Excelente";
-    texto = "Parabéns!! Você está antenado com as questões ambientais e busca ter qualidade de vida sem agredir o meio ambiente.";
+    texto = "Sua pegada aproxima-se da Colômbia,  cuja a pegada necessita de apenas 1,1 planetas para suprir as demandas utilizadas da natureza.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoEx.png");
     dica.style.visibility = 'hidden'
     barra_resultado.classList.add("bg-success");
@@ -66,7 +66,7 @@ if (resultado >= 50)
 else if (resultado >= 35 && resultado <= 49)
 {
     qualidade_resultado = "Moderada";
-    texto = "Sua pegada é moderada. Seu estilo de vida está um pouco acima da capacidade natural de regeneração do planeta, de modo que seu consumo demanda mais do que a Terra pode repor.";
+    texto = "Isso significa que seu consumo acaba sendo superior a velocidade em que a terra consegue repor para natureza.  A sua pegada se assemelha a de países como Alemanha e França  que necessitam de cerca de 2,7 planetas para repor o que consomem.";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
     dica.addEventListener('click', setar_dica);
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
@@ -79,7 +79,7 @@ else if (resultado >= 35 && resultado <= 49)
 else
 {
     qualidade_resultado = "Péssimo";
-    texto = "Você vive de forma insustentável, pois demanda demais do que a capacidade natural de regeneração do planeta.";
+    texto = "Que pena, parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome, sendo um número bastante alto. Mas isso pode melhorar! ";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
     dica.addEventListener('click', setar_dica)
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
