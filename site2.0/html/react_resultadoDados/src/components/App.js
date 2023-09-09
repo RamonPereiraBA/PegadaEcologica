@@ -442,7 +442,7 @@ function App(){
           </footer>
         </>
       ):(
-        <p>Carregando..</p>
+        <span class="loader"></span>
       )}
     </>
   )
