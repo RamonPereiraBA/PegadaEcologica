@@ -183,20 +183,14 @@ function finalizar(){
         questoes_juntas += (questoes_selecionadas[i].slice(-1));
     }
 
-    // Analizando o resultado
-    alimentos = [parseInt(questoes_selecionadas[0].slice(-1))>1, parseInt(questoes_selecionadas[1].slice(-1))>1, 
-                 parseInt(questoes_selecionadas[2].slice(-1))>1]
-    
+    // Analizando o resultado    
     lixos = [parseInt(questoes_selecionadas[7].slice(-1))>1, parseInt(questoes_selecionadas[8].slice(-1))>1, 
-                 parseInt(questoes_selecionadas[6].slice(-1))>1]
+                 parseInt(questoes_selecionadas[6].slice(-1))>1, parseInt(questoes_selecionadas[2].slice(-1))>1]
     
     agua = [parseInt(questoes_selecionadas[4].slice(-1))>1, parseInt(questoes_selecionadas[5].slice(-1))>1,
                  parseInt(questoes_selecionadas[10].slice(-1))>1]
     
     // Cada parametro será representado por uma letra
-    if (verificar_repeticoes(alimentos)){
-        dicaurl = dicaurl+"A";
-    }
     if (verificar_repeticoes(lixos)){
         dicaurl = dicaurl+"L";
     }

@@ -28,12 +28,10 @@ if (resultado === null || resultado===""){
 // Descripitografando a dica
 var texto_dica;
 if (dicaURL.slice(-1)=="E"){
-    texto_dica = "Dica: Reduza o consumo de água, tentando usar equipamentos com potencial de diminuir o desperdício"
+    texto_dica = "Dica: Reduza o consumo de água, tentando usar equipamentos com potencial de diminuir o desperdício."
 }else if(dicaURL.slice(-1)=="L"){
     // texto_dica = "Dica: Busque consumir menos produtos, a fim de gerar menos lixo."
     texto_dica = "Dica: Opte por adquirir produtos de menor impacto ambiental, privilegiando os recicláveis sempre que possível. Pratique a separação adequada do lixo e faça o descarte correto."
-}else if(dicaURL.slice(-1)=="A"){
-    texto_dica = "Dica: Reduza o consumo excessivo de carne, bem como de alimentos processados e com alto teor de açúcar."
 }else{
     texto_dica = "Dica: Repense seus hábitos de consumo."
 }
@@ -57,7 +55,7 @@ let qualidade_resultado;
 if (resultado >= 50)
 {
     qualidade_resultado = "Excelente";
-    texto = "Sua pegada aproxima-se da Colômbia,  cuja a pegada necessita de apenas 1,1 planetas para suprir as demandas utilizadas da natureza.";
+    texto = "Parabéns! Sua Pegada Ecológica está muito boa. \nSua pegada aproxima-se da Colômbia, cuja a pegada necessita de apenas 1,1 planetas para suprir as demandas utilizadas da natureza.\nContinue assim!";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoEx.png");
     dica.style.visibility = 'hidden'
     barra_resultado.classList.add("bg-success");
@@ -66,7 +64,7 @@ if (resultado >= 50)
 else if (resultado >= 35 && resultado <= 49)
 {
     qualidade_resultado = "Moderada";
-    texto = "Isso significa que seu consumo acaba sendo superior a velocidade em que a terra consegue repor para natureza.  A sua pegada se assemelha a de países como Alemanha e França  que necessitam de cerca de 2,7 planetas para repor o que consomem.";
+    texto = "Sua pegada é moderada, você está no caminho certo! \nIsso significa que seu consumo acaba sendo superior a velocidade em que a terra consegue repor para natureza.  A sua pegada se assemelha a de países como Alemanha e França  que necessitam de cerca de 2,7 planetas para repor o que consomem.\n Mas calma, você está no caminho certo!";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
     dica.addEventListener('click', setar_dica);
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
@@ -79,7 +77,7 @@ else if (resultado >= 35 && resultado <= 49)
 else
 {
     qualidade_resultado = "Péssimo";
-    texto = "Que pena, parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome, sendo um número bastante alto. Mas isso pode melhorar! ";
+    texto = "Que pena, parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome, sendo um número bastante alto. Mas isso pode melhorar!\nBora lá mudar isso?\nO planeta precisa da sua ajuda!";
     imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
     dica.addEventListener('click', setar_dica)
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
