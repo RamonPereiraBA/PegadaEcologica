@@ -56,7 +56,6 @@ if (resultado >= 50)
 {
     qualidade_resultado = "Excelente";
     texto = "Parabéns! Sua Pegada Ecológica está muito boa. \nSua pegada aproxima-se da Colômbia, cuja a pegada necessita de apenas 1,1 planetas para suprir as demandas utilizadas da natureza.\nContinue assim!";
-    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoEx.png");
     dica.style.visibility = 'hidden'
     barra_resultado.classList.add("bg-success");
 }
@@ -65,7 +64,6 @@ else if (resultado >= 35 && resultado <= 49)
 {
     qualidade_resultado = "Moderada";
     texto = "Sua pegada é moderada, você está no caminho certo! \nIsso significa que seu consumo acaba sendo superior a velocidade em que a terra consegue repor para natureza.  A sua pegada se assemelha a de países como Alemanha e França  que necessitam de cerca de 2,7 planetas para repor o que consomem.\n Mas calma, você está no caminho certo!";
-    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoM.png");
     dica.addEventListener('click', setar_dica);
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
     document.documentElement.style.setProperty('--cor_caixa_resultado', '#C43302');
@@ -78,7 +76,6 @@ else
 {
     qualidade_resultado = "Péssimo";
     texto = "Que pena, parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome, sendo um número bastante alto. Mas isso pode melhorar!\nBora lá mudar isso?\nO planeta precisa da sua ajuda!";
-    imagem_fundo.setAttribute('src', "../Imagens/imagens_fundo/FundoR.png");
     dica.addEventListener('click', setar_dica)
     document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
     document.documentElement.style.setProperty('--cor_caixa_resultado', '#260101');

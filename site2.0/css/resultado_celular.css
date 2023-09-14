@@ -1,4 +1,4 @@
-/* declaração de variaveis */
+/* declaração de variaveis
 :root{
     --cor_caixa_titulo : #0CF25D;
     --cor_titulo_resultado: #034159;
@@ -10,7 +10,6 @@ body{
     background-color: #012030;
 }
 
-/* resto do código */
 #caixa_titulo{
     position: fixed;
     display: flex;
@@ -127,8 +126,24 @@ body{
     cursor: pointer;
 }
 
-/* ACTIVE */
 
 #ir_inicio:active, #ir_mediaGlobal:active{
     filter: brightness(50%);
+} */
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
+
+:root
+{
+    --cor_caixa_titulo : #0CF25D;
+    --cor_titulo_resultado: #034159;
+    --cor_caixa_resultado : #025951;
+    --cor_caixa_geral : #034159;
+}
+

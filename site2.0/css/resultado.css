@@ -1,12 +1,11 @@
 /* declaração de variaveis */
-:root{
+/* :root{
     --cor_caixa_titulo : #0CF25D;
     --cor_titulo_resultado: #034159;
     --cor_caixa_resultado : #025951;
     --cor_caixa_geral : #034159;
 }
 
-/* resto do código */
 #caixa_titulo{
     position: fixed;
     top: 0;
@@ -50,10 +49,10 @@
     color: var(--cor_caixa_titulo);
     top: 5%;
     left: 20%;
-}
+} */
 
 /* barra de progresso */
-
+/* 
 .progress{
     position: absolute;
     bottom: 10%;
@@ -136,11 +135,11 @@
 {
     outline-style: dashed;
     outline-width: 0px;
-}
+} */
 
 /* HOVER */
 
-#ir_inicio:hover, #ir_mediaGlobal:hover
+/* #ir_inicio:hover, #ir_mediaGlobal:hover
 {
     outline-width: 5px;
     outline-style: solid;
@@ -156,7 +155,6 @@
     outline-color: var(--cor_caixa_titulo);
 }
 
-/* ACTIVE */
 
 #ir_inicio:active, #ir_mediaGlobal:active
 {
@@ -171,4 +169,90 @@
 #ir_mediaGlobal:active{
     filter: brightness(50%);
     outline: 0;
+} */
+
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+:root
+{
+    --cor_caixa_titulo : #0CF25D;
+    --cor_titulo_resultado: #034159;
+    --cor_caixa_resultado : #025951;
+    --cor_caixa_geral : #034159;
+}
+
+body
+{
+    position: absolute;
+    display: flex;
+    height: 100%;
+}
+
+aside
+{
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    
+    background-color: blue;
+}
+
+#caixa_titulo
+{
+    height: 232px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+
+    & p
+    {
+        font-size: 3.1rem;
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+p
+{
+    color: black;
+
+}
+#caixa_resultado
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #025951;
+
+    & p,
+    & div
+    {
+        /* z-index: 1; */
+    }
+
+    & img
+    {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../Imagens/imagens_fundo/FundoEx.png");
+        opacity: 29%;
+    }
+
+    #texto_resultado
+    {
+        font-weight: bold;
+    }
 }
