@@ -1,7 +1,7 @@
 <?php
 function mandar_banco_dados($bairro, $unidade, $data, $total, $questoes){
     // Ajuste a pasta que esse arquivo esta
-    require('conexao_servidor.php');
+    require('../conexao_servidor.php');
     
     $stmt = $conn->prepare("INSERT INTO tabelaecologica (total, questoes) VALUES (:valor1, :valor2)");
     
@@ -94,6 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     <meta http-equiv="Expires" content="0" />
     <title>Cadastro</title>
 	<link rel="icon" href="../Imagens/logosite.png">
+    <!--Bootstrap-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- <link rel="stylesheet" href="../css/passagemDados.css"> -->
 
     <!-- biblioteca pra pesquisar na dropdown -->
@@ -193,6 +198,22 @@ button:active
     top: 4px;
 }
 
+.progress
+{
+    position: fixed;
+    height: 7px;
+    width: 100%; 
+    left: 0%;
+    border-radius: 0;
+    top: 0;
+    background: none;
+}
+
+.progress-bar
+{
+    background: var(--texto);
+}
+
 </style>
 <body>
     <form method="post" id="formulario_variaveis">
@@ -203,10 +224,13 @@ button:active
         <input type="hidden" name="bairro" value="n respodido">
         <input type="hidden" name="unidade" value="n respondido">
     </form>
+	<!--Barra de progresso-->
+	<div class="progress">
+        <div class="progress-bar" id="barra_resultado" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
     <!-- Formulario -->
     <div id="formulario">
         <div id="form_1_id">
-            <h1>1/3</h1>
             <h3>Deseja ampliar nossa Pesquisa nos informando mais sobre você?</h3>
             <input type="radio" value="s" name="resposta_form_1" id="radio-sim-quero">
                 <label for="radio-sim-quero">
@@ -222,7 +246,6 @@ button:active
             <button id="btContinuar" onclick="confirmar_1()">Continuar</button>
         </div>
         <div id="form_2_id" style="display: none;">
-            <h1>2/3</h1>
             <h3 style="font-size: large;">É morador de Volta Redonda?</h3>
             <input type="radio" value="s" name="resposta_form_2" id="radio-sim-vr">
             <label for="radio-sim-vr">
@@ -237,7 +260,6 @@ button:active
             <button id="btContinuar" onclick="confirmar_2()">Continuar</button>
         </div>
         <div id="form_3_id" style="display: none;">
-            <h1>3/3</h1>
             <label for="bairro_dropdown" style="margin-top: 4%;">Informe seu bairro</label>
             <br>
             <select class="select2" id="bairro_dropdown_id" name="bairro_dropdown">
@@ -411,8 +433,7 @@ button:active
                 <option value="GERENCIA TRANSPORTE FERROVIARIO INTERNO">GERENCIA TRANSPORTE FERROVIARIO INTERNO</option>
 		<option value="RH">RH</option>
             </select>
-            <br>
-            <br>
+                <br>
             <input type="checkbox" id="csn" name="csn">
             <label for="csn">Não trabalho na CSN</label>
             <button id="btContinuar" onclick="confirmar_3()">Continuar</button>
