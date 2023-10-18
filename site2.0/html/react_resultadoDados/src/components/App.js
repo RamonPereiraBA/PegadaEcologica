@@ -225,7 +225,7 @@ function App(){
 
   // Pega a API
   const pesquisar_dados = async () => {
-    const response = await fetch(`https://greenlight.dev.br/resultadoDados.php?data=${data_pesquisar}&data2=${data_inicial}&ocupacao=${ocupacao}`);
+    const response = await fetch(`https://greenlight.dev.br/resultadoDados.php?data=${data_inicial}&data2=${data_pesquisar}&ocupacao=${ocupacao}`);
     const dados = await response.json();
     setCarregou(false);
     setTexto_json(dados);
