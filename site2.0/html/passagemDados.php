@@ -142,6 +142,7 @@ body
 {
     width: fit-content;
     margin: 15vh auto;
+    text-align: center;
 }
 #formulario select
 {
@@ -155,30 +156,36 @@ h3
     font-weight: 600;
 }
 
-#formulario h3:last-of-type
+#form_1_id h3:last-of-type
 {    
     font-weight: 500;
     font-size: .8rem;
 }
 
-input[type="radio"]
-{
-    font-size: 1.25rem;
-}
-
-#formulario label
+#form_1_id label,
+#form_2_id label
 {
     cursor: pointer;
     margin-left: 5px;
-    margin-bottom: 5vh;
+    margin-bottom: 15px;
     font-size: calc(1rem + .4vw);
+}
+
+label[for="departamentos"]
+{
+    margin-top: 25px;
+}
+
+input[type="checkbox"]
+{
+    margin-top: 15px;
 }
 
 button
 {
     cursor: pointer;
     display: block;
-    margin: 5vh 0;
+    margin: 5vh auto;
     padding: 15px 8vw;
     background-color:transparent;
     font-family: 'Poppins', 'sans-serif';
@@ -246,7 +253,7 @@ button:active
             <button id="btContinuar" onclick="confirmar_1()">Continuar</button>
         </div>
         <div id="form_2_id" style="display: none;">
-            <h3 style="font-size: large;">É morador de Volta Redonda?</h3>
+            <h3>É morador de Volta Redonda?</h3>
             <input type="radio" value="s" name="resposta_form_2" id="radio-sim-vr">
             <label for="radio-sim-vr">
                 Sim
@@ -260,7 +267,7 @@ button:active
             <button id="btContinuar" onclick="confirmar_2()">Continuar</button>
         </div>
         <div id="form_3_id" style="display: none;">
-            <label for="bairro_dropdown" style="margin-top: 4%;">Informe seu bairro</label>
+            <label for="bairro_dropdown">Informe seu bairro</label>
             <br>
             <select class="select2" id="bairro_dropdown_id" name="bairro_dropdown">
                 <option value="Açude I, II, III, IV">Açude I, II, III, IV</option>
