@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Cadastro</title>
-	<link rel="icon" href="../Imagens/logosite.png">
+	<link rel="icon" href="../Imagens/icons/favicon.ico">
     <!--Bootstrap-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
