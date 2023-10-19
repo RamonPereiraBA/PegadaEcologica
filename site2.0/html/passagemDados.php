@@ -115,13 +115,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
     --texto-header: #005C53;
     --texto: #012030;
     --tamanho-fonte: 2vw;
+    --verde-botao: #DBF227;
 }
-h1
-{
-    text-align: center;
-    font-size: medium;
-    font-weight: 400;
-}
+
 *
 {
     margin: 0;
@@ -135,8 +131,7 @@ body
     font-family: 'Poppins', 'sans-serif';
     background-color: var(--fundo);
     color: var(--texto);
-    text-align: left;
-    padding: 10px;
+    padding: 5px;
 }
 #formulario
 {
@@ -144,15 +139,16 @@ body
     margin: 15vh auto;
     text-align: center;
 }
-#formulario select
-{
-    width: calc(18vw + 30%);
-}
 
 h3
 {
     margin-top: 8vh;
-    margin-bottom: 4vh;
+    margin-bottom: 12vh;
+    font-weight: 400;
+}
+
+h3 span
+{
     font-weight: 600;
 }
 
@@ -162,23 +158,9 @@ h3
     font-size: .8rem;
 }
 
-#form_1_id label,
-#form_2_id label
-{
-    cursor: pointer;
-    margin-left: 5px;
-    margin-bottom: 15px;
-    font-size: calc(1rem + .4vw);
-}
-
 label[for="departamentos"]
 {
     margin-top: 25px;
-}
-
-input[type="checkbox"]
-{
-    margin-top: 15px;
 }
 
 button
@@ -191,6 +173,7 @@ button
     font-family: 'Poppins', 'sans-serif';
     font-size: calc(1rem + .5vw);
     transition: all .2s;
+    border-radius: 25px;
 }
 
 button:hover
@@ -202,7 +185,42 @@ button:hover
 button:active
 {
     position: relative;
-    top: 4px;
+    top: 5px;
+}
+
+#form_1_id button:first-of-type
+{
+    background-color: var(--verde-botao);
+    border: none;
+    border-radius: 25px;
+}
+
+#form_1_id button:first-of-type:hover
+{
+    filter: brightness(85%);
+    color: var(--texto);
+}
+
+label
+{
+    font-size: 1.25rem;
+}
+
+#form_3_id
+{
+    text-align: left;
+}
+
+input[type="checkbox"]
+{
+    margin-top: 5vh;
+    transform: scale(120%);
+    margin-right: 5px;
+}
+
+#form_3_id button
+{
+    margin: 10vh 0;
 }
 
 .progress
@@ -238,8 +256,8 @@ button:active
     <!-- Formulario -->
     <div id="formulario">
         <div id="form_1_id">
-            <h3>Deseja ampliar nossa Pesquisa nos informando mais sobre você?</h3>
-            <input type="radio" value="s" name="resposta_form_1" id="radio-sim-quero">
+            <h3>Deseja <span>ampliar</span> nossa Pesquisa nos informando mais sobre você?</h3>
+            <!-- <input type="radio" value="s" name="resposta_form_1" id="radio-sim-quero">
                 <label for="radio-sim-quero">
                     Sim, quero contribuir e ajudar o meio ambiente!
                 </label>
@@ -247,14 +265,21 @@ button:active
             <input type="radio" value="n" name="resposta_form_1" id="radio-nao-quero">
                 <label for="radio-nao-quero">
                     Não, quero ver meu resultado
-                </label>
+                </label> -->
+            <button onclick="confirmar_1()">
+                Sim, quero contribuir e ajudar o meio ambiente!
+            </button>
+
+            <button onclick="sair()">
+                Não, quero ver meu resultado
+            </button>
             <h3>🔒 Garantimos que as perguntas serão usadas apenas como maneira de ampliar nosso foco na cidade</h3>                
-            <p id="mensagem_erro1" style="color: red; display:none;">*Responda a pergunta</p>
-            <button id="btContinuar" onclick="confirmar_1()">Continuar</button>
+            <!-- <p id="mensagem_erro1" style="color: red; display:none;">*Responda a pergunta</p> -->
+            <!-- <button id="btContinuar" onclick="confirmar_1()">Continuar</button> -->
         </div>
         <div id="form_2_id" style="display: none;">
             <h3>É morador de Volta Redonda?</h3>
-            <input type="radio" value="s" name="resposta_form_2" id="radio-sim-vr">
+            <!-- <input type="radio" value="s" name="resposta_form_2" id="radio-sim-vr">
             <label for="radio-sim-vr">
                 Sim
             </label>
@@ -262,9 +287,16 @@ button:active
             <input type="radio" value="n" name="resposta_form_2" id="radio-nao-vr">
             <label for="radio-nao-vr">
                 Não
-            </label>
-            <p id="mensagem_erro2" style="color: red; display:none;">*Responda a pergunta</p>
-            <button id="btContinuar" onclick="confirmar_2()">Continuar</button>
+            </label> -->
+            <button onclick="confirmar_2()">
+                Sim
+            </button>
+
+            <button onclick="n_mora()">
+                Não
+            </button>
+            <!-- <p id="mensagem_erro2" style="color: red; display:none;">*Responda a pergunta</p> -->
+            <!-- <button id="btContinuar" onclick="confirmar_2()">Continuar</button> -->
         </div>
         <div id="form_3_id" style="display: none;">
             <label for="bairro_dropdown">Informe seu bairro</label>
@@ -443,7 +475,7 @@ button:active
                 <br>
             <input type="checkbox" id="csn" name="csn">
             <label for="csn">Não trabalho na CSN</label>
-            <button id="btContinuar" onclick="confirmar_3()">Continuar</button>
+            <button id="btContinuar" onclick="confirmar_3()"><i>VER MEU RESULTADO</i></button>
         </div>
     </div>
     <script src="../passagemDados.js"></script>
