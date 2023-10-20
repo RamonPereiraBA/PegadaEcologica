@@ -3,6 +3,8 @@ const prev = document.getElementById('prev')
 const fim = document.getElementById('finalizar')
 const barra_resultado = document.getElementById("barra_resultado");
 const color_background =  document.getElementById('op1').style.backgroundColor;
+const painel = document.getElementById("questionario");
+const cores = ['#45C4B0', '#45AEC4', '#45C486', '#45AFC4']
 var id = 0
 //Questão selecionada pega o do do html
 var questoes_selecionadas = []
@@ -146,6 +148,10 @@ function checagem_botoes(){
     if (id + 1 < Questions.length) { // o user não chegou na última questão
         next.disabled = (questoes_selecionadas[id] === 0); // o user não selecionou alguma alternativa?
         next.style.display = (next.disabled) ? "none" : "block";
+
+        // animação de aparecer
+        next.style.animation = "aparecer .3s"
+        next.addEventListener("animationend" ,function restart(){painel.style.animation = ""});
     } else { // o user está na última questão
         next.disabled = true;
         next.style.display = "none";
@@ -153,7 +159,7 @@ function checagem_botoes(){
 
     // habilitar/desabilitar prev
     prev.disabled = (id === 0);
-    prev.style.display = (prev.disabled) ? "none" : "block";  
+    prev.style.display = (prev.disabled) ? "none" : "block";
 }
 
 verificar_respostas();
@@ -230,16 +236,23 @@ function botao_esta_selecionado(){
     opcao = "op"
     for (let i = 1; i < 6; i++){
         if (opcao+i == questoes_selecionadas[id]){
+            document.getElementById('op'+i).style.animation = "acender .05s"
             document.getElementById('op'+i).style.backgroundColor = "#EBEBEB"
         }
         else{
+            document.getElementById('op'+i).style.animation = "apagar .3s"
             document.getElementById('op'+i).style.backgroundColor = color_background
         }}
 }
 
 function troca_pergunta(){
+    painel.style.animation = "aparecer .5s"
+    painel.addEventListener("animationend" ,function restart(){painel.style.animation = ""});
     barra_resultado.style.width = (((id+1)/11)*100)+"%";
     pagina_questao();
     checagem_botoes();
     botao_esta_selecionado();
+    // seleciona a cor aleatoria pra proxima pagina
+    let indice_aleatorio = Math.floor(Math.random() * cores.length);
+    document.documentElement.style.setProperty('--azul', cores[indice_aleatorio]);
 }
