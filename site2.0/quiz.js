@@ -3,7 +3,10 @@ const prev = document.getElementById('prev')
 const fim = document.getElementById('finalizar')
 const barra_resultado = document.getElementById("barra_resultado");
 const color_background =  document.getElementById('op1').style.backgroundColor;
-const painel = document.getElementById("questionario");
+const questionario = document.getElementById("questionario");
+const painel = document.getElementById("painel");
+const splash = document.getElementById("splash");
+const iniciar_quiz = document.getElementById("iniciar_quiz");
 const cores = ['#45C4B0', '#45AEC4', '#45C486', '#45AFC4']
 var id = 0
 //Questão selecionada pega o do do html
@@ -151,7 +154,7 @@ function checagem_botoes(){
 
         // animação de aparecer
         next.style.animation = "aparecer .3s"
-        next.addEventListener("animationend" ,function restart(){painel.style.animation = ""});
+        next.addEventListener("animationend" ,function restart(){questionario.style.animation = ""});
     } else { // o user está na última questão
         next.disabled = true;
         next.style.display = "none";
@@ -170,6 +173,20 @@ next.addEventListener("click", passar)
 prev.addEventListener("click", voltar)
 
 fim.addEventListener("click", finalizar)
+
+iniciar_quiz.addEventListener("click", desaparecer);
+
+function desaparecer()
+{
+    splash.style.animation = "desaparecer .8s ease-in"
+    setTimeout(abrir_quiz, 700);
+}
+
+function abrir_quiz()
+{
+    splash.style.display = "none"
+    painel.style.display = "block"
+}
 
 function passar(){
     id++;
@@ -246,8 +263,8 @@ function botao_esta_selecionado(){
 }
 
 function troca_pergunta(){
-    painel.style.animation = "aparecer .5s"
-    painel.addEventListener("animationend" ,function restart(){painel.style.animation = ""});
+    questionario.style.animation = "aparecer .5s"
+    questionario.addEventListener("animationend" ,function restart(){questionario.style.animation = ""});
     barra_resultado.style.width = (((id+1)/11)*100)+"%";
     pagina_questao();
     checagem_botoes();
