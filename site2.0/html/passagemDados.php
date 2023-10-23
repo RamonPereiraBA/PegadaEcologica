@@ -99,147 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" and
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" href="../css/passagemDados.css"> -->
+    <link rel="stylesheet" href="../css/passagemDados.css">
 
     <!-- biblioteca pra pesquisar na dropdown -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
-
-:root
-{
-    --fundo: #F2F2F2;
-    --verde-span: #9FC131;
-    --texto-header: #005C53;
-    --texto: #012030;
-    --tamanho-fonte: 2vw;
-    --verde-botao: #DBF227;
-}
-
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-body
-{
-    font-family: 'Poppins', 'sans-serif';
-    background-color: var(--fundo);
-    color: var(--texto);
-    padding: 5px;
-}
-#formulario
-{
-    width: fit-content;
-    margin: 15vh auto;
-    text-align: center;
-}
-
-h3
-{
-    margin-top: 8vh;
-    margin-bottom: 12vh;
-    font-weight: 400;
-}
-
-h3 span
-{
-    font-weight: 600;
-}
-
-#form_1_id h3:last-of-type
-{    
-    font-weight: 500;
-    font-size: .8rem;
-}
-
-label[for="departamentos"]
-{
-    margin-top: 25px;
-}
-
-button
-{
-    cursor: pointer;
-    display: block;
-    margin: 5vh auto;
-    padding: 15px 8vw;
-    background-color:transparent;
-    font-family: 'Poppins', 'sans-serif';
-    font-size: calc(1rem + .5vw);
-    transition: all .2s;
-    border-radius: 25px;
-}
-
-button:hover
-{
-    background-color: var(--texto);
-    color: var(--fundo);
-}
-
-button:active
-{
-    position: relative;
-    top: 5px;
-}
-
-#form_1_id button:first-of-type
-{
-    background-color: var(--verde-botao);
-    border: none;
-    border-radius: 25px;
-}
-
-#form_1_id button:first-of-type:hover
-{
-    filter: brightness(85%);
-    color: var(--texto);
-}
-
-label
-{
-    font-size: 1.25rem;
-}
-
-#form_3_id
-{
-    text-align: left;
-}
-
-input[type="checkbox"]
-{
-    margin-top: 5vh;
-    transform: scale(120%);
-    margin-right: 5px;
-}
-
-#form_3_id button
-{
-    margin: 10vh 0;
-}
-
-.progress
-{
-    position: fixed;
-    height: 7px;
-    width: 100%; 
-    left: 0%;
-    border-radius: 0;
-    top: 0;
-    background: none;
-}
-
-.progress-bar
-{
-    background: var(--texto);
-}
-
-</style>
 <body>
     <form method="post" id="formulario_variaveis">
         <!-- Quardando dados -->
@@ -257,15 +122,6 @@ input[type="checkbox"]
     <div id="formulario">
         <div id="form_1_id">
             <h3>Deseja <span>ampliar</span> nossa Pesquisa nos informando mais sobre você?</h3>
-            <!-- <input type="radio" value="s" name="resposta_form_1" id="radio-sim-quero">
-                <label for="radio-sim-quero">
-                    Sim, quero contribuir e ajudar o meio ambiente!
-                </label>
-            <br>
-            <input type="radio" value="n" name="resposta_form_1" id="radio-nao-quero">
-                <label for="radio-nao-quero">
-                    Não, quero ver meu resultado
-                </label> -->
             <button onclick="confirmar_1()">
                 Sim, quero contribuir e ajudar o meio ambiente!
             </button>
@@ -274,20 +130,9 @@ input[type="checkbox"]
                 Não, quero ver meu resultado
             </button>
             <h3>🔒 Garantimos que as perguntas serão usadas apenas como maneira de ampliar nosso foco na cidade</h3>                
-            <!-- <p id="mensagem_erro1" style="color: red; display:none;">*Responda a pergunta</p> -->
-            <!-- <button id="btContinuar" onclick="confirmar_1()">Continuar</button> -->
         </div>
         <div id="form_2_id" style="display: none;">
             <h3>É morador de Volta Redonda?</h3>
-            <!-- <input type="radio" value="s" name="resposta_form_2" id="radio-sim-vr">
-            <label for="radio-sim-vr">
-                Sim
-            </label>
-            <br>
-            <input type="radio" value="n" name="resposta_form_2" id="radio-nao-vr">
-            <label for="radio-nao-vr">
-                Não
-            </label> -->
             <button onclick="confirmar_2()">
                 Sim
             </button>
@@ -295,8 +140,6 @@ input[type="checkbox"]
             <button onclick="n_mora()">
                 Não
             </button>
-            <!-- <p id="mensagem_erro2" style="color: red; display:none;">*Responda a pergunta</p> -->
-            <!-- <button id="btContinuar" onclick="confirmar_2()">Continuar</button> -->
         </div>
         <div id="form_3_id" style="display: none;">
             <label for="bairro_dropdown">Informe seu bairro</label>
