@@ -26,7 +26,7 @@ b
 
 header
 {
-    background-image: linear-gradient(rgba(var(--fundo-trans), 0.85), rgba(var(--fundo-trans), 0.85)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Imagens/imagens_fundo/FundoEx.png");
+    background-image: linear-gradient(rgba(var(--fundo-trans), 0.85), rgba(var(--fundo-trans), 0.85)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Imagens/imagens_fundo/FundoEx.webp");
     color: var(--texto-header);
     padding: 2rem 4rem;
     display: flex;

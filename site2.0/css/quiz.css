@@ -181,7 +181,7 @@ body
     /* border-radius: 25px; */
     text-align: left;
     padding-left: 10vw;
-    background-image: linear-gradient(90deg,rgba(var(--cor-trans), 1) 25%,rgba(var(--cor-trans), .7) 75%), url("../Imagens/imagens_fundo/FundoEx.png");
+    background-image: linear-gradient(90deg,rgba(var(--cor-trans), 1) 25%,rgba(var(--cor-trans), .7) 75%), url("../Imagens/imagens_fundo/FundoEx.webp");
 
     & h4
     {
@@ -262,7 +262,7 @@ body
     #splash
     {
         padding: 20px;
-        background-image: url("../Imagens/imagens_fundo/FundoEx.png");
+        background-image: url("../Imagens/imagens_fundo/FundoEx.webp");
         background-color: var(--texto-branco);
         background-blend-mode: overlay;
 
