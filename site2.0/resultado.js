@@ -1,8 +1,10 @@
 // redirecionando a pagina
 const bt_inicio = document.getElementById("ir_inicio")
+const logo_inicio = document.getElementById("logo_inicio")
 const bt_ir_mediaGlobal = document.getElementById("ir_mediaGlobal")
 
 bt_inicio.addEventListener('click', ir_inicio)
+logo_inicio.addEventListener('click', ir_inicio)
 bt_ir_mediaGlobal.addEventListener('click', ir_mediaGlobal)
 
 // ir inicio
@@ -41,8 +43,6 @@ const titulo = document.getElementById("titulo_resultado");
 const texto_resultado = document.getElementById("resultado");
 const texto_geral = document.getElementById("texto_geral");
 const dica = document.getElementById('dica');
-const barra_resultado = document.getElementById("barra_resultado");
-var dicaCor;
 
 texto_resultado.innerText = resultado;
 
@@ -54,47 +54,31 @@ let qualidade_resultado;
 if (resultado >= 50)
 {
     qualidade_resultado = "Excelente";
-    texto = "Parabéns! Sua Pegada Ecológica está muito boa. \nSua pegada aproxima-se da Colômbia, cuja a pegada necessita de apenas 1,1 planetas para suprir as demandas utilizadas da natureza.\nContinue assim!";
+    texto = "Parabéns! Sua Pegada Ecológica está muito boa. Sua pegada aproxima-se da Colômbia, cuja a pegada necessita de apenas 1,1 planetas para suprir as demandas utilizadas da natureza. Continue assim!";
     dica.style.visibility = 'hidden'
-    barra_resultado.classList.add("bg-success");
 }
 
 else if (resultado >= 35 && resultado <= 49)
 {
     qualidade_resultado = "Moderada";
-    texto = "Sua pegada é moderada, você está no caminho certo! \nIsso significa que seu consumo acaba sendo superior a velocidade em que a terra consegue repor para natureza.  A sua pegada se assemelha a de países como Alemanha e França  que necessitam de cerca de 2,7 planetas para repor o que consomem.\n Mas calma, você está no caminho certo!";
+    texto = "Sua pegada é moderada. Isso significa que seu consumo acaba sendo superior a velocidade em que a terra consegue repor para natureza. A sua pegada se assemelha a de países como Alemanha e França  que necessitam de cerca de 2,7 planetas para repor o que consomem. Mas calma, você está no caminho certo!";
     dica.addEventListener('click', setar_dica);
-    document.documentElement.style.setProperty('--cor_caixa_titulo', '#FFAE00');
-    document.documentElement.style.setProperty('--cor_caixa_resultado', '#C43302');
-    document.documentElement.style.setProperty('--cor_titulo_resultado', '#010221');
-    document.documentElement.style.setProperty('--cor_caixa_geral', '#B7BF99');
-    barra_resultado.classList.add("bg-warning");
+    document.documentElement.style.setProperty('--blocos', '#F2BE24');
+    document.documentElement.style.setProperty('--bloco-transparente', 'rgba(242, 190, 36, .92)');
 }
 
 else
 {
-    qualidade_resultado = "Péssimo";
-    texto = "Que pena, parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome, sendo um número bastante alto. Mas isso pode melhorar!\nBora lá mudar isso?\nO planeta precisa da sua ajuda!";
+    qualidade_resultado = "Péssima";
+    texto = "Que pena, parece que sua Pegada Ecológica está ruim. Sua pegada assemelha-se com a da Bélgica, que necessita de 4,3 planetas para repor tudo que consome, sendo um número bastante alto. Mas isso pode melhorar! Bora lá mudar isso? O planeta precisa da sua ajuda!";
     dica.addEventListener('click', setar_dica)
-    document.documentElement.style.setProperty('--cor_caixa_titulo', '#D92929');
-    document.documentElement.style.setProperty('--cor_caixa_resultado', '#260101');
-    document.documentElement.style.setProperty('--cor_titulo_resultado', '#010221');
-    document.documentElement.style.setProperty('--cor_caixa_geral', '#B0BFBE');
-    barra_resultado.classList.add("bg-danger");    
+    document.documentElement.style.setProperty('--blocos', '#D92929');
+    document.documentElement.style.setProperty('--bloco-transparente', 'rgba(253, 170, 170, .9)');
 }
 
 titulo.innerText = qualidade_resultado;   
 texto_geral.innerText = texto
-dicaCor = dica.style.color
 texto.wordBreak = true;
-
-barra_resultado.style.width = "0%";
-function barra_resultado_aparecer(){
-    // a formula a baixo ajusta a porcentagem, pois o maior resultado possível é 70
-    barra_resultado.style.width = parseInt((parseInt(resultado)*100)/70)+"%";
-}
-
-setInterval(barra_resultado_aparecer, 500);
 
 // configurando a dica
 function setar_dica(){
