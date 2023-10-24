@@ -49,7 +49,7 @@ var lista_perguntas_e_alternativas = [
       1: "5 a 10 min",
       2: "11 a 25 min",
       3: "26 a 35 min",
-      4: "26 a 35 min",
+      4: "Acima de 35 min",
       5: ""
   },
   {

@@ -42,7 +42,6 @@ const texto_resultado = document.getElementById("resultado");
 const texto_geral = document.getElementById("texto_geral");
 const dica = document.getElementById('dica');
 const barra_resultado = document.getElementById("barra_resultado");
-const imagem_fundo = document.getElementById("imagem_fundo");
 var dicaCor;
 
 texto_resultado.innerText = resultado;
@@ -108,14 +107,4 @@ function setar_dica(){
         texto_geral.innerText = texto;
         dica_esta_ativa = false;
     }
-}
-
-// quando o mouse ficar em cima do botão
-dica.onmouseover = function() {
-        dica.style.color = "#FFFF"
-}
-
-// quando o mouse sair do botão
-dica.onmouseout = function() {
-    dica.style.color = dicaCor
 }
