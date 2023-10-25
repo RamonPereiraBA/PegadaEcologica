@@ -92,46 +92,6 @@ var lista_perguntas_e_alternativas = [
       4: "",
       5: ""
   },
-  // {
-  //     "q": "Quanto tempo você gasta no banho diariamente?",
-  //     1: "de 5 a 15min",
-  //     2: "de 16 a 25min",
-  //     3: "acima de 26min",
-  //     4: "",
-  //     5: ""
-  // },
-  // {
-  //     "q": "Quantas horas você gasta viajando de avião anualmente?",
-  //     1: "Nunca viajo",
-  //     2: "0 a 4 horas",
-  //     3: "4 a 10 horas",
-  //     4: "10 a 25 horas",
-  //     5: "Mais de 25 horas"
-  // },
-  // {
-  //     "q": "Você possui horta na sua casa?",
-  //     1: "Sim",
-  //     2: "Não",
-  //     3: "",
-  //     4: "",
-  //     5: ""
-  // },
-  // {
-  //     "q": "Você adota equipamentos que reduzem o consumo de energia em sua residência?",
-  //     1: "Sim",
-  //     2: "Não",
-  //     3: "",
-  //     4: "",
-  //     5: ""
-  // },
-  // {
-  //     "q": "Você realiza algum tipo de reaproveitamento da água?",
-  //     1: "Sim",
-  //     2: "Não",
-  //     3: "",
-  //     4: "",
-  //     5: ""
-  // }
 ];
 
 const opcoes_data = [
