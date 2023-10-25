@@ -269,10 +269,10 @@ function App(){
     mes = mes < 10 ? "0" + mes : mes;
     dia = dia < 10 ? "0" + dia : dia;
 
-    data_inicial = ano + "-" + mes + "-" + dia;
+    data_pesquisar = ano + "-" + mes + "-" + dia;
     
     if (quando=="hoje"){
-      data_pesquisar = data_inicial;
+      data_inicial = data_pesquisar;
     }else if (quando === "semana"){
       const umaSemanaAtras = new Date(dataAtual.getTime() - 7 * 24 * 60 * 60 * 1000);
       
@@ -283,7 +283,7 @@ function App(){
       mes_semana = mes_semana < 10 ? "0" + mes_semana : mes_semana;
       dia_semana = dia_semana < 10 ? "0" + dia_semana : dia_semana;
       
-      data_pesquisar = ano_semana + "-" + mes_semana + "-" + dia_semana;
+      data_inicial = ano_semana + "-" + mes_semana + "-" + dia_semana;
     }else{
       const trintaDiasAtras = new Date(dataAtual.getTime() - 30 * 24 * 60 * 60 * 1000);
 
@@ -294,7 +294,7 @@ function App(){
       mes_mes = mes_mes < 10 ? "0" + mes_mes : mes_mes;
       dia_mes = dia_mes < 10 ? "0" + dia_mes : dia_mes;
 
-      data_pesquisar = ano_mes + "-" + mes_mes + "-" + dia_mes;
+      data_inicial = ano_mes + "-" + mes_mes + "-" + dia_mes;
     }
 
     pesquisar_dados();
